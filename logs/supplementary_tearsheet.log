@@ -1,0 +1,56 @@
+=== supplementary_tearsheet.py  2026-04-18 19:48:06 ===
+
+Regime gate: 2018-09-04 to 2026-04-15
+
+=== DELIVERABLE 1: Year-by-year index Sharpe tearsheet ===
+
+  lgbm_index_kr_gap_index_threshold_gate_off: backtest shape=(1522, 9), pred shape=(1522, 5)
+  lgbm_index_kr_gap_index_threshold_gate_on: backtest shape=(1522, 9), pred shape=(1522, 5)
+  lgbm_index_hk_gap_index_threshold_gate_off: backtest shape=(1525, 9), pred shape=(1525, 5)
+  lgbm_index_hk_gap_index_threshold_gate_on: backtest shape=(1525, 9), pred shape=(1525, 5)
+  lgbm_index_kr_gap_index_threshold_gate_off: weighted_yr_sharpe=3.679  agg_net_sharpe=3.741  same_sign=True
+  lgbm_index_kr_gap_index_threshold_gate_on: weighted_yr_sharpe=2.527  agg_net_sharpe=2.692  same_sign=True
+  lgbm_index_hk_gap_index_threshold_gate_off: weighted_yr_sharpe=1.992  agg_net_sharpe=2.376  same_sign=True
+  lgbm_index_hk_gap_index_threshold_gate_on: weighted_yr_sharpe=1.242  agg_net_sharpe=1.545  same_sign=True
+
+  Saved 28 rows -> /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity_p2/output/index_yearly_tearsheet.csv
+
+=== DELIVERABLE 2: Extended cost sensitivity ===
+
+  lgbm/index_kr/gap/gate_off sm=5.0x  net_SR=2.1473
+  lgbm/index_kr/gap/gate_off sm=7.0x  net_SR=1.3428
+  lgbm/index_kr/gap/gate_off sm=10.0x  net_SR=0.1439
+  lgbm/index_kr/gap/gate_off sm=14.0x  net_SR=-1.4103
+  lgbm/index_kr/gap/gate_on sm=5.0x  net_SR=1.1445
+  lgbm/index_kr/gap/gate_on sm=7.0x  net_SR=0.3654
+  lgbm/index_kr/gap/gate_on sm=10.0x  net_SR=-0.7797
+  lgbm/index_kr/gap/gate_on sm=14.0x  net_SR=-2.2150
+  lgbm/index_hk/gap/gate_off sm=5.0x  net_SR=0.9080
+  lgbm/index_hk/gap/gate_off sm=7.0x  net_SR=0.1727
+  lgbm/index_hk/gap/gate_off sm=10.0x  net_SR=-0.9144
+  lgbm/index_hk/gap/gate_off sm=14.0x  net_SR=-2.3050
+  lgbm/index_hk/gap/gate_on sm=5.0x  net_SR=0.2575
+  lgbm/index_hk/gap/gate_on sm=7.0x  net_SR=-0.3873
+  lgbm/index_hk/gap/gate_on sm=10.0x  net_SR=-1.3330
+  lgbm/index_hk/gap/gate_on sm=14.0x  net_SR=-2.5179
+
+  Spot-check 1x: new=2.692366  ref=2.692366  diff=0.00e+00
+  Saved 16 rows -> /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity_p2/output/cost_sensitivity_extended.csv
+
+  Comparison table (net_sharpe by spread_mult):
+  Config                                              1x       2x       5x       7x      10x      14x
+  lgbm/index_kr/gap/gate_off                       2.692    2.310    2.147    1.343    0.144   -1.410
+  lgbm/index_kr/gap/gate_on                        2.692    2.310    1.145    0.365   -0.780   -2.215
+  lgbm/index_hk/gap/gate_off                       1.545    1.226    0.908    0.173   -0.914   -2.305
+  lgbm/index_hk/gap/gate_on                        1.545    1.226    0.258   -0.387   -1.333   -2.518
+
+=== FINAL SUMMARY ===
+
+  Lowest annual_sharpe for index_kr gap gate_off: year=2023  sharpe=0.3645
+  Highest annual_sharpe for index_kr gap gate_off: year=2025  sharpe=6.7388
+  2023 attenuation at index level: annual_sharpe=0.3645  mean_ic=0.0896  ATTENUATED=YES
+  index_kr gap gate_off net_sharpe @ 7x spread: 1.3428
+  index_kr gap gate_off net_sharpe @ 10x spread: 0.1439
+  WRITEUP claim 'net Sharpe 1.5-2.0 at realistic costs': TOO OPTIMISTIC  (7x=1.343, 10x=0.144)
+
+Total runtime: 0.0 min
