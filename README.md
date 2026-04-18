@@ -70,7 +70,7 @@ HK: gap dominance is not crypto-specific in this sample; the control ratio excee
 
 96 primary backtest configurations in `output/backtest_summary_pass2.csv`. Eight clear net Sharpe 0.5 at 1x modeled costs; all eight are LightGBM index threshold strategies (HSI or KOSPI, gap target, with and without regime gate). Top configuration: LightGBM index_kr gap gate_off, net Sharpe 3.74 at modeled 0.24 bps round-trip spread.
 
-The 2 bps modeled half-spread on index futures is 7-14 times the realistic level. At the realistic cost level, the top configuration's net Sharpe is ~1.5-2.0. A paper-trade with executed-spread tracking is the right next step before capital deployment.
+The 2 bps modeled half-spread on index futures is 5-14 times the realistic level. The extended cost sensitivity sweep (`output/cost_sensitivity_extended.csv`) measures the top configuration at 5x / 7x / 10x / 14x: net Sharpe 2.15, 1.34, 0.14, -1.41. The defensible range is 1-2 at the lower half of realistic costs and near zero at the upper half. A paper trade with executed-spread tracking is the right next step to identify which multiplier actually applies.
 
 No stock-tercile strategy (main or control, long-short or long-only) clears the net Sharpe 0.5 bar at 1x costs. Rule C applies to all single-stock implementations: the signal loses to execution costs.
 
@@ -166,9 +166,9 @@ Notebooks: `notebooks/01_pass2_data_additions.ipynb` through `notebooks/07_pass2
 
 ## Limitations
 
-- The 2 bps modeled half-spread on index futures is a 7-14x underestimate. A 30-day paper-trade is required before any capital decision. The 2x spread sensitivity column is the anchor for the net Sharpe 1.5-2.0 range; beyond that is extrapolation.
+- The 2 bps modeled half-spread on index futures is a 5-14x underestimate. The extended sensitivity sweep (5x, 7x, 10x, 14x) shows net Sharpe 2.15, 1.34, 0.14, -1.41 for the top config; a paper trade with executed-spread tracking is required before capital deployment to identify the realistic multiplier.
 - Regime gate reduces Sharpe in this sample rather than improving it. The BTC/S&P 500 market-cap ratio versus 1-year median is reported as a sensitivity, not a validated ingredient.
-- KR 2023 attenuation is not revisited at year-by-year granularity for the index strategies; post-publication decay (McLean-Pontiff 2016) is consistent with the data but not established.
+- Year-by-year index tearsheet (`output/index_yearly_tearsheet.csv`) shows the KR 2023 attenuation reproduces at the index level (annual Sharpe 0.36, IC 0.09); parallels the stock-level 2023 attenuation. Decay versus transient regime cannot be discriminated with one occurrence.
 - KR short-sale ban November 2023 to March 2024 is not gated in the backtest. For futures-based implementations this is immaterial.
 - KOSPI large-cap variant is inconclusive (94 percent flat months at $50M ADV threshold). Acceptance criterion #2 was not testable.
 - TCN significantly underperforms LightGBM and shows pervasive overfit flags. The signal in this sample lives in daily-summary features, not minute-bar temporal structure.
