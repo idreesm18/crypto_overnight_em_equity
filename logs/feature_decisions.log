@@ -1,0 +1,44 @@
+ABOUTME: Feature-set deviations from brief. Any feature dropped or substituted relative to briefs/crypto_overnight_em_equity_p1.md is recorded here.
+ABOUTME: Downstream stages must treat this file as authoritative over the brief where they conflict.
+
+=== LIQUIDATION FEATURE DROPPED ===
+Date: 2026-04-16
+Trigger: Stage 1 Binance pull confirmed data.binance.vision/data/futures/um/daily/liquidationSnapshot/ returns HTTP 404 on every date tested for BTCUSDT and ETHUSDT. Binance no longer publishes event-level liquidations in the bulk archive.
+
+User decision (Idrees, 2026-04-16): Drop the "BTC perp liquidation intensity" feature (brief Source spec line 170 -- "count and USD notional within window"). No substitute feature added.
+
+Impact:
+- Feature count goes from ~32 to ~31 in the full set. Restricted 7-feature fallback is unaffected (liquidation intensity was in the restricted set too; it drops to a 6-feature fallback).
+- Stage 3 must skip the liquidation directory (data/binance/liquidations/ remains empty) and emit a noop for this feature.
+- Stage 6 feature-ablation: no longer meaningful to ablate "liquidation group" as a separate category. Ablation retains the 3 groups: crypto overnight, macro, stock-level.
+- WRITEUP.md must note this limitation explicitly in the "Data & Limitations" section and flag it as a Pass 2 candidate (paid API source e.g. Coinglass/Laevitas).
+
+=== KRX WORKAROUND ACTIVE ===
+Date: 2026-04-16
+Oracle Cloud Seoul VM-based SSH SOCKS5 tunnel (scripts/krx_tunnel.py) is required for all pykrx calls per updated brief Source 3 and Operational Setup sections. Any pykrx-touching subagent must wrap pykrx imports and calls in `with krx_tunnel():`.
+
+=== KR DATA SCOPE ===
+Date: 2026-04-16
+KR pykrx pull restricted to candidate tickers in data/crypto_candidates_kr.csv (~39 tickers) rather than the full KOSPI+KOSDAQ universe (~2,500 tickers). Rationale: KRX anonymous batch-by-date endpoint returned 400 LOGOUT; per-ticker endpoint works but rate-limited. Pass 1 features only need the candidate universe, so full-market pull was unnecessary overhead. Downstream stages validate candidate-only coverage; Stage 0b does not expect full-market ticker counts for KR.
+
+Additional finding: pykrx 1.0.51 get_market_cap() (per-ticker) also returns empty DataFrame — the mcap endpoint routes through an authenticated batch call even in per-ticker mode. OHLCV data is complete (67,287 rows, 38 tickers, 2018-09-03 to 2026-04-15). mcap/shares_outstanding columns are NaN for all rows. Downstream stages that need mcap must either: (a) skip mcap-dependent features, (b) compute approximate mcap from close price × listed shares (if shares data available from another source), or (c) use pykrx 1.2.7 with KRX_ID/KRX_PW credentials.
+
+Note: 1 ticker excluded from pull due to non-numeric prefix: ME2ON.KQ (ticker "ME2ON" is not a standard 6-digit KRX code). This ticker was newly listed in 2025 and may use a non-standard code format. Downstream stages should handle this missing ticker gracefully.
+
+=== LOG MCAP BUCKET FEATURE DROPPED ===
+Date: 2026-04-16
+Trigger: pykrx mcap endpoint returns empty (authenticated-only) and Stooq HK files are OHLCV-only. No free mcap source is available for either market in Pass 1.
+
+User decision implied (proceeding autonomously): drop the "Log market cap bucket (small/mid/large tercile)" feature from the stock-level feature set. Feature count goes from ~31 to ~30 in the full set.
+
+Impact:
+- Stage 3 stock-level features reduce from 4 to 3: trailing 20-day realized vol, trailing 20-day return (momentum), prior-day return.
+- Stage 6 feature ablation "stock-level" group still meaningful with 3 features.
+- Stage 2 universe construction unaffected: the $500K ADV filter uses close price × volume in USD, not mcap.
+- WRITEUP.md must note this limitation in "Data & Limitations" and flag mcap restoration for Pass 2 (requires KRX credentials or commercial source).
+
+=== USDT PEG FEATURE DROPPED ===
+Date: 2026-04-16
+Trigger: yfinance BTC-USD is daily resolution only; intraday BTC/USD minute-level data unavailable for free.
+Could not compute clean intraday USDT/USD peg deviation within the overnight window.
+Decision: DROP this feature in Stage 3. Note in WRITEUP.md Data & Limitations as Pass 2 candidate (paid source: Kaiko, CCData).

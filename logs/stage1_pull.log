@@ -1,0 +1,444 @@
+[2026-04-16 12:27:55] === FRED pull started ===
+[2026-04-16 12:27:56]   VIXCLS: 2781 rows, 2018-09-04 to 2026-04-15, 0 NaN
+[2026-04-16 12:27:57]   DTWEXBGS: 2776 rows, 2018-09-04 to 2026-04-10, 0 NaN
+[2026-04-16 12:27:57]   DGS10: 2780 rows, 2018-09-04 to 2026-04-14, 0 NaN
+[2026-04-16 12:27:58]   DGS2: 2780 rows, 2018-09-04 to 2026-04-14, 0 NaN
+[2026-04-16 12:27:58]   DFF: 2783 rows, 2018-09-01 to 2026-04-14, 0 NaN
+[2026-04-16 12:27:58]   T5YIE: 2781 rows, 2018-09-04 to 2026-04-15, 0 NaN
+[2026-04-16 12:27:59]   T10YIE: 2781 rows, 2018-09-04 to 2026-04-15, 0 NaN
+[2026-04-16 12:27:59]   fred_all.parquet: 19462 rows
+[2026-04-16 12:27:59] === FRED pull complete: 3.6s ===
+[2026-04-16 12:28:29] === yfinance BTC-USD pull started ===
+[2026-04-16 12:28:30]   Cross-check 2020-01-01: close=7200 [OK]
+[2026-04-16 12:28:30]   Cross-check 2021-11-10: close=64995 [OK]
+[2026-04-16 12:28:30]   Cross-check 2022-06-15: close=22573 [OK]
+[2026-04-16 12:28:31]   BTC-USD: 2784 rows, 2018-09-01 to 2026-04-15, 0 NaN close
+[2026-04-16 12:28:31] === yfinance pull complete: 1.7s ===
+[2026-04-16 12:44:57] === pykrx pull started ===
+[2026-04-16 12:44:57]   Target business days: 1988 (20180903 to 20260415)
+[2026-04-16 12:44:58]     WARN: ohlcv failed 20180903: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 12:44:58]   Progress: 0/1988 dates, 1s elapsed
+[2026-04-16 12:44:58]     WARN: ohlcv failed 20180904: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 12:44:59]     WARN: ohlcv failed 20180905: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 12:44:59]     WARN: ohlcv failed 20180906: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 12:45:00]     WARN: ohlcv failed 20180907: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 12:45:01]     WARN: ohlcv failed 20180910: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 12:45:01]     WARN: ohlcv failed 20180911: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 12:45:02]     WARN: ohlcv failed 20180912: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 12:45:03]     WARN: ohlcv failed 20180913: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 12:45:03]     WARN: ohlcv failed 20180914: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 13:24:58] === pykrx pull started ===
+[2026-04-16 13:24:58]   Target business days: 1988 (20180903 to 20260415)
+[2026-04-16 13:24:59]     WARN: ohlcv failed 20180903: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 13:24:59]   Progress: 0/1988 dates, 1s elapsed
+[2026-04-16 13:24:59]     WARN: ohlcv failed 20180904: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 13:25:00]     WARN: ohlcv failed 20180905: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 13:25:00]     WARN: ohlcv failed 20180906: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 13:25:01]     WARN: ohlcv failed 20180907: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 13:25:02]     WARN: ohlcv failed 20180910: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 13:25:02]     WARN: ohlcv failed 20180911: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 13:25:03]     WARN: ohlcv failed 20180912: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 13:25:04]     WARN: ohlcv failed 20180913: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 13:25:04]     WARN: ohlcv failed 20180914: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 13:25:05]     WARN: ohlcv failed 20180917: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 13:25:06]     WARN: ohlcv failed 20180918: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 13:25:06]     WARN: ohlcv failed 20180919: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 13:25:07]     WARN: ohlcv failed 20180920: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 13:25:08]     WARN: ohlcv failed 20180921: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 13:25:08]     WARN: ohlcv failed 20180924: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 13:25:09]     WARN: ohlcv failed 20180925: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 13:25:09]     WARN: ohlcv failed 20180926: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 13:25:10]     WARN: ohlcv failed 20180927: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 13:25:11]     WARN: ohlcv failed 20180928: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 13:25:11] STOP: pykrx returned empty for ~1 month around 20180928
+
+[2026-04-16 13:26:01] === Binance pull started ===
+[2026-04-16 13:26:01] === Funding rates ===
+[2026-04-16 13:26:11]   Saved: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/data/binance/funding_rates/BTCUSDT_funding.parquet (6846 rows)
+[2026-04-16 13:26:11]   BTCUSDT funding: 6846 rows
+[2026-04-16 13:26:20]   Saved: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/data/binance/funding_rates/ETHUSDT_funding.parquet (6846 rows)
+[2026-04-16 13:29:00] === pykrx BLOCKER ===
+[2026-04-16 13:29:00]   Root cause: KRX data portal (data.krx.co.kr) returns HTTP 403 on the JSON API endpoint
+[2026-04-16 13:29:00]   for non-Korean IPs, even with valid session cookies. This is a geo-IP block.
+[2026-04-16 13:29:00]   pykrx library is intact (v1.0.51); the block is upstream at KRX infrastructure.
+[2026-04-16 13:29:00]   Wall time: ~35s before stop condition (20 consecutive empty dates = ~1 month).
+[2026-04-16 13:29:00]   Status: BLOCKED — requires Korean IP or VPN with Korean exit node.
+[2026-04-16 13:29:00]   No pykrx parquet file written.
+[2026-04-16 13:26:20]   ETHUSDT funding: 6846 rows
+[2026-04-16 13:26:20] === Liquidations ===
+[2026-04-16 13:29:30] === Perp 1m klines ===
+[2026-04-16 13:32:16]   Saved: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/data/binance/perp_klines/BTCUSDT_1m.parquet (3309120 rows)
+[2026-04-16 13:32:16]   BTCUSDT perp: 2298/2784 days (82.5%), 167s
+[2026-04-16 13:35:02]   Saved: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/data/binance/perp_klines/ETHUSDT_1m.parquet (3309120 rows)
+[2026-04-16 13:35:02]   ETHUSDT perp: 2298/2784 days (82.5%), 165s
+[2026-04-16 13:35:02] === Spot 1m klines ===
+[2026-04-16 13:38:08]   Saved: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/data/binance/spot_klines/BTCUSDT_1m.parquet (4004219 rows)
+[2026-04-16 13:38:08]   BTCUSDT: 2784/2784 days (100.0%), 186s
+[2026-04-16 13:38:08]   Binance gaps (>30 min) for BTCUSDT:
+             2018-10-19: 210 min missing
+             2018-11-14: 420 min missing
+             2019-03-12: 360 min missing
+             2019-06-07: 61 min missing
+             2019-05-15: 600 min missing
+             2019-08-15: 480 min missing
+             2019-11-13: 143 min missing
+             2019-11-25: 120 min missing
+             2020-02-09: 60 min missing
+             2020-02-19: 354 min missing
+             2020-03-04: 128 min missing
+             2020-04-25: 150 min missing
+             2020-06-28: 210 min missing
+             2020-11-30: 60 min missing
+             2020-12-21: 252 min missing
+             2020-12-25: 60 min missing
+             2021-02-11: 79 min missing
+             2021-03-06: 90 min missing
+             2021-04-20: 150 min missing
+             2021-04-25: 284 min missing
+             2021-08-13: 270 min missing
+             2021-09-29: 120 min missing
+             2023-03-24: 80 min missing
+[2026-04-16 13:40:59]   Saved: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/data/binance/spot_klines/ETHUSDT_1m.parquet (4004219 rows)
+[2026-04-16 13:40:59]   ETHUSDT: 2784/2784 days (100.0%), 171s
+[2026-04-16 13:40:59]   Binance gaps (>30 min) for ETHUSDT:
+             2018-11-14: 420 min missing
+             2018-10-19: 210 min missing
+             2019-03-12: 360 min missing
+             2019-05-15: 600 min missing
+             2019-06-07: 61 min missing
+             2019-08-15: 480 min missing
+             2019-11-13: 143 min missing
+             2019-11-25: 120 min missing
+             2020-02-19: 354 min missing
+             2020-02-09: 60 min missing
+             2020-03-04: 128 min missing
+             2020-04-25: 150 min missing
+             2020-06-28: 210 min missing
+             2020-11-30: 60 min missing
+             2020-12-21: 252 min missing
+             2020-12-25: 60 min missing
+             2021-02-11: 79 min missing
+             2021-03-06: 90 min missing
+             2021-04-20: 150 min missing
+             2021-04-25: 284 min missing
+             2021-08-13: 270 min missing
+             2021-09-29: 120 min missing
+             2023-03-24: 80 min missing
+[2026-04-16 13:43:40]   Saved: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/data/binance/spot_klines/SOLUSDT_1m.parquet (2984755 rows)
+[2026-04-16 13:43:40]   SOLUSDT: 2074/2784 days (74.5%), 160s
+[2026-04-16 13:43:40]   Binance gaps (>30 min) for SOLUSDT:
+             2020-08-11: 360 min missing
+             2020-11-30: 60 min missing
+             2020-12-21: 252 min missing
+             2020-12-25: 60 min missing
+             2021-02-11: 79 min missing
+             2021-03-06: 90 min missing
+             2021-04-20: 150 min missing
+             2021-04-25: 283 min missing
+             2021-08-13: 270 min missing
+             2021-09-29: 120 min missing
+             2023-03-24: 80 min missing
+[2026-04-16 13:46:37]   Saved: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/data/binance/spot_klines/BNBUSDT_1m.parquet (4004219 rows)
+[2026-04-16 13:46:37]   BNBUSDT: 2784/2784 days (100.0%), 177s
+[2026-04-16 13:46:37]   Binance gaps (>30 min) for BNBUSDT:
+             2018-10-19: 210 min missing
+             2018-11-14: 420 min missing
+             2019-03-12: 360 min missing
+             2019-06-07: 61 min missing
+             2019-05-15: 600 min missing
+             2019-08-15: 480 min missing
+             2019-11-13: 143 min missing
+             2019-11-25: 120 min missing
+             2020-02-09: 60 min missing
+             2020-02-19: 354 min missing
+             2020-03-04: 128 min missing
+             2020-04-25: 150 min missing
+             2020-06-28: 210 min missing
+             2020-11-30: 60 min missing
+             2020-12-21: 252 min missing
+             2020-12-25: 60 min missing
+             2021-02-11: 79 min missing
+             2021-03-06: 90 min missing
+             2021-04-20: 150 min missing
+             2021-04-25: 284 min missing
+             2021-08-13: 270 min missing
+             2021-09-29: 120 min missing
+             2023-03-24: 80 min missing
+[2026-04-16 13:49:35]   Saved: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/data/binance/spot_klines/XRPUSDT_1m.parquet (4004220 rows)
+[2026-04-16 13:49:35]   XRPUSDT: 2784/2784 days (100.0%), 178s
+[2026-04-16 13:49:35]   Binance gaps (>30 min) for XRPUSDT:
+             2018-10-19: 210 min missing
+             2018-11-14: 420 min missing
+             2019-03-12: 360 min missing
+             2019-05-15: 600 min missing
+             2019-06-07: 61 min missing
+             2019-08-15: 480 min missing
+             2019-11-13: 143 min missing
+             2019-11-25: 120 min missing
+             2020-02-09: 60 min missing
+             2020-02-19: 354 min missing
+             2020-03-04: 128 min missing
+             2020-04-25: 150 min missing
+             2020-06-28: 210 min missing
+             2020-11-30: 60 min missing
+             2020-12-21: 252 min missing
+             2020-12-25: 60 min missing
+             2021-02-11: 79 min missing
+             2021-03-06: 90 min missing
+             2021-04-20: 150 min missing
+             2021-04-25: 283 min missing
+             2021-08-13: 270 min missing
+             2021-09-29: 120 min missing
+             2023-03-24: 80 min missing
+[2026-04-16 13:49:35] === Binance pull complete: 1413.9s  ===
+
+=== Stage 1 Full Completion Summary ===
+Wall times:
+  pykrx:   ~35s — BLOCKED (KRX HTTP 403 geo-IP block from non-Korean IP; no data written)
+  Binance: 1413.9s (~23.6 min) — FULL (no budget cap hit)
+
+Binance row counts and date coverage:
+  funding_rates/BTCUSDT_funding.parquet: 6846 rows, 2020-01-01 → 2026-03-31
+  funding_rates/ETHUSDT_funding.parquet: 6846 rows, 2020-01-01 → 2026-03-31
+  perp_klines/BTCUSDT_1m.parquet:        3309120 rows, 2298/2784 days (82.5%), 2019-12-31 → 2026-04-15
+  perp_klines/ETHUSDT_1m.parquet:        3309120 rows, 2298/2784 days (82.5%), 2019-12-31 → 2026-04-15
+  spot_klines/BTCUSDT_1m.parquet:        4004219 rows, 2784/2784 days (100.0%), 23 days >30min gap, 2018-09-01 → 2026-04-15
+  spot_klines/ETHUSDT_1m.parquet:        4004219 rows, 2784/2784 days (100.0%), 23 days >30min gap, 2018-09-01 → 2026-04-15
+  spot_klines/SOLUSDT_1m.parquet:        2984755 rows, 2074/2784 days (74.5%), 2020-08-11 → 2026-04-15 (pre-listing 404s expected)
+  spot_klines/BNBUSDT_1m.parquet:        4004219 rows, 2784/2784 days (100.0%), 23 days >30min gap, 2018-09-01 → 2026-04-15
+  spot_klines/XRPUSDT_1m.parquet:        4004220 rows, 2784/2784 days (100.0%), 23 days >30min gap, 2018-09-01 → 2026-04-15
+  liquidations: no data (404s for all dates, both symbols)
+
+Previously completed (not re-run):
+  FRED (7 series + fred_all): 2018-09-01 → 2026-04-15, ~2776-2783 rows per series; disk: 324K
+  yfinance/btcusd_daily.parquet: 2784 rows, 2018-09-01 → 2026-04-15; disk: 148K
+
+Disk usage:
+  data/binance/: 1.4G
+  data/fred/:    324K
+  data/yfinance/:148K
+
+Gaps:
+  BTC/ETH spot: 23 days with >30min gaps (likely exchange maintenance windows)
+  SOL spot: pre-listing dates 2018-09-01 to 2020-08-10 (404s, expected)
+  BTC/ETH perp: 82.5% coverage (2298/2784 days); pre-launch dates 2018-09-01 to 2019-12-30 return 404
+
+pykrx BLOCKER (STOP CONDITION):
+  KRX data portal returns HTTP 403 on data endpoint for non-Korean IPs even with valid session cookies.
+  pykrx v1.0.51 is intact; block is upstream at KRX infrastructure (geo-IP enforcement).
+  Resolution requires Korean IP or VPN with Korean exit node.
+  No kr_ohlcv_mcap.parquet written.
+[2026-04-16 14:58:20] === pykrx pull started ===
+[2026-04-16 14:58:20]   Target business days: 1988 (20180903 to 20260415)
+[2026-04-16 14:58:21]     WARN: ohlcv failed 20180903: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 14:58:21]   Progress: 0/1988 dates, 4s elapsed
+[2026-04-16 14:58:22]     WARN: ohlcv failed 20180904: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 14:58:23]     WARN: ohlcv failed 20180905: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 14:58:24]     WARN: ohlcv failed 20180906: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 14:58:25]     WARN: ohlcv failed 20180907: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 14:58:25]     WARN: ohlcv failed 20180910: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 14:58:26]     WARN: ohlcv failed 20180911: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 14:58:27]     WARN: ohlcv failed 20180912: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 14:58:28]     WARN: ohlcv failed 20180913: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 14:58:29]     WARN: ohlcv failed 20180914: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 14:58:30]     WARN: ohlcv failed 20180917: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 14:58:30]     WARN: ohlcv failed 20180918: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 14:58:31]     WARN: ohlcv failed 20180919: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 14:58:32]     WARN: ohlcv failed 20180920: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 14:58:33]     WARN: ohlcv failed 20180921: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 14:58:34]     WARN: ohlcv failed 20180924: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 14:58:35]     WARN: ohlcv failed 20180925: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 14:58:35]     WARN: ohlcv failed 20180926: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 14:58:36]     WARN: ohlcv failed 20180927: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 14:58:37]     WARN: ohlcv failed 20180928: "None of [Index(['시가', '고가', '저가', '종가'], dtype='str')] are in the [columns]"
+[2026-04-16 14:58:37] STOP: pykrx returned empty for ~1 month around 20180928
+
+=== pykrx BLOCKER — 2026-04-16 ===
+STOP: KRX data API now requires user credentials. pykrx 1.0.51 (installed) cannot
+authenticate to the updated KRX portal — all API calls return HTTP 400 "LOGOUT".
+pykrx 1.2.7 (latest) added a login system requiring KRX_ID and KRX_PW env vars.
+
+Root cause:
+  - KRX changed data.krx.co.kr from anonymous to login-required access (sometime in 2025).
+  - pykrx 1.0.51 makes unauthenticated POST calls; the KRX server responds "LOGOUT" (400).
+  - pykrx 1.2.7 adds auth.py with build_krx_session() using KRX_ID/KRX_PW env vars.
+  - Tunnel geo-block workaround is confirmed working (ipinfo returns country=KR).
+
+Actions taken:
+  - Tunnel smoke test: PASSED (Oracle Seoul VM, Chuncheon, KR — 168.107.3.138)
+  - stage1_pull_pykrx.py refactored to use krx_tunnel() context manager correctly.
+  - Confirmed pykrx 1.0.51 fails with HTTP 400 "LOGOUT" on all KRX API endpoints.
+  - Confirmed pykrx 1.2.7 requires KRX_ID + KRX_PW credentials.
+
+User action required:
+  1. Register at https://data.krx.co.kr and obtain a login (KRX_ID / KRX_PW).
+  2. Add KRX_ID and KRX_PW to the project .env file.
+  3. Allow upgrade to pykrx==1.2.7 (per constraints, package install requires explicit approval
+     and version logging to logs/stage_-1_env.log).
+  4. If credentials are not available, identify an alternative KR equity data source
+     (e.g., FinanceDataReader, DART API, or a cached dataset).
+[2026-04-16 15:23:05] === pykrx per-ticker pull started ===
+[2026-04-16 15:23:05]   Candidates: 38 valid, 1 skipped (non-numeric): ['ME2ON.KQ']
+[2026-04-16 15:23:05]   Date range: 20180901 to 20260415
+[2026-04-16 15:23:09]   Pulling 049470.KQ (049470) ...
+[2026-04-16 15:23:20]     OK 049470.KQ: 1868 rows
+[2026-04-16 15:23:20]   Pulling 035420.KS (035420) ...
+[2026-04-16 15:23:25]     OK 035420.KS: 1868 rows
+[2026-04-16 15:23:25]   Pulling 112040.KQ (112040) ...
+[2026-04-16 15:23:30]     OK 112040.KQ: 1868 rows
+[2026-04-16 15:23:30]   Pulling 101730.KQ (101730) ...
+[2026-04-16 15:23:35]     OK 101730.KQ: 1868 rows
+[2026-04-16 15:23:35]   Pulling 035720.KS (035720) ...
+[2026-04-16 15:23:40]     OK 035720.KS: 1868 rows
+[2026-04-16 15:23:40]   Pulling 377300.KS (377300) ...
+[2026-04-16 15:23:45]     OK 377300.KS: 1089 rows
+[2026-04-16 15:23:45]   Pulling 293490.KQ (293490) ...
+[2026-04-16 15:23:50]     OK 293490.KQ: 1370 rows
+[2026-04-16 15:23:50]   Pulling 036570.KS (036570) ...
+[2026-04-16 15:23:55]     OK 036570.KS: 1868 rows
+[2026-04-16 15:23:55]   Pulling 251270.KS (251270) ...
+[2026-04-16 15:23:59]     OK 251270.KS: 1868 rows
+[2026-04-16 15:23:59]   Pulling 263750.KQ (263750) ...
+[2026-04-16 15:24:04]     OK 263750.KQ: 1868 rows
+[2026-04-16 15:24:04]   Pulling 078340.KQ (078340) ...
+[2026-04-16 15:24:09]     OK 078340.KQ: 1868 rows
+[2026-04-16 15:24:09]   Pulling 148150.KQ (148150) ...
+[2026-04-16 15:24:14]     OK 148150.KQ: 1647 rows
+[2026-04-16 15:24:14]   Pulling 005930.KS (005930) ...
+[2026-04-16 15:24:19]     OK 005930.KS: 1868 rows
+[2026-04-16 15:24:19]   Pulling 000660.KS (000660) ...
+[2026-04-16 15:24:24]     OK 000660.KS: 1868 rows
+[2026-04-16 15:24:24]   Pulling 034730.KS (034730) ...
+[2026-04-16 15:24:29]     OK 034730.KS: 1868 rows
+[2026-04-16 15:24:29]   Pulling 017670.KS (017670) ...
+[2026-04-16 15:24:34]     OK 017670.KS: 1868 rows
+[2026-04-16 15:24:34]   Pulling 042700.KQ (042700) ...
+[2026-04-16 15:24:39]     OK 042700.KQ: 1868 rows
+[2026-04-16 15:24:39]   Pulling 352820.KS (352820) ...
+[2026-04-16 15:24:43]     OK 352820.KS: 1349 rows
+[2026-04-16 15:24:43]   Pulling 095660.KQ (095660) ...
+[2026-04-16 15:24:48]     OK 095660.KQ: 1868 rows
+[2026-04-16 15:24:48]   Pulling 041510.KQ (041510) ...
+[2026-04-16 15:24:55]     OK 041510.KQ: 1868 rows
+[2026-04-16 15:24:55]   Pulling 225570.KQ (225570) ...
+[2026-04-16 15:24:59]     OK 225570.KQ: 1868 rows
+[2026-04-16 15:24:59]   Pulling 058970.KS (058970) ...
+[2026-04-16 15:25:04]     OK 058970.KS: 1868 rows
+[2026-04-16 15:25:04]   Pulling 030200.KS (030200) ...
+[2026-04-16 15:25:09]     OK 030200.KS: 1868 rows
+[2026-04-16 15:25:09]   Pulling 090460.KQ (090460) ...
+[2026-04-16 15:25:14]     OK 090460.KQ: 1868 rows
+[2026-04-16 15:25:14]   Pulling 263810.KQ (263810) ...
+[2026-04-16 15:25:18]     OK 263810.KQ: 1868 rows
+[2026-04-16 15:25:18]   Pulling 039030.KQ (039030) ...
+[2026-04-16 15:25:23]     OK 039030.KQ: 1868 rows
+[2026-04-16 15:25:23]   Pulling 119860.KQ (119860) ...
+[2026-04-16 15:25:28]     OK 119860.KQ: 1490 rows
+[2026-04-16 15:25:28]   Pulling 357780.KQ (357780) ...
+[2026-04-16 15:25:33]     OK 357780.KQ: 1394 rows
+[2026-04-16 15:25:33]   Pulling 086960.KQ (086960) ...
+[2026-04-16 15:25:38]     OK 086960.KQ: 1868 rows
+[2026-04-16 15:25:38]   Pulling 032190.KQ (032190) ...
+[2026-04-16 15:25:43]     OK 032190.KQ: 1868 rows
+[2026-04-16 15:25:43]   Pulling 033640.KQ (033640) ...
+[2026-04-16 15:25:48]     OK 033640.KQ: 1868 rows
+[2026-04-16 15:25:48]   Pulling 069080.KQ (069080) ...
+[2026-04-16 15:25:53]     OK 069080.KQ: 1868 rows
+[2026-04-16 15:25:53]   Pulling 194480.KQ (194480) ...
+[2026-04-16 15:25:57]     OK 194480.KQ: 1868 rows
+[2026-04-16 15:25:57]   Pulling 105560.KQ (105560) ...
+[2026-04-16 15:26:03]     OK 105560.KQ: 1868 rows
+[2026-04-16 15:26:03]   Pulling 055550.KS (055550) ...
+[2026-04-16 15:26:07]     OK 055550.KS: 1868 rows
+[2026-04-16 15:26:07]   Pulling 316140.KQ (316140) ...
+[2026-04-16 15:26:12]     OK 316140.KQ: 1762 rows
+[2026-04-16 15:26:12]   Pulling 323410.KS (323410) ...
+[2026-04-16 15:26:17]     OK 323410.KS: 1146 rows
+[2026-04-16 15:26:17]   Pulling 023150.KQ (023150) ...
+[2026-04-16 15:26:21]     OK 023150.KQ: 1868 rows
+[2026-04-16 15:26:37] === pykrx per-ticker pull started ===
+[2026-04-16 15:26:37]   Candidates: 38 valid, 1 skipped (non-numeric): ['ME2ON.KQ']
+[2026-04-16 15:26:37]   Date range: 20180901 to 20260415
+[2026-04-16 15:26:41]   Pulling 049470.KQ (049470) ...
+[2026-04-16 15:26:52]     OK 049470.KQ: 1868 rows
+[2026-04-16 15:26:52]   Pulling 035420.KS (035420) ...
+[2026-04-16 15:26:57]     OK 035420.KS: 1868 rows
+[2026-04-16 15:26:57]   Pulling 112040.KQ (112040) ...
+[2026-04-16 15:27:02]     OK 112040.KQ: 1868 rows
+[2026-04-16 15:27:02]   Pulling 101730.KQ (101730) ...
+[2026-04-16 15:27:07]     OK 101730.KQ: 1868 rows
+[2026-04-16 15:27:07]   Pulling 035720.KS (035720) ...
+[2026-04-16 15:27:12]     OK 035720.KS: 1868 rows
+[2026-04-16 15:27:12]   Pulling 377300.KS (377300) ...
+[2026-04-16 15:27:16]     OK 377300.KS: 1089 rows
+[2026-04-16 15:27:16]   Pulling 293490.KQ (293490) ...
+[2026-04-16 15:27:21]     OK 293490.KQ: 1370 rows
+[2026-04-16 15:27:21]   Pulling 036570.KS (036570) ...
+[2026-04-16 15:27:26]     OK 036570.KS: 1868 rows
+[2026-04-16 15:27:26]   Pulling 251270.KS (251270) ...
+[2026-04-16 15:27:31]     OK 251270.KS: 1868 rows
+[2026-04-16 15:27:31]   Pulling 263750.KQ (263750) ...
+[2026-04-16 15:27:36]     OK 263750.KQ: 1868 rows
+[2026-04-16 15:27:36]   Pulling 078340.KQ (078340) ...
+[2026-04-16 15:27:41]     OK 078340.KQ: 1868 rows
+[2026-04-16 15:27:41]   Pulling 148150.KQ (148150) ...
+[2026-04-16 15:27:46]     OK 148150.KQ: 1647 rows
+[2026-04-16 15:27:46]   Pulling 005930.KS (005930) ...
+[2026-04-16 15:27:51]     OK 005930.KS: 1868 rows
+[2026-04-16 15:27:51]   Pulling 000660.KS (000660) ...
+[2026-04-16 15:27:56]     OK 000660.KS: 1868 rows
+[2026-04-16 15:27:56]   Pulling 034730.KS (034730) ...
+[2026-04-16 15:28:01]     OK 034730.KS: 1868 rows
+[2026-04-16 15:28:01]   Pulling 017670.KS (017670) ...
+[2026-04-16 15:28:07]     OK 017670.KS: 1868 rows
+[2026-04-16 15:28:07]   Pulling 042700.KQ (042700) ...
+[2026-04-16 15:28:11]     OK 042700.KQ: 1868 rows
+[2026-04-16 15:28:11]   Pulling 352820.KS (352820) ...
+[2026-04-16 15:28:16]     OK 352820.KS: 1349 rows
+[2026-04-16 15:28:16]   Pulling 095660.KQ (095660) ...
+[2026-04-16 15:28:21]     OK 095660.KQ: 1868 rows
+[2026-04-16 15:28:21]   Pulling 041510.KQ (041510) ...
+[2026-04-16 15:28:26]     OK 041510.KQ: 1868 rows
+[2026-04-16 15:28:26]   Pulling 225570.KQ (225570) ...
+[2026-04-16 15:28:31]     OK 225570.KQ: 1868 rows
+[2026-04-16 15:28:31]   Pulling 058970.KS (058970) ...
+[2026-04-16 15:28:36]     OK 058970.KS: 1868 rows
+[2026-04-16 15:28:36]   Pulling 030200.KS (030200) ...
+[2026-04-16 15:28:41]     OK 030200.KS: 1868 rows
+[2026-04-16 15:28:41]   Pulling 090460.KQ (090460) ...
+[2026-04-16 15:28:46]     OK 090460.KQ: 1868 rows
+[2026-04-16 15:28:46]   Pulling 263810.KQ (263810) ...
+[2026-04-16 15:28:51]     OK 263810.KQ: 1868 rows
+[2026-04-16 15:28:51]   Pulling 039030.KQ (039030) ...
+[2026-04-16 15:28:56]     OK 039030.KQ: 1868 rows
+[2026-04-16 15:28:56]   Pulling 119860.KQ (119860) ...
+[2026-04-16 15:29:01]     OK 119860.KQ: 1490 rows
+[2026-04-16 15:29:01]   Pulling 357780.KQ (357780) ...
+[2026-04-16 15:29:06]     OK 357780.KQ: 1394 rows
+[2026-04-16 15:29:06]   Pulling 086960.KQ (086960) ...
+[2026-04-16 15:29:11]     OK 086960.KQ: 1868 rows
+[2026-04-16 15:29:11]   Pulling 032190.KQ (032190) ...
+[2026-04-16 15:29:16]     OK 032190.KQ: 1868 rows
+[2026-04-16 15:29:16]   Pulling 033640.KQ (033640) ...
+[2026-04-16 15:29:21]     OK 033640.KQ: 1868 rows
+[2026-04-16 15:29:21]   Pulling 069080.KQ (069080) ...
+[2026-04-16 15:29:26]     OK 069080.KQ: 1868 rows
+[2026-04-16 15:29:26]   Pulling 194480.KQ (194480) ...
+[2026-04-16 15:29:31]     OK 194480.KQ: 1868 rows
+[2026-04-16 15:29:31]   Pulling 105560.KQ (105560) ...
+[2026-04-16 15:29:36]     OK 105560.KQ: 1868 rows
+[2026-04-16 15:29:36]   Pulling 055550.KS (055550) ...
+[2026-04-16 15:29:41]     OK 055550.KS: 1868 rows
+[2026-04-16 15:29:41]   Pulling 316140.KQ (316140) ...
+[2026-04-16 15:29:46]     OK 316140.KQ: 1762 rows
+[2026-04-16 15:29:46]   Pulling 323410.KS (323410) ...
+[2026-04-16 15:29:51]     OK 323410.KS: 1146 rows
+[2026-04-16 15:29:51]   Pulling 023150.KQ (023150) ...
+[2026-04-16 15:29:56]     OK 023150.KQ: 1868 rows
+[2026-04-16 15:29:56]   Saved: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/data/pykrx/kr_daily/kr_ohlcv_mcap.parquet
+[2026-04-16 15:29:56]   Shape: (67287, 11)
+[2026-04-16 15:29:56]   Date range: 2018-09-03 00:00:00 to 2026-04-15 00:00:00
+[2026-04-16 15:29:56]   Unique tickers: 38
+[2026-04-16 15:29:56]   Market breakdown: {'KOSDAQ': 24, 'KOSPI': 14}
+[2026-04-16 15:29:56]   Skipped tickers: []
+[2026-04-16 15:29:56] === pykrx per-ticker completion === wall=198.6s rows=67287 tickers=38 skipped=[] date_range=2018-09-03 00:00:00 to 2026-04-15 00:00:00

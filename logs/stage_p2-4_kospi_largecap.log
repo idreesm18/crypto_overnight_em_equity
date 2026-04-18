@@ -1,0 +1,137 @@
+2026-04-17 15:07:57,881 INFO Stage P2-4: KOSPI Large-Cap Universe and Track A Features
+2026-04-17 15:07:57,881 INFO Window: 2019-01-01 to 2026-04-15
+2026-04-17 15:07:57,881 INFO ADV threshold: $50,000,000 USD, Top-N: 12, Min pool: 9
+2026-04-17 15:07:57,897 INFO KR candidate CSV: 39 total, 14 with .KS suffix
+2026-04-17 15:07:57,897 INFO 
+Loading .KS price histories via yfinance (with cache)...
+2026-04-17 15:07:57,897 INFO 035420.KS: pulling from yfinance...
+2026-04-17 15:07:58,638 INFO 035420.KS: 1788 rows (2019-01-02 to 2026-04-17)
+2026-04-17 15:07:58,638 INFO 035720.KS: pulling from yfinance...
+2026-04-17 15:07:59,102 INFO 035720.KS: 1788 rows (2019-01-02 to 2026-04-17)
+2026-04-17 15:07:59,102 INFO 377300.KS: pulling from yfinance...
+2026-04-17 15:07:59,555 INFO 377300.KS: 1088 rows (2021-11-03 to 2026-04-17)
+2026-04-17 15:07:59,556 INFO 036570.KS: pulling from yfinance...
+2026-04-17 15:08:00,037 INFO 036570.KS: 1788 rows (2019-01-02 to 2026-04-17)
+2026-04-17 15:08:00,037 INFO 251270.KS: pulling from yfinance...
+2026-04-17 15:08:00,554 INFO 251270.KS: 1788 rows (2019-01-02 to 2026-04-17)
+2026-04-17 15:08:00,554 INFO 005930.KS: pulling from yfinance...
+2026-04-17 15:08:01,083 INFO 005930.KS: 1788 rows (2019-01-02 to 2026-04-17)
+2026-04-17 15:08:01,083 INFO 000660.KS: pulling from yfinance...
+2026-04-17 15:08:01,620 INFO 000660.KS: 1788 rows (2019-01-02 to 2026-04-17)
+2026-04-17 15:08:01,620 INFO 034730.KS: pulling from yfinance...
+2026-04-17 15:08:02,155 INFO 034730.KS: 1788 rows (2019-01-02 to 2026-04-17)
+2026-04-17 15:08:02,155 INFO 017670.KS: pulling from yfinance...
+2026-04-17 15:08:02,687 INFO 017670.KS: 1788 rows (2019-01-02 to 2026-04-17)
+2026-04-17 15:08:02,688 INFO 352820.KS: pulling from yfinance...
+2026-04-17 15:08:03,148 INFO 352820.KS: 1348 rows (2020-10-15 to 2026-04-17)
+2026-04-17 15:08:03,148 INFO 058970.KS: pulling from yfinance...
+2026-04-17 15:08:03,663 INFO 058970.KS: 1788 rows (2019-01-02 to 2026-04-17)
+2026-04-17 15:08:03,663 INFO 030200.KS: pulling from yfinance...
+2026-04-17 15:08:04,182 INFO 030200.KS: 1788 rows (2019-01-02 to 2026-04-17)
+2026-04-17 15:08:04,182 INFO 055550.KS: pulling from yfinance...
+2026-04-17 15:08:04,772 INFO 055550.KS: 1788 rows (2019-01-02 to 2026-04-17)
+2026-04-17 15:08:04,772 INFO 323410.KS: pulling from yfinance...
+2026-04-17 15:08:05,226 INFO 323410.KS: 1145 rows (2021-08-06 to 2026-04-17)
+2026-04-17 15:08:05,226 INFO .KS loaded: 14, missing: 0
+2026-04-17 15:08:05,302 INFO BTC daily: 2784 rows, 2018-09-01 to 2026-04-15
+2026-04-17 15:08:05,313 INFO KR rebalance dates from universe_log: 88 (2019-01-02 to 2026-04-01)
+2026-04-17 15:08:05,313 INFO 
+Computing KOSPI large-cap universe...
+2026-04-17 15:08:05,314 INFO FLAT month: 2019-01-02 — only 0 eligible tickers (< 9)
+2026-04-17 15:08:05,315 INFO FLAT month: 2019-02-01 — only 0 eligible tickers (< 9)
+2026-04-17 15:08:05,316 INFO FLAT month: 2019-03-04 — only 0 eligible tickers (< 9)
+2026-04-17 15:08:05,316 INFO FLAT month: 2019-04-01 — only 0 eligible tickers (< 9)
+2026-04-17 15:08:05,320 INFO FLAT month: 2019-05-02 — only 3 eligible tickers (< 9)
+2026-04-17 15:08:05,323 INFO FLAT month: 2019-06-03 — only 3 eligible tickers (< 9)
+2026-04-17 15:08:05,325 INFO FLAT month: 2019-07-01 — only 2 eligible tickers (< 9)
+2026-04-17 15:08:05,327 INFO FLAT month: 2019-08-01 — only 2 eligible tickers (< 9)
+2026-04-17 15:08:05,330 INFO FLAT month: 2019-09-02 — only 2 eligible tickers (< 9)
+2026-04-17 15:08:05,332 INFO FLAT month: 2019-10-01 — only 2 eligible tickers (< 9)
+2026-04-17 15:08:05,334 INFO FLAT month: 2019-11-01 — only 2 eligible tickers (< 9)
+2026-04-17 15:08:05,338 INFO FLAT month: 2019-12-02 — only 4 eligible tickers (< 9)
+2026-04-17 15:08:05,340 INFO FLAT month: 2020-01-02 — only 2 eligible tickers (< 9)
+2026-04-17 15:08:05,343 INFO FLAT month: 2020-02-03 — only 4 eligible tickers (< 9)
+2026-04-17 15:08:05,346 INFO FLAT month: 2020-03-02 — only 4 eligible tickers (< 9)
+2026-04-17 15:08:05,350 INFO FLAT month: 2020-04-01 — only 5 eligible tickers (< 9)
+2026-04-17 15:08:05,354 INFO FLAT month: 2020-05-04 — only 5 eligible tickers (< 9)
+2026-04-17 15:08:05,358 INFO FLAT month: 2020-06-01 — only 6 eligible tickers (< 9)
+2026-04-17 15:08:05,363 INFO FLAT month: 2020-07-01 — only 7 eligible tickers (< 9)
+2026-04-17 15:08:05,367 INFO FLAT month: 2020-08-03 — only 7 eligible tickers (< 9)
+2026-04-17 15:08:05,372 INFO FLAT month: 2020-09-01 — only 8 eligible tickers (< 9)
+2026-04-17 15:08:05,376 INFO FLAT month: 2020-10-05 — only 6 eligible tickers (< 9)
+2026-04-17 15:08:05,381 INFO FLAT month: 2020-11-02 — only 7 eligible tickers (< 9)
+2026-04-17 15:08:05,385 INFO FLAT month: 2020-12-01 — only 6 eligible tickers (< 9)
+2026-04-17 15:08:05,389 INFO FLAT month: 2021-01-04 — only 7 eligible tickers (< 9)
+2026-04-17 15:08:05,407 INFO FLAT month: 2021-04-01 — only 7 eligible tickers (< 9)
+2026-04-17 15:08:05,413 INFO FLAT month: 2021-05-03 — only 8 eligible tickers (< 9)
+2026-04-17 15:08:05,418 INFO FLAT month: 2021-06-01 — only 7 eligible tickers (< 9)
+2026-04-17 15:08:05,421 INFO FLAT month: 2021-07-01 — only 5 eligible tickers (< 9)
+2026-04-17 15:08:05,425 INFO FLAT month: 2021-08-02 — only 6 eligible tickers (< 9)
+2026-04-17 15:08:05,430 INFO FLAT month: 2021-09-01 — only 6 eligible tickers (< 9)
+2026-04-17 15:08:05,434 INFO FLAT month: 2021-10-01 — only 6 eligible tickers (< 9)
+2026-04-17 15:08:05,439 INFO FLAT month: 2021-11-01 — only 7 eligible tickers (< 9)
+2026-04-17 15:08:05,445 INFO FLAT month: 2021-12-01 — only 8 eligible tickers (< 9)
+2026-04-17 15:08:05,449 INFO FLAT month: 2022-01-03 — only 7 eligible tickers (< 9)
+2026-04-17 15:08:05,454 INFO FLAT month: 2022-02-03 — only 7 eligible tickers (< 9)
+2026-04-17 15:08:05,459 INFO FLAT month: 2022-03-02 — only 7 eligible tickers (< 9)
+2026-04-17 15:08:05,463 INFO FLAT month: 2022-04-01 — only 4 eligible tickers (< 9)
+2026-04-17 15:08:05,467 INFO FLAT month: 2022-05-02 — only 5 eligible tickers (< 9)
+2026-04-17 15:08:05,470 INFO FLAT month: 2022-06-02 — only 4 eligible tickers (< 9)
+2026-04-17 15:08:05,475 INFO FLAT month: 2022-07-01 — only 7 eligible tickers (< 9)
+2026-04-17 15:08:05,479 INFO FLAT month: 2022-08-01 — only 4 eligible tickers (< 9)
+2026-04-17 15:08:05,483 INFO FLAT month: 2022-09-01 — only 5 eligible tickers (< 9)
+2026-04-17 15:08:05,486 INFO FLAT month: 2022-10-04 — only 4 eligible tickers (< 9)
+2026-04-17 15:08:05,489 INFO FLAT month: 2022-11-01 — only 4 eligible tickers (< 9)
+2026-04-17 15:08:05,494 INFO FLAT month: 2022-12-01 — only 6 eligible tickers (< 9)
+2026-04-17 15:08:05,499 INFO FLAT month: 2023-01-02 — only 6 eligible tickers (< 9)
+2026-04-17 15:08:05,502 INFO FLAT month: 2023-02-01 — only 4 eligible tickers (< 9)
+2026-04-17 15:08:05,504 INFO FLAT month: 2023-03-02 — only 1 eligible tickers (< 9)
+2026-04-17 15:08:05,508 INFO FLAT month: 2023-04-03 — only 4 eligible tickers (< 9)
+2026-04-17 15:08:05,513 INFO FLAT month: 2023-05-02 — only 5 eligible tickers (< 9)
+2026-04-17 15:08:05,517 INFO FLAT month: 2023-06-01 — only 5 eligible tickers (< 9)
+2026-04-17 15:08:05,521 INFO FLAT month: 2023-07-03 — only 5 eligible tickers (< 9)
+2026-04-17 15:08:05,525 INFO FLAT month: 2023-08-01 — only 5 eligible tickers (< 9)
+2026-04-17 15:08:05,529 INFO FLAT month: 2023-09-01 — only 5 eligible tickers (< 9)
+2026-04-17 15:08:05,533 INFO FLAT month: 2023-10-04 — only 3 eligible tickers (< 9)
+2026-04-17 15:08:05,536 INFO FLAT month: 2023-11-01 — only 3 eligible tickers (< 9)
+2026-04-17 15:08:05,539 INFO FLAT month: 2023-12-01 — only 5 eligible tickers (< 9)
+2026-04-17 15:08:05,543 INFO FLAT month: 2024-01-02 — only 4 eligible tickers (< 9)
+2026-04-17 15:08:05,547 INFO FLAT month: 2024-02-01 — only 4 eligible tickers (< 9)
+2026-04-17 15:08:05,551 INFO FLAT month: 2024-03-04 — only 5 eligible tickers (< 9)
+2026-04-17 15:08:05,554 INFO FLAT month: 2024-04-01 — only 4 eligible tickers (< 9)
+2026-04-17 15:08:05,559 INFO FLAT month: 2024-05-02 — only 5 eligible tickers (< 9)
+2026-04-17 15:08:05,563 INFO FLAT month: 2024-06-03 — only 4 eligible tickers (< 9)
+2026-04-17 15:08:05,567 INFO FLAT month: 2024-07-01 — only 4 eligible tickers (< 9)
+2026-04-17 15:08:05,571 INFO FLAT month: 2024-08-01 — only 4 eligible tickers (< 9)
+2026-04-17 15:08:05,574 INFO FLAT month: 2024-09-02 — only 4 eligible tickers (< 9)
+2026-04-17 15:08:05,578 INFO FLAT month: 2024-10-02 — only 4 eligible tickers (< 9)
+2026-04-17 15:08:05,582 INFO FLAT month: 2024-11-01 — only 4 eligible tickers (< 9)
+2026-04-17 15:08:05,585 INFO FLAT month: 2024-12-02 — only 3 eligible tickers (< 9)
+2026-04-17 15:08:05,589 INFO FLAT month: 2025-01-02 — only 5 eligible tickers (< 9)
+2026-04-17 15:08:05,592 INFO FLAT month: 2025-02-03 — only 3 eligible tickers (< 9)
+2026-04-17 15:08:05,596 INFO FLAT month: 2025-03-04 — only 5 eligible tickers (< 9)
+2026-04-17 15:08:05,600 INFO FLAT month: 2025-04-01 — only 4 eligible tickers (< 9)
+2026-04-17 15:08:05,603 INFO FLAT month: 2025-05-02 — only 4 eligible tickers (< 9)
+2026-04-17 15:08:05,607 INFO FLAT month: 2025-06-02 — only 4 eligible tickers (< 9)
+2026-04-17 15:08:05,619 INFO FLAT month: 2025-08-01 — only 7 eligible tickers (< 9)
+2026-04-17 15:08:05,623 INFO FLAT month: 2025-09-01 — only 6 eligible tickers (< 9)
+2026-04-17 15:08:05,627 INFO FLAT month: 2025-10-01 — only 5 eligible tickers (< 9)
+2026-04-17 15:08:05,632 INFO FLAT month: 2025-11-03 — only 6 eligible tickers (< 9)
+2026-04-17 15:08:05,637 INFO FLAT month: 2025-12-01 — only 7 eligible tickers (< 9)
+2026-04-17 15:08:05,641 INFO FLAT month: 2026-01-02 — only 6 eligible tickers (< 9)
+2026-04-17 15:08:05,660 INFO FLAT month: 2026-04-01 — only 8 eligible tickers (< 9)
+2026-04-17 15:08:05,672 INFO Written: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/output/kospi_largecap_universe_log.csv (130 rows)
+2026-04-17 15:08:05,672 INFO 
+Validating universe log...
+2026-04-17 15:08:05,673 INFO Universe log: no .KQ tickers present (OK)
+2026-04-17 15:08:05,674 INFO Universe log: no duplicate (date, ticker) pairs
+2026-04-17 15:08:05,674 INFO Universe log: dates monotonic
+2026-04-17 15:08:05,676 INFO Active months pool sizes: min=9, median=9, max=10
+2026-04-17 15:08:05,678 INFO 
+Pool size distribution (by month count):
+2026-04-17 15:08:05,679 INFO   flat (0): 83 months
+2026-04-17 15:08:05,679 INFO   1-5: 0 months
+2026-04-17 15:08:05,679 INFO   6-8: 0 months
+2026-04-17 15:08:05,679 INFO   9-12: 5 months
+2026-04-17 15:08:05,679 INFO Total months: 88, Flat months: 83 (94.3%)
+2026-04-17 15:08:05,679 ERROR [BLOCK] BLOCK: 94.3% of OOS months are flat (>10% threshold). Variant is inconclusive per brief risk #3.

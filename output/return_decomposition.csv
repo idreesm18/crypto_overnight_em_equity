@@ -1,0 +1,7 @@
+market,target,mean_ic_test,median_ic_test,dir_acc_mean,n_folds,bootstrap_p_value
+HK,gap,0.060729,0.064549,0.5118,75,0.0
+HK,intraday,0.019464,0.020254,0.4962,75,0.0
+HK,cc,0.01386,0.013757,0.5331,75,0.036
+KR,gap,0.061023,0.05634,0.5429,75,0.0
+KR,intraday,0.023255,0.028135,0.4875,75,0.019
+KR,cc,0.004979,-0.002647,0.5303,75,0.499

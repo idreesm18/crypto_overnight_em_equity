@@ -1,0 +1,134 @@
+======================================================================
+STEP 1 — Stooq HK File Relocation
+======================================================================
+Removed empty directory: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/data/hk_daily
+[PASS] Moved 2869 .txt files from data/hk_daily/ to data/stooq/hk_daily/
+
+======================================================================
+STEP 2 — Stooq HK Coverage Validation (2018–2024)
+======================================================================
+Total .txt files in data/stooq/hk_daily/: 2869
+Parse errors: 0
+
+Year    Unique Tickers    Row Count   Status
+---------------------------------------------
+2018             1,490      346,624   [FAIL]
+2019             1,677      386,439   [PASS]
+2020             1,829      433,511   [PASS]
+2021             1,967      468,010   [PASS]
+2022             2,097      496,342   [PASS]
+2023             2,254      527,483   [PASS]
+2024             2,408      570,327   [PASS]
+
+[FAIL] STOOQ_COVERAGE_FAIL — years below threshold (<1,500 tickers):
+  2018: 1,490 tickers
+
+======================================================================
+STEP 3 — Ticker Format Inspection
+======================================================================
+Sample of 20 Stooq filenames:
+  1179.hk.txt
+  1209.hk.txt
+  1314.hk.txt
+  132.hk.txt
+  1384.hk.txt
+  1451.hk.txt
+  1657.hk.txt
+  1728.hk.txt
+  1941.hk.txt
+  1961.hk.txt
+  2688.hk.txt
+  3606.hk.txt
+  3903.hk.txt
+  49525.hk.txt
+  50.hk.txt
+  6119.hk.txt
+  617.hk.txt
+  663.hk.txt
+  9040.hk.txt
+  9829.hk.txt
+
+Stooq filename pattern: <number>.hk.txt
+  - No leading zeros in filename
+  - Lowercase .hk.txt suffix
+
+First 5 rows of crypto_candidates_hk.csv (ticker column):
+  ticker=0863.HK
+  ticker=HSK.HK
+  ticker=0434.HK
+  ticker=1357.HK
+  ticker=8267.HK
+
+Ticker format in candidate CSV: e.g. '0863.HK' — 4-digit zero-padded, uppercase .HK suffix
+
+NORMALIZATION RULE (for Stage 2):
+  candidate_ticker -> Stooq filename:
+  1. Strip leading zeros from the numeric part
+  2. Lowercase the suffix: .HK -> .hk
+  3. Append .txt
+  Example: '0863.HK' -> strip zeros -> '863' -> '863.hk.txt'
+  Note: tickers without leading zeros (e.g. '1357.HK') -> '1357.hk.txt'
+  Also: Stooq internal TICKER field uses no leading zeros, uppercase .HK
+  (e.g. '863.HK' inside the file, but filename is '863.hk.txt')
+
+======================================================================
+STEP 4 — Candidate CSV Schema Validation
+======================================================================
+
+--- HK: crypto_candidates_hk.csv ---
+[PASS] Header: ['ticker', 'company_name', 'category', 'source']
+  Row count: 42
+[PASS] No duplicate tickers
+[WARN] 4 tickers fail format pattern:
+    'HSK.HK'  (HashKey Group)
+    'MSW.US'  (Ming Shing Group)
+    'IMG.US'  (CIMG Inc)
+    'SORA.HK'  (AsiaStrategy)
+
+--- KR: crypto_candidates_kr.csv ---
+[PASS] Header: ['ticker', 'company_name', 'category', 'source']
+  Row count: 39
+[PASS] No duplicate tickers
+[WARN] 1 tickers fail format pattern:
+    'ME2ON.KQ'  (ME2ON Co)
+
+======================================================================
+STEP 5 — Candidate-to-Stooq Match Rate (HK)
+======================================================================
+HK candidates (valid format): 38
+Matched to Stooq .txt file:   34
+Match rate: 89.5%
+
+[WARN] Unmatched HK candidates (4):
+    8267.HK  (Linekong Interactive)
+    8540.HK  (Victory Securities)
+    8005.HK  (Yuxing InfoTech)
+    8521.HK  (WebX International)
+
+[PASS] Match rate 89.5% >= 70%
+
+======================================================================
+STEP 6 — yfinance BTC-USD Cross-Check
+======================================================================
+yfinance returned 9 rows for 2024-01-02 to 2024-01-10
+
+Date              Close    Reference    Diff%  Match
+----------------------------------------------------
+2024-01-02       44,958       44,950     0.0%    YES
+2024-01-05       44,163       44,100     0.1%    YES
+2024-01-08       46,971       46,970     0.0%    YES
+
+[PASS] 3/3 reference dates match within 5% tolerance
+
+======================================================================
+BLOCKING GATE RESULT
+======================================================================
+BLOCK — Reasons: STOOQ_COVERAGE_FAIL
+
+STOOQ_HK_COVERAGE failure details:
+  2018: 1,490 unique tickers (threshold: 1,500)
+
+DO NOT proceed to Stage 1 until blocking issues are resolved.
+
+yfinance cross-check: PASS
+Files moved to data/stooq/hk_daily/: 2869

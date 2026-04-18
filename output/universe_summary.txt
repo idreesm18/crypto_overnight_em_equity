@@ -1,0 +1,43 @@
+======================================================================
+STAGE 2 UNIVERSE SUMMARY
+======================================================================
+
+FX ASSUMPTIONS (Pass 1 constants):
+  HK: 7.8 HKD/USD (constant). HKD pegged within 7.75-7.85.
+  KR: 1300 KRW/USD (constant). Simple approximation; Pass 2
+      should replace with daily FRED DTWEXBGS-derived or BOK rate.
+
+UNIVERSE PARAMETERS:
+  Analysis window   : 2019-01-01 to 2026-04-15
+  BTC corr window   : 60 trailing trading days
+  ADV window        : 20 trailing trading days
+  ADV threshold     : $500,000 USD
+  Universe cap      : top 30 by BTC correlation; floor = all that pass ADV
+
+HK MARKET:
+  Rebalance dates   : 88
+  Universe size     : median=24, min=15, max=29
+  Months < 10 tickers : 0
+  Avg BTC correlation : 0.0432
+  Matched HK tickers  : 34
+  Unmatched/skipped   : 8
+
+KR MARKET:
+  Rebalance dates   : 88
+  Universe size     : median=30, min=22, max=30
+  Months < 10 tickers : 0
+  Avg BTC correlation : 0.028
+
+UNMATCHED / SKIPPED HK TICKERS:
+  SKIP (file not found): HSK.HK → expected hsk.hk.txt
+  SKIP (file not found): 8267.HK → expected 8267.hk.txt
+  SKIP (file not found): 8540.HK → expected 8540.hk.txt
+  SKIP (non-HK suffix): MSW.US — no Stooq file expected for .US listings
+  SKIP (non-HK suffix): IMG.US — no Stooq file expected for .US listings
+  SKIP (file not found): 8005.HK → expected 8005.hk.txt
+  SKIP (file not found): SORA.HK → expected sora.hk.txt
+  SKIP (file not found): 8521.HK → expected 8521.hk.txt
+
+ME2ON.KQ (KR): excluded from pykrx pull (non-standard ticker). Skipped silently.
+
+======================================================================

@@ -1,0 +1,20 @@
+=== Stage 0b Post-Pull Validation ===
+Date: 2026-04-16
+
+[PASS] FRED fred_all.parquet: rows=19462, series=['DFF', 'DGS10', 'DGS2', 'DTWEXBGS', 'T10YIE', 'T5YIE', 'VIXCLS'], date range 2018-09-01 to 2026-04-15
+[PASS] yfinance BTC-USD: rows=2784, range 2018-09-01 to 2026-04-15
+[PASS] Binance spot BTCUSDT: rows=4,004,219, range 2018-09-01 00:00:00+00:00 to 2026-04-15 23:59:00+00:00
+[PASS] Binance spot ETHUSDT: rows=4,004,219, range 2018-09-01 00:00:00+00:00 to 2026-04-15 23:59:00+00:00
+[PASS] Binance spot SOLUSDT: rows=2,984,755, range 2020-08-11 06:00:00+00:00 to 2026-04-15 23:59:00+00:00
+[PASS] Binance spot BNBUSDT: rows=4,004,219, range 2018-09-01 00:00:00+00:00 to 2026-04-15 23:59:00+00:00
+[PASS] Binance spot XRPUSDT: rows=4,004,220, range 2018-09-01 00:00:00+00:00 to 2026-04-15 23:59:00+00:00
+[PASS] Binance perp BTCUSDT: rows=3,309,120, range 2019-12-31 00:00:00+00:00 to 2026-04-15 23:59:00+00:00
+[PASS] Binance perp ETHUSDT: rows=3,309,120, range 2019-12-31 00:00:00+00:00 to 2026-04-15 23:59:00+00:00
+[PASS] Binance funding BTCUSDT: rows=6,846, cols=['funding_time', 'funding_rate']
+[PASS] Binance funding ETHUSDT: rows=6,846, cols=['funding_time', 'funding_rate']
+[PASS] pykrx KR OHLCV: rows=67,287, tickers=38, range 2018-09-03 to 2026-04-15
+[FAIL] pykrx KR mcap NaN (expected): mcap_all_NaN=True
+[PASS] Stooq HK files: 2869 .txt files in data/stooq/hk_daily/
+
+Total: 14 checks; 1 FAIL
+Gate: REVIEW

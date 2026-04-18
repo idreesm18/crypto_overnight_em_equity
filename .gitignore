@@ -1,0 +1,17 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment
+.env
+
+# macOS
+.DS_Store
+
+# Data (regeneratable; too large for GitHub)
+data/
+
+# Jupyter scratch
+.ipynb_checkpoints/

@@ -1,0 +1,52 @@
+Stage 4 LightGBM HK — Subagent Summary
+========================================
+Script: scripts/stage4_lightgbm_hk.py
+Run date: 2026-04-16
+Total wall time: 11.0 min
+
+Walk-forward: 75 OOS folds (2020-02 to 2026-04), expanding window, 252-day minimum.
+Hyperparameter search at 7 year boundaries (first fold + Jan 2021–2026): 10 iter × 3-fold purged CV.
+No fallback grid required (fastest search: 6.8s).
+
+TARGET: GAP (PRIMARY)
+  n_predictions : 36,678
+  mean IC_test  : 0.0607
+  median IC_test: 0.0645
+  dir_acc       : 0.5118
+  n_folds       : 75
+  overfit_flags : 1 (fold 02, 2020-04, diff=0.27)
+  wall time     : 3.1 min
+
+TARGET: INTRADAY
+  n_predictions : 36,678
+  mean IC_test  : 0.0195
+  median IC_test: 0.0203
+  dir_acc       : 0.4962
+  n_folds       : 75
+  overfit_flags : 27 (concentrated in 2020 and 2022 folds using high learning_rate/max_depth params)
+  wall time     : 3.9 min
+
+TARGET: CC (close-to-close)
+  n_predictions : 36,678
+  mean IC_test  : 0.0139
+  median IC_test: 0.0138
+  dir_acc       : 0.5331
+  n_folds       : 75
+  overfit_flags : 8
+  wall time     : 3.9 min
+
+Validation:
+  - No duplicate (date, ticker) rows in any predictions file
+  - No lookahead violations (test_start > train_end for all folds)
+  - All 33 tickers represented in predictions
+
+Output files (9 total):
+  output/predictions_lgbm_hk_gap.csv
+  output/shap_per_fold_hk_gap.parquet
+  output/training_log_lgbm_hk_gap.csv
+  output/predictions_lgbm_hk_intraday.csv
+  output/shap_per_fold_hk_intraday.parquet
+  output/training_log_lgbm_hk_intraday.csv
+  output/predictions_lgbm_hk_cc.csv
+  output/shap_per_fold_hk_cc.parquet
+  output/training_log_lgbm_hk_cc.csv
