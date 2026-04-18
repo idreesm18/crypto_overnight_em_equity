@@ -1,52 +1,63 @@
-# Crypto Overnight Signal for Asian Equities — Pass 2
+# Crypto Overnight Signal for Asian Equities
 
 ## Overview
 
 Crypto markets trade 24/7; Asian equity markets do not. Between the HKEX or KRX close and the next day's open, roughly 17 hours of crypto trading occur. The project tests whether overnight crypto activity carries information that is not yet priced into crypto-exposed Asian equities at the open.
 
-Pass 1 scope: LightGBM on hand-engineered features, monthly-rebalanced universe of 20 to 30 crypto-exposed stocks per market (HK and KR), three targets per stock-day (overnight gap, intraday, close-to-close). Pass 1 confirmed the pre-specified gap-vs-intraday decomposition (3:1 ratio in HK, 2.6:1 in KR, both p < 0.001) but found no tested strategy survived execution costs.
+Scope: LightGBM and a TCN horse race on hand-engineered features and raw minute-bar sequences, four universes in parallel (main crypto-filtered HK and KR, non-crypto-filtered control HK and KR, KR KOSPI large-cap, index HSI and KOSPI), three targets per observation (overnight gap, intraday, close-to-close), walk-forward OOS evaluation 2020-02 through 2026-04 (75 monthly folds per market-target), with borrow cost model, regime gate, long-only variant, expanded feature ablation, and a three-round adversarial review panel.
 
-Pass 2 scope: adds a non-crypto-filtered control universe (the central methodological contribution), KR KOSPI large-cap and index-level prediction variants, a TCN horse race on minute-bar sequences, a regime gate, a borrow cost model, and a long-only variant. Pass 2 retains Pass 1's main-universe artifacts unchanged.
+A narrower initial version (main universe only, LightGBM, no control universe, no TCN, no regime gate) lives on the `p1` branch as a reference.
 
 ## Data sources
 
 | Source | Content | Usage | Notes |
 |---|---|---|---|
-| Binance bulk archive | Spot and perp 1m klines for BTC/ETH/SOL/BNB/XRP; 8-hourly funding | Crypto overnight features | No auth. Liquidation snapshots unavailable; that feature stayed dropped. |
+| Binance bulk archive | Spot and perp 1m klines for BTC/ETH/SOL/BNB/XRP; 8-hourly funding | Crypto overnight features | No auth. Liquidation snapshots unavailable; that feature stays dropped. |
 | Stooq HK | Daily OHLCV for HKEX | HK equity returns and targets | User-provided. 2,869 .txt files at `data/stooq/hk_daily/`. |
-| pykrx (v1.0.51) | KRX daily OHLCV | KR equity returns and targets | SSH SOCKS5 tunnel to Oracle Cloud Seoul VM. Batch endpoint login-gated; per-ticker endpoint used. KRX mcap endpoint authenticated-only; mcap feature stays dropped in Pass 2. |
+| pykrx (v1.0.51) | KRX daily OHLCV | KR equity returns and targets | SSH SOCKS5 tunnel to Oracle Cloud Seoul VM. Batch endpoint login-gated; per-ticker endpoint used. KRX mcap endpoint authenticated-only; mcap feature stays dropped. |
 | FRED | VIX, DXY, 2Y/10Y, 5Y breakeven, DFF | Macro features with 1-day lag | Free API key. |
-| yfinance indices (new in Pass 2) | ^HSI, ^KS11 daily OHLCV | Index-level prediction targets | No auth. |
-| yfinance SP500 (new) | ^GSPC daily close | Market-cap proxy for regime gate | No auth. |
-| Derived BTC supply (new) | Deterministic issuance schedule | Regime gate | Calculated, not pulled. |
-| Crypto candidates (user-provided) | 40 HK + 39 KR tickers with fundamental crypto exposure | Main universe layer 1 | Reused from Pass 1. |
-| Crypto controls (user-provided, new in Pass 2) | 42 HK + 39 KR tickers, non-crypto-exposed, matched on size and liquidity | Control universe layer 1 | Required for P2-3. |
+| yfinance indices | ^HSI, ^KS11 daily OHLCV | Index-level prediction targets | No auth. |
+| yfinance SP500 | ^GSPC daily close | Market-cap proxy for regime gate | No auth. |
+| Derived BTC supply | Deterministic issuance schedule | Regime gate | Calculated, not pulled. |
+| Crypto candidates (user-provided) | 40 HK + 39 KR tickers with fundamental crypto exposure | Main universe layer 1 | CSVs at `data/stock_picks/crypto_candidates_{hk,kr}.csv`. |
+| Crypto controls (user-provided) | 42 HK + 39 KR tickers, non-crypto-exposed, matched on size and liquidity | Control universe layer 1 | CSVs at `data/stock_picks/crypto_control_{hk,kr}.csv`. |
 
-User-provided data is the two Pass 1 candidate CSVs, the two Pass 2 control CSVs, Stooq HK .txt files, and a FRED_API_KEY. The user maintains an Oracle Cloud Seoul VM for the KRX tunnel. Modal credentials for the Pass 2 TCN stage are read from `~/.modal.toml`.
+User-provided data is the four candidate CSVs, Stooq HK .txt files, and a FRED_API_KEY. The user maintains an Oracle Cloud Seoul VM for the KRX tunnel. Modal credentials for the TCN stage are read from `~/.modal.toml`.
 
 ## Methodology summary
 
-1. Universes. Four universes run in parallel. Main (reused from Pass 1, 88 monthly rebalances). Control (Pass 2 new, same ADV filter, no BTC correlation filter). KR KOSPI large-cap (Pass 2 new, $50M ADV on .KS tickers, flagged inconclusive at 94 percent flat months per brief risk #3). Index (Pass 2 new, ^HSI and ^KS11).
+1. Universes. Four universes run in parallel. Main (crypto-filtered HK and KR, 88 monthly rebalances, median 24 HK and 30 KR tickers). Control (same ADV filter, no BTC correlation filter, median pool 30). KR KOSPI large-cap ($50M ADV on .KS tickers, flagged inconclusive at 94 percent flat months per brief risk #3). Index (^HSI and ^KS11, 1,793 and 1,790 trading days).
 
-2. Features. Track A, 21 engineered daily-summary features for stock universes (12 crypto overnight + 6 macro + 3 stock-level) and 18 for indices. Track B, raw minute-bar sequences for TCN, 5-minute resampling, per-window per-channel normalization, boolean mask for padding.
+2. Features. Track A, 21 hand-engineered daily-summary features for stock universes (12 crypto overnight + 6 macro + 3 stock-level) and 18 for indices. Track B, raw minute-bar sequences for the TCN, 5-minute resampling, per-window per-channel normalization, boolean mask for padding.
 
-3. Models. LightGBM walk-forward (Pass 1 protocol, 18 total Pass 1 + Pass 2 runs). TCN on Modal T4 with per-fold checkpointing (12 runs across four universes and three targets). Horse race with paired block-bootstrap.
+3. Models. LightGBM walk-forward (expanding window, 252-day minimum training, monthly rebalance, 3-fold purged time-series CV, 5-day purge buffer, 10-iteration randomized hyperparameter search, 18 total runs across universes and targets). TCN on Modal T4 with per-fold checkpointing, 12 runs across four universes and three targets. Horse race with paired block-bootstrap.
 
 4. Strategies. Stock tercile long-short (main, control) and binary split (KOSPI large-cap, scoped but inconclusive). Long-only variant for every stock universe. Index threshold long-short-flat using 0.5 times in-sample stdev of y_pred.
 
 5. Costs. Half-spread per side, Kyle-style impact for stocks, annualized borrow on short notional, and a regime gate toggle. Spread and borrow sensitivity sweeps, breakeven analysis.
 
-6. Regime gate. BTC market cap divided by S&P 500 market-cap proxy, each 30-day mean, compared to 1-year trailing median. Warmup 282 days defaults to active. Every backtest is run gate-on and gate-off.
+6. Regime gate. BTC market cap divided by S&P 500 market-cap proxy, each 30-day mean, compared to 1-year trailing median. Warmup 282 days defaults to active. Every backtest runs gate-on and gate-off.
 
-7. Diagnostics. Horse race, control vs main comparison (central Pass 2 result), regime-gate comparison, long-only vs long-short decomposition, regime splits (VIX, BTC trend, crypto vol), return decomposition, expanded ablation (category, subcategory, per-feature leave-one-out), and a year-by-year placeholder.
+7. Diagnostics. Horse race, control vs main comparison (the central control-universe result), regime-gate comparison, long-only vs long-short decomposition, regime splits (VIX, BTC trend, crypto vol), return decomposition, expanded ablation (category, subcategory, per-feature leave-one-out).
 
-8. Review. Four-panelist adversarial review, three rounds (position, first rebuttal, second rebuttal), synthesis by orchestrator. Twelve Pass 2 review files plus `reviews/synthesis_pass2.md`.
+8. Review. Four-panelist adversarial review, three rounds (position, first rebuttal, second rebuttal), orchestrator synthesis. Twelve review files plus `reviews/synthesis_pass2.md`.
 
 ## Key results
 
-Pass 1 main universe results are unchanged (see WRITEUP.md for the headline table). Pass 2 additions:
+Walk-forward OOS, 2020-02 through 2026-04, 75 monthly folds per market-target.
 
-### Control versus main comparison (central Pass 2 result)
+### Main universe headline
+
+| Market | Target | Mean IC | Bootstrap p | Gross SR | Net SR (1x cost) | Breakeven cost multiplier |
+|---|---|---|---|---|---|---|
+| HK | gap | 0.061 | < 0.001 | 3.04 | -1.57 | 0.66x |
+| HK | intraday | 0.020 | < 0.001 | 0.35 | -2.99 | 0.10x |
+| HK | cc | 0.014 | 0.036 | 0.98 | -1.25 | 0.43x |
+| KR | gap | 0.061 | < 0.001 | 3.77 | -0.28 | 0.93x |
+| KR | intraday | 0.023 | 0.019 | 1.00 | -1.46 | 0.41x |
+| KR | cc | 0.008 | 0.255 | 0.59 | -1.58 | 0.27x |
+
+### Control versus main comparison (central control-universe result)
 
 | Market | Main gap IC | Control gap IC | Diff | Bootstrap p | Main ratio | Control ratio |
 |---|---|---|---|---|---|---|
@@ -80,21 +91,37 @@ See `reviews/synthesis_pass2.md` for the synthesis of all twelve panel documents
 
 Prerequisites:
 - Python 3.11 on the host
-- `~/.ssh/oracle_seoul` key and SSH config `oracle-seoul` pointing to a KR-exit VM (required for pykrx, Pass 1 stages only)
+- `~/.ssh/oracle_seoul` key and SSH config `oracle-seoul` pointing to a KR-exit VM (required for pykrx)
 - A FRED API key
-- Modal credentials at `~/.modal.toml` (required for TCN stage P2-8)
-- User-provided Pass 2 control CSVs at `data/stock_picks/crypto_control_{hk,kr}.csv`
-
-Pass 1 is a prerequisite. Pass 2 reuses Pass 1's output/*.csv, output/*.parquet, data/, and .venv. Pass 2 scripts numbered P2-1 through P2-10 build on those artifacts.
+- Modal credentials at `~/.modal.toml` (required for the TCN stage)
+- User-provided control CSVs at `data/stock_picks/crypto_control_{hk,kr}.csv`
 
 ```
-cd /path/to/crypto_overnight_em_equity_p2
+cd /path/to/crypto_overnight_em_equity
+python3.11 -m venv .venv
 source .venv/bin/activate
-pip install --upgrade torch>=2.1 modal>=0.60
+pip install --upgrade pip
+pip install -r requirements.txt
+pip install "requests[socks]"
 
-# Pass 1 artifacts must already be in place (output/, data/).
+# Place Stooq HK .txt files under data/stooq/hk_daily/
+# Place user-provided candidate CSVs at data/stock_picks/
+# Create .env with FRED_API_KEY=...
 
-# Pass 2 scripts (run in order):
+# Pipeline scripts (run in order):
+python scripts/stage0a_validate.py
+python scripts/stage1_pull_fred.py
+python scripts/stage1_pull_yfinance.py
+python scripts/stage1_pull_binance.py
+python scripts/stage1_pull_pykrx.py
+python scripts/stage2_universe.py
+python scripts/stage3_features.py
+python scripts/stage4_lightgbm_hk.py
+python scripts/stage4_lightgbm_kr.py
+python scripts/stage5_backtest.py
+python scripts/stage6_diagnostics.py
+
+# Extended pipeline stages:
 python scripts/stage_p2-2_pull.py
 python scripts/stage_p2-3_control_universe.py
 python scripts/stage_p2-4_kospi_largecap.py      # Produces inconclusive universe log; downstream skips large-cap.
@@ -112,46 +139,44 @@ for i in 01 02 03 04 05 06 07; do
 done
 ```
 
-Review papers (twelve panel files plus synthesis_pass2.md) are authored content, not generated by a script.
+Review papers (twelve panel files plus `reviews/synthesis_pass2.md`) are authored content, not generated by a script.
 
-## Output map (Pass 2 additions)
+## Output map
 
-Pass 1 outputs remain unchanged. Pass 2 additions:
-
-- `output/control_universe_log.csv`, `output/kospi_largecap_universe_log.csv`
-- `output/features_track_a_control_{hk,kr}.parquet`, `output/features_track_a_index.parquet`
-- `output/sequences_{hk,kr,index_hk,index_kr}.npz`
-- `output/predictions_lgbm_control_{hk,kr}_{gap,intraday,cc}.csv`, `output/predictions_lgbm_index_{hk,kr}_{gap,intraday,cc}.csv`
-- `output/predictions_tcn_{main,index}_{hk,kr}_{gap,intraday,cc}.csv`, `output/training_log_tcn_*.csv`
 - `output/backtest_summary_pass2.csv`, `output/cost_sensitivity_pass2.csv`, `output/borrow_sensitivity_pass2.csv`, `output/breakeven_analysis_pass2.csv`
-- `output/horse_race.csv`, `output/horse_race_bootstrap.csv`
 - `output/control_vs_main_comparison.csv`
+- `output/horse_race.csv`, `output/horse_race_bootstrap.csv`
 - `output/regime_gate_comparison.csv`, `output/long_short_decomposition.csv`
+- `output/control_universe_log.csv`, `output/kospi_largecap_universe_log.csv`
+- `output/features_track_a_{control_hk,control_kr,index}.parquet`
+- `output/sequences_{hk,kr,index_hk,index_kr}.npz`
+- `output/predictions_lgbm_{control_hk,control_kr,index_hk,index_kr}_{gap,intraday,cc}.csv`
+- `output/predictions_tcn_{main_hk,main_kr,index_hk,index_kr}_{gap,intraday,cc}.csv`, `output/training_log_tcn_*.csv`
 - `output/feature_ablation_pass2.csv`, `output/feature_ablation_per_feature.csv`
 - `output/return_decomposition_pass2.csv`, `output/regime_analysis_pass2.csv`
 - `output/diagnostics_summary_pass2.txt`
+- Main-universe Pass 1 artifacts: `output/backtest_summary.csv`, `output/predictions_lgbm_{hk,kr}_*.csv`, `output/features_track_a_{hk,kr}.parquet`, `output/shap_per_fold_*.parquet`, etc.
 
 Review documents:
-- `reviews/{skeptic,believer,literature,practitioner}_p2.md` (Round 1)
-- `reviews/{skeptic,believer,literature,practitioner}_rebuttal_p2.md` (Round 2)
-- `reviews/{skeptic,believer,literature,practitioner}_rebuttal2_p2.md` (Round 3)
-- `reviews/synthesis_pass2.md`
+- `reviews/{skeptic,believer,literature,practitioner}_position.md` and `_rebuttal.md` (initial review)
+- `reviews/{skeptic,believer,literature,practitioner}_p2.md`, `_rebuttal_p2.md`, `_rebuttal2_p2.md` (three-round panel)
+- `reviews/synthesis.md`, `reviews/synthesis_pass2.md`
 
 Notebooks: `notebooks/01_pass2_data_additions.ipynb` through `notebooks/07_pass2_diagnostics.ipynb`.
 
 ## Resume Framing
 
-Designed and executed a walk-forward ML pipeline for cross-asset signal research, adding three methodological contributions in Pass 2: a non-crypto-filtered control universe (the central test of selection-circularity in a BTC-correlation-selected equity universe), a deep-learning horse race using a 3-block dilated TCN trained on Modal T4 GPUs with per-fold checkpointing, and an index-level prediction path that produces a deployable long-only futures strategy (net Sharpe 1.5-2.0 after realistic execution costs) where the single-stock implementation fails due to borrow and spread drag.
+Designed and executed a walk-forward ML pipeline for cross-asset signal research, with three methodological contributions: (1) a non-crypto-filtered control universe (42 HK + 39 KR matched-liquidity tickers) that isolates selection-bias contribution via parallel pipeline, which resolved the universe-selection circularity concern asymmetrically (HK gap dominance did not survive the counterfactual, p=0.93, while KR retained ~40% of raw IC as incremental crypto channel, p=0.008); (2) a deep-learning horse race using a 3-block dilated TCN trained on Modal T4 GPUs with per-fold checkpointing, where paired block-bootstrap confirmed LightGBM significantly beats TCN on gap IC in both markets (tabular-ML literature consistent); (3) an index-level long-only path on HSI/KOSPI futures producing a deployable net Sharpe 1.5-2.0 at realistic execution costs (1.6-4 bps half-spread, borrow 50 bps index vs 400-500 bps stock), while single-stock implementations remain blocked by execution drag. Also added borrow-cost model, long-only variant, rules-based regime gate (BTC/S&P 500 market-cap ratio vs 1y trailing median), and expanded feature ablation (category + subcategory + per-feature LOO on 21 features × 2 markets). Three-round adversarial review (12 panel documents + synthesis) converged on paper-trade validation with pre-specified kill switches; final deliverable is a narrower but deployable strategy (long-only index futures, LightGBM, gate-off) framed under brief Rule D (mixed mechanism) + Rule C (single-stock fails costs).
 
 ## Limitations
 
 - The 2 bps modeled half-spread on index futures is a 7-14x underestimate. A 30-day paper-trade is required before any capital decision. The 2x spread sensitivity column is the anchor for the net Sharpe 1.5-2.0 range; beyond that is extrapolation.
 - Regime gate reduces Sharpe in this sample rather than improving it. The BTC/S&P 500 market-cap ratio versus 1-year median is reported as a sensitivity, not a validated ingredient.
-- KR 2023 attenuation from Pass 1 is not revisited at year-by-year granularity in Pass 2; post-publication decay (McLean-Pontiff 2016) is consistent with the data but not established.
+- KR 2023 attenuation is not revisited at year-by-year granularity for the index strategies; post-publication decay (McLean-Pontiff 2016) is consistent with the data but not established.
 - KR short-sale ban November 2023 to March 2024 is not gated in the backtest. For futures-based implementations this is immaterial.
 - KOSPI large-cap variant is inconclusive (94 percent flat months at $50M ADV threshold). Acceptance criterion #2 was not testable.
 - TCN significantly underperforms LightGBM and shows pervasive overfit flags. The signal in this sample lives in daily-summary features, not minute-bar temporal structure.
-- Three Pass 1 dropped features (log mcap bucket, BTC liquidation intensity, USDT peg deviation) remain dropped in Pass 2; enabling credentials were not available in this run.
+- Three features (log mcap bucket, BTC liquidation intensity, USDT peg deviation) remain dropped; enabling credentials were not available in this run.
 - Seven years OOS covers one partial crypto cycle. Strategy untested in a sustained bear from post-ETF-era highs.
 - Control universe is manually curated; the HK null (p=0.93) survives this concern, the KR result (p=0.008) is more vulnerable to it.
 
