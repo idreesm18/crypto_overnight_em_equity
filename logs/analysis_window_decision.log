@@ -1,0 +1,25 @@
+ABOUTME: User decision log for the Pass 1 analysis window after Stage 0a gate.
+ABOUTME: Establishes the canonical date range used by Stage 1 data pull and all downstream stages.
+
+=== DECISION ===
+Date: 2026-04-16
+Trigger: Stage 0a reported Stooq HK 2018 coverage at 1,490 tickers (59.6%), 10 below the 60% threshold of 1,500 (computed against 2024 HKEX listing count of ~2,500). 2019-2024 all passed.
+
+User decision (Idrees): Start analysis window from 2019-01-01. Rationale: the 2018 deficit is marginal (10 tickers) and the 2024 denominator is unfair to 2018 (HKEX had only ~2,315 listings in 2018).
+
+=== CANONICAL DATE RANGE ===
+Feature / target window (for model training and backtest): 2019-01-01 through 2026-04-15.
+Data pull lead-in window: 2018-09-01 through 2026-04-15. The 4-month lead-in allows:
+  - Trailing 60-day BTC correlation for first universe rebalance (Jan 2019)
+  - Trailing 20-day ADV for Jan 2019
+  - Trailing 20-day realized vol and momentum for stock features
+  - 5-day macro changes (VIX, DXY) with 1-day lag
+
+All subagents from Stage 1 onward must use these dates. Hardcode where reasonable or read from this file.
+
+=== DOWNSTREAM IMPACT ===
+- Stage 1: Pull Binance / pykrx / FRED / yfinance from 2018-09-01 through 2026-04-15.
+- Stage 2: First monthly rebalance at first HK and KR trading day on or after 2019-01-01. Compute correlations and ADV on trailing 60 / 20 sessions ending rebalance date.
+- Stage 3: Feature engineering starts 2019-01-01. Drop any row with missing trailing inputs.
+- Stage 4: Walk-forward initial training window is the 252 trading days starting 2019-01-01 (approximately the first full year); first OOS prediction month is ~Jan 2020.
+- Stage 5-6: Analysis window 2019-01-01 to 2026-04-15.

@@ -1,0 +1,117 @@
+2026-04-17 15:20:33,663 INFO Stage P2-5: Index Feature Engineering — Track A
+2026-04-17 15:20:33,663 INFO Window: 2019-01-01 to 2026-04-17
+2026-04-17 15:20:33,663 INFO 
+Loading Binance spot klines...
+2026-04-17 15:20:34,247 INFO Spot BTCUSDT: 4,004,219 rows, 2018-09-01 00:00:00+00:00 to 2026-04-15 23:59:00+00:00
+2026-04-17 15:20:34,487 INFO Spot ETHUSDT: 4,004,219 rows, 2018-09-01 00:00:00+00:00 to 2026-04-15 23:59:00+00:00
+2026-04-17 15:20:34,654 INFO Spot SOLUSDT: 2,984,755 rows, 2020-08-11 06:00:00+00:00 to 2026-04-15 23:59:00+00:00
+2026-04-17 15:20:34,923 INFO Spot BNBUSDT: 4,004,219 rows, 2018-09-01 00:00:00+00:00 to 2026-04-15 23:59:00+00:00
+2026-04-17 15:20:35,176 INFO Spot XRPUSDT: 4,004,220 rows, 2018-09-01 00:00:00+00:00 to 2026-04-15 23:59:00+00:00
+2026-04-17 15:20:35,176 INFO Loading funding rates...
+2026-04-17 15:20:35,186 INFO Funding BTCUSDT: 6,846 rows
+2026-04-17 15:20:35,191 INFO Funding ETHUSDT: 6,846 rows
+2026-04-17 15:20:35,191 INFO 
+Loading FRED macro...
+2026-04-17 15:20:35,226 INFO FRED: 2781 rows, 2018-09-04 to 2026-04-15
+2026-04-17 15:20:35,226 INFO 
+Loading index daily OHLCV...
+2026-04-17 15:20:35,245 INFO HSI:   1872 rows, 2018-09-03 to 2026-04-16
+2026-04-17 15:20:35,245 INFO KOSPI: 1868 rows, 2018-09-03 to 2026-04-17
+2026-04-17 15:20:35,245 INFO 
+Building overnight windows...
+2026-04-17 15:20:35,506 INFO HK: 1793 overnight windows, 50 weekend gaps
+2026-04-17 15:20:37,520 INFO KR: 1790 overnight windows, 45 weekend gaps
+2026-04-17 15:20:37,520 INFO 
+Computing HK crypto features...
+2026-04-17 15:20:37,520 INFO Computing crypto features for 1793 windows...
+2026-04-17 15:20:37,606 INFO   0/1793 windows processed
+2026-04-17 15:21:00,100 INFO   500/1793 windows processed
+2026-04-17 15:21:29,353 INFO   1000/1793 windows processed
+2026-04-17 15:21:51,884 INFO   1500/1793 windows processed
+2026-04-17 15:22:04,846 INFO Crypto features computed. BTC return NaN: 1/1793
+2026-04-17 15:22:04,847 INFO 
+Computing KR crypto features...
+2026-04-17 15:22:04,847 INFO Computing crypto features for 1790 windows...
+2026-04-17 15:22:04,903 INFO   0/1790 windows processed
+2026-04-17 15:22:27,916 INFO   500/1790 windows processed
+2026-04-17 15:22:50,622 INFO   1000/1790 windows processed
+2026-04-17 15:23:13,554 INFO   1500/1790 windows processed
+2026-04-17 15:23:26,014 INFO Crypto features computed. BTC return NaN: 1/1790
+2026-04-17 15:23:26,015 INFO 
+Attaching macro features...
+2026-04-17 15:23:26,302 INFO 
+Building HSI feature table...
+2026-04-17 15:23:26,303 INFO HK (^HSI): assembling 1793 rows...
+2026-04-17 15:23:26,501 INFO HK: 1,793 rows assembled
+2026-04-17 15:23:26,502 INFO 
+Building KOSPI feature table...
+2026-04-17 15:23:26,502 INFO KR (^KS11): assembling 1790 rows...
+2026-04-17 15:23:26,750 INFO KR: 1,790 rows assembled
+2026-04-17 15:23:26,778 INFO 
+Combined shape: (3583, 24)
+2026-04-17 15:23:26,778 INFO 
+============================================================
+2026-04-17 15:23:26,778 INFO VALIDATION
+2026-04-17 15:23:26,778 INFO ============================================================
+2026-04-17 15:23:26,779 INFO   ^HSI: 1,793 rows, dates 2019-01-03 to 2026-04-17
+2026-04-17 15:23:26,779 INFO   ^KS11: 1,790 rows, dates 2019-01-03 to 2026-04-17
+2026-04-17 15:23:26,779 INFO   Total rows: 3,583
+2026-04-17 15:23:26,779 INFO   Feature columns found: 18 (expected 18)
+2026-04-17 15:23:26,779 INFO   No stock-level feature columns: OK
+2026-04-17 15:23:26,779 INFO 
+Feature NaN rates:
+2026-04-17 15:23:26,780 INFO   btc_ov_log_return                  : NaN=0.1%
+2026-04-17 15:23:26,780 INFO   eth_ov_log_return                  : NaN=0.1%
+2026-04-17 15:23:26,780 INFO   btc_ov_realized_vol                : NaN=0.1%
+2026-04-17 15:23:26,780 INFO   eth_ov_realized_vol                : NaN=0.1%
+2026-04-17 15:23:26,780 INFO   btc_ov_max_drawdown                : NaN=0.1%
+2026-04-17 15:23:26,780 INFO   btc_ov_volume_usd                  : NaN=0.1%
+2026-04-17 15:23:26,780 INFO   btc_ov_volume_surge                : NaN=0.3%
+2026-04-17 15:23:26,780 INFO   btc_ov_taker_imbalance             : NaN=0.1%
+2026-04-17 15:23:26,780 INFO   crosspair_dispersion               : NaN=0.1%
+2026-04-17 15:23:26,780 INFO   btc_eth_spread                     : NaN=0.1%
+2026-04-17 15:23:26,780 INFO   btc_funding_rate_latest            : NaN=13.7% [perp — NaN expected pre-2020]
+2026-04-17 15:23:26,780 INFO   btc_funding_rate_delta             : NaN=13.7% [perp — NaN expected pre-2020]
+2026-04-17 15:23:26,780 INFO   vix_level                          : NaN=0.0%
+2026-04-17 15:23:26,780 INFO   vix_5d_change                      : NaN=0.0%
+2026-04-17 15:23:26,781 INFO   yield_curve_slope                  : NaN=0.0%
+2026-04-17 15:23:26,781 INFO   dxy_level                          : NaN=0.0%
+2026-04-17 15:23:26,781 INFO   dxy_5d_change                      : NaN=0.0%
+2026-04-17 15:23:26,781 INFO   breakeven_5y                       : NaN=0.0%
+2026-04-17 15:23:26,781 INFO 
+Target NaN rates:
+2026-04-17 15:23:26,781 INFO   gap_return: NaN=0.2%
+2026-04-17 15:23:26,781 INFO   intraday_return: NaN=0.2%
+2026-04-17 15:23:26,781 INFO   cc_return: NaN=0.2%
+2026-04-17 15:23:26,781 INFO 
+Outlier check (>10 sigma):
+2026-04-17 15:23:26,781 WARNING   btc_ov_log_return: 2 values > 10 sigma (mu=0.0021, sigma=0.0368)
+2026-04-17 15:23:26,781 WARNING   eth_ov_log_return: 2 values > 10 sigma (mu=0.0021, sigma=0.0470)
+2026-04-17 15:23:26,781 WARNING   btc_ov_realized_vol: 2 values > 10 sigma (mu=0.6154, sigma=0.3634)
+2026-04-17 15:23:26,782 WARNING   eth_ov_realized_vol: 2 values > 10 sigma (mu=0.7790, sigma=0.4374)
+2026-04-17 15:23:26,782 WARNING   btc_ov_max_drawdown: 2 values > 10 sigma (mu=-0.0353, sigma=0.0290)
+2026-04-17 15:23:26,782 WARNING   btc_ov_volume_usd: 5 values > 10 sigma (mu=2540650387.1567, sigma=3022266072.8860)
+2026-04-17 15:23:26,782 WARNING   btc_ov_volume_surge: 4 values > 10 sigma (mu=1.0799, sigma=0.9235)
+2026-04-17 15:23:26,782 WARNING   crosspair_dispersion: 1 values > 10 sigma (mu=0.0207, sigma=0.0204)
+2026-04-17 15:23:26,783 WARNING   btc_funding_rate_latest: 2 values > 10 sigma (mu=0.0001, sigma=0.0002)
+2026-04-17 15:23:26,783 WARNING   btc_funding_rate_delta: 3 values > 10 sigma (mu=-0.0000, sigma=0.0001)
+2026-04-17 15:23:26,783 WARNING   vix_5d_change: 2 values > 10 sigma (mu=0.0812, sigma=3.3225)
+2026-04-17 15:23:26,826 INFO 
+Saved: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity_p2/output/features_track_a_index.parquet
+2026-04-17 15:23:26,826 INFO 
+======================================================================
+2026-04-17 15:23:26,826 INFO STAGE P2-5 SUMMARY
+2026-04-17 15:23:26,826 INFO ======================================================================
+2026-04-17 15:23:26,827 INFO   ^HSI: 1,793 rows, 2019-01-03 to 2026-04-17
+2026-04-17 15:23:26,827 INFO   ^KS11: 1,790 rows, 2019-01-03 to 2026-04-17
+2026-04-17 15:23:26,827 INFO   Total rows: 3,583
+2026-04-17 15:23:26,827 INFO   Feature columns: 18 (expected 18)
+2026-04-17 15:23:26,827 INFO   Date range: 2019-01-03 to 2026-04-17
+2026-04-17 15:23:26,832 INFO   HSI  rows dropped (no index data on next_date): 0
+2026-04-17 15:23:26,832 INFO   KS11 rows dropped (no index data on next_date): 0
+2026-04-17 15:23:26,833 INFO   gap_return NaN: ^HSI=0.2%, ^KS11=0.2%
+2026-04-17 15:23:26,833 INFO   Validation: PASS
+2026-04-17 15:23:26,833 INFO Stage P2-5 complete.
+.2%, ^KS11=0.2%
+2026-04-17 15:23:26,833 INFO   Validation: PASS
+2026-04-17 15:23:26,833 INFO Stage P2-5 complete.

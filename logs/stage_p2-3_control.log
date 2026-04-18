@@ -1,0 +1,386 @@
+2026-04-17 14:58:56,773 INFO Stage P2-3: Control Universe Construction and Feature Engineering
+2026-04-17 14:58:56,773 INFO Window: 2019-01-01 to 2026-04-15
+2026-04-17 14:58:56,793 INFO Loaded HK control tickers: 42
+2026-04-17 14:58:56,793 INFO Loaded KR control tickers: 39
+2026-04-17 14:58:56,793 INFO HK tickers: ['1788.HK', '6030.HK', '0218.HK', '3908.HK', '6881.HK', '0656.HK', '0242.HK', '0152.HK', '1070.HK', '0303.HK', '1170.HK', '0412.HK', '0273.HK', '1382.HK', '0860.HK', '0586.HK', '1071.HK', '0688.HK', '0981.HK', '2727.HK', '1368.HK', '2331.HK', '0175.HK', '9698.HK', '2013.HK', '3738.HK', '9966.HK', '1299.HK', '2269.HK', '2618.HK', '9991.HK', '9922.HK', '1928.HK', '6633.HK', '6186.HK', '2689.HK', '2319.HK', '1177.HK', '9926.HK', '2696.HK', '0992.HK', '3319.HK']
+2026-04-17 14:58:56,793 INFO KR tickers: ['259960.KS', '041140.KQ', '215600.KQ', '052790.KQ', '067000.KQ', '194700.KQ', '053280.KQ', '180640.KQ', '192250.KQ', '114090.KQ', '053800.KQ', '078890.KQ', '047810.KS', '003490.KS', '060150.KQ', '036540.KQ', '101000.KQ', '034220.KS', '000990.KS', '218410.KS', '034020.KS', '032640.KQ', '030000.KS', '086790.KS', '024110.KS', '138930.KS', '035900.KQ', '122870.KQ', '009150.KS', '012330.KS', '041590.KQ', '030520.KQ', '083930.KQ', '079370.KQ', '020150.KQ', '002790.KS', '005380.KS', '036460.KQ', '069960.KQ']
+2026-04-17 14:58:56,793 INFO 
+Loading HK control price histories...
+2026-04-17 14:58:56,990 INFO HK control: 41 loaded, 1 missing
+2026-04-17 14:58:56,990 INFO 
+Loading KR control price histories via yfinance...
+2026-04-17 14:58:57,080 INFO KR control 259960.KS: loaded from cache (1143 rows)
+2026-04-17 14:58:57,080 INFO KR control 041140.KQ: pulling from yfinance...
+2026-04-17 14:58:57,616 ERROR $041140.KQ: possibly delisted; no timezone found
+2026-04-17 14:58:57,921 WARNING KR control 041140.KQ: empty response
+2026-04-17 14:58:57,930 INFO KR control 215600.KQ: loaded from cache (1187 rows)
+2026-04-17 14:58:57,935 INFO KR control 052790.KQ: loaded from cache (1784 rows)
+2026-04-17 14:58:57,939 INFO KR control 067000.KQ: loaded from cache (1787 rows)
+2026-04-17 14:58:57,942 INFO KR control 194700.KQ: loaded from cache (1787 rows)
+2026-04-17 14:58:57,946 INFO KR control 053280.KQ: loaded from cache (1787 rows)
+2026-04-17 14:58:57,950 INFO KR control 180640.KQ: loaded from cache (1788 rows)
+2026-04-17 14:58:57,952 INFO KR control 192250.KQ: loaded from cache (1775 rows)
+2026-04-17 14:58:57,955 INFO KR control 114090.KQ: loaded from cache (1788 rows)
+2026-04-17 14:58:57,957 INFO KR control 053800.KQ: loaded from cache (1787 rows)
+2026-04-17 14:58:57,959 INFO KR control 078890.KQ: loaded from cache (1789 rows)
+2026-04-17 14:58:57,962 INFO KR control 047810.KS: loaded from cache (1788 rows)
+2026-04-17 14:58:57,964 INFO KR control 003490.KS: loaded from cache (1788 rows)
+2026-04-17 14:58:57,966 INFO KR control 060150.KQ: loaded from cache (1787 rows)
+2026-04-17 14:58:57,968 INFO KR control 036540.KQ: loaded from cache (1787 rows)
+2026-04-17 14:58:57,970 INFO KR control 101000.KQ: loaded from cache (1599 rows)
+2026-04-17 14:58:57,971 INFO KR control 034220.KS: loaded from cache (1788 rows)
+2026-04-17 14:58:57,973 INFO KR control 000990.KS: loaded from cache (1788 rows)
+2026-04-17 14:58:57,975 INFO KR control 218410.KS: loaded from cache (1788 rows)
+2026-04-17 14:58:57,978 INFO KR control 034020.KS: loaded from cache (1788 rows)
+2026-04-17 14:58:57,980 INFO KR control 032640.KQ: loaded from cache (1788 rows)
+2026-04-17 14:58:57,981 INFO KR control 030000.KS: loaded from cache (1788 rows)
+2026-04-17 14:58:57,983 INFO KR control 086790.KS: loaded from cache (1788 rows)
+2026-04-17 14:58:57,985 INFO KR control 024110.KS: loaded from cache (1788 rows)
+2026-04-17 14:58:57,987 INFO KR control 138930.KS: loaded from cache (1788 rows)
+2026-04-17 14:58:57,989 INFO KR control 035900.KQ: loaded from cache (1787 rows)
+2026-04-17 14:58:57,990 INFO KR control 122870.KQ: loaded from cache (1787 rows)
+2026-04-17 14:58:57,993 INFO KR control 009150.KS: loaded from cache (1788 rows)
+2026-04-17 14:58:57,998 INFO KR control 012330.KS: loaded from cache (1788 rows)
+2026-04-17 14:58:58,000 INFO KR control 041590.KQ: loaded from cache (1788 rows)
+2026-04-17 14:58:58,005 INFO KR control 030520.KQ: loaded from cache (1787 rows)
+2026-04-17 14:58:58,007 INFO KR control 083930.KQ: loaded from cache (1787 rows)
+2026-04-17 14:58:58,009 INFO KR control 079370.KQ: loaded from cache (1789 rows)
+2026-04-17 14:58:58,012 INFO KR control 020150.KQ: loaded from cache (1788 rows)
+2026-04-17 14:58:58,015 INFO KR control 002790.KS: loaded from cache (1788 rows)
+2026-04-17 14:58:58,016 INFO KR control 005380.KS: loaded from cache (1788 rows)
+2026-04-17 14:58:58,018 INFO KR control 036460.KQ: loaded from cache (1788 rows)
+2026-04-17 14:58:58,020 INFO KR control 069960.KQ: loaded from cache (1788 rows)
+2026-04-17 14:58:58,020 INFO KR control: 38 loaded, 1 missing
+2026-04-17 14:58:58,020 INFO 
+Reading rebalance dates from output/universe_log.csv...
+2026-04-17 14:58:58,034 INFO HK rebalance dates: 88 (2019-01-02 to 2026-04-01)
+2026-04-17 14:58:58,034 INFO KR rebalance dates: 88 (2019-01-02 to 2026-04-01)
+2026-04-17 14:58:58,034 INFO 
+Computing HK control universe...
+2026-04-17 14:58:58,846 INFO 
+Computing KR control universe...
+2026-04-17 14:58:59,326 INFO Written: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/output/control_universe_log.csv (5238 rows)
+2026-04-17 14:58:59,327 INFO 
+Validating universe log...
+2026-04-17 14:58:59,330 INFO Universe log: no duplicate (date, ticker) pairs
+2026-04-17 14:58:59,332 INFO Universe log: per-month counts min=27, max=30
+2026-04-17 14:58:59,334 INFO 
+Loading Binance klines...
+2026-04-17 14:58:59,911 INFO Spot BTCUSDT: 4,004,219 rows
+2026-04-17 14:59:00,189 INFO Spot ETHUSDT: 4,004,219 rows
+2026-04-17 14:59:00,393 INFO Spot SOLUSDT: 2,984,755 rows
+2026-04-17 14:59:00,699 INFO Spot BNBUSDT: 4,004,219 rows
+2026-04-17 14:59:01,039 INFO Spot XRPUSDT: 4,004,220 rows
+2026-04-17 14:59:01,809 INFO 
+Loading FRED macro...
+2026-04-17 14:59:01,840 INFO FRED: 2781 rows, 2018-09-04 to 2026-04-15
+2026-04-17 14:59:01,840 INFO 
+Building overnight windows...
+2026-04-17 14:59:02,133 INFO HK: 1791 overnight windows
+2026-04-17 14:59:04,064 INFO KR: 1788 overnight windows
+2026-04-17 14:59:04,070 INFO 
+Computing crypto features for HK windows...
+2026-04-17 14:59:04,070 INFO Computing crypto features...
+2026-04-17 14:59:04,157 INFO   0/1791 windows processed
+2026-04-17 14:59:25,162 INFO   500/1791 windows processed
+2026-04-17 14:59:46,381 INFO   1000/1791 windows processed
+2026-04-17 15:00:10,073 INFO   1500/1791 windows processed
+2026-04-17 15:00:26,401 INFO 
+Computing crypto features for KR windows...
+2026-04-17 15:00:26,402 INFO Computing crypto features...
+2026-04-17 15:00:26,554 INFO   0/1788 windows processed
+2026-04-17 15:00:47,974 INFO   500/1788 windows processed
+2026-04-17 15:01:09,210 INFO   1000/1788 windows processed
+2026-04-17 15:01:30,727 INFO   1500/1788 windows processed
+2026-04-17 15:01:43,216 INFO 
+Attaching macro features...
+2026-04-17 15:01:43,530 INFO 
+Building HK control feature table...
+2026-04-17 15:01:43,568 INFO HK: expanding windows to ticker rows...
+2026-04-17 15:01:43,637 INFO   HK: 0/1791 windows expanded
+2026-04-17 15:01:44,600 INFO   HK: 100/1791 windows expanded
+2026-04-17 15:01:45,577 INFO   HK: 200/1791 windows expanded
+2026-04-17 15:01:46,585 INFO   HK: 300/1791 windows expanded
+2026-04-17 15:01:47,584 INFO   HK: 400/1791 windows expanded
+2026-04-17 15:01:48,648 INFO   HK: 500/1791 windows expanded
+2026-04-17 15:01:49,655 INFO   HK: 600/1791 windows expanded
+2026-04-17 15:01:50,664 INFO   HK: 700/1791 windows expanded
+2026-04-17 15:01:51,675 INFO   HK: 800/1791 windows expanded
+2026-04-17 15:01:52,708 INFO   HK: 900/1791 windows expanded
+2026-04-17 15:01:53,732 INFO   HK: 1000/1791 windows expanded
+2026-04-17 15:01:54,765 INFO   HK: 1100/1791 windows expanded
+2026-04-17 15:01:55,836 INFO   HK: 1200/1791 windows expanded
+2026-04-17 15:01:56,884 INFO   HK: 1300/1791 windows expanded
+2026-04-17 15:01:57,943 INFO   HK: 1400/1791 windows expanded
+2026-04-17 15:01:59,023 INFO   HK: 1500/1791 windows expanded
+2026-04-17 15:02:00,116 INFO   HK: 1600/1791 windows expanded
+2026-04-17 15:02:01,218 INFO   HK: 1700/1791 windows expanded
+2026-04-17 15:02:02,356 INFO HK: 53,503 rows
+2026-04-17 15:02:02,362 INFO 
+Building KR control feature table...
+2026-04-17 15:02:02,377 INFO KR: expanding windows to ticker rows...
+2026-04-17 15:02:02,984 INFO   KR: 100/1788 windows expanded
+2026-04-17 15:02:03,748 INFO   KR: 200/1788 windows expanded
+2026-04-17 15:02:04,502 INFO   KR: 300/1788 windows expanded
+2026-04-17 15:02:05,254 INFO   KR: 400/1788 windows expanded
+2026-04-17 15:02:06,010 INFO   KR: 500/1788 windows expanded
+2026-04-17 15:02:06,800 INFO   KR: 600/1788 windows expanded
+2026-04-17 15:02:07,592 INFO   KR: 700/1788 windows expanded
+2026-04-17 15:02:08,408 INFO   KR: 800/1788 windows expanded
+2026-04-17 15:02:09,221 INFO   KR: 900/1788 windows expanded
+2026-04-17 15:02:10,038 INFO   KR: 1000/1788 windows expanded
+2026-04-17 15:02:10,851 INFO   KR: 1100/1788 windows expanded
+2026-04-17 15:02:11,673 INFO   KR: 1200/1788 windows expanded
+2026-04-17 15:02:12,603 INFO   KR: 1300/1788 windows expanded
+2026-04-17 15:02:13,421 INFO   KR: 1400/1788 windows expanded
+2026-04-17 15:02:14,226 INFO   KR: 1500/1788 windows expanded
+2026-04-17 15:02:15,028 INFO   KR: 1600/1788 windows expanded
+2026-04-17 15:02:15,843 INFO   KR: 1700/1788 windows expanded
+2026-04-17 15:02:16,892 INFO KR: 52,958 rows
+2026-04-17 15:02:16,905 INFO 
+============================================================
+2026-04-17 15:02:16,905 INFO VALIDATION: HK features
+2026-04-17 15:02:16,905 INFO ============================================================
+2026-04-17 15:02:16,905 INFO Total rows: 53,503
+2026-04-17 15:02:16,916 INFO No duplicate (date, ticker) pairs
+2026-04-17 15:02:16,916 INFO 
+Feature stats:
+2026-04-17 15:02:16,919 INFO   btc_ov_log_return                  : mean=+0.0019  std=0.0376  nan=0.0%
+2026-04-17 15:02:16,920 WARNING   btc_ov_log_return: 30 values > 10 sigma from mean
+2026-04-17 15:02:16,920 INFO   eth_ov_log_return                  : mean=+0.0020  std=0.0477  nan=0.0%
+2026-04-17 15:02:16,921 INFO   btc_ov_realized_vol                : mean=+0.6197  std=0.3652  nan=0.0%
+2026-04-17 15:02:16,921 WARNING   btc_ov_realized_vol: 30 values > 10 sigma from mean
+2026-04-17 15:02:16,921 INFO   eth_ov_realized_vol                : mean=+0.7861  std=0.4405  nan=0.0%
+2026-04-17 15:02:16,922 WARNING   eth_ov_realized_vol: 30 values > 10 sigma from mean
+2026-04-17 15:02:16,922 INFO   btc_ov_max_drawdown                : mean=-0.0355  std=0.0293  nan=0.0%
+2026-04-17 15:02:16,922 WARNING   btc_ov_max_drawdown: 30 values > 10 sigma from mean
+2026-04-17 15:02:16,923 INFO   btc_ov_volume_usd                  : mean=+2553330584.7893  std=3001944025.4757  nan=0.0%
+2026-04-17 15:02:16,923 WARNING   btc_ov_volume_usd: 60 values > 10 sigma from mean
+2026-04-17 15:02:16,923 INFO   btc_ov_volume_surge                : mean=+1.0790  std=0.9093  nan=0.2%
+2026-04-17 15:02:16,924 WARNING   btc_ov_volume_surge: 59 values > 10 sigma from mean
+2026-04-17 15:02:16,924 INFO   btc_ov_taker_imbalance             : mean=-0.0114  std=0.0433  nan=0.0%
+2026-04-17 15:02:16,925 INFO   crosspair_dispersion               : mean=+0.0210  std=0.0207  nan=0.0%
+2026-04-17 15:02:16,925 WARNING   crosspair_dispersion: 30 values > 10 sigma from mean
+2026-04-17 15:02:16,925 INFO   btc_eth_spread                     : mean=-0.0001  std=0.0270  nan=0.0%
+2026-04-17 15:02:16,926 INFO   btc_funding_rate_latest            : mean=+0.0001  std=0.0002  nan=13.3% [perp]
+2026-04-17 15:02:16,926 WARNING   btc_funding_rate_latest: 30 values > 10 sigma from mean
+2026-04-17 15:02:16,927 INFO   btc_funding_rate_delta             : mean=-0.0000  std=0.0001  nan=13.3% [perp]
+2026-04-17 15:02:16,927 WARNING   btc_funding_rate_delta: 30 values > 10 sigma from mean
+2026-04-17 15:02:16,927 INFO   vix_level                          : mean=+20.1999  std=7.5653  nan=0.0%
+2026-04-17 15:02:16,928 INFO   vix_5d_change                      : mean=+0.0942  std=3.3234  nan=0.0%
+2026-04-17 15:02:16,928 WARNING   vix_5d_change: 30 values > 10 sigma from mean
+2026-04-17 15:02:16,928 INFO   yield_curve_slope                  : mean=+0.2293  std=0.5794  nan=0.0%
+2026-04-17 15:02:16,929 INFO   dxy_level                          : mean=+119.0455  std=4.2477  nan=0.0%
+2026-04-17 15:02:16,929 INFO   dxy_5d_change                      : mean=+0.0197  std=0.6917  nan=0.0%
+2026-04-17 15:02:16,930 INFO   breakeven_5y                       : mean=+2.1788  std=0.5335  nan=0.0%
+2026-04-17 15:02:16,930 INFO   stock_rv_20d                       : mean=+0.4685  std=0.2730  nan=0.0%
+2026-04-17 15:02:16,931 WARNING   stock_rv_20d: 36 values > 10 sigma from mean
+2026-04-17 15:02:16,931 INFO   stock_ret_20d                      : mean=+0.0009  std=0.1506  nan=0.0%
+2026-04-17 15:02:16,932 WARNING   stock_ret_20d: 20 values > 10 sigma from mean
+2026-04-17 15:02:16,932 INFO   stock_prior_day_return             : mean=-0.0000  std=0.0335  nan=0.0%
+2026-04-17 15:02:16,932 WARNING   stock_prior_day_return: 13 values > 10 sigma from mean
+2026-04-17 15:02:16,932 INFO 
+Target availability:
+2026-04-17 15:02:16,932 INFO   tgt_gap: 53,415 non-NaN (99.8%)
+2026-04-17 15:02:16,932 INFO   tgt_intraday: 53,415 non-NaN (99.8%)
+2026-04-17 15:02:16,933 INFO   tgt_cc: 53,415 non-NaN (99.8%)
+2026-04-17 15:02:17,016 INFO 
+============================================================
+2026-04-17 15:02:17,016 INFO VALIDATION: KR features
+2026-04-17 15:02:17,016 INFO ============================================================
+2026-04-17 15:02:17,016 INFO Total rows: 52,958
+2026-04-17 15:02:17,018 INFO No duplicate (date, ticker) pairs
+2026-04-17 15:02:17,018 INFO 
+Feature stats:
+2026-04-17 15:02:17,018 INFO   btc_ov_log_return                  : mean=+0.0024  std=0.0362  nan=0.0%
+2026-04-17 15:02:17,019 WARNING   btc_ov_log_return: 30 values > 10 sigma from mean
+2026-04-17 15:02:17,019 INFO   eth_ov_log_return                  : mean=+0.0024  std=0.0462  nan=0.0%
+2026-04-17 15:02:17,019 WARNING   eth_ov_log_return: 30 values > 10 sigma from mean
+2026-04-17 15:02:17,019 INFO   btc_ov_realized_vol                : mean=+0.6130  std=0.3635  nan=0.0%
+2026-04-17 15:02:17,020 WARNING   btc_ov_realized_vol: 30 values > 10 sigma from mean
+2026-04-17 15:02:17,020 INFO   eth_ov_realized_vol                : mean=+0.7715  std=0.4361  nan=0.0%
+2026-04-17 15:02:17,020 WARNING   eth_ov_realized_vol: 30 values > 10 sigma from mean
+2026-04-17 15:02:17,020 INFO   btc_ov_max_drawdown                : mean=-0.0352  std=0.0289  nan=0.0%
+2026-04-17 15:02:17,021 WARNING   btc_ov_max_drawdown: 30 values > 10 sigma from mean
+2026-04-17 15:02:17,021 INFO   btc_ov_volume_usd                  : mean=+2569599873.1591  std=3052787392.5727  nan=0.0%
+2026-04-17 15:02:17,021 WARNING   btc_ov_volume_usd: 60 values > 10 sigma from mean
+2026-04-17 15:02:17,022 INFO   btc_ov_volume_surge                : mean=+1.0836  std=0.9405  nan=0.0%
+2026-04-17 15:02:17,022 WARNING   btc_ov_volume_surge: 60 values > 10 sigma from mean
+2026-04-17 15:02:17,022 INFO   btc_ov_taker_imbalance             : mean=-0.0118  std=0.0434  nan=0.0%
+2026-04-17 15:02:17,023 INFO   crosspair_dispersion               : mean=+0.0204  std=0.0201  nan=0.0%
+2026-04-17 15:02:17,023 INFO   btc_eth_spread                     : mean=-0.0000  std=0.0261  nan=0.0%
+2026-04-17 15:02:17,024 INFO   btc_funding_rate_latest            : mean=+0.0001  std=0.0002  nan=12.6% [perp]
+2026-04-17 15:02:17,024 WARNING   btc_funding_rate_latest: 30 values > 10 sigma from mean
+2026-04-17 15:02:17,024 INFO   btc_funding_rate_delta             : mean=+0.0000  std=0.0001  nan=12.6% [perp]
+2026-04-17 15:02:17,025 WARNING   btc_funding_rate_delta: 60 values > 10 sigma from mean
+2026-04-17 15:02:17,025 INFO   vix_level                          : mean=+20.1975  std=7.6287  nan=0.0%
+2026-04-17 15:02:17,025 INFO   vix_5d_change                      : mean=+0.0902  std=3.3299  nan=0.0%
+2026-04-17 15:02:17,026 WARNING   vix_5d_change: 30 values > 10 sigma from mean
+2026-04-17 15:02:17,026 INFO   yield_curve_slope                  : mean=+0.2305  std=0.5840  nan=0.0%
+2026-04-17 15:02:17,026 INFO   dxy_level                          : mean=+119.0603  std=4.2309  nan=0.0%
+2026-04-17 15:02:17,027 INFO   dxy_5d_change                      : mean=+0.0183  std=0.6918  nan=0.0%
+2026-04-17 15:02:17,027 INFO   breakeven_5y                       : mean=+2.1846  std=0.5349  nan=0.0%
+2026-04-17 15:02:17,028 INFO   stock_rv_20d                       : mean=+0.4175  std=0.2323  nan=0.0%
+2026-04-17 15:02:17,029 INFO   stock_ret_20d                      : mean=+0.0059  std=0.1306  nan=0.0%
+2026-04-17 15:02:17,029 WARNING   stock_ret_20d: 3 values > 10 sigma from mean
+2026-04-17 15:02:17,029 INFO   stock_prior_day_return             : mean=-0.0003  std=0.0296  nan=0.0%
+2026-04-17 15:02:17,030 WARNING   stock_prior_day_return: 6 values > 10 sigma from mean
+2026-04-17 15:02:17,030 INFO 
+Target availability:
+2026-04-17 15:02:17,030 INFO   tgt_gap: 52,246 non-NaN (98.7%)
+2026-04-17 15:02:17,030 INFO   tgt_intraday: 52,246 non-NaN (98.7%)
+2026-04-17 15:02:17,030 INFO   tgt_cc: 52,246 non-NaN (98.7%)
+2026-04-17 15:02:17,119 INFO 
+--- Sanity table: HK per-ticker row counts ---
+2026-04-17 15:02:17,145 INFO 
+         rows  tgt_gap_mean  tgt_gap_std  stock_rv_mean
+ticker                                                 
+1928.HK  1791      0.000680     0.015488       0.410316
+0175.HK  1791      0.001095     0.016505       0.452164
+2269.HK  1791      0.001486     0.020708       0.577113
+1299.HK  1791      0.001567     0.014244       0.307238
+1177.HK  1791      0.001339     0.013065       0.399016
+2319.HK  1791      0.000869     0.013432       0.353254
+0992.HK  1791     -0.001460     0.014391       0.405290
+0981.HK  1791      0.002948     0.015288       0.496106
+2331.HK  1791      0.001246     0.017851       0.490628
+0688.HK  1791      0.000499     0.011847       0.347753
+0586.HK  1791      0.000636     0.010430       0.343307
+3908.HK  1791      0.001760     0.013143       0.434927
+6030.HK  1791      0.001200     0.011822       0.371819
+6881.HK  1791      0.001565     0.011104       0.375553
+2013.HK  1769      0.002889     0.020929       0.753875
+1071.HK  1746      0.001128     0.009011       0.370213
+3738.HK  1724      0.004121     0.018277       0.714867
+2689.HK  1709      0.002379     0.011605       0.406165
+1368.HK  1667      0.001869     0.014007       0.500979
+0152.HK  1584      0.000965     0.009354       0.281163
+0303.HK  1567      0.000757     0.009562       0.295554
+6186.HK  1565      0.001028     0.013386       0.415524
+0656.HK  1522      0.000647     0.011199       0.325730
+3319.HK  1480      0.002567     0.016054       0.573256
+9926.HK  1444      0.002846     0.018146       0.649842
+9922.HK  1397      0.002605     0.015194       0.600297
+9698.HK  1319      0.000824     0.034847       0.741264
+2618.HK  1176      0.001454     0.013735       0.468771
+0412.HK  1152     -0.003681     0.017124       0.627447
+9966.HK  1149      0.003576     0.017761       0.753201
+1070.HK  1136      0.002013     0.015202       0.524657
+2727.HK  1113      0.001694     0.011081       0.424296
+1788.HK   765      0.002440     0.015423       0.587662
+0242.HK   451      0.000080     0.012184       0.397617
+1382.HK   391      0.000534     0.009827       0.311357
+2696.HK   359      0.000608     0.013182       0.580627
+0860.HK   184      0.002406     0.011822       0.606880
+9991.HK    39      0.013479     0.032517       0.866780
+0218.HK    21     -0.002232     0.022938       1.397569
+2026-04-17 15:02:17,145 INFO 
+--- Feature means/stds (HK) ---
+2026-04-17 15:02:17,145 INFO   btc_ov_log_return                  : mean=+0.001882  std=0.037565
+2026-04-17 15:02:17,146 INFO   eth_ov_log_return                  : mean=+0.002014  std=0.047671
+2026-04-17 15:02:17,146 INFO   btc_ov_realized_vol                : mean=+0.619741  std=0.365215
+2026-04-17 15:02:17,146 INFO   eth_ov_realized_vol                : mean=+0.786072  std=0.440480
+2026-04-17 15:02:17,147 INFO   btc_ov_max_drawdown                : mean=-0.035535  std=0.029277
+2026-04-17 15:02:17,147 INFO   btc_ov_volume_usd                  : mean=+2553330584.789304  std=3001944025.475700
+2026-04-17 15:02:17,147 INFO   btc_ov_volume_surge                : mean=+1.079003  std=0.909279
+2026-04-17 15:02:17,148 INFO   btc_ov_taker_imbalance             : mean=-0.011434  std=0.043250
+2026-04-17 15:02:17,149 INFO   crosspair_dispersion               : mean=+0.020996  std=0.020732
+2026-04-17 15:02:17,149 INFO   btc_eth_spread                     : mean=-0.000133  std=0.027006
+2026-04-17 15:02:17,149 INFO   btc_funding_rate_latest            : mean=+0.000108  std=0.000212
+2026-04-17 15:02:17,150 INFO   btc_funding_rate_delta             : mean=-0.000011  std=0.000143
+2026-04-17 15:02:17,150 INFO   vix_level                          : mean=+20.199924  std=7.565267
+2026-04-17 15:02:17,150 INFO   vix_5d_change                      : mean=+0.094161  std=3.323370
+2026-04-17 15:02:17,150 INFO   yield_curve_slope                  : mean=+0.229299  std=0.579431
+2026-04-17 15:02:17,150 INFO   dxy_level                          : mean=+119.045485  std=4.247712
+2026-04-17 15:02:17,151 INFO   dxy_5d_change                      : mean=+0.019703  std=0.691715
+2026-04-17 15:02:17,151 INFO   breakeven_5y                       : mean=+2.178780  std=0.533511
+2026-04-17 15:02:17,152 INFO   stock_rv_20d                       : mean=+0.468483  std=0.273029
+2026-04-17 15:02:17,152 INFO   stock_ret_20d                      : mean=+0.000878  std=0.150616
+2026-04-17 15:02:17,153 INFO   stock_prior_day_return             : mean=-0.000010  std=0.033542
+2026-04-17 15:02:17,153 INFO 
+--- Sanity table: KR per-ticker row counts ---
+2026-04-17 15:02:17,158 INFO 
+           rows  tgt_gap_mean  tgt_gap_std  stock_rv_mean
+ticker                                                   
+000990.KS  1766      0.002437     0.016191       0.471655
+032640.KQ  1766      0.000037     0.007828       0.225813
+122870.KQ  1766      0.000606     0.013162       0.469957
+002790.KS  1766      0.000136     0.011995       0.402936
+047810.KS  1766      0.001727     0.012483       0.387926
+036460.KQ  1766      0.001078     0.013374       0.382269
+086790.KS  1766     -0.000070     0.013383       0.320675
+034220.KS  1766      0.001420     0.012825       0.386620
+034020.KS  1766      0.002910     0.020014       0.515566
+035900.KQ  1766      0.001413     0.013224       0.434187
+024110.KS  1766      0.000137     0.009194       0.218127
+012330.KS  1766      0.000014     0.013859       0.332420
+009150.KS  1766      0.001812     0.015027       0.364972
+005380.KS  1766      0.001369     0.014854       0.332405
+003490.KS  1766      0.001167     0.014895       0.316186
+020150.KQ  1748      0.001749     0.016065       0.489296
+215600.KQ  1747      0.000725     0.029836       0.573383
+069960.KQ  1744      0.000179     0.010212       0.302351
+138930.KS  1725     -0.000079     0.009976       0.258526
+053800.KQ  1703      0.000827     0.015417       0.420565
+180640.KQ  1702      0.000270     0.019308       0.543848
+030000.KS  1683      0.000492     0.009434       0.248943
+036540.KQ  1626      0.002625     0.019303       0.487719
+218410.KS  1624      0.002122     0.015910       0.492650
+114090.KQ  1586     -0.000182     0.011271       0.328998
+030520.KQ  1473      0.002114     0.015380       0.494761
+259960.KS  1128      0.000038     0.012525       0.415294
+079370.KQ  1088      0.001881     0.016623       0.574413
+078890.KQ   892      0.001813     0.017785       0.611410
+192250.KQ   862      0.000711     0.018421       0.560106
+060150.KQ   845      0.001932     0.012609       0.374234
+067000.KQ   843      0.000610     0.016593       0.618467
+194700.KQ   657      0.001998     0.012789       0.500027
+083930.KQ   594      0.001428     0.014478       0.520843
+053280.KQ   421      0.001481     0.023232       0.636785
+052790.KQ   367      0.001025     0.018787       0.746809
+101000.KQ   225     -0.000391     0.023125       1.018736
+041590.KQ   185     -0.000442     0.025997       0.994342
+2026-04-17 15:02:17,158 INFO 
+--- Feature means/stds (KR) ---
+2026-04-17 15:02:17,158 INFO   btc_ov_log_return                  : mean=+0.002366  std=0.036151
+2026-04-17 15:02:17,158 INFO   eth_ov_log_return                  : mean=+0.002372  std=0.046215
+2026-04-17 15:02:17,158 INFO   btc_ov_realized_vol                : mean=+0.613048  std=0.363508
+2026-04-17 15:02:17,159 INFO   eth_ov_realized_vol                : mean=+0.771499  std=0.436110
+2026-04-17 15:02:17,159 INFO   btc_ov_max_drawdown                : mean=-0.035158  std=0.028860
+2026-04-17 15:02:17,159 INFO   btc_ov_volume_usd                  : mean=+2569599873.159116  std=3052787392.572690
+2026-04-17 15:02:17,159 INFO   btc_ov_volume_surge                : mean=+1.083609  std=0.940489
+2026-04-17 15:02:17,159 INFO   btc_ov_taker_imbalance             : mean=-0.011801  std=0.043414
+2026-04-17 15:02:17,160 INFO   crosspair_dispersion               : mean=+0.020406  std=0.020100
+2026-04-17 15:02:17,160 INFO   btc_eth_spread                     : mean=-0.000006  std=0.026108
+2026-04-17 15:02:17,160 INFO   btc_funding_rate_latest            : mean=+0.000119  std=0.000221
+2026-04-17 15:02:17,160 INFO   btc_funding_rate_delta             : mean=+0.000004  std=0.000134
+2026-04-17 15:02:17,161 INFO   vix_level                          : mean=+20.197496  std=7.628666
+2026-04-17 15:02:17,161 INFO   vix_5d_change                      : mean=+0.090202  std=3.329870
+2026-04-17 15:02:17,161 INFO   yield_curve_slope                  : mean=+0.230503  std=0.584022
+2026-04-17 15:02:17,161 INFO   dxy_level                          : mean=+119.060313  std=4.230933
+2026-04-17 15:02:17,161 INFO   dxy_5d_change                      : mean=+0.018332  std=0.691779
+2026-04-17 15:02:17,162 INFO   breakeven_5y                       : mean=+2.184645  std=0.534896
+2026-04-17 15:02:17,162 INFO   stock_rv_20d                       : mean=+0.417485  std=0.232315
+2026-04-17 15:02:17,162 INFO   stock_ret_20d                      : mean=+0.005855  std=0.130616
+2026-04-17 15:02:17,162 INFO   stock_prior_day_return             : mean=-0.000280  std=0.029642
+2026-04-17 15:02:17,255 INFO 
+Saved: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/output/features_track_a_control_hk.parquet ((53503, 28))
+2026-04-17 15:02:17,255 INFO Saved: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/output/features_track_a_control_kr.parquet ((52958, 28))
+2026-04-17 15:02:17,255 INFO 
+======================================================================
+2026-04-17 15:02:17,255 INFO STAGE P2-3 SUMMARY
+2026-04-17 15:02:17,255 INFO ======================================================================
+2026-04-17 15:02:17,255 INFO HK control: 42 raw tickers from CSV
+2026-04-17 15:02:17,255 INFO   Found in Stooq: 41
+2026-04-17 15:02:17,255 INFO   Missing:        1 — ['0273.HK: file 273.hk.txt not found']
+2026-04-17 15:02:17,255 INFO KR control: 39 raw tickers from CSV
+2026-04-17 15:02:17,255 INFO   Found via yfinance: 38
+2026-04-17 15:02:17,255 INFO   Missing:            1 — ['041140.KQ: yfinance returned empty']
+2026-04-17 15:02:17,259 INFO HK rebalance months: 88, typical pool size: median=30 (min=27, max=30)
+2026-04-17 15:02:17,259 INFO KR rebalance months: 87, typical pool size: median=30 (min=29, max=30)
+2026-04-17 15:02:17,259 INFO HK feature parquet:  53,503 rows x 28 columns
+2026-04-17 15:02:17,259 INFO KR feature parquet:  52,958 rows x 28 columns
+2026-04-17 15:02:17,259 INFO Feature count (non-meta): 21 (expected 21: 12 crypto + 6 macro + 3 stock)
+2026-04-17 15:02:17,259 INFO Sanity checks: PASS
+2026-04-17 15:02:17,260 INFO File sizes: 225KB, 2918KB, 3063KB
+2026-04-17 15:02:17,260 INFO Stage P2-3 complete.

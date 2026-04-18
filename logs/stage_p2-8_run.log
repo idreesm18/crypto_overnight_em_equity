@@ -1,0 +1,1072 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/idreesaud/main/ap-pz3uvP0S5t8HTImnRsou3j
+✓ Created objects.
+├── 🔨 Created mount 
+│   /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity_p2/scripts/
+│   stage_p2-8_tcn_modal.py
+└── 🔨 Created function train_tcn.
+=== Stage P2-8: TCN Modal Training ===
+Universes: ['main_hk', 'main_kr', 'index_hk', 'index_kr']
+Targets:   ['gap', 'intraday', 'cc']
+Settings:  Step-1 (N_BLOCKS=2, BATCH=128, EPOCHS=15)
+
+[1/3] Uploading .npz files to Modal volume...
+  uploading sequences_hk.npz (727.9 MB)...
+  uploading sequences_kr.npz (917.6 MB)...
+  uploading sequences_index_hk.npz (31.3 MB)...
+  uploading sequences_index_kr.npz (31.4 MB)...
+  uploaded 4 file(s)
+
+[2/3] Launching 12 TCN runs in parallel on Modal T4...
+[main_hk/gap] device=cuda
+[main_hk/cc] device=cuda
+[main_hk/intraday] device=cuda
+[index_hk/intraday] device=cuda[main_kr/gap] device=cuda
+[main_kr/cc] device=cuda
+
+[index_hk/gap] device=cuda
+  N=1792 T_max=1698 F=15 S=6
+  folds (monthly, min_train=252): 75
+[index_hk/cc] device=cuda
+[main_kr/intraday] device=cuda  N=1792 T_max=1698 F=15 S=6
+
+  folds (monthly, min_train=252): 75
+  N=1792 T_max=1698 F=15 S=6
+  folds (monthly, min_train=252): 75
+[index_kr/gap] device=cuda
+  N=1789 T_max=2226 F=15 S=6
+  folds (monthly, min_train=252): 75
+  fold 000 2020-02-03 n_tr=  265 n_te=  20 train_ic=+0.065 oos_ic=+0.283 dir=0.400 ep=6 
+  fold 001 2020-03-02 n_tr=  285 n_te=  22 train_ic=-0.013 oos_ic=+0.103 dir=0.500 ep=6 
+  fold 000 2020-02-03 n_tr=  265 n_te=  20 train_ic=+0.148 oos_ic=-0.429 dir=0.400 ep=10 OVERFIT_FLAG
+  fold 000 2020-02-03 n_tr=  265 n_te=  20 train_ic=+0.019 oos_ic=-0.368 dir=0.400 ep=6 OVERFIT_FLAG
+  fold 002 2020-04-01 n_tr=  307 n_te=  19 train_ic=+0.074 oos_ic=-0.302 dir=0.526 ep=10 OVERFIT_FLAG
+  fold 001 2020-03-02 n_tr=  285 n_te=  22 train_ic=+0.015 oos_ic=+0.311 dir=0.591 ep=6 
+  fold 001 2020-03-02 n_tr=  285 n_te=  22 train_ic=-0.048 oos_ic=-0.022 dir=0.591 ep=6 
+  fold 002 2020-04-01 n_tr=  307 n_te=  19 train_ic=+0.039 oos_ic=-0.281 dir=0.368 ep=7 OVERFIT_FLAG  fold 002 2020-04-01 n_tr=  307 n_te=  19 train_ic=+0.070 oos_ic=+0.304 dir=0.421 ep=6 
+
+  fold 003 2020-05-04 n_tr=  326 n_te=  20 train_ic=+0.164 oos_ic=+0.208 dir=0.450 ep=13 
+  fold 003 2020-05-04 n_tr=  326 n_te=  20 train_ic=+0.045 oos_ic=-0.180 dir=0.550 ep=8 OVERFIT_FLAG
+  fold 003 2020-05-04 n_tr=  326 n_te=  20 train_ic=+0.120 oos_ic=-0.287 dir=0.400 ep=10 OVERFIT_FLAG
+  fold 004 2020-06-01 n_tr=  346 n_te=  21 train_ic=+0.125 oos_ic=+0.095 dir=0.476 ep=10 
+  fold 000 2020-02-03 n_tr=  265 n_te=  20 train_ic=+0.221 oos_ic=-0.075 dir=0.400 ep=15 OVERFIT_FLAG  fold 004 2020-06-01 n_tr=  346 n_te=  21 train_ic=+0.121 oos_ic=+0.235 dir=0.476 ep=7 
+  fold 004 2020-06-01 n_tr=  346 n_te=  21 train_ic=+0.045 oos_ic=-0.105 dir=0.619 ep=10 
+
+  fold 005 2020-07-02 n_tr=  367 n_te=  22 train_ic=-0.001 oos_ic=-0.065 dir=0.636 ep=6 
+  fold 005 2020-07-02 n_tr=  367 n_te=  22 train_ic=+0.006 oos_ic=+0.034 dir=0.273 ep=6   fold 006 2020-08-03 n_tr=  389 n_te=  21 train_ic=+0.040 oos_ic=-0.045 dir=0.619 ep=6 
+
+  fold 001 2020-03-02 n_tr=  285 n_te=  22 train_ic=+0.074 oos_ic=-0.440 dir=0.318 ep=8 OVERFIT_FLAG
+  fold 005 2020-07-02 n_tr=  367 n_te=  22 train_ic=+0.128 oos_ic=-0.194 dir=0.455 ep=12 OVERFIT_FLAG
+  fold 007 2020-09-01 n_tr=  410 n_te=  22 train_ic=+0.081 oos_ic=-0.021 dir=0.500 ep=7 
+  fold 002 2020-04-01 n_tr=  307 n_te=  20 train_ic=-0.100 oos_ic=+0.232 dir=0.450 ep=9 
+  fold 006 2020-08-03 n_tr=  389 n_te=  21 train_ic=+0.163 oos_ic=-0.105 dir=0.333 ep=15 OVERFIT_FLAG
+  fold 008 2020-10-05 n_tr=  432 n_te=  18 train_ic=+0.079 oos_ic=-0.273 dir=0.556 ep=8 OVERFIT_FLAG
+  fold 003 2020-05-04 n_tr=  327 n_te=  19 train_ic=+0.018 oos_ic=+0.153 dir=0.474 ep=6 
+  fold 006 2020-08-03 n_tr=  389 n_te=  21 train_ic=+0.190 oos_ic=-0.068 dir=0.524 ep=15 OVERFIT_FLAG
+  N=40808 T_max=1698 F=15 S=9
+  folds (monthly, min_train=252): 75
+  fold 007 2020-09-01 n_tr=  410 n_te=  22 train_ic=+0.007 oos_ic=+0.165 dir=0.682 ep=9 
+  fold 007 2020-09-01 n_tr=  410 n_te=  22 train_ic=+0.064 oos_ic=-0.141 dir=0.455 ep=6 OVERFIT_FLAG  fold 009 2020-11-02 n_tr=  450 n_te=  21 train_ic=+0.064 oos_ic=+0.164 dir=0.571 ep=7 
+
+  fold 004 2020-06-01 n_tr=  346 n_te=  22 train_ic=+0.050 oos_ic=-0.225 dir=0.455 ep=6 OVERFIT_FLAG
+  N=40808 T_max=1698 F=15 S=9
+  folds (monthly, min_train=252): 75
+  fold 008 2020-10-05 n_tr=  432 n_te=  18 train_ic=+0.145 oos_ic=+0.057 dir=0.389 ep=9 
+  fold 008 2020-10-05 n_tr=  432 n_te=  18 train_ic=+0.142 oos_ic=+0.356 dir=0.556 ep=11 
+  fold 010 2020-12-01 n_tr=  471 n_te=  22 train_ic=+0.207 oos_ic=+0.321 dir=0.455 ep=12 
+  fold 005 2020-07-01 n_tr=  368 n_te=  23 train_ic=+0.163 oos_ic=+0.424 dir=0.696 ep=15 
+  fold 009 2020-11-02 n_tr=  450 n_te=  21 train_ic=+0.147 oos_ic=+0.134 dir=0.571 ep=8 
+  fold 011 2021-01-04 n_tr=  493 n_te=  20 train_ic=+0.119 oos_ic=+0.305 dir=0.600 ep=7 
+  fold 009 2020-11-02 n_tr=  450 n_te=  21 train_ic=+0.188 oos_ic=-0.161 dir=0.476 ep=14 OVERFIT_FLAG
+  fold 010 2020-12-01 n_tr=  471 n_te=  22 train_ic=+0.128 oos_ic=-0.039 dir=0.636 ep=8 
+  fold 006 2020-08-03 n_tr=  391 n_te=  20 train_ic=+0.162 oos_ic=-0.304 dir=0.500 ep=11 OVERFIT_FLAG
+  fold 010 2020-12-01 n_tr=  471 n_te=  22 train_ic=+0.124 oos_ic=-0.234 dir=0.455 ep=8 OVERFIT_FLAG
+  N=40808 T_max=1698 F=15 S=9
+  folds (monthly, min_train=252): 75
+  fold 012 2021-02-01 n_tr=  513 n_te=  18 train_ic=+0.237 oos_ic=-0.152 dir=0.389 ep=14 OVERFIT_FLAG
+  fold 007 2020-09-01 n_tr=  411 n_te=  21 train_ic=-0.077 oos_ic=-0.484 dir=0.667 ep=6 OVERFIT_FLAG
+  fold 011 2021-01-04 n_tr=  493 n_te=  20 train_ic=+0.012 oos_ic=+0.477 dir=0.400 ep=6 
+  fold 011 2021-01-04 n_tr=  493 n_te=  20 train_ic=+0.158 oos_ic=+0.017 dir=0.500 ep=15 
+  fold 013 2021-03-01 n_tr=  531 n_te=  23 train_ic=+0.210 oos_ic=-0.212 dir=0.522 ep=15 OVERFIT_FLAG
+  fold 008 2020-10-05 n_tr=  432 n_te=  19 train_ic=+0.269 oos_ic=-0.298 dir=0.316 ep=15 OVERFIT_FLAG
+  fold 012 2021-02-01 n_tr=  513 n_te=  18 train_ic=+0.218 oos_ic=-0.307 dir=0.389 ep=15 OVERFIT_FLAG
+  fold 014 2021-04-01 n_tr=  554 n_te=  19 train_ic=+0.105 oos_ic=-0.121 dir=0.421 ep=7 OVERFIT_FLAG
+  fold 012 2021-02-01 n_tr=  513 n_te=  18 train_ic=+0.116 oos_ic=-0.051 dir=0.611 ep=15 
+  fold 009 2020-11-02 n_tr=  451 n_te=  21 train_ic=+0.170 oos_ic=+0.022 dir=0.619 ep=11 
+  fold 013 2021-03-01 n_tr=  531 n_te=  23 train_ic=+0.087 oos_ic=+0.212 dir=0.652 ep=7 
+  fold 013 2021-03-01 n_tr=  531 n_te=  23 train_ic=+0.177 oos_ic=+0.254 dir=0.609 ep=15 
+  N=51876 T_max=2226 F=15 S=9
+  folds (monthly, min_train=252): 75
+  fold 015 2021-05-03 n_tr=  573 n_te=  20 train_ic=+0.182 oos_ic=+0.003 dir=0.450 ep=14 
+  fold 010 2020-12-01 n_tr=  472 n_te=  21 train_ic=+0.138 oos_ic=-0.084 dir=0.667 ep=8 OVERFIT_FLAG  fold 014 2021-04-01 n_tr=  554 n_te=  19 train_ic=+0.003 oos_ic=-0.137 dir=0.368 ep=6 
+
+  fold 014 2021-04-01 n_tr=  554 n_te=  19 train_ic=+0.154 oos_ic=+0.172 dir=0.632 ep=8 
+  fold 016 2021-06-01 n_tr=  593 n_te=  21 train_ic=+0.098 oos_ic=+0.122 dir=0.667 ep=8 
+  fold 015 2021-05-03 n_tr=  573 n_te=  20 train_ic=+0.112 oos_ic=-0.564 dir=0.650 ep=6 OVERFIT_FLAG
+  fold 011 2021-01-04 n_tr=  493 n_te=  20 train_ic=+0.159 oos_ic=-0.380 dir=0.700 ep=8 OVERFIT_FLAG
+  fold 015 2021-05-03 n_tr=  573 n_te=  20 train_ic=+0.178 oos_ic=-0.065 dir=0.400 ep=10 OVERFIT_FLAG
+  fold 017 2021-07-02 n_tr=  614 n_te=  21 train_ic=+0.090 oos_ic=+0.196 dir=0.571 ep=7 
+  N=51876 T_max=2226 F=15 S=9
+  folds (monthly, min_train=252): 75
+  fold 016 2021-06-01 n_tr=  593 n_te=  21 train_ic=+0.101 oos_ic=-0.291 dir=0.524 ep=8 OVERFIT_FLAG
+  fold 012 2021-02-01 n_tr=  513 n_te=  18 train_ic=+0.184 oos_ic=+0.129 dir=0.611 ep=12 
+  fold 016 2021-06-01 n_tr=  593 n_te=  21 train_ic=+0.183 oos_ic=-0.065 dir=0.619 ep=15 OVERFIT_FLAG
+  fold 017 2021-07-02 n_tr=  614 n_te=  21 train_ic=+0.034 oos_ic=+0.349 dir=0.619 ep=6 
+  fold 018 2021-08-02 n_tr=  635 n_te=  22 train_ic=+0.153 oos_ic=+0.209 dir=0.545 ep=11 
+  N=51876 T_max=2226 F=15 S=9
+  folds (monthly, min_train=252): 75
+  fold 013 2021-03-02 n_tr=  531 n_te=  22 train_ic=+0.250 oos_ic=-0.212 dir=0.682 ep=12 OVERFIT_FLAG
+  fold 018 2021-08-02 n_tr=  635 n_te=  22 train_ic=+0.127 oos_ic=+0.173 dir=0.545 ep=8 
+  fold 017 2021-07-02 n_tr=  614 n_te=  21 train_ic=+0.140 oos_ic=+0.149 dir=0.476 ep=14   fold 019 2021-09-01 n_tr=  657 n_te=  21 train_ic=+0.081 oos_ic=-0.119 dir=0.524 ep=7 OVERFIT_FLAG
+
+  fold 000 2020-02-03 n_tr= 4074 n_te= 339 train_ic=+0.288 oos_ic=+0.041 dir=0.499 ep=15 OVERFIT_FLAG
+  fold 014 2021-04-01 n_tr=  553 n_te=  22 train_ic=+0.049 oos_ic=+0.481 dir=0.727 ep=7 
+  fold 020 2021-10-04 n_tr=  678 n_te=  18 train_ic=+0.004 oos_ic=-0.100 dir=0.556 ep=6 
+  fold 019 2021-09-01 n_tr=  657 n_te=  21 train_ic=+0.207 oos_ic=+0.127 dir=0.619 ep=15 
+  fold 018 2021-08-02 n_tr=  635 n_te=  22 train_ic=+0.167 oos_ic=-0.015 dir=0.364 ep=15 
+  fold 015 2021-05-03 n_tr=  575 n_te=  19 train_ic=+0.164 oos_ic=-0.696 dir=0.368 ep=6 OVERFIT_FLAG  fold 000 2020-02-03 n_tr= 4074 n_te= 339 train_ic=+0.325 oos_ic=-0.011 dir=0.451 ep=15 OVERFIT_FLAG
+
+  fold 021 2021-11-01 n_tr=  696 n_te=  22 train_ic=+0.160 oos_ic=-0.225 dir=0.682 ep=9 OVERFIT_FLAG
+  fold 020 2021-10-04 n_tr=  678 n_te=  18 train_ic=+0.039 oos_ic=+0.519 dir=0.556 ep=6 
+  fold 022 2021-12-01 n_tr=  718 n_te=  22 train_ic=+0.067 oos_ic=+0.212 dir=0.364 ep=6 
+  fold 019 2021-09-01 n_tr=  657 n_te=  21 train_ic=+0.171 oos_ic=+0.066 dir=0.381 ep=13 
+  fold 016 2021-06-01 n_tr=  594 n_te=  22 train_ic=+0.188 oos_ic=-0.417 dir=0.364 ep=13 OVERFIT_FLAG  fold 021 2021-11-01 n_tr=  696 n_te=  22 train_ic=+0.135 oos_ic=+0.184 dir=0.682 ep=7 
+
+  fold 023 2022-01-03 n_tr=  740 n_te=  21 train_ic=+0.212 oos_ic=+0.021 dir=0.571 ep=12 
+  fold 017 2021-07-01 n_tr=  616 n_te=  22 train_ic=-0.010 oos_ic=-0.461 dir=0.636 ep=6 OVERFIT_FLAG
+  fold 000 2020-02-03 n_tr= 4074 n_te= 339 train_ic=+0.357 oos_ic=+0.064 dir=0.481 ep=15 OVERFIT_FLAG
+  fold 020 2021-10-04 n_tr=  678 n_te=  18 train_ic=+0.186 oos_ic=-0.106 dir=0.556 ep=15 OVERFIT_FLAG
+  fold 024 2022-02-04 n_tr=  761 n_te=  17 train_ic=+0.111 oos_ic=+0.022 dir=0.353 ep=6 
+  fold 022 2021-12-01 n_tr=  718 n_te=  22 train_ic=+0.206 oos_ic=+0.285 dir=0.636 ep=15 
+  fold 021 2021-11-01 n_tr=  696 n_te=  22 train_ic=+0.132 oos_ic=+0.036 dir=0.409 ep=7 
+  fold 018 2021-08-02 n_tr=  638 n_te=  21 train_ic=+0.171 oos_ic=-0.066 dir=0.571 ep=14 OVERFIT_FLAG
+  fold 025 2022-03-01 n_tr=  778 n_te=  23 train_ic=+0.169 oos_ic=-0.088 dir=0.435 ep=10 OVERFIT_FLAG
+  fold 023 2022-01-03 n_tr=  740 n_te=  21 train_ic=+0.182 oos_ic=+0.226 dir=0.476 ep=10 
+  fold 022 2021-12-01 n_tr=  718 n_te=  22 train_ic=+0.137 oos_ic=-0.143 dir=0.455 ep=10 OVERFIT_FLAG
+  fold 019 2021-09-01 n_tr=  659 n_te=  19 train_ic=-0.068 oos_ic=-0.307 dir=0.263 ep=6 OVERFIT_FLAG
+  fold 024 2022-02-04 n_tr=  761 n_te=  17 train_ic=+0.082 oos_ic=-0.502 dir=0.588 ep=6 OVERFIT_FLAG  fold 026 2022-04-01 n_tr=  801 n_te=  18 train_ic=+0.148 oos_ic=+0.046 dir=0.444 ep=8 
+
+  fold 020 2021-10-01 n_tr=  678 n_te=  19 train_ic=+0.171 oos_ic=+0.228 dir=0.526 ep=10 
+  fold 023 2022-01-03 n_tr=  740 n_te=  21 train_ic=+0.131 oos_ic=+0.240 dir=0.571 ep=15 
+  fold 025 2022-03-01 n_tr=  778 n_te=  23 train_ic=+0.180 oos_ic=+0.210 dir=0.565 ep=14 
+  fold 027 2022-05-03 n_tr=  819 n_te=  20 train_ic=+0.194 oos_ic=-0.102 dir=0.400 ep=15 OVERFIT_FLAG
+  fold 021 2021-11-01 n_tr=  697 n_te=  22 train_ic=+0.195 oos_ic=+0.108 dir=0.409 ep=11 
+  fold 024 2022-02-04 n_tr=  761 n_te=  17 train_ic=+0.176 oos_ic=-0.282 dir=0.294 ep=14 OVERFIT_FLAG
+  fold 001 2020-03-02 n_tr= 4413 n_te= 353 train_ic=+0.304 oos_ic=+0.180 dir=0.516 ep=15 
+  fold 026 2022-04-01 n_tr=  801 n_te=  18 train_ic=+0.206 oos_ic=-0.059 dir=0.333 ep=15 OVERFIT_FLAG
+  fold 028 2022-06-01 n_tr=  839 n_te=  21 train_ic=+0.212 oos_ic=-0.317 dir=0.286 ep=15 OVERFIT_FLAG
+  fold 022 2021-12-01 n_tr=  719 n_te=  22 train_ic=+0.016 oos_ic=+0.102 dir=0.591 ep=6 
+  fold 027 2022-05-03 n_tr=  819 n_te=  20 train_ic=+0.137 oos_ic=+0.068 dir=0.450 ep=7 
+  fold 001 2020-03-02 n_tr= 4413 n_te= 353 train_ic=+0.352 oos_ic=-0.003 dir=0.448 ep=15 OVERFIT_FLAG
+  fold 025 2022-03-01 n_tr=  778 n_te=  23 train_ic=+0.166 oos_ic=+0.455 dir=0.565 ep=15 
+  fold 029 2022-07-04 n_tr=  860 n_te=  20 train_ic=+0.238 oos_ic=-0.168 dir=0.650 ep=15 OVERFIT_FLAG
+  fold 026 2022-04-01 n_tr=  801 n_te=  18 train_ic=+0.071 oos_ic=+0.104 dir=0.278 ep=6 
+  fold 000 2020-02-03 n_tr= 6481 n_te= 539 train_ic=+0.133 oos_ic=-0.086 dir=0.453 ep=8 OVERFIT_FLAG
+  fold 023 2022-01-03 n_tr=  741 n_te=  19 train_ic=+0.203 oos_ic=+0.183 dir=0.421 ep=15 
+  fold 028 2022-06-01 n_tr=  839 n_te=  21 train_ic=+0.189 oos_ic=-0.325 dir=0.381 ep=11 OVERFIT_FLAG
+  fold 027 2022-05-03 n_tr=  819 n_te=  20 train_ic=+0.111 oos_ic=+0.156 dir=0.550 ep=9 
+  fold 024 2022-02-03 n_tr=  760 n_te=  18 train_ic=+0.049 oos_ic=-0.333 dir=0.611 ep=7 OVERFIT_FLAG
+  fold 001 2020-03-02 n_tr= 4413 n_te= 353 train_ic=+0.277 oos_ic=+0.090 dir=0.465 ep=15 
+  fold 030 2022-08-01 n_tr=  880 n_te=  23 train_ic=+0.220 oos_ic=+0.093 dir=0.435 ep=15 
+  fold 029 2022-07-04 n_tr=  860 n_te=  20 train_ic=+0.169 oos_ic=+0.108 dir=0.650 ep=15 
+  fold 025 2022-03-02 n_tr=  778 n_te=  21 train_ic=+0.084 oos_ic=+0.369 dir=0.524 ep=7 
+  fold 028 2022-06-01 n_tr=  839 n_te=  21 train_ic=+0.159 oos_ic=+0.084 dir=0.571 ep=12 
+  fold 031 2022-09-01 n_tr=  903 n_te=  21 train_ic=+0.120 oos_ic=-0.042 dir=0.429 ep=7 
+  fold 000 2020-02-03 n_tr= 6481 n_te= 539 train_ic=+0.222 oos_ic=-0.265 dir=0.410 ep=15 OVERFIT_FLAG
+  fold 030 2022-08-01 n_tr=  880 n_te=  23 train_ic=+0.174 oos_ic=+0.067 dir=0.391 ep=10 
+  fold 029 2022-07-04 n_tr=  860 n_te=  20 train_ic=+0.138 oos_ic=+0.179 dir=0.450 ep=7 
+  fold 026 2022-04-01 n_tr=  799 n_te=  21 train_ic=+0.109 oos_ic=-0.119 dir=0.429 ep=8 OVERFIT_FLAG
+  fold 032 2022-10-03 n_tr=  924 n_te=  20 train_ic=+0.120 oos_ic=-0.128 dir=0.550 ep=8 OVERFIT_FLAG
+  fold 030 2022-08-01 n_tr=  880 n_te=  23 train_ic=+0.168 oos_ic=+0.065 dir=0.478 ep=6 
+  fold 031 2022-09-01 n_tr=  903 n_te=  21 train_ic=+0.182 oos_ic=+0.526 dir=0.762 ep=13 
+  fold 027 2022-05-02 n_tr=  820 n_te=  20 train_ic=+0.160 oos_ic=+0.177 dir=0.550 ep=10 
+  fold 031 2022-09-01 n_tr=  903 n_te=  21 train_ic=+0.124 oos_ic=-0.022 dir=0.667 ep=7 
+  fold 033 2022-11-01 n_tr=  944 n_te=  22 train_ic=+0.227 oos_ic=-0.152 dir=0.455 ep=15 OVERFIT_FLAG
+  fold 032 2022-10-03 n_tr=  924 n_te=  20 train_ic=+0.177 oos_ic=-0.111 dir=0.700 ep=8 OVERFIT_FLAG
+  fold 000 2020-02-03 n_tr= 6481 n_te= 539 train_ic=+0.222 oos_ic=+0.016 dir=0.473 ep=15 OVERFIT_FLAG
+  fold 034 2022-12-01 n_tr=  966 n_te=  20 train_ic=+0.049 oos_ic=-0.317 dir=0.500 ep=6 OVERFIT_FLAG
+  fold 032 2022-10-03 n_tr=  924 n_te=  20 train_ic=+0.090 oos_ic=-0.289 dir=0.600 ep=8 OVERFIT_FLAG
+  fold 028 2022-06-02 n_tr=  840 n_te=  20 train_ic=+0.219 oos_ic=+0.051 dir=0.550 ep=13 
+  fold 002 2020-04-01 n_tr= 4766 n_te= 322 train_ic=+0.287 oos_ic=+0.048 dir=0.562 ep=15 OVERFIT_FLAG
+  fold 033 2022-11-01 n_tr=  944 n_te=  22 train_ic=+0.210 oos_ic=+0.278 dir=0.591 ep=14 
+  fold 035 2023-01-03 n_tr=  986 n_te=  18 train_ic=+0.190 oos_ic=-0.034 dir=0.500 ep=15 OVERFIT_FLAG
+  fold 029 2022-07-01 n_tr=  860 n_te=  21 train_ic=+0.188 oos_ic=+0.181 dir=0.476 ep=9 
+  fold 033 2022-11-01 n_tr=  944 n_te=  22 train_ic=+0.203 oos_ic=+0.390 dir=0.682 ep=15 
+  fold 002 2020-04-01 n_tr= 4766 n_te= 322 train_ic=+0.335 oos_ic=+0.154 dir=0.540 ep=15 
+  fold 034 2022-12-01 n_tr=  966 n_te=  20 train_ic=+0.209 oos_ic=-0.152 dir=0.450 ep=10 OVERFIT_FLAG
+  fold 036 2023-02-01 n_tr= 1004 n_te=  20 train_ic=+0.092 oos_ic=-0.021 dir=0.600 ep=6 
+  fold 030 2022-08-01 n_tr=  881 n_te=  22 train_ic=+0.094 oos_ic=+0.215 dir=0.500 ep=7 
+  fold 037 2023-03-01 n_tr= 1024 n_te=  23 train_ic=+0.051 oos_ic=+0.055 dir=0.478 ep=7 
+  fold 034 2022-12-01 n_tr=  966 n_te=  20 train_ic=+0.231 oos_ic=+0.099 dir=0.500 ep=15 
+  fold 035 2023-01-03 n_tr=  986 n_te=  18 train_ic=+0.228 oos_ic=+0.428 dir=0.556 ep=15 
+  fold 002 2020-04-01 n_tr= 4766 n_te= 322 train_ic=+0.325 oos_ic=+0.275 dir=0.590 ep=15 
+  fold 031 2022-09-01 n_tr=  903 n_te=  20 train_ic=+0.143 oos_ic=+0.471 dir=0.500 ep=8 
+  fold 038 2023-04-03 n_tr= 1047 n_te=  17 train_ic=+0.088 oos_ic=-0.130 dir=0.412 ep=6 OVERFIT_FLAG
+  fold 036 2023-02-01 n_tr= 1004 n_te=  20 train_ic=+0.095 oos_ic=-0.029 dir=0.400 ep=6 
+  fold 035 2023-01-03 n_tr=  986 n_te=  18 train_ic=+0.192 oos_ic=+0.071 dir=0.556 ep=13 
+  fold 039 2023-05-02 n_tr= 1064 n_te=  21 train_ic=+0.133 oos_ic=-0.066 dir=0.333 ep=11 
+  fold 032 2022-10-04 n_tr=  923 n_te=  19 train_ic=+0.211 oos_ic=+0.323 dir=0.579 ep=14 
+  fold 037 2023-03-01 n_tr= 1024 n_te=  23 train_ic=+0.210 oos_ic=+0.036 dir=0.609 ep=13 
+  fold 036 2023-02-01 n_tr= 1004 n_te=  20 train_ic=+0.216 oos_ic=-0.236 dir=0.350 ep=15 OVERFIT_FLAG
+  fold 033 2022-11-01 n_tr=  942 n_te=  22 train_ic=+0.185 oos_ic=+0.254 dir=0.591 ep=7 
+  fold 038 2023-04-03 n_tr= 1047 n_te=  17 train_ic=+0.062 oos_ic=+0.039 dir=0.529 ep=6 
+  fold 040 2023-06-01 n_tr= 1085 n_te=  21 train_ic=+0.167 oos_ic=+0.055 dir=0.524 ep=14 
+  fold 037 2023-03-01 n_tr= 1024 n_te=  23 train_ic=+0.195 oos_ic=-0.132 dir=0.304 ep=10 OVERFIT_FLAG
+  fold 041 2023-07-03 n_tr= 1106 n_te=  20 train_ic=+0.135 oos_ic=-0.149 dir=0.500 ep=10 OVERFIT_FLAG
+  fold 034 2022-12-01 n_tr=  964 n_te=  21 train_ic=+0.189 oos_ic=-0.006 dir=0.429 ep=12 
+  fold 039 2023-05-02 n_tr= 1064 n_te=  21 train_ic=+0.192 oos_ic=+0.060 dir=0.571 ep=14 
+  fold 003 2020-05-04 n_tr= 5088 n_te= 321 train_ic=+0.267 oos_ic=-0.145 dir=0.430 ep=15 OVERFIT_FLAG  fold 038 2023-04-03 n_tr= 1047 n_te=  17 train_ic=+0.110 oos_ic=+0.154 dir=0.235 ep=7 
+
+  fold 035 2023-01-02 n_tr=  985 n_te=  20 train_ic=+0.190 oos_ic=+0.523 dir=0.300 ep=7 
+  fold 040 2023-06-01 n_tr= 1085 n_te=  21 train_ic=+0.213 oos_ic=-0.047 dir=0.476 ep=9 OVERFIT_FLAG
+  fold 042 2023-08-01 n_tr= 1126 n_te=  23 train_ic=+0.149 oos_ic=-0.068 dir=0.565 ep=13 OVERFIT_FLAG
+  fold 001 2020-03-02 n_tr= 7020 n_te= 594 train_ic=+0.173 oos_ic=+0.017 dir=0.473 ep=15 
+  fold 039 2023-05-02 n_tr= 1064 n_te=  21 train_ic=+0.222 oos_ic=-0.025 dir=0.476 ep=12 OVERFIT_FLAG
+  fold 003 2020-05-04 n_tr= 5088 n_te= 321 train_ic=+0.389 oos_ic=+0.012 dir=0.517 ep=15 OVERFIT_FLAG
+  fold 036 2023-02-01 n_tr= 1005 n_te=  20 train_ic=+0.071 oos_ic=+0.000 dir=0.400 ep=6 
+  fold 041 2023-07-03 n_tr= 1106 n_te=  20 train_ic=+0.178 oos_ic=-0.298 dir=0.350 ep=9 OVERFIT_FLAG
+  fold 043 2023-09-01 n_tr= 1149 n_te=  19 train_ic=+0.127 oos_ic=-0.149 dir=0.368 ep=10 OVERFIT_FLAG
+  fold 040 2023-06-01 n_tr= 1085 n_te=  21 train_ic=+0.139 oos_ic=-0.226 dir=0.381 ep=8 OVERFIT_FLAG
+  fold 001 2020-03-02 n_tr= 7020 n_te= 594 train_ic=+0.228 oos_ic=+0.038 dir=0.466 ep=15 
+  fold 003 2020-05-04 n_tr= 5088 n_te= 321 train_ic=+0.329 oos_ic=+0.142 dir=0.526 ep=15 
+  fold 037 2023-03-02 n_tr= 1025 n_te=  22 train_ic=+0.171 oos_ic=+0.049 dir=0.409 ep=11 
+  fold 042 2023-08-01 n_tr= 1126 n_te=  23 train_ic=+0.159 oos_ic=+0.005 dir=0.435 ep=10 
+  fold 044 2023-10-03 n_tr= 1168 n_te=  20 train_ic=+0.099 oos_ic=+0.283 dir=0.700 ep=8 
+  fold 041 2023-07-03 n_tr= 1106 n_te=  20 train_ic=+0.203 oos_ic=-0.114 dir=0.400 ep=15 OVERFIT_FLAG
+  fold 045 2023-11-01 n_tr= 1188 n_te=  22 train_ic=+0.119 oos_ic=+0.275 dir=0.636 ep=11 
+  fold 043 2023-09-01 n_tr= 1149 n_te=  19 train_ic=+0.179 oos_ic=-0.004 dir=0.579 ep=13 
+  fold 038 2023-04-03 n_tr= 1047 n_te=  20 train_ic=+0.206 oos_ic=-0.220 dir=0.450 ep=15 OVERFIT_FLAG
+  fold 042 2023-08-01 n_tr= 1126 n_te=  23 train_ic=+0.203 oos_ic=+0.073 dir=0.435 ep=13 
+  fold 046 2023-12-01 n_tr= 1210 n_te=  19 train_ic=+0.096 oos_ic=+0.096 dir=0.579 ep=7 
+  fold 044 2023-10-03 n_tr= 1168 n_te=  20 train_ic=+0.121 oos_ic=+0.096 dir=0.500 ep=7 
+  fold 001 2020-03-02 n_tr= 7020 n_te= 594 train_ic=+0.234 oos_ic=-0.059 dir=0.404 ep=15 OVERFIT_FLAG
+  fold 039 2023-05-02 n_tr= 1067 n_te=  20 train_ic=+0.160 oos_ic=+0.158 dir=0.700 ep=8 
+  fold 047 2024-01-02 n_tr= 1229 n_te=  22 train_ic=-0.002 oos_ic=+0.018 dir=0.636 ep=6 
+  fold 045 2023-11-01 n_tr= 1188 n_te=  22 train_ic=+0.155 oos_ic=-0.051 dir=0.636 ep=8 OVERFIT_FLAG
+  fold 043 2023-09-01 n_tr= 1149 n_te=  19 train_ic=+0.151 oos_ic=+0.135 dir=0.579 ep=9 
+  fold 044 2023-10-03 n_tr= 1168 n_te=  20 train_ic=+0.083 oos_ic=+0.353 dir=0.550 ep=7   fold 048 2024-02-01 n_tr= 1251 n_te=  19 train_ic=+0.127 oos_ic=-0.268 dir=0.368 ep=10 OVERFIT_FLAG  fold 004 2020-06-01 n_tr= 5409 n_te= 336 train_ic=+0.285 oos_ic=-0.163 dir=0.455 ep=15 OVERFIT_FLAG
+
+
+  fold 046 2023-12-01 n_tr= 1210 n_te=  19 train_ic=+0.139 oos_ic=+0.030 dir=0.526 ep=10 
+  fold 040 2023-06-01 n_tr= 1087 n_te=  21 train_ic=+0.225 oos_ic=+0.087 dir=0.476 ep=13 
+  fold 049 2024-03-01 n_tr= 1270 n_te=  20 train_ic=+0.115 oos_ic=+0.123 dir=0.500 ep=9 
+  fold 047 2024-01-02 n_tr= 1229 n_te=  22 train_ic=+0.098 oos_ic=+0.030 dir=0.727 ep=7 
+  fold 041 2023-07-03 n_tr= 1108 n_te=  21 train_ic=+0.026 oos_ic=+0.109 dir=0.571 ep=6   fold 004 2020-06-01 n_tr= 5409 n_te= 336 train_ic=+0.365 oos_ic=+0.224 dir=0.524 ep=15 
+
+  fold 045 2023-11-01 n_tr= 1188 n_te=  22 train_ic=+0.192 oos_ic=-0.318 dir=0.409 ep=15 OVERFIT_FLAG
+  fold 050 2024-04-02 n_tr= 1290 n_te=  20 train_ic=+0.117 oos_ic=+0.126 dir=0.350 ep=9 
+  fold 046 2023-12-01 n_tr= 1210 n_te=  19 train_ic=+0.126 oos_ic=+0.307 dir=0.632 ep=8   fold 048 2024-02-01 n_tr= 1251 n_te=  19 train_ic=+0.200 oos_ic=-0.286 dir=0.421 ep=14 OVERFIT_FLAG
+
+  fold 004 2020-06-01 n_tr= 5409 n_te= 336 train_ic=+0.305 oos_ic=+0.199 dir=0.506 ep=15 
+  fold 042 2023-08-01 n_tr= 1129 n_te=  22 train_ic=+0.224 oos_ic=-0.033 dir=0.591 ep=15 OVERFIT_FLAG
+  fold 047 2024-01-02 n_tr= 1229 n_te=  22 train_ic=+0.063 oos_ic=-0.265 dir=0.364 ep=7 OVERFIT_FLAG
+  fold 051 2024-05-02 n_tr= 1310 n_te=  21 train_ic=+0.168 oos_ic=-0.264 dir=0.476 ep=15 OVERFIT_FLAG
+  fold 049 2024-03-01 n_tr= 1270 n_te=  20 train_ic=+0.184 oos_ic=+0.214 dir=0.450 ep=14 
+  fold 052 2024-06-03 n_tr= 1331 n_te=  19 train_ic=+0.076 oos_ic=+0.354 dir=0.526 ep=7 
+  fold 043 2023-09-01 n_tr= 1151 n_te=  19 train_ic=+0.162 oos_ic=+0.040 dir=0.579 ep=10 
+  fold 048 2024-02-01 n_tr= 1251 n_te=  19 train_ic=+0.189 oos_ic=+0.235 dir=0.421 ep=15 
+  fold 050 2024-04-02 n_tr= 1290 n_te=  20 train_ic=+0.171 oos_ic=+0.432 dir=0.450 ep=11 
+  fold 053 2024-07-02 n_tr= 1350 n_te=  22 train_ic=+0.086 oos_ic=-0.263 dir=0.545 ep=7 OVERFIT_FLAG
+  fold 044 2023-10-04 n_tr= 1170 n_te=  19 train_ic=+0.140 oos_ic=+0.388 dir=0.579 ep=8 
+  fold 049 2024-03-01 n_tr= 1270 n_te=  20 train_ic=+0.176 oos_ic=+0.220 dir=0.550 ep=15 
+  fold 054 2024-08-01 n_tr= 1372 n_te=  22 train_ic=+0.145 oos_ic=-0.321 dir=0.364 ep=12 OVERFIT_FLAG
+  fold 005 2020-07-02 n_tr= 5745 n_te= 352 train_ic=+0.266 oos_ic=+0.326 dir=0.639 ep=15 
+  fold 051 2024-05-02 n_tr= 1310 n_te=  21 train_ic=+0.182 oos_ic=-0.449 dir=0.333 ep=15 OVERFIT_FLAG
+  fold 045 2023-11-01 n_tr= 1189 n_te=  22 train_ic=+0.204 oos_ic=-0.111 dir=0.636 ep=13 OVERFIT_FLAG
+  fold 002 2020-04-01 n_tr= 7614 n_te= 559 train_ic=+0.239 oos_ic=-0.077 dir=0.447 ep=15 OVERFIT_FLAG
+  fold 050 2024-04-02 n_tr= 1290 n_te=  20 train_ic=+0.123 oos_ic=+0.162 dir=0.550 ep=9 
+  fold 002 2020-04-01 n_tr= 7614 n_te= 559 train_ic=+0.236 oos_ic=+0.127 dir=0.538 ep=15   fold 052 2024-06-03 n_tr= 1331 n_te=  19 train_ic=+0.113 oos_ic=+0.302 dir=0.579 ep=7 
+
+  fold 005 2020-07-02 n_tr= 5745 n_te= 352 train_ic=+0.360 oos_ic=+0.109 dir=0.517 ep=15 OVERFIT_FLAG
+  fold 055 2024-09-02 n_tr= 1394 n_te=  19 train_ic=+0.133 oos_ic=+0.237 dir=0.474 ep=15 
+  fold 051 2024-05-02 n_tr= 1310 n_te=  21 train_ic=+0.029 oos_ic=-0.010 dir=0.476 ep=6 
+  fold 053 2024-07-02 n_tr= 1350 n_te=  22 train_ic=+0.123 oos_ic=-0.030 dir=0.455 ep=8 
+  fold 046 2023-12-01 n_tr= 1211 n_te=  19 train_ic=+0.219 oos_ic=+0.086 dir=0.526 ep=15 
+  fold 056 2024-10-02 n_tr= 1413 n_te=  21 train_ic=+0.125 oos_ic=-0.282 dir=0.524 ep=10 OVERFIT_FLAG
+  fold 054 2024-08-01 n_tr= 1372 n_te=  22 train_ic=+0.052 oos_ic=+0.414 dir=0.500 ep=6 
+  fold 052 2024-06-03 n_tr= 1331 n_te=  19 train_ic=+0.215 oos_ic=+0.139 dir=0.579 ep=15 
+  fold 047 2024-01-02 n_tr= 1230 n_te=  22 train_ic=+0.067 oos_ic=+0.546 dir=0.455 ep=6 
+  fold 005 2020-07-02 n_tr= 5745 n_te= 352 train_ic=+0.331 oos_ic=+0.305 dir=0.548 ep=15 
+  fold 053 2024-07-02 n_tr= 1350 n_te=  22 train_ic=+0.110 oos_ic=+0.031 dir=0.455 ep=7 
+  fold 057 2024-11-01 n_tr= 1434 n_te=  21 train_ic=+0.148 oos_ic=+0.006 dir=0.524 ep=13 
+  fold 002 2020-04-01 n_tr= 7614 n_te= 559 train_ic=+0.275 oos_ic=+0.430 dir=0.633 ep=15 
+  fold 055 2024-09-02 n_tr= 1394 n_te=  19 train_ic=+0.140 oos_ic=+0.430 dir=0.737 ep=11 
+  fold 054 2024-08-01 n_tr= 1372 n_te=  22 train_ic=+0.082 oos_ic=+0.160 dir=0.545 ep=6 
+  fold 058 2024-12-02 n_tr= 1455 n_te=  20 train_ic=+0.033 oos_ic=-0.045 dir=0.350 ep=6 
+  fold 048 2024-02-01 n_tr= 1252 n_te=  19 train_ic=+0.180 oos_ic=+0.433 dir=0.579 ep=13 
+  fold 056 2024-10-02 n_tr= 1413 n_te=  21 train_ic=+0.187 oos_ic=-0.256 dir=0.571 ep=11 OVERFIT_FLAG
+  fold 059 2025-01-02 n_tr= 1475 n_te=  19 train_ic=+0.039 oos_ic=+0.063 dir=0.579 ep=7 
+  fold 049 2024-03-04 n_tr= 1271 n_te=  20 train_ic=+0.036 oos_ic=-0.029 dir=0.400 ep=7 
+  fold 055 2024-09-02 n_tr= 1394 n_te=  19 train_ic=+0.163 oos_ic=+0.291 dir=0.474 ep=15 
+  fold 060 2025-02-03 n_tr= 1494 n_te=  20 train_ic=+0.021 oos_ic=-0.030 dir=0.400 ep=6 
+  fold 057 2024-11-01 n_tr= 1434 n_te=  21 train_ic=+0.182 oos_ic=+0.138 dir=0.429 ep=11 
+  fold 006 2020-08-03 n_tr= 6097 n_te= 356 train_ic=+0.344 oos_ic=+0.001 dir=0.317 ep=15 OVERFIT_FLAG
+  fold 050 2024-04-01 n_tr= 1291 n_te=  21 train_ic=+0.188 oos_ic=+0.327 dir=0.667 ep=8 
+  fold 061 2025-03-03 n_tr= 1514 n_te=  21 train_ic=+0.034 oos_ic=+0.132 dir=0.667 ep=6 
+  fold 056 2024-10-02 n_tr= 1413 n_te=  21 train_ic=+0.144 oos_ic=-0.205 dir=0.429 ep=9 OVERFIT_FLAG
+  fold 058 2024-12-02 n_tr= 1455 n_te=  20 train_ic=+0.017 oos_ic=-0.077 dir=0.450 ep=6 
+  fold 006 2020-08-03 n_tr= 6097 n_te= 356 train_ic=+0.367 oos_ic=-0.075 dir=0.424 ep=15 OVERFIT_FLAG
+  fold 051 2024-05-02 n_tr= 1312 n_te=  20 train_ic=+0.176 oos_ic=+0.137 dir=0.500 ep=9 
+  fold 059 2025-01-02 n_tr= 1475 n_te=  19 train_ic=+0.034 oos_ic=-0.265 dir=0.368 ep=6 OVERFIT_FLAG
+  fold 057 2024-11-01 n_tr= 1434 n_te=  21 train_ic=+0.172 oos_ic=+0.192 dir=0.476 ep=12 
+  fold 062 2025-04-01 n_tr= 1535 n_te=  19 train_ic=+0.144 oos_ic=-0.014 dir=0.632 ep=15 
+  fold 063 2025-05-02 n_tr= 1554 n_te=  20 train_ic=+0.072 oos_ic=-0.047 dir=0.250 ep=7 
+  fold 058 2024-12-02 n_tr= 1455 n_te=  20 train_ic=+0.158 oos_ic=-0.137 dir=0.550 ep=10 OVERFIT_FLAG
+  fold 060 2025-02-03 n_tr= 1494 n_te=  20 train_ic=+0.208 oos_ic=+0.238 dir=0.600 ep=15 
+  fold 052 2024-06-03 n_tr= 1332 n_te=  19 train_ic=+0.225 oos_ic=+0.563 dir=0.632 ep=15   fold 006 2020-08-03 n_tr= 6097 n_te= 356 train_ic=+0.329 oos_ic=+0.032 dir=0.402 ep=15 OVERFIT_FLAG
+
+  fold 064 2025-06-02 n_tr= 1574 n_te=  21 train_ic=+0.059 oos_ic=+0.182 dir=0.524 ep=8 
+  fold 061 2025-03-03 n_tr= 1514 n_te=  21 train_ic=+0.072 oos_ic=-0.291 dir=0.333 ep=6 OVERFIT_FLAG
+  fold 059 2025-01-02 n_tr= 1475 n_te=  19 train_ic=+0.177 oos_ic=+0.254 dir=0.579 ep=13 
+  fold 053 2024-07-01 n_tr= 1351 n_te=  23 train_ic=+0.170 oos_ic=+0.155 dir=0.391 ep=10 
+  fold 062 2025-04-01 n_tr= 1535 n_te=  19 train_ic=+0.024 oos_ic=-0.246 dir=0.316 ep=6 OVERFIT_FLAG
+  fold 065 2025-07-02 n_tr= 1595 n_te=  22 train_ic=+0.157 oos_ic=-0.347 dir=0.409 ep=15 OVERFIT_FLAG
+  fold 060 2025-02-03 n_tr= 1494 n_te=  20 train_ic=+0.211 oos_ic=+0.131 dir=0.600 ep=14 
+  fold 003 2020-05-04 n_tr= 8173 n_te= 532 train_ic=+0.241 oos_ic=+0.009 dir=0.485 ep=15 OVERFIT_FLAG
+  fold 003 2020-05-04 n_tr= 8173 n_te= 532 train_ic=+0.229 oos_ic=+0.076 dir=0.524 ep=15 
+  fold 063 2025-05-02 n_tr= 1554 n_te=  20 train_ic=+0.120 oos_ic=+0.029 dir=0.350 ep=8 
+  fold 066 2025-08-01 n_tr= 1617 n_te=  21 train_ic=+0.050 oos_ic=+0.229 dir=0.571 ep=6 
+  fold 054 2024-08-01 n_tr= 1374 n_te=  21 train_ic=+0.229 oos_ic=+0.234 dir=0.667 ep=14 
+  fold 061 2025-03-03 n_tr= 1514 n_te=  21 train_ic=+0.170 oos_ic=-0.206 dir=0.429 ep=8 OVERFIT_FLAG
+  fold 007 2020-09-01 n_tr= 6453 n_te= 437 train_ic=+0.277 oos_ic=+0.020 dir=0.483 ep=15 OVERFIT_FLAG
+  fold 064 2025-06-02 n_tr= 1574 n_te=  21 train_ic=+0.070 oos_ic=+0.147 dir=0.476 ep=7 
+  fold 067 2025-09-01 n_tr= 1638 n_te=  22 train_ic=+0.100 oos_ic=-0.046 dir=0.500 ep=10 
+  fold 062 2025-04-01 n_tr= 1535 n_te=  19 train_ic=+0.174 oos_ic=+0.489 dir=0.579 ep=8 
+  fold 007 2020-09-01 n_tr= 6453 n_te= 437 train_ic=+0.326 oos_ic=+0.133 dir=0.499 ep=15 
+  fold 055 2024-09-02 n_tr= 1395 n_te=  18 train_ic=+0.205 oos_ic=+0.203 dir=0.778 ep=12 
+  fold 068 2025-10-02 n_tr= 1660 n_te=  20 train_ic=+0.083 oos_ic=+0.039 dir=0.800 ep=10 
+  fold 065 2025-07-02 n_tr= 1595 n_te=  22 train_ic=+0.176 oos_ic=+0.073 dir=0.500 ep=14 
+  fold 003 2020-05-04 n_tr= 8173 n_te= 532 train_ic=+0.297 oos_ic=-0.067 dir=0.447 ep=15 OVERFIT_FLAG
+  fold 063 2025-05-02 n_tr= 1554 n_te=  20 train_ic=+0.165 oos_ic=+0.035 dir=0.550 ep=10 
+  fold 056 2024-10-02 n_tr= 1413 n_te=  20 train_ic=+0.075 oos_ic=-0.113 dir=0.600 ep=7 
+  fold 069 2025-11-03 n_tr= 1680 n_te=  20 train_ic=+0.061 oos_ic=+0.051 dir=0.600 ep=8 
+  fold 064 2025-06-02 n_tr= 1574 n_te=  21 train_ic=+0.158 oos_ic=+0.168 dir=0.524 ep=9 
+  fold 066 2025-08-01 n_tr= 1617 n_te=  21 train_ic=+0.150 oos_ic=-0.052 dir=0.429 ep=11 OVERFIT_FLAG
+  fold 007 2020-09-01 n_tr= 6453 n_te= 437 train_ic=+0.292 oos_ic=-0.000 dir=0.497 ep=15 OVERFIT_FLAG
+  fold 070 2025-12-01 n_tr= 1700 n_te=  21 train_ic=+0.053 oos_ic=-0.426 dir=0.381 ep=8 OVERFIT_FLAG
+  fold 057 2024-11-01 n_tr= 1433 n_te=  21 train_ic=+0.197 oos_ic=+0.060 dir=0.476 ep=14 
+  fold 065 2025-07-02 n_tr= 1595 n_te=  22 train_ic=+0.136 oos_ic=-0.041 dir=0.545 ep=8 
+  fold 071 2026-01-02 n_tr= 1721 n_te=  21 train_ic=+0.028 oos_ic=+0.017 dir=0.619 ep=6 
+  fold 067 2025-09-01 n_tr= 1638 n_te=  22 train_ic=+0.168 oos_ic=-0.229 dir=0.500 ep=14 OVERFIT_FLAG
+  fold 072 2026-02-02 n_tr= 1742 n_te=  17 train_ic=+0.006 oos_ic=+0.422 dir=0.647 ep=6 
+  fold 066 2025-08-01 n_tr= 1617 n_te=  21 train_ic=+0.206 oos_ic=+0.170 dir=0.667 ep=15 
+  fold 058 2024-12-02 n_tr= 1454 n_te=  20 train_ic=+0.218 oos_ic=+0.011 dir=0.550 ep=15 OVERFIT_FLAG
+  fold 073 2026-03-02 n_tr= 1759 n_te=  22 train_ic=+0.046 oos_ic=+0.128 dir=0.591 ep=6 
+  fold 068 2025-10-02 n_tr= 1660 n_te=  20 train_ic=+0.175 oos_ic=+0.277 dir=0.650 ep=15 
+  fold 008 2020-10-05 n_tr= 6890 n_te= 343 train_ic=+0.310 oos_ic=-0.117 dir=0.417 ep=15 OVERFIT_FLAG
+  fold 067 2025-09-01 n_tr= 1638 n_te=  22 train_ic=+0.176 oos_ic=-0.023 dir=0.682 ep=12 
+  fold 074 2026-04-01 n_tr= 1781 n_te=   9 train_ic=+0.074 oos_ic=+0.000 dir=0.667 ep=7 
+[index_hk/intraday] DONE rows=1525 folds=75 mean_train_ic=+0.1087 mean_oos_ic=-0.0083 overfit=OVERFIT_FLAG
+[index_kr/intraday] device=cuda
+  N=1789 T_max=2226 F=15 S=6
+  folds (monthly, min_train=252): 75
+  fold 059 2025-01-02 n_tr= 1474 n_te=  18 train_ic=+0.224 oos_ic=+0.321 dir=0.722 ep=15 
+  fold 008 2020-10-05 n_tr= 6890 n_te= 343 train_ic=+0.367 oos_ic=+0.174 dir=0.560 ep=15 
+  fold 068 2025-10-02 n_tr= 1660 n_te=  20 train_ic=+0.141 oos_ic=+0.430 dir=0.550 ep=7 
+  fold 000 2020-02-03 n_tr=  265 n_te=  20 train_ic=+0.165 oos_ic=-0.086 dir=0.450 ep=12 OVERFIT_FLAG
+  fold 069 2025-11-03 n_tr= 1680 n_te=  20 train_ic=+0.184 oos_ic=+0.462 dir=0.600 ep=15 
+  fold 001 2020-03-02 n_tr=  285 n_te=  22 train_ic=+0.009 oos_ic=-0.307 dir=0.500 ep=9 OVERFIT_FLAG
+  fold 002 2020-04-01 n_tr=  307 n_te=  20 train_ic=-0.042 oos_ic=-0.002 dir=0.600 ep=7 
+  fold 003 2020-05-04 n_tr=  327 n_te=  19 train_ic=+0.016 oos_ic=+0.060 dir=0.368 ep=6 
+  fold 069 2025-11-03 n_tr= 1680 n_te=  20 train_ic=+0.158 oos_ic=+0.313 dir=0.550 ep=7 
+  fold 004 2020-06-01 n_tr=  346 n_te=  22 train_ic=+0.030 oos_ic=-0.093 dir=0.409 ep=6 
+  fold 005 2020-07-01 n_tr=  368 n_te=  23 train_ic=+0.113 oos_ic=+0.204 dir=0.522 ep=8 
+  fold 006 2020-08-03 n_tr=  391 n_te=  20 train_ic=-0.017 oos_ic=+0.242 dir=0.550 ep=7 
+  fold 060 2025-02-03 n_tr= 1492 n_te=  20 train_ic=+0.226 oos_ic=+0.362 dir=0.450 ep=13 
+  fold 007 2020-09-01 n_tr=  411 n_te=  21 train_ic=+0.059 oos_ic=-0.100 dir=0.524 ep=6 
+  fold 070 2025-12-01 n_tr= 1700 n_te=  21 train_ic=+0.181 oos_ic=-0.139 dir=0.571 ep=15 OVERFIT_FLAG
+  fold 008 2020-10-05 n_tr=  432 n_te=  19 train_ic=+0.149 oos_ic=-0.135 dir=0.579 ep=13 OVERFIT_FLAG
+  fold 004 2020-06-01 n_tr= 8705 n_te= 658 train_ic=+0.220 oos_ic=+0.122 dir=0.509 ep=15 
+  fold 008 2020-10-05 n_tr= 6890 n_te= 343 train_ic=+0.326 oos_ic=+0.013 dir=0.554 ep=15 OVERFIT_FLAG
+  fold 070 2025-12-01 n_tr= 1700 n_te=  21 train_ic=+0.210 oos_ic=-0.249 dir=0.619 ep=15 OVERFIT_FLAG
+  fold 009 2020-11-02 n_tr=  451 n_te=  21 train_ic=+0.126 oos_ic=-0.099 dir=0.429 ep=15 OVERFIT_FLAG
+  fold 071 2026-01-02 n_tr= 1721 n_te=  21 train_ic=+0.124 oos_ic=+0.026 dir=0.381 ep=8 
+  fold 010 2020-12-01 n_tr=  472 n_te=  21 train_ic=+0.112 oos_ic=-0.140 dir=0.381 ep=6 OVERFIT_FLAG
+  fold 004 2020-06-01 n_tr= 8705 n_te= 658 train_ic=+0.227 oos_ic=+0.245 dir=0.576 ep=15 
+  fold 061 2025-03-04 n_tr= 1512 n_te=  20 train_ic=+0.228 oos_ic=+0.444 dir=0.650 ep=15 
+  fold 011 2021-01-04 n_tr=  493 n_te=  20 train_ic=+0.073 oos_ic=-0.059 dir=0.600 ep=7 
+  fold 071 2026-01-02 n_tr= 1721 n_te=  21 train_ic=+0.164 oos_ic=+0.312 dir=0.524 ep=8 
+  fold 012 2021-02-01 n_tr=  513 n_te=  18 train_ic=+0.071 oos_ic=-0.069 dir=0.444 ep=7 
+  fold 072 2026-02-02 n_tr= 1742 n_te=  17 train_ic=+0.158 oos_ic=+0.414 dir=0.588 ep=10 
+  fold 013 2021-03-02 n_tr=  531 n_te=  22 train_ic=+0.151 oos_ic=-0.127 dir=0.500 ep=15 OVERFIT_FLAG
+  fold 014 2021-04-01 n_tr=  553 n_te=  22 train_ic=+0.070 oos_ic=-0.011 dir=0.636 ep=8 
+  fold 062 2025-04-01 n_tr= 1532 n_te=  22 train_ic=+0.200 oos_ic=+0.650 dir=0.682 ep=12 
+  fold 004 2020-06-01 n_tr= 8705 n_te= 658 train_ic=+0.297 oos_ic=-0.020 dir=0.454 ep=15 OVERFIT_FLAG
+  fold 072 2026-02-02 n_tr= 1742 n_te=  17 train_ic=+0.215 oos_ic=+0.279 dir=0.529 ep=15 
+  fold 015 2021-05-03 n_tr=  575 n_te=  19 train_ic=+0.081 oos_ic=-0.072 dir=0.474 ep=9 
+  fold 073 2026-03-02 n_tr= 1759 n_te=  22 train_ic=+0.141 oos_ic=+0.394 dir=0.545 ep=9 
+  fold 009 2020-11-02 n_tr= 7233 n_te= 379 train_ic=+0.334 oos_ic=+0.122 dir=0.509 ep=15 OVERFIT_FLAG
+  fold 016 2021-06-01 n_tr=  594 n_te=  22 train_ic=+0.132 oos_ic=+0.212 dir=0.455 ep=15 
+  fold 063 2025-05-02 n_tr= 1554 n_te=  19 train_ic=+0.156 oos_ic=+0.247 dir=0.579 ep=8 
+  fold 074 2026-04-01 n_tr= 1781 n_te=   9 train_ic=+0.078 oos_ic=+0.100 dir=0.222 ep=6 
+  fold 017 2021-07-01 n_tr=  616 n_te=  22 train_ic=+0.051 oos_ic=+0.058 dir=0.545 ep=7 
+[index_hk/cc] DONE rows=1525 folds=75 mean_train_ic=+0.1373 mean_oos_ic=+0.0412 overfit=OVERFIT_FLAG
+[index_kr/cc] device=cuda
+  fold 009 2020-11-02 n_tr= 7233 n_te= 379 train_ic=+0.339 oos_ic=-0.156 dir=0.425 ep=15 OVERFIT_FLAG
+  fold 073 2026-03-02 n_tr= 1759 n_te=  22 train_ic=+0.191 oos_ic=+0.146 dir=0.455 ep=13 
+  N=1789 T_max=2226 F=15 S=6
+  folds (monthly, min_train=252): 75
+  fold 018 2021-08-02 n_tr=  638 n_te=  21 train_ic=+0.039 oos_ic=+0.040 dir=0.429 ep=7 
+  fold 000 2020-02-03 n_tr=  265 n_te=  20 train_ic=+0.259 oos_ic=-0.186 dir=0.450 ep=15 OVERFIT_FLAG
+  fold 019 2021-09-01 n_tr=  659 n_te=  19 train_ic=+0.020 oos_ic=+0.275 dir=0.737 ep=6 
+  fold 001 2020-03-02 n_tr=  285 n_te=  22 train_ic=+0.089 oos_ic=-0.119 dir=0.500 ep=7 OVERFIT_FLAG
+  fold 074 2026-04-01 n_tr= 1781 n_te=   9 train_ic=+0.052 oos_ic=+0.517 dir=0.667 ep=6 
+  fold 002 2020-04-01 n_tr=  307 n_te=  20 train_ic=+0.135 oos_ic=+0.202 dir=0.650 ep=8 
+  fold 020 2021-10-01 n_tr=  678 n_te=  19 train_ic=+0.079 oos_ic=+0.561 dir=0.579 ep=7 
+[index_hk/gap] DONE rows=1525 folds=75 mean_train_ic=+0.1434 mean_oos_ic=+0.0577 overfit=OVERFIT_FLAG
+  fold 003 2020-05-04 n_tr=  327 n_te=  19 train_ic=-0.039 oos_ic=+0.095 dir=0.368 ep=6 
+  fold 064 2025-06-02 n_tr= 1573 n_te=  19 train_ic=+0.239 oos_ic=+0.312 dir=0.842 ep=15 
+  fold 021 2021-11-01 n_tr=  697 n_te=  22 train_ic=+0.069 oos_ic=+0.102 dir=0.591 ep=6 
+  fold 004 2020-06-01 n_tr=  346 n_te=  22 train_ic=+0.169 oos_ic=+0.024 dir=0.318 ep=7 
+  fold 005 2020-07-01 n_tr=  368 n_te=  23 train_ic=-0.007 oos_ic=+0.146 dir=0.478 ep=7 
+  fold 022 2021-12-01 n_tr=  719 n_te=  22 train_ic=-0.029 oos_ic=-0.134 dir=0.545 ep=6 
+  fold 006 2020-08-03 n_tr=  391 n_te=  20 train_ic=+0.188 oos_ic=+0.502 dir=0.500 ep=15 
+  fold 065 2025-07-01 n_tr= 1592 n_te=  23 train_ic=+0.057 oos_ic=-0.121 dir=0.652 ep=6 
+  fold 007 2020-09-01 n_tr=  411 n_te=  21 train_ic=-0.051 oos_ic=-0.300 dir=0.667 ep=6 OVERFIT_FLAG
+  fold 023 2022-01-03 n_tr=  741 n_te=  19 train_ic=+0.188 oos_ic=-0.019 dir=0.789 ep=14 OVERFIT_FLAG
+  fold 009 2020-11-02 n_tr= 7233 n_te= 379 train_ic=+0.316 oos_ic=-0.070 dir=0.475 ep=15 OVERFIT_FLAG
+  fold 024 2022-02-03 n_tr=  760 n_te=  18 train_ic=+0.086 oos_ic=-0.112 dir=0.556 ep=6 
+  fold 008 2020-10-05 n_tr=  432 n_te=  19 train_ic=+0.262 oos_ic=-0.011 dir=0.526 ep=15 OVERFIT_FLAG
+  fold 025 2022-03-02 n_tr=  778 n_te=  21 train_ic=+0.111 oos_ic=+0.047 dir=0.524 ep=8 
+  fold 009 2020-11-02 n_tr=  451 n_te=  21 train_ic=+0.220 oos_ic=+0.073 dir=0.381 ep=15 
+  fold 066 2025-08-01 n_tr= 1615 n_te=  20 train_ic=+0.232 oos_ic=+0.498 dir=0.600 ep=12 
+  fold 010 2020-12-01 n_tr=  472 n_te=  21 train_ic=-0.069 oos_ic=-0.369 dir=0.429 ep=6 OVERFIT_FLAG
+  fold 011 2021-01-04 n_tr=  493 n_te=  20 train_ic=+0.148 oos_ic=-0.078 dir=0.450 ep=7 OVERFIT_FLAG
+  fold 026 2022-04-01 n_tr=  799 n_te=  21 train_ic=+0.157 oos_ic=-0.204 dir=0.476 ep=11 OVERFIT_FLAG
+  fold 067 2025-09-01 n_tr= 1635 n_te=  22 train_ic=+0.153 oos_ic=-0.065 dir=0.500 ep=7 OVERFIT_FLAG  fold 027 2022-05-02 n_tr=  820 n_te=  20 train_ic=+0.084 oos_ic=+0.077 dir=0.600 ep=7 
+
+  fold 012 2021-02-01 n_tr=  513 n_te=  18 train_ic=+0.246 oos_ic=-0.094 dir=0.500 ep=15 OVERFIT_FLAG
+  fold 013 2021-03-02 n_tr=  531 n_te=  22 train_ic=+0.248 oos_ic=-0.033 dir=0.273 ep=15 OVERFIT_FLAG
+  fold 010 2020-12-01 n_tr= 7612 n_te= 417 train_ic=+0.296 oos_ic=+0.046 dir=0.535 ep=15 OVERFIT_FLAG
+  fold 028 2022-06-02 n_tr=  840 n_te=  20 train_ic=+0.167 oos_ic=+0.065 dir=0.600 ep=13 
+  fold 014 2021-04-01 n_tr=  553 n_te=  22 train_ic=-0.041 oos_ic=-0.014 dir=0.727 ep=6 
+  fold 029 2022-07-01 n_tr=  860 n_te=  21 train_ic=+0.132 oos_ic=-0.086 dir=0.571 ep=9 OVERFIT_FLAG
+  fold 068 2025-10-01 n_tr= 1657 n_te=  18 train_ic=+0.247 oos_ic=+0.323 dir=0.722 ep=12 
+  fold 015 2021-05-03 n_tr=  575 n_te=  19 train_ic=+0.229 oos_ic=-0.289 dir=0.421 ep=15 OVERFIT_FLAG
+  fold 005 2020-07-01 n_tr= 9363 n_te= 646 train_ic=+0.261 oos_ic=-0.036 dir=0.464 ep=15 OVERFIT_FLAG
+  fold 010 2020-12-01 n_tr= 7612 n_te= 417 train_ic=+0.359 oos_ic=-0.018 dir=0.532 ep=15 OVERFIT_FLAG
+  fold 030 2022-08-01 n_tr=  881 n_te=  22 train_ic=+0.143 oos_ic=+0.580 dir=0.682 ep=8 
+  fold 016 2021-06-01 n_tr=  594 n_te=  22 train_ic=+0.222 oos_ic=+0.191 dir=0.591 ep=15 
+  fold 017 2021-07-01 n_tr=  616 n_te=  22 train_ic=+0.038 oos_ic=-0.078 dir=0.455 ep=7 
+  fold 069 2025-11-03 n_tr= 1675 n_te=  20 train_ic=+0.207 oos_ic=+0.364 dir=0.700 ep=10 
+  fold 031 2022-09-01 n_tr=  903 n_te=  20 train_ic=+0.192 oos_ic=+0.499 dir=0.600 ep=15 
+  fold 005 2020-07-01 n_tr= 9363 n_te= 646 train_ic=+0.255 oos_ic=+0.030 dir=0.500 ep=15 OVERFIT_FLAG
+  fold 032 2022-10-04 n_tr=  923 n_te=  19 train_ic=+0.025 oos_ic=-0.130 dir=0.474 ep=6 
+  fold 018 2021-08-02 n_tr=  638 n_te=  21 train_ic=+0.202 oos_ic=+0.222 dir=0.524 ep=15 
+  fold 019 2021-09-01 n_tr=  659 n_te=  19 train_ic=+0.114 oos_ic=+0.221 dir=0.474 ep=8 
+  fold 033 2022-11-01 n_tr=  942 n_te=  22 train_ic=+0.183 oos_ic=+0.510 dir=0.636 ep=11 
+  fold 020 2021-10-01 n_tr=  678 n_te=  19 train_ic=+0.174 oos_ic=+0.567 dir=0.684 ep=11 
+  fold 070 2025-12-01 n_tr= 1695 n_te=  21 train_ic=+0.252 oos_ic=-0.168 dir=0.619 ep=15 OVERFIT_FLAG
+  fold 010 2020-12-01 n_tr= 7612 n_te= 417 train_ic=+0.349 oos_ic=+0.218 dir=0.554 ep=15 
+  fold 021 2021-11-01 n_tr=  697 n_te=  22 train_ic=+0.070 oos_ic=-0.310 dir=0.318 ep=6 OVERFIT_FLAG
+  fold 034 2022-12-01 n_tr=  964 n_te=  21 train_ic=+0.220 oos_ic=+0.216 dir=0.667 ep=12 
+  fold 005 2020-07-01 n_tr= 9363 n_te= 646 train_ic=+0.323 oos_ic=+0.269 dir=0.562 ep=15 
+  fold 071 2026-01-02 n_tr= 1716 n_te=  21 train_ic=+0.137 oos_ic=-0.219 dir=0.476 ep=7 OVERFIT_FLAG
+  fold 022 2021-12-01 n_tr=  719 n_te=  22 train_ic=+0.237 oos_ic=+0.342 dir=0.500 ep=15 
+  fold 035 2023-01-02 n_tr=  985 n_te=  20 train_ic=+0.212 oos_ic=-0.015 dir=0.450 ep=13 OVERFIT_FLAG
+  fold 023 2022-01-03 n_tr=  741 n_te=  19 train_ic=+0.152 oos_ic=+0.144 dir=0.789 ep=10 
+  fold 036 2023-02-01 n_tr= 1005 n_te=  20 train_ic=+0.206 oos_ic=+0.426 dir=0.550 ep=9 
+  fold 072 2026-02-02 n_tr= 1737 n_te=  17 train_ic=+0.129 oos_ic=+0.088 dir=0.588 ep=8 
+  fold 024 2022-02-03 n_tr=  760 n_te=  18 train_ic=+0.101 oos_ic=-0.732 dir=0.389 ep=6 OVERFIT_FLAG
+  fold 011 2021-01-04 n_tr= 8029 n_te= 399 train_ic=+0.320 oos_ic=-0.126 dir=0.406 ep=15 OVERFIT_FLAG
+  fold 037 2023-03-02 n_tr= 1025 n_te=  22 train_ic=+0.168 oos_ic=-0.045 dir=0.455 ep=9 OVERFIT_FLAG
+  fold 025 2022-03-02 n_tr=  778 n_te=  21 train_ic=+0.204 oos_ic=-0.190 dir=0.524 ep=12 OVERFIT_FLAG
+  fold 073 2026-03-03 n_tr= 1754 n_te=  21 train_ic=+0.122 oos_ic=+0.238 dir=0.429 ep=6 
+  fold 026 2022-04-01 n_tr=  799 n_te=  21 train_ic=+0.204 oos_ic=-0.447 dir=0.381 ep=13 OVERFIT_FLAG
+  fold 011 2021-01-04 n_tr= 8029 n_te= 399 train_ic=+0.365 oos_ic=+0.156 dir=0.569 ep=15 OVERFIT_FLAG
+  fold 038 2023-04-03 n_tr= 1047 n_te=  20 train_ic=+0.208 oos_ic=+0.241 dir=0.600 ep=15 
+  fold 027 2022-05-02 n_tr=  820 n_te=  20 train_ic=+0.170 oos_ic=+0.340 dir=0.800 ep=8 
+  fold 074 2026-04-01 n_tr= 1775 n_te=  12 train_ic=+0.263 oos_ic=+0.552 dir=0.750 ep=15 
+  fold 039 2023-05-02 n_tr= 1067 n_te=  20 train_ic=+0.189 oos_ic=-0.391 dir=0.300 ep=14 OVERFIT_FLAG
+[index_kr/gap] DONE rows=1522 folds=75 mean_train_ic=+0.1523 mean_oos_ic=+0.0883 overfit=OVERFIT_FLAG
+  fold 028 2022-06-02 n_tr=  840 n_te=  20 train_ic=+0.250 oos_ic=+0.388 dir=0.700 ep=15 
+  fold 040 2023-06-01 n_tr= 1087 n_te=  21 train_ic=+0.166 oos_ic=-0.078 dir=0.524 ep=8 OVERFIT_FLAG
+  fold 029 2022-07-01 n_tr=  860 n_te=  21 train_ic=+0.182 oos_ic=-0.095 dir=0.429 ep=10 OVERFIT_FLAG
+  fold 041 2023-07-03 n_tr= 1108 n_te=  21 train_ic=+0.165 oos_ic=-0.191 dir=0.333 ep=9 OVERFIT_FLAG
+  fold 030 2022-08-01 n_tr=  881 n_te=  22 train_ic=+0.059 oos_ic=+0.542 dir=0.364 ep=6 
+  fold 011 2021-01-04 n_tr= 8029 n_te= 399 train_ic=+0.321 oos_ic=+0.127 dir=0.554 ep=15 
+  fold 042 2023-08-01 n_tr= 1129 n_te=  22 train_ic=+0.183 oos_ic=+0.047 dir=0.545 ep=12 
+  fold 031 2022-09-01 n_tr=  903 n_te=  20 train_ic=+0.215 oos_ic=+0.380 dir=0.700 ep=15 
+  fold 006 2020-08-03 n_tr=10009 n_te= 579 train_ic=+0.254 oos_ic=-0.287 dir=0.453 ep=15 OVERFIT_FLAG
+  fold 043 2023-09-01 n_tr= 1151 n_te=  19 train_ic=+0.118 oos_ic=+0.068 dir=0.421 ep=6 
+  fold 032 2022-10-04 n_tr=  923 n_te=  19 train_ic=+0.140 oos_ic=-0.091 dir=0.632 ep=6 OVERFIT_FLAG
+  fold 044 2023-10-04 n_tr= 1170 n_te=  19 train_ic=+0.134 oos_ic=+0.323 dir=0.737 ep=7 
+  fold 033 2022-11-01 n_tr=  942 n_te=  22 train_ic=+0.245 oos_ic=+0.330 dir=0.636 ep=14 
+  fold 012 2021-02-01 n_tr= 8428 n_te= 394 train_ic=+0.340 oos_ic=+0.027 dir=0.523 ep=15 OVERFIT_FLAG
+  fold 045 2023-11-01 n_tr= 1189 n_te=  22 train_ic=+0.158 oos_ic=-0.493 dir=0.545 ep=11 OVERFIT_FLAG
+  fold 006 2020-08-03 n_tr=10009 n_te= 579 train_ic=+0.241 oos_ic=-0.140 dir=0.459 ep=15 OVERFIT_FLAG
+  fold 034 2022-12-01 n_tr=  964 n_te=  21 train_ic=+0.252 oos_ic=+0.343 dir=0.571 ep=15 
+  fold 012 2021-02-01 n_tr= 8428 n_te= 394 train_ic=+0.350 oos_ic=+0.052 dir=0.523 ep=15 OVERFIT_FLAG
+  fold 046 2023-12-01 n_tr= 1211 n_te=  19 train_ic=+0.186 oos_ic=+0.470 dir=0.632 ep=14 
+  fold 035 2023-01-02 n_tr=  985 n_te=  20 train_ic=+0.211 oos_ic=-0.032 dir=0.350 ep=8 OVERFIT_FLAG
+  fold 036 2023-02-01 n_tr= 1005 n_te=  20 train_ic=+0.210 oos_ic=-0.005 dir=0.500 ep=10 OVERFIT_FLAG
+  fold 047 2024-01-02 n_tr= 1230 n_te=  22 train_ic=+0.175 oos_ic=-0.205 dir=0.500 ep=13 OVERFIT_FLAG
+  fold 006 2020-08-03 n_tr=10009 n_te= 579 train_ic=+0.340 oos_ic=+0.152 dir=0.409 ep=15 
+  fold 037 2023-03-02 n_tr= 1025 n_te=  22 train_ic=+0.204 oos_ic=-0.208 dir=0.364 ep=10 OVERFIT_FLAG
+  fold 048 2024-02-01 n_tr= 1252 n_te=  19 train_ic=+0.165 oos_ic=+0.105 dir=0.474 ep=11 
+  fold 038 2023-04-03 n_tr= 1047 n_te=  20 train_ic=+0.213 oos_ic=+0.116 dir=0.550 ep=15 
+  fold 049 2024-03-04 n_tr= 1271 n_te=  20 train_ic=+0.197 oos_ic=-0.328 dir=0.300 ep=14 OVERFIT_FLAG
+  fold 012 2021-02-01 n_tr= 8428 n_te= 394 train_ic=+0.353 oos_ic=-0.087 dir=0.431 ep=15 OVERFIT_FLAG
+  fold 039 2023-05-02 n_tr= 1067 n_te=  20 train_ic=+0.233 oos_ic=-0.090 dir=0.450 ep=15 OVERFIT_FLAG
+  fold 050 2024-04-01 n_tr= 1291 n_te=  21 train_ic=+0.168 oos_ic=+0.435 dir=0.619 ep=15 
+  fold 040 2023-06-01 n_tr= 1087 n_te=  21 train_ic=+0.197 oos_ic=+0.096 dir=0.571 ep=9 
+  fold 051 2024-05-02 n_tr= 1312 n_te=  20 train_ic=+0.068 oos_ic=+0.301 dir=0.600 ep=7 
+  fold 041 2023-07-03 n_tr= 1108 n_te=  21 train_ic=+0.106 oos_ic=-0.174 dir=0.571 ep=6 OVERFIT_FLAG
+  fold 013 2021-03-01 n_tr= 8822 n_te= 528 train_ic=+0.280 oos_ic=-0.095 dir=0.468 ep=15 OVERFIT_FLAG
+  fold 052 2024-06-03 n_tr= 1332 n_te=  19 train_ic=+0.058 oos_ic=+0.491 dir=0.421 ep=7 
+  fold 042 2023-08-01 n_tr= 1129 n_te=  22 train_ic=+0.178 oos_ic=+0.005 dir=0.409 ep=11 
+  fold 053 2024-07-01 n_tr= 1351 n_te=  23 train_ic=+0.105 oos_ic=+0.314 dir=0.565 ep=6 
+  fold 013 2021-03-01 n_tr= 8822 n_te= 528 train_ic=+0.383 oos_ic=-0.092 dir=0.356 ep=15 OVERFIT_FLAG
+  fold 043 2023-09-01 n_tr= 1151 n_te=  19 train_ic=+0.164 oos_ic=-0.256 dir=0.474 ep=8 OVERFIT_FLAG
+  fold 007 2020-09-01 n_tr=10588 n_te= 609 train_ic=+0.235 oos_ic=+0.266 dir=0.616 ep=15   fold 054 2024-08-01 n_tr= 1374 n_te=  21 train_ic=+0.163 oos_ic=-0.009 dir=0.333 ep=12 
+
+  fold 044 2023-10-04 n_tr= 1170 n_te=  19 train_ic=+0.147 oos_ic=+0.107 dir=0.579 ep=8 
+  fold 045 2023-11-01 n_tr= 1189 n_te=  22 train_ic=+0.192 oos_ic=-0.545 dir=0.591 ep=6 OVERFIT_FLAG
+  fold 055 2024-09-02 n_tr= 1395 n_te=  18 train_ic=+0.159 oos_ic=+0.185 dir=0.556 ep=12 
+  fold 046 2023-12-01 n_tr= 1211 n_te=  19 train_ic=+0.183 oos_ic=+0.370 dir=0.632 ep=9 
+  fold 056 2024-10-02 n_tr= 1413 n_te=  20 train_ic=+0.152 oos_ic=-0.021 dir=0.500 ep=12 
+  fold 047 2024-01-02 n_tr= 1230 n_te=  22 train_ic=+0.212 oos_ic=+0.090 dir=0.500 ep=15 
+  fold 007 2020-09-01 n_tr=10588 n_te= 609 train_ic=+0.220 oos_ic=+0.085 dir=0.525 ep=15 
+  fold 013 2021-03-01 n_tr= 8822 n_te= 528 train_ic=+0.338 oos_ic=-0.192 dir=0.360 ep=15 OVERFIT_FLAG
+  fold 057 2024-11-01 n_tr= 1433 n_te=  21 train_ic=+0.128 oos_ic=-0.095 dir=0.524 ep=8 OVERFIT_FLAG
+  fold 058 2024-12-02 n_tr= 1454 n_te=  20 train_ic=+0.115 oos_ic=-0.168 dir=0.500 ep=8 OVERFIT_FLAG
+  fold 048 2024-02-01 n_tr= 1252 n_te=  19 train_ic=+0.220 oos_ic=+0.089 dir=0.526 ep=15 
+  fold 007 2020-09-01 n_tr=10588 n_te= 609 train_ic=+0.343 oos_ic=+0.156 dir=0.562 ep=15 
+  fold 059 2025-01-02 n_tr= 1474 n_te=  18 train_ic=+0.065 oos_ic=-0.459 dir=0.444 ep=7 OVERFIT_FLAG  fold 014 2021-04-01 n_tr= 9350 n_te= 455 train_ic=+0.362 oos_ic=+0.128 dir=0.525 ep=15 OVERFIT_FLAG
+
+  fold 049 2024-03-04 n_tr= 1271 n_te=  20 train_ic=+0.028 oos_ic=-0.090 dir=0.450 ep=6 
+  fold 060 2025-02-03 n_tr= 1492 n_te=  20 train_ic=+0.163 oos_ic=-0.235 dir=0.400 ep=10 OVERFIT_FLAG
+  fold 050 2024-04-01 n_tr= 1291 n_te=  21 train_ic=+0.187 oos_ic=+0.238 dir=0.524 ep=13 
+  fold 014 2021-04-01 n_tr= 9350 n_te= 455 train_ic=+0.378 oos_ic=-0.169 dir=0.479 ep=15 OVERFIT_FLAG
+  fold 061 2025-03-04 n_tr= 1512 n_te=  20 train_ic=+0.125 oos_ic=-0.558 dir=0.100 ep=9 OVERFIT_FLAG
+  fold 051 2024-05-02 n_tr= 1312 n_te=  20 train_ic=+0.118 oos_ic=+0.340 dir=0.600 ep=7 
+  fold 062 2025-04-01 n_tr= 1532 n_te=  22 train_ic=+0.080 oos_ic=-0.055 dir=0.364 ep=7 
+  fold 052 2024-06-03 n_tr= 1332 n_te=  19 train_ic=+0.177 oos_ic=+0.368 dir=0.368 ep=9 
+  fold 063 2025-05-02 n_tr= 1554 n_te=  19 train_ic=+0.116 oos_ic=+0.254 dir=0.632 ep=8 
+  fold 053 2024-07-01 n_tr= 1351 n_te=  23 train_ic=+0.150 oos_ic=+0.022 dir=0.565 ep=8 
+  fold 054 2024-08-01 n_tr= 1374 n_te=  21 train_ic=+0.148 oos_ic=+0.331 dir=0.619 ep=10 
+  fold 064 2025-06-02 n_tr= 1573 n_te=  19 train_ic=+0.145 oos_ic=+0.144 dir=0.579 ep=15 
+  fold 014 2021-04-01 n_tr= 9350 n_te= 455 train_ic=+0.357 oos_ic=-0.204 dir=0.407 ep=15 OVERFIT_FLAG
+  fold 055 2024-09-02 n_tr= 1395 n_te=  18 train_ic=+0.186 oos_ic=+0.302 dir=0.389 ep=12 
+  fold 008 2020-10-05 n_tr=11197 n_te= 569 train_ic=+0.272 oos_ic=+0.044 dir=0.496 ep=15 OVERFIT_FLAG  fold 065 2025-07-01 n_tr= 1592 n_te=  23 train_ic=+0.173 oos_ic=+0.190 dir=0.609 ep=13 
+
+  fold 015 2021-05-03 n_tr= 9805 n_te= 518 train_ic=+0.350 oos_ic=-0.163 dir=0.390 ep=15 OVERFIT_FLAG
+  fold 066 2025-08-01 n_tr= 1615 n_te=  20 train_ic=+0.128 oos_ic=-0.116 dir=0.400 ep=9 OVERFIT_FLAG
+  fold 056 2024-10-02 n_tr= 1413 n_te=  20 train_ic=+0.227 oos_ic=-0.259 dir=0.300 ep=15 OVERFIT_FLAG
+  fold 057 2024-11-01 n_tr= 1433 n_te=  21 train_ic=+0.122 oos_ic=-0.101 dir=0.476 ep=7 OVERFIT_FLAG
+  fold 015 2021-05-03 n_tr= 9805 n_te= 518 train_ic=+0.366 oos_ic=-0.140 dir=0.400 ep=15 OVERFIT_FLAG
+  fold 067 2025-09-01 n_tr= 1635 n_te=  22 train_ic=+0.148 oos_ic=+0.188 dir=0.500 ep=15 
+  fold 058 2024-12-02 n_tr= 1454 n_te=  20 train_ic=+0.198 oos_ic=-0.138 dir=0.500 ep=11 OVERFIT_FLAG
+  fold 008 2020-10-05 n_tr=11197 n_te= 569 train_ic=+0.251 oos_ic=-0.209 dir=0.459 ep=15 OVERFIT_FLAG
+  fold 068 2025-10-01 n_tr= 1657 n_te=  18 train_ic=+0.121 oos_ic=+0.071 dir=0.222 ep=9 
+  fold 008 2020-10-05 n_tr=11197 n_te= 569 train_ic=+0.368 oos_ic=-0.139 dir=0.424 ep=15 OVERFIT_FLAG
+  fold 059 2025-01-02 n_tr= 1474 n_te=  18 train_ic=+0.219 oos_ic=-0.034 dir=0.389 ep=15 OVERFIT_FLAG
+  fold 069 2025-11-03 n_tr= 1675 n_te=  20 train_ic=+0.157 oos_ic=+0.108 dir=0.550 ep=13 
+  fold 060 2025-02-03 n_tr= 1492 n_te=  20 train_ic=+0.205 oos_ic=-0.062 dir=0.500 ep=13 OVERFIT_FLAG
+  fold 070 2025-12-01 n_tr= 1695 n_te=  21 train_ic=+0.125 oos_ic=+0.296 dir=0.857 ep=9 
+  fold 015 2021-05-03 n_tr= 9805 n_te= 518 train_ic=+0.325 oos_ic=-0.116 dir=0.454 ep=15 OVERFIT_FLAG
+  fold 071 2026-01-02 n_tr= 1716 n_te=  21 train_ic=+0.121 oos_ic=-0.162 dir=0.381 ep=9 OVERFIT_FLAG
+  fold 061 2025-03-04 n_tr= 1512 n_te=  20 train_ic=+0.205 oos_ic=-0.126 dir=0.500 ep=15 OVERFIT_FLAG
+  fold 072 2026-02-02 n_tr= 1737 n_te=  17 train_ic=+0.072 oos_ic=-0.042 dir=0.588 ep=6 
+  fold 016 2021-06-01 n_tr=10323 n_te= 546 train_ic=+0.346 oos_ic=-0.117 dir=0.410 ep=15 OVERFIT_FLAG
+  fold 062 2025-04-01 n_tr= 1532 n_te=  22 train_ic=+0.208 oos_ic=+0.264 dir=0.636 ep=13 
+  fold 073 2026-03-03 n_tr= 1754 n_te=  21 train_ic=+0.143 oos_ic=+0.238 dir=0.429 ep=12 
+  fold 063 2025-05-02 n_tr= 1554 n_te=  19 train_ic=+0.155 oos_ic=+0.614 dir=0.632 ep=8 
+  fold 016 2021-06-01 n_tr=10323 n_te= 546 train_ic=+0.361 oos_ic=+0.151 dir=0.502 ep=15 OVERFIT_FLAG
+  fold 074 2026-04-01 n_tr= 1775 n_te=  12 train_ic=+0.123 oos_ic=+0.245 dir=0.583 ep=12 
+[index_kr/intraday] DONE rows=1522 folds=75 mean_train_ic=+0.1195 mean_oos_ic=+0.0432 overfit=OVERFIT_FLAG
+  fold 064 2025-06-02 n_tr= 1573 n_te=  19 train_ic=+0.215 oos_ic=+0.018 dir=0.526 ep=13 
+  fold 009 2020-11-02 n_tr=11766 n_te= 630 train_ic=+0.292 oos_ic=+0.086 dir=0.492 ep=15 OVERFIT_FLAG
+  fold 065 2025-07-01 n_tr= 1592 n_te=  23 train_ic=+0.095 oos_ic=+0.268 dir=0.348 ep=6 
+  fold 066 2025-08-01 n_tr= 1615 n_te=  20 train_ic=+0.232 oos_ic=+0.215 dir=0.600 ep=14 
+  fold 067 2025-09-01 n_tr= 1635 n_te=  22 train_ic=+0.129 oos_ic=-0.037 dir=0.318 ep=8 
+  fold 016 2021-06-01 n_tr=10323 n_te= 546 train_ic=+0.334 oos_ic=+0.222 dir=0.549 ep=15 
+  fold 009 2020-11-02 n_tr=11766 n_te= 630 train_ic=+0.354 oos_ic=+0.006 dir=0.460 ep=15 OVERFIT_FLAG
+  fold 068 2025-10-01 n_tr= 1657 n_te=  18 train_ic=+0.142 oos_ic=+0.298 dir=0.500 ep=7 
+  fold 009 2020-11-02 n_tr=11766 n_te= 630 train_ic=+0.274 oos_ic=+0.121 dir=0.460 ep=15 
+  fold 017 2021-07-02 n_tr=10869 n_te= 586 train_ic=+0.355 oos_ic=-0.082 dir=0.403 ep=15 OVERFIT_FLAG
+  fold 069 2025-11-03 n_tr= 1675 n_te=  20 train_ic=+0.181 oos_ic=+0.450 dir=0.600 ep=10 
+  fold 017 2021-07-02 n_tr=10869 n_te= 586 train_ic=+0.364 oos_ic=-0.013 dir=0.509 ep=15 OVERFIT_FLAG
+  fold 070 2025-12-01 n_tr= 1695 n_te=  21 train_ic=+0.219 oos_ic=-0.065 dir=0.524 ep=15 OVERFIT_FLAG
+  fold 071 2026-01-02 n_tr= 1716 n_te=  21 train_ic=+0.226 oos_ic=+0.083 dir=0.810 ep=14 
+  fold 072 2026-02-02 n_tr= 1737 n_te=  17 train_ic=+0.181 oos_ic=+0.059 dir=0.471 ep=10 
+  fold 073 2026-03-03 n_tr= 1754 n_te=  21 train_ic=+0.166 oos_ic=+0.249 dir=0.476 ep=7 
+  fold 017 2021-07-02 n_tr=10869 n_te= 586 train_ic=+0.325 oos_ic=-0.004 dir=0.500 ep=15 OVERFIT_FLAG
+  fold 010 2020-12-01 n_tr=12396 n_te= 630 train_ic=+0.297 oos_ic=-0.076 dir=0.473 ep=15 OVERFIT_FLAG
+  fold 074 2026-04-01 n_tr= 1775 n_te=  12 train_ic=+0.222 oos_ic=+0.566 dir=0.583 ep=15 
+[index_kr/cc] DONE rows=1522 folds=75 mean_train_ic=+0.1657 mean_oos_ic=+0.0660 overfit=OVERFIT_FLAG
+  fold 018 2021-08-02 n_tr=11455 n_te= 616 train_ic=+0.350 oos_ic=+0.005 dir=0.375 ep=15 OVERFIT_FLAG
+  fold 018 2021-08-02 n_tr=11455 n_te= 616 train_ic=+0.381 oos_ic=+0.117 dir=0.580 ep=15 OVERFIT_FLAG
+  fold 010 2020-12-01 n_tr=12396 n_te= 630 train_ic=+0.350 oos_ic=-0.092 dir=0.465 ep=15 OVERFIT_FLAG
+  fold 010 2020-12-01 n_tr=12396 n_te= 630 train_ic=+0.257 oos_ic=-0.016 dir=0.532 ep=15 OVERFIT_FLAG
+  fold 018 2021-08-02 n_tr=11455 n_te= 616 train_ic=+0.329 oos_ic=+0.074 dir=0.516 ep=15 OVERFIT_FLAG
+  fold 019 2021-09-01 n_tr=12071 n_te= 588 train_ic=+0.314 oos_ic=+0.234 dir=0.425 ep=15 
+  fold 019 2021-09-01 n_tr=12071 n_te= 588 train_ic=+0.360 oos_ic=+0.136 dir=0.529 ep=15 OVERFIT_FLAG
+  fold 011 2021-01-04 n_tr=13026 n_te= 600 train_ic=+0.282 oos_ic=+0.035 dir=0.528 ep=15 OVERFIT_FLAG
+  fold 011 2021-01-04 n_tr=13026 n_te= 600 train_ic=+0.355 oos_ic=+0.051 dir=0.442 ep=15 OVERFIT_FLAG
+  fold 019 2021-09-01 n_tr=12071 n_te= 588 train_ic=+0.340 oos_ic=+0.255 dir=0.546 ep=15 
+  fold 011 2021-01-04 n_tr=13026 n_te= 600 train_ic=+0.249 oos_ic=+0.046 dir=0.513 ep=15 OVERFIT_FLAG
+  fold 020 2021-10-04 n_tr=12659 n_te= 487 train_ic=+0.349 oos_ic=-0.006 dir=0.380 ep=15 OVERFIT_FLAG
+  fold 020 2021-10-04 n_tr=12659 n_te= 487 train_ic=+0.372 oos_ic=+0.332 dir=0.653 ep=15 
+  fold 012 2021-02-01 n_tr=13626 n_te= 540 train_ic=+0.274 oos_ic=+0.009 dir=0.483 ep=15 OVERFIT_FLAG
+  fold 020 2021-10-04 n_tr=12659 n_te= 487 train_ic=+0.365 oos_ic=+0.157 dir=0.608 ep=15 OVERFIT_FLAG
+  fold 021 2021-11-01 n_tr=13146 n_te= 572 train_ic=+0.327 oos_ic=-0.033 dir=0.383 ep=15 OVERFIT_FLAG
+  fold 021 2021-11-01 n_tr=13146 n_te= 572 train_ic=+0.395 oos_ic=-0.079 dir=0.446 ep=15 OVERFIT_FLAG
+  fold 012 2021-02-01 n_tr=13626 n_te= 540 train_ic=+0.375 oos_ic=-0.055 dir=0.480 ep=15 OVERFIT_FLAG
+  fold 012 2021-02-01 n_tr=13626 n_te= 540 train_ic=+0.256 oos_ic=+0.057 dir=0.500 ep=15 
+  fold 021 2021-11-01 n_tr=13146 n_te= 572 train_ic=+0.335 oos_ic=-0.034 dir=0.472 ep=15 OVERFIT_FLAG
+  fold 022 2021-12-01 n_tr=13718 n_te= 593 train_ic=+0.357 oos_ic=-0.034 dir=0.430 ep=15 OVERFIT_FLAG
+  fold 013 2021-03-02 n_tr=14166 n_te= 660 train_ic=+0.283 oos_ic=-0.172 dir=0.506 ep=15 OVERFIT_FLAG
+  fold 022 2021-12-01 n_tr=13718 n_te= 593 train_ic=+0.359 oos_ic=-0.052 dir=0.497 ep=15 OVERFIT_FLAG
+  fold 013 2021-03-02 n_tr=14166 n_te= 660 train_ic=+0.367 oos_ic=-0.084 dir=0.492 ep=15 OVERFIT_FLAG
+  fold 013 2021-03-02 n_tr=14166 n_te= 660 train_ic=+0.257 oos_ic=-0.070 dir=0.464 ep=15 OVERFIT_FLAG
+  fold 022 2021-12-01 n_tr=13718 n_te= 593 train_ic=+0.332 oos_ic=+0.056 dir=0.479 ep=15 OVERFIT_FLAG
+  fold 023 2022-01-03 n_tr=14311 n_te= 527 train_ic=+0.362 oos_ic=+0.056 dir=0.412 ep=15 OVERFIT_FLAG
+  fold 023 2022-01-03 n_tr=14311 n_te= 527 train_ic=+0.357 oos_ic=+0.055 dir=0.474 ep=15 OVERFIT_FLAG
+  fold 014 2021-04-01 n_tr=14826 n_te= 654 train_ic=+0.273 oos_ic=-0.016 dir=0.468 ep=15 OVERFIT_FLAG
+  fold 014 2021-04-01 n_tr=14826 n_te= 654 train_ic=+0.364 oos_ic=+0.127 dir=0.528 ep=15 OVERFIT_FLAG
+  fold 023 2022-01-03 n_tr=14311 n_te= 527 train_ic=+0.335 oos_ic=+0.099 dir=0.512 ep=15 OVERFIT_FLAG
+  fold 024 2022-02-04 n_tr=14838 n_te= 425 train_ic=+0.349 oos_ic=-0.033 dir=0.452 ep=15 OVERFIT_FLAG
+  fold 014 2021-04-01 n_tr=14826 n_te= 654 train_ic=+0.252 oos_ic=-0.009 dir=0.520 ep=15 OVERFIT_FLAG
+  fold 024 2022-02-04 n_tr=14838 n_te= 425 train_ic=+0.379 oos_ic=+0.038 dir=0.541 ep=15 OVERFIT_FLAG
+  fold 015 2021-05-03 n_tr=15480 n_te= 570 train_ic=+0.304 oos_ic=-0.217 dir=0.400 ep=15 OVERFIT_FLAG
+  fold 024 2022-02-04 n_tr=14838 n_te= 425 train_ic=+0.335 oos_ic=+0.120 dir=0.553 ep=15 OVERFIT_FLAG
+  fold 025 2022-03-01 n_tr=15263 n_te= 575 train_ic=+0.328 oos_ic=+0.420 dir=0.602 ep=15 
+  fold 015 2021-05-03 n_tr=15480 n_te= 570 train_ic=+0.344 oos_ic=-0.078 dir=0.407 ep=15 OVERFIT_FLAG
+  fold 025 2022-03-01 n_tr=15263 n_te= 575 train_ic=+0.403 oos_ic=-0.017 dir=0.518 ep=15 OVERFIT_FLAG
+  fold 015 2021-05-03 n_tr=15480 n_te= 570 train_ic=+0.274 oos_ic=-0.056 dir=0.425 ep=15 OVERFIT_FLAG
+  fold 025 2022-03-01 n_tr=15263 n_te= 575 train_ic=+0.329 oos_ic=-0.056 dir=0.523 ep=15 OVERFIT_FLAG
+  fold 026 2022-04-01 n_tr=15838 n_te= 450 train_ic=+0.349 oos_ic=+0.020 dir=0.442 ep=15 OVERFIT_FLAG
+  fold 016 2021-06-01 n_tr=16050 n_te= 660 train_ic=+0.264 oos_ic=-0.040 dir=0.459 ep=15 OVERFIT_FLAG
+  fold 026 2022-04-01 n_tr=15838 n_te= 450 train_ic=+0.399 oos_ic=+0.235 dir=0.587 ep=15 
+  fold 016 2021-06-01 n_tr=16050 n_te= 660 train_ic=+0.346 oos_ic=-0.061 dir=0.470 ep=15 OVERFIT_FLAG
+  fold 016 2021-06-01 n_tr=16050 n_te= 660 train_ic=+0.242 oos_ic=-0.025 dir=0.452 ep=15 OVERFIT_FLAG
+  fold 026 2022-04-01 n_tr=15838 n_te= 450 train_ic=+0.323 oos_ic=-0.250 dir=0.451 ep=15 OVERFIT_FLAG
+  fold 027 2022-05-03 n_tr=16288 n_te= 481 train_ic=+0.383 oos_ic=-0.087 dir=0.470 ep=15 OVERFIT_FLAG
+  fold 027 2022-05-03 n_tr=16288 n_te= 481 train_ic=+0.394 oos_ic=-0.341 dir=0.418 ep=15 OVERFIT_FLAG
+  fold 017 2021-07-01 n_tr=16710 n_te= 660 train_ic=+0.271 oos_ic=-0.038 dir=0.473 ep=15 OVERFIT_FLAG
+  fold 027 2022-05-03 n_tr=16288 n_te= 481 train_ic=+0.353 oos_ic=-0.267 dir=0.412 ep=15 OVERFIT_FLAG
+  fold 017 2021-07-01 n_tr=16710 n_te= 660 train_ic=+0.331 oos_ic=+0.010 dir=0.474 ep=15 OVERFIT_FLAG
+  fold 028 2022-06-01 n_tr=16769 n_te= 524 train_ic=+0.374 oos_ic=+0.255 dir=0.473 ep=15 
+  fold 017 2021-07-01 n_tr=16710 n_te= 660 train_ic=+0.247 oos_ic=-0.070 dir=0.450 ep=15 OVERFIT_FLAG
+  fold 028 2022-06-01 n_tr=16769 n_te= 524 train_ic=+0.399 oos_ic=+0.173 dir=0.464 ep=15 OVERFIT_FLAG
+  fold 028 2022-06-01 n_tr=16769 n_te= 524 train_ic=+0.346 oos_ic=+0.280 dir=0.469 ep=15 
+  fold 018 2021-08-02 n_tr=17370 n_te= 630 train_ic=+0.258 oos_ic=+0.026 dir=0.503 ep=15 OVERFIT_FLAG
+  fold 029 2022-07-04 n_tr=17293 n_te= 500 train_ic=+0.366 oos_ic=+0.049 dir=0.398 ep=15 OVERFIT_FLAG
+  fold 018 2021-08-02 n_tr=17370 n_te= 630 train_ic=+0.341 oos_ic=-0.056 dir=0.513 ep=15 OVERFIT_FLAG
+  fold 029 2022-07-04 n_tr=17293 n_te= 500 train_ic=+0.373 oos_ic=+0.067 dir=0.438 ep=15 OVERFIT_FLAG
+  fold 018 2021-08-02 n_tr=17370 n_te= 630 train_ic=+0.261 oos_ic=+0.176 dir=0.571 ep=15 
+  fold 029 2022-07-04 n_tr=17293 n_te= 500 train_ic=+0.360 oos_ic=-0.008 dir=0.446 ep=15 OVERFIT_FLAG
+  fold 030 2022-08-01 n_tr=17793 n_te= 553 train_ic=+0.364 oos_ic=+0.159 dir=0.367 ep=15 OVERFIT_FLAG
+  fold 030 2022-08-01 n_tr=17793 n_te= 553 train_ic=+0.404 oos_ic=+0.244 dir=0.618 ep=15 
+  fold 019 2021-09-01 n_tr=18000 n_te= 570 train_ic=+0.343 oos_ic=+0.046 dir=0.400 ep=15 OVERFIT_FLAG
+  fold 019 2021-09-01 n_tr=18000 n_te= 570 train_ic=+0.270 oos_ic=+0.005 dir=0.430 ep=15 OVERFIT_FLAG
+  fold 030 2022-08-01 n_tr=17793 n_te= 553 train_ic=+0.324 oos_ic=+0.108 dir=0.532 ep=15 OVERFIT_FLAG
+  fold 019 2021-09-01 n_tr=18000 n_te= 570 train_ic=+0.243 oos_ic=+0.058 dir=0.532 ep=15 
+  fold 031 2022-09-01 n_tr=18346 n_te= 524 train_ic=+0.372 oos_ic=+0.190 dir=0.426 ep=15 
+  fold 031 2022-09-01 n_tr=18346 n_te= 524 train_ic=+0.398 oos_ic=+0.296 dir=0.561 ep=15 
+  fold 020 2021-10-01 n_tr=18570 n_te= 569 train_ic=+0.300 oos_ic=+0.011 dir=0.540 ep=15 OVERFIT_FLAG
+  fold 020 2021-10-01 n_tr=18570 n_te= 569 train_ic=+0.254 oos_ic=+0.141 dir=0.501 ep=15 
+  fold 031 2022-09-01 n_tr=18346 n_te= 524 train_ic=+0.324 oos_ic=+0.323 dir=0.616 ep=15 
+  fold 032 2022-10-03 n_tr=18870 n_te= 500 train_ic=+0.344 oos_ic=-0.087 dir=0.376 ep=15 OVERFIT_FLAG
+  fold 020 2021-10-01 n_tr=18570 n_te= 569 train_ic=+0.241 oos_ic=+0.111 dir=0.529 ep=15 
+  fold 032 2022-10-03 n_tr=18870 n_te= 500 train_ic=+0.392 oos_ic=+0.067 dir=0.556 ep=15 OVERFIT_FLAG
+  fold 032 2022-10-03 n_tr=18870 n_te= 500 train_ic=+0.359 oos_ic=+0.040 dir=0.516 ep=15 OVERFIT_FLAG
+  fold 021 2021-11-01 n_tr=19139 n_te= 639 train_ic=+0.310 oos_ic=-0.062 dir=0.473 ep=15 OVERFIT_FLAG
+  fold 021 2021-11-01 n_tr=19139 n_te= 639 train_ic=+0.245 oos_ic=+0.067 dir=0.493 ep=15 
+  fold 033 2022-11-01 n_tr=19370 n_te= 529 train_ic=+0.388 oos_ic=+0.352 dir=0.584 ep=15 
+  fold 033 2022-11-01 n_tr=19370 n_te= 529 train_ic=+0.411 oos_ic=-0.007 dir=0.491 ep=15 OVERFIT_FLAG
+  fold 021 2021-11-01 n_tr=19139 n_te= 639 train_ic=+0.237 oos_ic=+0.141 dir=0.540 ep=15 
+  fold 033 2022-11-01 n_tr=19370 n_te= 529 train_ic=+0.323 oos_ic=-0.077 dir=0.437 ep=15 OVERFIT_FLAG
+  fold 034 2022-12-01 n_tr=19899 n_te= 480 train_ic=+0.433 oos_ic=+0.042 dir=0.442 ep=15 OVERFIT_FLAG
+  fold 034 2022-12-01 n_tr=19899 n_te= 480 train_ic=+0.360 oos_ic=+0.194 dir=0.496 ep=15 
+  fold 022 2021-12-01 n_tr=19778 n_te= 659 train_ic=+0.322 oos_ic=+0.064 dir=0.460 ep=15 OVERFIT_FLAG
+  fold 022 2021-12-01 n_tr=19778 n_te= 659 train_ic=+0.245 oos_ic=+0.206 dir=0.551 ep=15 
+  fold 022 2021-12-01 n_tr=19778 n_te= 659 train_ic=+0.234 oos_ic=+0.116 dir=0.539 ep=15 
+  fold 034 2022-12-01 n_tr=19899 n_te= 480 train_ic=+0.352 oos_ic=+0.063 dir=0.475 ep=15 OVERFIT_FLAG
+  fold 035 2023-01-03 n_tr=20379 n_te= 432 train_ic=+0.427 oos_ic=+0.011 dir=0.463 ep=15 OVERFIT_FLAG
+  fold 035 2023-01-03 n_tr=20379 n_te= 432 train_ic=+0.392 oos_ic=+0.165 dir=0.394 ep=15 OVERFIT_FLAG
+  fold 023 2022-01-03 n_tr=20437 n_te= 600 train_ic=+0.258 oos_ic=-0.146 dir=0.495 ep=15 OVERFIT_FLAG
+  fold 023 2022-01-03 n_tr=20437 n_te= 600 train_ic=+0.330 oos_ic=+0.012 dir=0.433 ep=15 OVERFIT_FLAG
+  fold 035 2023-01-03 n_tr=20379 n_te= 432 train_ic=+0.327 oos_ic=+0.038 dir=0.491 ep=15 OVERFIT_FLAG
+  fold 036 2023-02-01 n_tr=20811 n_te= 480 train_ic=+0.402 oos_ic=-0.196 dir=0.485 ep=15 OVERFIT_FLAG
+  fold 023 2022-01-03 n_tr=20437 n_te= 600 train_ic=+0.256 oos_ic=-0.028 dir=0.475 ep=15 OVERFIT_FLAG
+  fold 036 2023-02-01 n_tr=20811 n_te= 480 train_ic=+0.380 oos_ic=-0.114 dir=0.371 ep=15 OVERFIT_FLAG
+  fold 036 2023-02-01 n_tr=20811 n_te= 480 train_ic=+0.363 oos_ic=-0.052 dir=0.444 ep=15 OVERFIT_FLAG
+  fold 024 2022-02-03 n_tr=21037 n_te= 540 train_ic=+0.257 oos_ic=-0.017 dir=0.409 ep=15 OVERFIT_FLAG
+  fold 024 2022-02-03 n_tr=21037 n_te= 540 train_ic=+0.309 oos_ic=+0.125 dir=0.450 ep=15 
+  fold 037 2023-03-01 n_tr=21291 n_te= 552 train_ic=+0.423 oos_ic=+0.156 dir=0.560 ep=15 OVERFIT_FLAG
+  fold 037 2023-03-01 n_tr=21291 n_te= 552 train_ic=+0.383 oos_ic=+0.026 dir=0.447 ep=15 OVERFIT_FLAG
+  fold 024 2022-02-03 n_tr=21037 n_te= 540 train_ic=+0.246 oos_ic=-0.019 dir=0.467 ep=15 OVERFIT_FLAG
+  fold 037 2023-03-01 n_tr=21291 n_te= 552 train_ic=+0.371 oos_ic=+0.088 dir=0.533 ep=15 OVERFIT_FLAG
+  fold 038 2023-04-03 n_tr=21843 n_te= 408 train_ic=+0.410 oos_ic=+0.090 dir=0.426 ep=15 OVERFIT_FLAG
+  fold 025 2022-03-02 n_tr=21577 n_te= 630 train_ic=+0.243 oos_ic=-0.041 dir=0.386 ep=15 OVERFIT_FLAG
+  fold 038 2023-04-03 n_tr=21843 n_te= 408 train_ic=+0.372 oos_ic=+0.158 dir=0.380 ep=15 OVERFIT_FLAG
+  fold 025 2022-03-02 n_tr=21577 n_te= 630 train_ic=+0.330 oos_ic=+0.020 dir=0.427 ep=15 OVERFIT_FLAG
+  fold 038 2023-04-03 n_tr=21843 n_te= 408 train_ic=+0.367 oos_ic=+0.006 dir=0.392 ep=15 OVERFIT_FLAG
+  fold 025 2022-03-02 n_tr=21577 n_te= 630 train_ic=+0.235 oos_ic=+0.101 dir=0.498 ep=15 
+  fold 039 2023-05-02 n_tr=22251 n_te= 484 train_ic=+0.395 oos_ic=-0.017 dir=0.430 ep=15 OVERFIT_FLAG
+  fold 039 2023-05-02 n_tr=22251 n_te= 484 train_ic=+0.398 oos_ic=+0.073 dir=0.432 ep=15 OVERFIT_FLAG
+  fold 026 2022-04-01 n_tr=22207 n_te= 627 train_ic=+0.254 oos_ic=+0.075 dir=0.486 ep=15 
+  fold 026 2022-04-01 n_tr=22207 n_te= 627 train_ic=+0.353 oos_ic=+0.262 dir=0.514 ep=15 
+  fold 039 2023-05-02 n_tr=22251 n_te= 484 train_ic=+0.377 oos_ic=+0.024 dir=0.421 ep=15 OVERFIT_FLAG
+  fold 040 2023-06-01 n_tr=22735 n_te= 483 train_ic=+0.428 oos_ic=+0.148 dir=0.580 ep=15 OVERFIT_FLAG
+  fold 026 2022-04-01 n_tr=22207 n_te= 627 train_ic=+0.251 oos_ic=+0.191 dir=0.571 ep=15 
+  fold 040 2023-06-01 n_tr=22735 n_te= 483 train_ic=+0.397 oos_ic=-0.041 dir=0.441 ep=15 OVERFIT_FLAG
+  fold 027 2022-05-02 n_tr=22834 n_te= 630 train_ic=+0.264 oos_ic=+0.049 dir=0.514 ep=15 OVERFIT_FLAG
+  fold 040 2023-06-01 n_tr=22735 n_te= 483 train_ic=+0.334 oos_ic=+0.201 dir=0.600 ep=15 
+  fold 041 2023-07-03 n_tr=23218 n_te= 460 train_ic=+0.416 oos_ic=-0.230 dir=0.448 ep=15 OVERFIT_FLAG
+  fold 027 2022-05-02 n_tr=22834 n_te= 630 train_ic=+0.352 oos_ic=+0.102 dir=0.438 ep=15 OVERFIT_FLAG
+  fold 041 2023-07-03 n_tr=23218 n_te= 460 train_ic=+0.393 oos_ic=+0.130 dir=0.548 ep=15 OVERFIT_FLAG
+  fold 027 2022-05-02 n_tr=22834 n_te= 630 train_ic=+0.247 oos_ic=-0.036 dir=0.481 ep=15 OVERFIT_FLAG
+  fold 042 2023-08-01 n_tr=23678 n_te= 573 train_ic=+0.431 oos_ic=+0.088 dir=0.511 ep=15 OVERFIT_FLAG
+  fold 041 2023-07-03 n_tr=23218 n_te= 460 train_ic=+0.357 oos_ic=-0.070 dir=0.483 ep=15 OVERFIT_FLAG
+  fold 028 2022-06-02 n_tr=23464 n_te= 600 train_ic=+0.279 oos_ic=+0.229 dir=0.547 ep=15 
+  fold 028 2022-06-02 n_tr=23464 n_te= 600 train_ic=+0.362 oos_ic=+0.296 dir=0.535 ep=15 
+  fold 042 2023-08-01 n_tr=23678 n_te= 573 train_ic=+0.383 oos_ic=+0.108 dir=0.408 ep=15 OVERFIT_FLAG
+  fold 043 2023-09-01 n_tr=24251 n_te= 475 train_ic=+0.431 oos_ic=+0.033 dir=0.486 ep=15 OVERFIT_FLAG
+  fold 042 2023-08-01 n_tr=23678 n_te= 573 train_ic=+0.349 oos_ic=+0.099 dir=0.532 ep=15 OVERFIT_FLAG
+  fold 028 2022-06-02 n_tr=23464 n_te= 600 train_ic=+0.236 oos_ic=+0.213 dir=0.512 ep=15 
+  fold 043 2023-09-01 n_tr=24251 n_te= 475 train_ic=+0.398 oos_ic=+0.194 dir=0.478 ep=15 OVERFIT_FLAG
+  fold 029 2022-07-01 n_tr=24064 n_te= 630 train_ic=+0.281 oos_ic=-0.037 dir=0.465 ep=15 OVERFIT_FLAG
+  fold 029 2022-07-01 n_tr=24064 n_te= 630 train_ic=+0.371 oos_ic=-0.090 dir=0.332 ep=15 OVERFIT_FLAG
+  fold 044 2023-10-03 n_tr=24726 n_te= 500 train_ic=+0.424 oos_ic=-0.002 dir=0.498 ep=15 OVERFIT_FLAG
+  fold 043 2023-09-01 n_tr=24251 n_te= 475 train_ic=+0.360 oos_ic=-0.004 dir=0.465 ep=15 OVERFIT_FLAG
+  fold 029 2022-07-01 n_tr=24064 n_te= 630 train_ic=+0.260 oos_ic=-0.085 dir=0.490 ep=15 OVERFIT_FLAG
+  fold 044 2023-10-03 n_tr=24726 n_te= 500 train_ic=+0.392 oos_ic=+0.330 dir=0.578 ep=15 
+  fold 030 2022-08-01 n_tr=24694 n_te= 660 train_ic=+0.360 oos_ic=+0.254 dir=0.517 ep=15 
+  fold 045 2023-11-01 n_tr=25226 n_te= 529 train_ic=+0.380 oos_ic=-0.073 dir=0.395 ep=15 OVERFIT_FLAG
+  fold 030 2022-08-01 n_tr=24694 n_te= 660 train_ic=+0.277 oos_ic=+0.344 dir=0.580 ep=15 
+  fold 044 2023-10-03 n_tr=24726 n_te= 500 train_ic=+0.362 oos_ic=+0.088 dir=0.528 ep=15 OVERFIT_FLAG
+  fold 045 2023-11-01 n_tr=25226 n_te= 529 train_ic=+0.385 oos_ic=-0.129 dir=0.429 ep=15 OVERFIT_FLAG
+  fold 046 2023-12-01 n_tr=25755 n_te= 456 train_ic=+0.386 oos_ic=+0.034 dir=0.531 ep=15 OVERFIT_FLAG
+  fold 030 2022-08-01 n_tr=24694 n_te= 660 train_ic=+0.257 oos_ic=+0.108 dir=0.555 ep=15 
+  fold 045 2023-11-01 n_tr=25226 n_te= 529 train_ic=+0.335 oos_ic=+0.086 dir=0.510 ep=15 OVERFIT_FLAG
+  fold 031 2022-09-01 n_tr=25354 n_te= 600 train_ic=+0.258 oos_ic=+0.417 dir=0.568 ep=15 
+  fold 031 2022-09-01 n_tr=25354 n_te= 600 train_ic=+0.384 oos_ic=+0.046 dir=0.440 ep=15 OVERFIT_FLAG
+  fold 046 2023-12-01 n_tr=25755 n_te= 456 train_ic=+0.391 oos_ic=+0.034 dir=0.491 ep=15 OVERFIT_FLAG
+  fold 047 2024-01-02 n_tr=26211 n_te= 528 train_ic=+0.393 oos_ic=+0.085 dir=0.494 ep=15 OVERFIT_FLAG
+  fold 046 2023-12-01 n_tr=25755 n_te= 456 train_ic=+0.352 oos_ic=-0.011 dir=0.524 ep=15 OVERFIT_FLAG
+  fold 032 2022-10-04 n_tr=25954 n_te= 555 train_ic=+0.279 oos_ic=+0.093 dir=0.506 ep=15 
+  fold 031 2022-09-01 n_tr=25354 n_te= 600 train_ic=+0.255 oos_ic=+0.252 dir=0.572 ep=15 
+  fold 032 2022-10-04 n_tr=25954 n_te= 555 train_ic=+0.398 oos_ic=+0.320 dir=0.573 ep=15 
+  fold 047 2024-01-02 n_tr=26211 n_te= 528 train_ic=+0.357 oos_ic=-0.151 dir=0.369 ep=15 OVERFIT_FLAG
+  fold 048 2024-02-01 n_tr=26739 n_te= 456 train_ic=+0.386 oos_ic=+0.157 dir=0.524 ep=15 OVERFIT_FLAG
+  fold 047 2024-01-02 n_tr=26211 n_te= 528 train_ic=+0.336 oos_ic=-0.158 dir=0.438 ep=15 OVERFIT_FLAG
+  fold 048 2024-02-01 n_tr=26739 n_te= 456 train_ic=+0.377 oos_ic=+0.022 dir=0.421 ep=15 OVERFIT_FLAG
+  fold 033 2022-11-01 n_tr=26509 n_te= 660 train_ic=+0.287 oos_ic=+0.233 dir=0.492 ep=15 
+  fold 049 2024-03-01 n_tr=27195 n_te= 480 train_ic=+0.390 oos_ic=+0.346 dir=0.646 ep=15 
+  fold 033 2022-11-01 n_tr=26509 n_te= 660 train_ic=+0.376 oos_ic=+0.289 dir=0.524 ep=15 
+  fold 032 2022-10-04 n_tr=25954 n_te= 555 train_ic=+0.278 oos_ic=+0.075 dir=0.494 ep=15 OVERFIT_FLAG
+  fold 048 2024-02-01 n_tr=26739 n_te= 456 train_ic=+0.331 oos_ic=+0.165 dir=0.548 ep=15 
+  fold 049 2024-03-01 n_tr=27195 n_te= 480 train_ic=+0.382 oos_ic=+0.079 dir=0.427 ep=15 OVERFIT_FLAG
+  fold 050 2024-04-02 n_tr=27675 n_te= 499 train_ic=+0.399 oos_ic=+0.043 dir=0.399 ep=15 OVERFIT_FLAG
+  fold 034 2022-12-01 n_tr=27169 n_te= 630 train_ic=+0.311 oos_ic=+0.254 dir=0.575 ep=15 
+  fold 034 2022-12-01 n_tr=27169 n_te= 630 train_ic=+0.385 oos_ic=+0.066 dir=0.486 ep=15 OVERFIT_FLAG
+  fold 033 2022-11-01 n_tr=26509 n_te= 660 train_ic=+0.270 oos_ic=+0.150 dir=0.520 ep=15 
+  fold 049 2024-03-01 n_tr=27195 n_te= 480 train_ic=+0.347 oos_ic=+0.512 dir=0.646 ep=15 
+  fold 050 2024-04-02 n_tr=27675 n_te= 499 train_ic=+0.358 oos_ic=+0.113 dir=0.455 ep=15 OVERFIT_FLAG
+  fold 051 2024-05-02 n_tr=28174 n_te= 525 train_ic=+0.371 oos_ic=-0.151 dir=0.440 ep=15 OVERFIT_FLAG
+  fold 035 2023-01-02 n_tr=27799 n_te= 600 train_ic=+0.269 oos_ic=+0.075 dir=0.447 ep=15 
+  fold 050 2024-04-02 n_tr=27675 n_te= 499 train_ic=+0.326 oos_ic=+0.078 dir=0.461 ep=15 OVERFIT_FLAG
+  fold 035 2023-01-02 n_tr=27799 n_te= 600 train_ic=+0.390 oos_ic=-0.028 dir=0.353 ep=15 OVERFIT_FLAG
+  fold 051 2024-05-02 n_tr=28174 n_te= 525 train_ic=+0.354 oos_ic=-0.036 dir=0.400 ep=15 OVERFIT_FLAG
+  fold 034 2022-12-01 n_tr=27169 n_te= 630 train_ic=+0.273 oos_ic=+0.184 dir=0.590 ep=15 
+  fold 052 2024-06-03 n_tr=28699 n_te= 511 train_ic=+0.389 oos_ic=+0.058 dir=0.477 ep=15 OVERFIT_FLAG
+  fold 051 2024-05-02 n_tr=28174 n_te= 525 train_ic=+0.354 oos_ic=-0.179 dir=0.438 ep=15 OVERFIT_FLAG
+  fold 036 2023-02-01 n_tr=28399 n_te= 600 train_ic=+0.314 oos_ic=+0.103 dir=0.515 ep=15 OVERFIT_FLAG
+  fold 052 2024-06-03 n_tr=28699 n_te= 511 train_ic=+0.371 oos_ic=+0.136 dir=0.446 ep=15 OVERFIT_FLAG
+  fold 053 2024-07-02 n_tr=29210 n_te= 552 train_ic=+0.394 oos_ic=+0.281 dir=0.639 ep=15 
+  fold 036 2023-02-01 n_tr=28399 n_te= 600 train_ic=+0.372 oos_ic=-0.127 dir=0.407 ep=15 OVERFIT_FLAG
+  fold 035 2023-01-02 n_tr=27799 n_te= 600 train_ic=+0.260 oos_ic=+0.117 dir=0.530 ep=15 
+  fold 052 2024-06-03 n_tr=28699 n_te= 511 train_ic=+0.336 oos_ic=+0.026 dir=0.481 ep=15 OVERFIT_FLAG
+  fold 053 2024-07-02 n_tr=29210 n_te= 552 train_ic=+0.368 oos_ic=+0.239 dir=0.449 ep=15 
+  fold 054 2024-08-01 n_tr=29762 n_te= 550 train_ic=+0.410 oos_ic=-0.044 dir=0.442 ep=15 OVERFIT_FLAG
+  fold 037 2023-03-02 n_tr=28999 n_te= 660 train_ic=+0.306 oos_ic=+0.079 dir=0.526 ep=15 OVERFIT_FLAG
+  fold 037 2023-03-02 n_tr=28999 n_te= 660 train_ic=+0.366 oos_ic=-0.060 dir=0.408 ep=15 OVERFIT_FLAG
+  fold 036 2023-02-01 n_tr=28399 n_te= 600 train_ic=+0.278 oos_ic=+0.121 dir=0.512 ep=15 
+  fold 053 2024-07-02 n_tr=29210 n_te= 552 train_ic=+0.336 oos_ic=+0.090 dir=0.545 ep=15 OVERFIT_FLAG
+  fold 054 2024-08-01 n_tr=29762 n_te= 550 train_ic=+0.369 oos_ic=+0.116 dir=0.451 ep=15 OVERFIT_FLAG
+  fold 055 2024-09-02 n_tr=30312 n_te= 457 train_ic=+0.369 oos_ic=-0.040 dir=0.416 ep=15 OVERFIT_FLAG
+  fold 038 2023-04-03 n_tr=29659 n_te= 600 train_ic=+0.270 oos_ic=+0.055 dir=0.522 ep=15 OVERFIT_FLAG
+  fold 038 2023-04-03 n_tr=29659 n_te= 600 train_ic=+0.379 oos_ic=+0.068 dir=0.447 ep=15 OVERFIT_FLAG
+  fold 055 2024-09-02 n_tr=30312 n_te= 457 train_ic=+0.377 oos_ic=+0.042 dir=0.411 ep=15 OVERFIT_FLAG
+  fold 054 2024-08-01 n_tr=29762 n_te= 550 train_ic=+0.312 oos_ic=-0.085 dir=0.442 ep=15 OVERFIT_FLAG
+  fold 056 2024-10-02 n_tr=30769 n_te= 504 train_ic=+0.373 oos_ic=+0.081 dir=0.498 ep=15 OVERFIT_FLAG
+  fold 037 2023-03-02 n_tr=28999 n_te= 660 train_ic=+0.271 oos_ic=+0.054 dir=0.474 ep=15 OVERFIT_FLAG
+  fold 039 2023-05-02 n_tr=30259 n_te= 600 train_ic=+0.284 oos_ic=-0.041 dir=0.477 ep=15 OVERFIT_FLAG
+  fold 056 2024-10-02 n_tr=30769 n_te= 504 train_ic=+0.365 oos_ic=+0.117 dir=0.506 ep=15 OVERFIT_FLAG
+  fold 055 2024-09-02 n_tr=30312 n_te= 457 train_ic=+0.327 oos_ic=-0.121 dir=0.470 ep=15 OVERFIT_FLAG
+  fold 057 2024-11-01 n_tr=31273 n_te= 524 train_ic=+0.370 oos_ic=+0.102 dir=0.506 ep=15 OVERFIT_FLAG
+  fold 039 2023-05-02 n_tr=30259 n_te= 600 train_ic=+0.373 oos_ic=+0.166 dir=0.472 ep=15 OVERFIT_FLAG
+  fold 038 2023-04-03 n_tr=29659 n_te= 600 train_ic=+0.268 oos_ic=+0.050 dir=0.537 ep=15 OVERFIT_FLAG
+  fold 057 2024-11-01 n_tr=31273 n_te= 524 train_ic=+0.354 oos_ic=+0.232 dir=0.492 ep=15 
+  fold 040 2023-06-01 n_tr=30859 n_te= 630 train_ic=+0.293 oos_ic=-0.082 dir=0.424 ep=15 OVERFIT_FLAG
+  fold 058 2024-12-02 n_tr=31797 n_te= 500 train_ic=+0.373 oos_ic=-0.070 dir=0.414 ep=15 OVERFIT_FLAG
+  fold 056 2024-10-02 n_tr=30769 n_te= 504 train_ic=+0.327 oos_ic=+0.138 dir=0.560 ep=15 
+  fold 040 2023-06-01 n_tr=30859 n_te= 630 train_ic=+0.339 oos_ic=+0.138 dir=0.487 ep=15 OVERFIT_FLAG
+  fold 058 2024-12-02 n_tr=31797 n_te= 500 train_ic=+0.347 oos_ic=-0.096 dir=0.352 ep=15 OVERFIT_FLAG
+  fold 039 2023-05-02 n_tr=30259 n_te= 600 train_ic=+0.272 oos_ic=-0.024 dir=0.483 ep=15 OVERFIT_FLAG
+  fold 059 2025-01-02 n_tr=32297 n_te= 475 train_ic=+0.376 oos_ic=-0.024 dir=0.520 ep=15 OVERFIT_FLAG
+  fold 057 2024-11-01 n_tr=31273 n_te= 524 train_ic=+0.324 oos_ic=-0.124 dir=0.466 ep=15 OVERFIT_FLAG
+  fold 041 2023-07-03 n_tr=31489 n_te= 630 train_ic=+0.278 oos_ic=+0.112 dir=0.529 ep=15 
+  fold 059 2025-01-02 n_tr=32297 n_te= 475 train_ic=+0.361 oos_ic=+0.232 dir=0.493 ep=15 
+  fold 041 2023-07-03 n_tr=31489 n_te= 630 train_ic=+0.361 oos_ic=+0.120 dir=0.486 ep=15 OVERFIT_FLAG
+  fold 060 2025-02-03 n_tr=32772 n_te= 538 train_ic=+0.355 oos_ic=+0.114 dir=0.545 ep=15 OVERFIT_FLAG
+  fold 058 2024-12-02 n_tr=31797 n_te= 500 train_ic=+0.330 oos_ic=-0.070 dir=0.452 ep=15 OVERFIT_FLAG
+  fold 040 2023-06-01 n_tr=30859 n_te= 630 train_ic=+0.244 oos_ic=-0.019 dir=0.454 ep=15 OVERFIT_FLAG
+  fold 042 2023-08-01 n_tr=32119 n_te= 660 train_ic=+0.262 oos_ic=-0.027 dir=0.445 ep=15 OVERFIT_FLAG
+  fold 060 2025-02-03 n_tr=32772 n_te= 538 train_ic=+0.368 oos_ic=+0.174 dir=0.480 ep=15 
+  fold 061 2025-03-03 n_tr=33310 n_te= 567 train_ic=+0.372 oos_ic=-0.012 dir=0.496 ep=15 OVERFIT_FLAG
+  fold 059 2025-01-02 n_tr=32297 n_te= 475 train_ic=+0.323 oos_ic=+0.115 dir=0.509 ep=15 OVERFIT_FLAG
+  fold 042 2023-08-01 n_tr=32119 n_te= 660 train_ic=+0.337 oos_ic=-0.062 dir=0.383 ep=15 OVERFIT_FLAG
+  fold 041 2023-07-03 n_tr=31489 n_te= 630 train_ic=+0.253 oos_ic=+0.188 dir=0.578 ep=15 
+  fold 061 2025-03-03 n_tr=33310 n_te= 567 train_ic=+0.343 oos_ic=+0.183 dir=0.506 ep=15 
+  fold 043 2023-09-01 n_tr=32779 n_te= 570 train_ic=+0.280 oos_ic=-0.181 dir=0.435 ep=15 OVERFIT_FLAG
+  fold 062 2025-04-01 n_tr=33877 n_te= 513 train_ic=+0.387 oos_ic=-0.147 dir=0.442 ep=15 OVERFIT_FLAG
+  fold 060 2025-02-03 n_tr=32772 n_te= 538 train_ic=+0.333 oos_ic=+0.152 dir=0.556 ep=15 
+  fold 043 2023-09-01 n_tr=32779 n_te= 570 train_ic=+0.366 oos_ic=-0.076 dir=0.382 ep=15 OVERFIT_FLAG
+  fold 062 2025-04-01 n_tr=33877 n_te= 513 train_ic=+0.367 oos_ic=+0.374 dir=0.554 ep=15 
+  fold 042 2023-08-01 n_tr=32119 n_te= 660 train_ic=+0.240 oos_ic=+0.098 dir=0.508 ep=15 
+  fold 063 2025-05-02 n_tr=34390 n_te= 540 train_ic=+0.398 oos_ic=+0.071 dir=0.491 ep=15 OVERFIT_FLAG
+  fold 044 2023-10-04 n_tr=33349 n_te= 570 train_ic=+0.286 oos_ic=+0.087 dir=0.491 ep=15 
+  fold 061 2025-03-03 n_tr=33310 n_te= 567 train_ic=+0.302 oos_ic=-0.080 dir=0.485 ep=15 OVERFIT_FLAG
+  fold 063 2025-05-02 n_tr=34390 n_te= 540 train_ic=+0.371 oos_ic=+0.344 dir=0.548 ep=15 
+  fold 044 2023-10-04 n_tr=33349 n_te= 570 train_ic=+0.344 oos_ic=+0.245 dir=0.588 ep=15 
+  fold 064 2025-06-02 n_tr=34930 n_te= 567 train_ic=+0.367 oos_ic=-0.120 dir=0.450 ep=15 OVERFIT_FLAG
+  fold 043 2023-09-01 n_tr=32779 n_te= 570 train_ic=+0.228 oos_ic=+0.047 dir=0.493 ep=15 
+  fold 045 2023-11-01 n_tr=33919 n_te= 660 train_ic=+0.287 oos_ic=-0.019 dir=0.498 ep=15 OVERFIT_FLAG
+  fold 062 2025-04-01 n_tr=33877 n_te= 513 train_ic=+0.311 oos_ic=-0.086 dir=0.429 ep=15 OVERFIT_FLAG
+  fold 064 2025-06-02 n_tr=34930 n_te= 567 train_ic=+0.369 oos_ic=+0.172 dir=0.478 ep=15 
+  fold 065 2025-07-02 n_tr=35497 n_te= 594 train_ic=+0.387 oos_ic=+0.175 dir=0.542 ep=15 OVERFIT_FLAG
+  fold 045 2023-11-01 n_tr=33919 n_te= 660 train_ic=+0.380 oos_ic=+0.040 dir=0.450 ep=15 OVERFIT_FLAG
+  fold 063 2025-05-02 n_tr=34390 n_te= 540 train_ic=+0.310 oos_ic=-0.115 dir=0.465 ep=15 OVERFIT_FLAG
+  fold 065 2025-07-02 n_tr=35497 n_te= 594 train_ic=+0.373 oos_ic=+0.035 dir=0.411 ep=15 OVERFIT_FLAG
+  fold 044 2023-10-04 n_tr=33349 n_te= 570 train_ic=+0.232 oos_ic=+0.210 dir=0.482 ep=15 
+  fold 046 2023-12-01 n_tr=34579 n_te= 570 train_ic=+0.258 oos_ic=+0.036 dir=0.479 ep=15 OVERFIT_FLAG
+  fold 066 2025-08-01 n_tr=36091 n_te= 607 train_ic=+0.381 oos_ic=+0.027 dir=0.506 ep=15 OVERFIT_FLAG
+[modal-client] 2026-04-18T03:32:43+0000 Modal Client → Modal Worker Heartbeat attempt failed (attempt_dur=142.09, time_since_heartbeat_success=142.09, error=ConnectionError('Deadline exceeded'))
+  fold 066 2025-08-01 n_tr=36091 n_te= 607 train_ic=+0.374 oos_ic=+0.317 dir=0.540 ep=15 
+  fold 064 2025-06-02 n_tr=34930 n_te= 567 train_ic=+0.323 oos_ic=-0.032 dir=0.448 ep=15 OVERFIT_FLAG
+  fold 067 2025-09-01 n_tr=36698 n_te= 617 train_ic=+0.392 oos_ic=+0.044 dir=0.517 ep=15 OVERFIT_FLAG
+  fold 047 2024-01-02 n_tr=35149 n_te= 660 train_ic=+0.274 oos_ic=+0.159 dir=0.508 ep=15 
+  fold 045 2023-11-01 n_tr=33919 n_te= 660 train_ic=+0.226 oos_ic=-0.069 dir=0.508 ep=15 OVERFIT_FLAG
+  fold 046 2023-12-01 n_tr=34579 n_te= 570 train_ic=+0.377 oos_ic=-0.205 dir=0.360 ep=15 OVERFIT_FLAG
+  fold 067 2025-09-01 n_tr=36698 n_te= 617 train_ic=+0.380 oos_ic=+0.043 dir=0.442 ep=15 OVERFIT_FLAG
+  fold 065 2025-07-02 n_tr=35497 n_te= 594 train_ic=+0.323 oos_ic=+0.087 dir=0.508 ep=15 OVERFIT_FLAG
+  fold 068 2025-10-02 n_tr=37315 n_te= 560 train_ic=+0.373 oos_ic=+0.054 dir=0.480 ep=15 OVERFIT_FLAG
+  fold 048 2024-02-01 n_tr=35809 n_te= 570 train_ic=+0.260 oos_ic=-0.024 dir=0.461 ep=15 OVERFIT_FLAG
+  fold 046 2023-12-01 n_tr=34579 n_te= 570 train_ic=+0.233 oos_ic=-0.061 dir=0.439 ep=15 OVERFIT_FLAG
+  fold 047 2024-01-02 n_tr=35149 n_te= 660 train_ic=+0.355 oos_ic=-0.126 dir=0.391 ep=15 OVERFIT_FLAG
+  fold 068 2025-10-02 n_tr=37315 n_te= 560 train_ic=+0.350 oos_ic=+0.047 dir=0.436 ep=15 OVERFIT_FLAG
+  fold 069 2025-11-03 n_tr=37875 n_te= 541 train_ic=+0.361 oos_ic=+0.296 dir=0.582 ep=15 
+  fold 066 2025-08-01 n_tr=36091 n_te= 607 train_ic=+0.347 oos_ic=+0.119 dir=0.552 ep=15 OVERFIT_FLAG
+  fold 069 2025-11-03 n_tr=37875 n_te= 541 train_ic=+0.356 oos_ic=+0.273 dir=0.540 ep=15 
+  fold 049 2024-03-04 n_tr=36379 n_te= 600 train_ic=+0.286 oos_ic=+0.008 dir=0.517 ep=15 OVERFIT_FLAG
+  fold 048 2024-02-01 n_tr=35809 n_te= 570 train_ic=+0.371 oos_ic=+0.167 dir=0.540 ep=15 OVERFIT_FLAG
+  fold 047 2024-01-02 n_tr=35149 n_te= 660 train_ic=+0.243 oos_ic=+0.068 dir=0.539 ep=15 
+  fold 070 2025-12-01 n_tr=38416 n_te= 567 train_ic=+0.378 oos_ic=-0.108 dir=0.455 ep=15 OVERFIT_FLAG
+  fold 067 2025-09-01 n_tr=36698 n_te= 617 train_ic=+0.310 oos_ic=+0.064 dir=0.509 ep=15 OVERFIT_FLAG
+  fold 070 2025-12-01 n_tr=38416 n_te= 567 train_ic=+0.356 oos_ic=-0.070 dir=0.381 ep=15 OVERFIT_FLAG
+  fold 071 2026-01-02 n_tr=38983 n_te= 547 train_ic=+0.378 oos_ic=-0.114 dir=0.422 ep=15 OVERFIT_FLAG
+  fold 050 2024-04-01 n_tr=36979 n_te= 630 train_ic=+0.276 oos_ic=+0.131 dir=0.500 ep=15 
+  fold 049 2024-03-04 n_tr=36379 n_te= 600 train_ic=+0.348 oos_ic=+0.109 dir=0.410 ep=15 OVERFIT_FLAG
+  fold 068 2025-10-02 n_tr=37315 n_te= 560 train_ic=+0.288 oos_ic=+0.141 dir=0.525 ep=15 
+  fold 048 2024-02-01 n_tr=35809 n_te= 570 train_ic=+0.232 oos_ic=-0.023 dir=0.461 ep=15 OVERFIT_FLAG
+Task's current input(s) ["in-01KPF4CB7940EQH8Z917YR7ZP2:1776476892395-0"] cancelled because: Task's current input in-01KPF4CB7940EQH8Z917YR7ZP2:1776476892395-0 hit its timeout of 7200s
+Task's current input(s) ["in-01KPF4CB90DB7ADNMDYENWYQ3K:1776476892455-1"] cancelled because: Function call (map with return_exceptions=False) was cancelled due to an input failure in in-01KPF4CB7940EQH8Z917YR7ZP2.
+[modal-client] 2026-04-18T03:48:17+0000 Received a cancellation signal while processing input ('in-01KPF4CB7940EQH8Z917YR7ZP2:1776476892395-0',)
+[modal-client] 2026-04-18T03:48:17+0000 Successfully canceled input ('in-01KPF4CB7940EQH8Z917YR7ZP2:1776476892395-0',)
+[modal-client] 2026-04-18T03:48:17+0000 Received a cancellation signal while processing input ('in-01KPF4CB90DB7ADNMDYENWYQ3K:1776476892455-1',)
+[modal-client] 2026-04-18T03:48:17+0000 Successfully canceled input ('in-01KPF4CB90DB7ADNMDYENWYQ3K:1776476892455-1',)
+Task's current input(s) ["in-01KPF4CB91GVXC6EEN9PRSJADY:1776476892455-4"] cancelled because: Function call (map with return_exceptions=False) was cancelled due to an input failure in in-01KPF4CB7940EQH8Z917YR7ZP2.
+Task's current input(s) ["in-01KPF4CB90C2MJ3P926FZ7QGX7:1776476892455-0"] cancelled because: Function call (map with return_exceptions=False) was cancelled due to an input failure in in-01KPF4CB7940EQH8Z917YR7ZP2.
+Task's current input(s) ["in-01KPF4CB91EMXQW5J090Z5VHJR:1776476892455-2"] cancelled because: Function call (map with return_exceptions=False) was cancelled due to an input failure in in-01KPF4CB7940EQH8Z917YR7ZP2.
+Task's current input(s) ["in-01KPF4CB91M1PK5ANP4E5WN0R2:1776476892455-3"] cancelled because: Function call (map with return_exceptions=False) was cancelled due to an input failure in in-01KPF4CB7940EQH8Z917YR7ZP2.
+[modal-client] 2026-04-18T03:48:17+0000 Received a cancellation signal while processing input ('in-01KPF4CB91GVXC6EEN9PRSJADY:1776476892455-4',)
+[modal-client] 2026-04-18T03:48:17+0000 Successfully canceled input ('in-01KPF4CB91GVXC6EEN9PRSJADY:1776476892455-4',)
+[modal-client] 2026-04-18T03:48:17+0000 Received a cancellation signal while processing input ('in-01KPF4CB90C2MJ3P926FZ7QGX7:1776476892455-0',)
+[modal-client] 2026-04-18T03:48:17+0000 Received a cancellation signal while processing input ('in-01KPF4CB91EMXQW5J090Z5VHJR:1776476892455-2',)
+[modal-client] 2026-04-18T03:48:17+0000 Successfully canceled input ('in-01KPF4CB91EMXQW5J090Z5VHJR:1776476892455-2',)
+[modal-client] 2026-04-18T03:48:17+0000 Received a cancellation signal while processing input ('in-01KPF4CB91M1PK5ANP4E5WN0R2:1776476892455-3',)
+[modal-client] 2026-04-18T03:48:18+0000 Successfully canceled input ('in-01KPF4CB90C2MJ3P926FZ7QGX7:1776476892455-0',)
+[modal-client] 2026-04-18T03:48:20+0000 Successfully canceled input ('in-01KPF4CB91M1PK5ANP4E5WN0R2:1776476892455-3',)
+Runner terminated.
+Runner terminated.
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity_p2/scripts/ │
+│ stage_p2-8_tcn_modal.py:440 in main                                          │
+│                                                                              │
+│   439 │   t0 = time.time()                                                   │
+│ ❱ 440 │   results = list(train_tcn.starmap(configs))                         │
+│   441 │   elapsed = time.time() - t0                                         │
+│                                                                              │
+│ /opt/homebrew/lib/python3.11/site-packages/modal/_utils/async_utils.py:844   │
+│ in __iter__                                                                  │
+│                                                                              │
+│    843 │   │   │   with Runner() as runner:                                  │
+│ ❱  844 │   │   │   │   yield from run_async_gen(runner, self._async_iterable │
+│    845 │   │   except NestedEventLoops:                                      │
+│                                                                              │
+│ /opt/homebrew/lib/python3.11/site-packages/modal/_utils/async_utils.py:922   │
+│ in run_async_gen                                                             │
+│                                                                              │
+│    921 │   │   │   else:                                                     │
+│ ❱  922 │   │   │   │   next_yield = runner.run(gen.asend(next_send))  # type │
+│    923 │   │   except KeyboardInterrupt as e:                                │
+│                                                                              │
+│ /opt/homebrew/Cellar/python@3.11/3.11.4_1/Frameworks/Python.framework/Versio │
+│ ns/3.11/lib/python3.11/asyncio/base_events.py:653 in run_until_complete      │
+│                                                                              │
+│    652 │   │                                                                 │
+│ ❱  653 │   │   return future.result()                                        │
+│    654                                                                       │
+│                                                                              │
+│ /opt/homebrew/lib/python3.11/site-packages/modal/_utils/async_utils.py:754   │
+│ in asend                                                                     │
+│                                                                              │
+│    753 │   │   self.iterated = True                                          │
+│ ❱  754 │   │   return await self.gen.asend(value)                            │
+│    755                                                                       │
+│                                                                              │
+│ /opt/homebrew/lib/python3.11/site-packages/modal/parallel_map.py:1060 in     │
+│ _starmap_async                                                               │
+│                                                                              │
+│   1059 │   _maybe_warn_about_wrap_exceptions("starmap.aio", wrap_returned_ex │
+│ ❱ 1060 │   async for output in _map_helper(                                  │
+│   1061 │   │   self,                                                         │
+│                                                                              │
+│ /opt/homebrew/lib/python3.11/site-packages/modal/parallel_map.py:1010 in     │
+│ _map_helper                                                                  │
+│                                                                              │
+│   1009 │   ) as map_output_stream:                                           │
+│ ❱ 1010 │   │   async for output in map_output_stream:                        │
+│   1011 │   │   │   yield output                                              │
+│                                                                              │
+│ /opt/homebrew/lib/python3.11/site-packages/modal/_utils/async_utils.py:1096  │
+│ in async_merge                                                               │
+│                                                                              │
+│   1095 │   │   │   │   │   assert_type(item, ExceptionWrapper)               │
+│ ❱ 1096 │   │   │   │   │   raise item.value                                  │
+│   1097                                                                       │
+│                                                                              │
+│ /opt/homebrew/lib/python3.11/site-packages/modal/_utils/async_utils.py:1075  │
+│ in producer                                                                  │
+│                                                                              │
+│   1074 │   │   │   async with aclosing(generator) as stream:                 │
+│ ❱ 1075 │   │   │   │   async for item in stream:                             │
+│   1076 │   │   │   │   │   await queue.put(ValueWrapper(item))               │
+│                                                                              │
+│ /opt/homebrew/lib/python3.11/site-packages/modal/_object.py:56 in wrapped    │
+│                                                                              │
+│    55 │   │   async with aclosing(method(self, *args, **kwargs)) as stream:  │
+│ ❱  56 │   │   │   async for item in stream:                                  │
+│    57 │   │   │   │   yield item                                             │
+│                                                                              │
+│ /opt/homebrew/lib/python3.11/site-packages/modal/_functions.py:1607 in _map  │
+│                                                                              │
+│   1606 │   │   │   ) as stream:                                              │
+│ ❱ 1607 │   │   │   │   async for item in stream:                             │
+│   1608 │   │   │   │   │   yield item                                        │
+│                                                                              │
+│ /opt/homebrew/lib/python3.11/site-packages/modal/parallel_map.py:612 in      │
+│ _map_invocation                                                              │
+│                                                                              │
+│    611 │   ) as streamer:                                                    │
+│ ❱  612 │   │   async for response in streamer:                               │
+│    613 │   │   │   if response is not None:  # type: ignore[unreachable]     │
+│                                                                              │
+│ /opt/homebrew/lib/python3.11/site-packages/modal/_utils/async_utils.py:1096  │
+│ in async_merge                                                               │
+│                                                                              │
+│   1095 │   │   │   │   │   assert_type(item, ExceptionWrapper)               │
+│ ❱ 1096 │   │   │   │   │   raise item.value                                  │
+│   1097                                                                       │
+│                                                                              │
+│ /opt/homebrew/lib/python3.11/site-packages/modal/_utils/async_utils.py:1075  │
+│ in producer                                                                  │
+│                                                                              │
+│   1074 │   │   │   async with aclosing(generator) as stream:                 │
+│ ❱ 1075 │   │   │   │   async for item in stream:                             │
+│   1076 │   │   │   │   │   await queue.put(ValueWrapper(item))               │
+│                                                                              │
+│ /opt/homebrew/lib/python3.11/site-packages/modal/parallel_map.py:558 in      │
+│ poll_outputs                                                                 │
+│                                                                              │
+│    557 │   │   ) as streamer:                                                │
+│ ❱  558 │   │   │   async for idx, output in streamer:                        │
+│    559 │   │   │   │   if not order_outputs:                                 │
+│                                                                              │
+│ /opt/homebrew/lib/python3.11/site-packages/modal/_utils/async_utils.py:1225  │
+│ in async_map_ordered                                                         │
+│                                                                              │
+│   1224 │   async with aclosing(async_map(async_zip(counter(), input_generato │
+│ ❱ 1225 │   │   async for output_idx, output_item in stream:                  │
+│   1226 │   │   │   buffer[output_idx] = output_item                          │
+│                                                                              │
+│ /opt/homebrew/lib/python3.11/site-packages/modal/_utils/async_utils.py:1201  │
+│ in async_map                                                                 │
+│                                                                              │
+│   1200 │   ) as stream:                                                      │
+│ ❱ 1201 │   │   async for item in stream:                                     │
+│   1202 │   │   │   yield item                                                │
+│                                                                              │
+│ /opt/homebrew/lib/python3.11/site-packages/modal/_utils/async_utils.py:1096  │
+│ in async_merge                                                               │
+│                                                                              │
+│   1095 │   │   │   │   │   assert_type(item, ExceptionWrapper)               │
+│ ❱ 1096 │   │   │   │   │   raise item.value                                  │
+│   1097                                                                       │
+│                                                                              │
+│ /opt/homebrew/lib/python3.11/site-packages/modal/_utils/async_utils.py:1075  │
+│ in producer                                                                  │
+│                                                                              │
+│   1074 │   │   │   async with aclosing(generator) as stream:                 │
+│ ❱ 1075 │   │   │   │   async for item in stream:                             │
+│   1076 │   │   │   │   │   await queue.put(ValueWrapper(item))               │
+│                                                                              │
+│ /opt/homebrew/lib/python3.11/site-packages/modal/_utils/async_utils.py:1190  │
+│ in worker                                                                    │
+│                                                                              │
+│   1189 │   │   │   if isinstance(item, ValueWrapper):                        │
+│ ❱ 1190 │   │   │   │   res = await prevent_cancellation_abortion(async_mappe │
+│   1191 │   │   │   │   yield res                                             │
+│                                                                              │
+│ /opt/homebrew/lib/python3.11/site-packages/modal/_utils/async_utils.py:1155  │
+│ in prevent_cancellation_abortion                                             │
+│                                                                              │
+│   1154 │   try:                                                              │
+│ ❱ 1155 │   │   return await asyncio.shield(t)                                │
+│   1156 │   except asyncio.CancelledError:                                    │
+│                                                                              │
+│ /opt/homebrew/lib/python3.11/site-packages/modal/_utils/async_utils.py:1214  │
+│ in mapper_func_wrapper                                                       │
+│                                                                              │
+│   1213 │   async def mapper_func_wrapper(tup: tuple[int, T]) -> tuple[int, V │
+│ ❱ 1214 │   │   return (tup[0], await async_mapper_func(tup[1]))              │
+│   1215                                                                       │
+│                                                                              │
+│ /opt/homebrew/lib/python3.11/site-packages/modal/parallel_map.py:547 in      │
+│ fetch_output                                                                 │
+│                                                                              │
+│    546 │   │   │   else:                                                     │
+│ ❱  547 │   │   │   │   raise e                                               │
+│    548 │   │   return (item.idx, output)                                     │
+│                                                                              │
+│ /opt/homebrew/lib/python3.11/site-packages/modal/parallel_map.py:542 in      │
+│ fetch_output                                                                 │
+│                                                                              │
+│    541 │   │   try:                                                          │
+│ ❱  542 │   │   │   output = await _process_result(item.result, item.data_for │
+│    543 │   │   except Exception as e:                                        │
+│                                                                              │
+│ /opt/homebrew/lib/python3.11/site-packages/modal/_utils/function_utils.py:48 │
+│ 9 in _process_result                                                         │
+│                                                                              │
+│   488 │   if result.status == api_pb2.GenericResult.GENERIC_STATUS_TIMEOUT:  │
+│ ❱ 489 │   │   raise FunctionTimeoutError(result.exception)                   │
+│   490 │   elif result.status == api_pb2.GenericResult.GENERIC_STATUS_INTERNA │
+╰──────────────────────────────────────────────────────────────────────────────╯
+FunctionTimeoutError: Task's current input 
+in-01KPF4CB7940EQH8Z917YR7ZP2:1776476892395-0 hit its timeout of 7200s

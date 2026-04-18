@@ -1,0 +1,85 @@
+=== Stage 5: Portfolio Construction & Backtest ===
+
+Loading cost data for HK...
+Loading cost data for KR...
+
+Running backtests (1x cost)...
+
+  HK × gap
+    gross_sharpe=3.038  net_sharpe=-1.566  ann_ret_net=-0.208  turnover=0.428  %invested=100.0%
+  HK × intraday
+    gross_sharpe=0.352  net_sharpe=-2.992  ann_ret_net=-0.752  turnover=0.597  %invested=100.0%
+  HK × cc
+    gross_sharpe=0.978  net_sharpe=-1.247  ann_ret_net=-0.360  turnover=0.449  %invested=100.0%
+  KR × gap
+    gross_sharpe=3.768  net_sharpe=-0.282  ann_ret_net=-0.036  turnover=0.475  %invested=100.0%
+  KR × intraday
+    gross_sharpe=1.001  net_sharpe=-1.456  ann_ret_net=-0.314  turnover=0.509  %invested=100.0%
+  KR × cc
+    gross_sharpe=0.590  net_sharpe=-1.577  ann_ret_net=-0.379  turnover=0.495  %invested=100.0%
+
+Block-bootstrap IC p-values (1000 iters, 20-day blocks)...
+
+  HK gap: IC=0.0610  p=0.0000
+  HK cc: IC=0.0144  p=0.0320
+  KR gap: IC=0.0608  p=0.0000
+  KR cc: IC=0.0076  p=0.2550
+
+Breakeven cost multipliers (bisection)...
+
+  HK gap: breakeven_mult=0.66x
+  HK intraday: breakeven_mult=0.10x
+  HK cc: breakeven_mult=0.43x
+  KR gap: breakeven_mult=0.93x
+  KR intraday: breakeven_mult=0.41x
+  KR cc: breakeven_mult=0.27x
+
+Cost sensitivity sweep...
+
+  HK gap 0.5x → net_sharpe=0.730
+  HK gap 1.0x → net_sharpe=-1.566
+  HK gap 1.5x → net_sharpe=-3.795
+  HK gap 2.0x → net_sharpe=-5.915
+  HK intraday 0.5x → net_sharpe=-1.321
+  HK intraday 1.0x → net_sharpe=-2.992
+  HK intraday 1.5x → net_sharpe=-4.658
+  HK intraday 2.0x → net_sharpe=-6.317
+  HK cc 0.5x → net_sharpe=-0.135
+  HK cc 1.0x → net_sharpe=-1.247
+  HK cc 1.5x → net_sharpe=-2.352
+  HK cc 2.0x → net_sharpe=-3.445
+  KR gap 0.5x → net_sharpe=1.742
+  KR gap 1.0x → net_sharpe=-0.282
+  KR gap 1.5x → net_sharpe=-2.288
+  KR gap 2.0x → net_sharpe=-4.261
+  KR intraday 0.5x → net_sharpe=-0.227
+  KR intraday 1.0x → net_sharpe=-1.456
+  KR intraday 1.5x → net_sharpe=-2.681
+  KR intraday 2.0x → net_sharpe=-3.898
+  KR cc 0.5x → net_sharpe=-0.493
+  KR cc 1.0x → net_sharpe=-1.577
+  KR cc 1.5x → net_sharpe=-2.657
+  KR cc 2.0x → net_sharpe=-3.731
+
+=== SUMMARY TABLE ===
+Market Target      GrossSR    NetSR  AnnRetNet  Turnover   %Inv  BreakevenX
+HK     gap           3.038   -1.566     -0.208     0.428  100.0%       0.66x
+HK     intraday      0.352   -2.992     -0.752     0.597  100.0%       0.10x
+HK     cc            0.978   -1.247     -0.360     0.449  100.0%       0.43x
+KR     gap           3.768   -0.282     -0.036     0.475  100.0%       0.93x
+KR     intraday      1.001   -1.456     -0.314     0.509  100.0%       0.41x
+KR     cc            0.590   -1.577     -0.379     0.495  100.0%       0.27x
+
+=== BOOTSTRAP IC P-VALUES ===
+  HK gap: IC=0.0610  p=0.0000 ** p<0.05
+  HK cc: IC=0.0144  p=0.0320 ** p<0.05
+  KR gap: IC=0.0608  p=0.0000 ** p<0.05
+  KR cc: IC=0.0076  p=0.2550
+
+=== COST SENSITIVITY @ 2x ===
+  HK gap 2x: net_sharpe=-5.915
+  HK intraday 2x: net_sharpe=-6.317
+  HK cc 2x: net_sharpe=-3.445
+  KR gap 2x: net_sharpe=-4.261
+  KR intraday 2x: net_sharpe=-3.898
+  KR cc 2x: net_sharpe=-3.731

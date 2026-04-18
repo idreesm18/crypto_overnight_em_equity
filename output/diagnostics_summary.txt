@@ -1,0 +1,73 @@
+STAGE 6 DIAGNOSTICS SUMMARY
+============================================================
+
+6A. FEATURE ABLATION
+----------------------------------------
+  CRITERION 3 MET: 9 (market, target, group) combos show delta_gross_sharpe < -0.15:
+    HK / gap / drop=crypto: delta_gross_sharpe=-1.101
+    HK / gap / drop=stock_level: delta_gross_sharpe=-2.500
+    HK / cc / drop=crypto: delta_gross_sharpe=-0.289
+    KR / gap / drop=crypto: delta_gross_sharpe=-1.783
+    KR / gap / drop=stock_level: delta_gross_sharpe=-3.027
+    KR / intraday / drop=macro: delta_gross_sharpe=-0.324
+    KR / intraday / drop=stock_level: delta_gross_sharpe=-1.433
+    KR / cc / drop=crypto: delta_gross_sharpe=-0.261
+    KR / cc / drop=stock_level: delta_gross_sharpe=-0.625
+
+  Most load-bearing group per (market, target):
+    HK/cc: dropping 'crypto' causes largest gross Sharpe drop: -0.289
+    HK/gap: dropping 'stock_level' causes largest gross Sharpe drop: -2.500
+    HK/intraday: dropping 'stock_level' causes largest gross Sharpe drop: 0.304
+    KR/cc: dropping 'stock_level' causes largest gross Sharpe drop: -0.625
+    KR/gap: dropping 'stock_level' causes largest gross Sharpe drop: -3.027
+    KR/intraday: dropping 'stock_level' causes largest gross Sharpe drop: -1.433
+
+6B. RETURN COMPONENT ANALYSIS
+----------------------------------------
+  HK/gap: mean_ic=0.0607, dir_acc=0.512, p=0.000
+  HK/intraday: mean_ic=0.0195, dir_acc=0.496, p=0.000
+  HK/cc: mean_ic=0.0139, dir_acc=0.533, p=0.036
+  HK: gap_ic - intraday_ic = 0.0413 => CRITERION 2 MET
+
+  KR/gap: mean_ic=0.0610, dir_acc=0.543, p=0.000
+  KR/intraday: mean_ic=0.0233, dir_acc=0.487, p=0.019
+  KR/cc: mean_ic=0.0050, dir_acc=0.530, p=0.499
+  KR: gap_ic - intraday_ic = 0.0378 => CRITERION 2 MET
+
+6C. REGIME ANALYSIS
+----------------------------------------
+  HK/gap/vix: high_vix: IC=0.0677 Sharpe=1.92 (n=338) | low_vix: IC=0.0598 Sharpe=3.44 (n=1186)
+  HK/gap/btc_trend: btc_down: IC=0.0560 Sharpe=2.72 (n=691) | btc_up: IC=0.0654 Sharpe=3.31 (n=833)
+  HK/gap/crypto_vol: high_cvol: IC=0.0627 Sharpe=3.20 (n=552) | low_cvol: IC=0.0601 Sharpe=2.94 (n=972)
+  KR/gap/vix: high_vix: IC=0.0759 Sharpe=4.36 (n=341) | low_vix: IC=0.0565 Sharpe=3.60 (n=1182)
+  KR/gap/btc_trend: btc_down: IC=0.0672 Sharpe=3.33 (n=686) | btc_up: IC=0.0556 Sharpe=4.15 (n=837)
+  KR/gap/crypto_vol: high_cvol: IC=0.0616 Sharpe=3.36 (n=553) | low_cvol: IC=0.0604 Sharpe=4.01 (n=970)
+
+6D. SHAP STABILITY
+----------------------------------------
+  Avg top-10 overlap consecutive folds: 75.4%
+  Avg Spearman rank correlation across folds: 0.700
+  Top-3 load-bearing features (gap target, by pct_folds_in_top10):
+    HK/gap: vix_level — 97% folds in top10, mean_abs_shap=7.16e-04
+    HK/gap: btc_ov_log_return — 97% folds in top10, mean_abs_shap=8.75e-04
+    HK/gap: eth_ov_log_return — 96% folds in top10, mean_abs_shap=1.29e-03
+    KR/gap: eth_ov_log_return — 97% folds in top10, mean_abs_shap=1.32e-03
+    KR/gap: vix_level — 96% folds in top10, mean_abs_shap=4.66e-04
+    KR/gap: btc_ov_log_return — 87% folds in top10, mean_abs_shap=6.59e-04
+
+6E. WEEKEND EFFECT
+----------------------------------------
+  HK/gap: Monday IC=0.0818 Sharpe=3.92 (n=297) | Tue-Fri IC=0.0561 Sharpe=2.81 (n=1227)
+  KR/gap: Monday IC=0.0653 Sharpe=4.10 (n=296) | Tue-Fri IC=0.0597 Sharpe=3.69 (n=1227)
+
+  Hypothesis: Monday (Friday close -> Monday open, ~65-hr window) should show
+  stronger signal if overnight crypto information persists through the weekend.
+  SUPPORTS hypothesis: Monday IC (0.0735) > Tue-Fri IC (0.0579)
+
+Output files:
+  output/feature_ablation.csv
+  output/return_decomposition.csv
+  output/regime_analysis.csv
+  output/shap_stability.csv
+  output/shap_fold_overlap.csv
+  output/weekend_effect.csv

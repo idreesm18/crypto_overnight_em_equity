@@ -1,0 +1,30 @@
+ABOUTME: Pass 2 feature restoration decisions based on credential presence at Stage P2-1.
+ABOUTME: One section per feature. Append-only. Matches style of logs/feature_decisions.log.
+
+=== LOG_MCAP_BUCKET ===
+Date: 2026-04-17
+Decision: SKIPPED
+Reason: KRX_ID and KRX_PW not present in .env. pykrx authenticated mcap endpoint requires both credentials. Feature remains dropped per Pass 1 state (see feature_decisions.log: LOG MCAP BUCKET FEATURE DROPPED, 2026-04-16).
+Credential presence: KRX_ID=absent, KRX_PW=absent
+Action: Stage P2-3 must not attempt mcap bucket construction. WRITEUP.md note stands.
+
+=== BTC_PERP_LIQUIDATION_COUNT / BTC_PERP_LIQUIDATION_NOTIONAL ===
+Date: 2026-04-17
+Decision: SKIPPED
+Reason: None of COINGLASS_API_KEY, LAEVITAS_API_KEY, CCDATA_API_KEY present in .env. Liquidation intensity features require a paid API source per Pass 1 drop decision.
+Credential presence: COINGLASS_API_KEY=absent, LAEVITAS_API_KEY=absent, CCDATA_API_KEY=absent
+Action: Stage P2-3 must skip liquidation feature construction. WRITEUP.md note stands.
+
+=== USDT_PEG_DEVIATION ===
+Date: 2026-04-17
+Decision: SKIPPED
+Reason: Depends on minute-level BTC/USD source, which piggybacks on liquidations provider. No liquidations provider credentials present (see above). Feature remains dropped per Pass 1 state.
+Credential presence: No qualifying liquidations provider key found.
+Action: Stage P2-3 must skip USDT peg deviation construction. WRITEUP.md note stands.
+
+=== STAGE P2-2 SKIP LOG ===
+Date: 2026-04-17
+
+SKIP: pykrx mcap restoration — KRX_ID/KRX_PW absent. No action taken in P2-2. See LOG_MCAP_BUCKET section above.
+
+SKIP: liquidations pull — COINGLASS_API_KEY, LAEVITAS_API_KEY, CCDATA_API_KEY all absent. No action taken in P2-2. See BTC_PERP_LIQUIDATION_COUNT section above.

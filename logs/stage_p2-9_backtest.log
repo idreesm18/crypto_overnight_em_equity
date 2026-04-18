@@ -1,0 +1,180 @@
+=== Stage P2-9: Backtest Suite (borrow + regime gate) ===
+
+Building regime gate series...
+  Gate=1 fraction: 0.744  dates: 2018-09-04 to 2026-04-15
+
+Loading cost data for stock universes...
+  main_hk: loaded 59,103 rows
+  main_kr: loaded 67,944 rows
+  control_hk: loaded 69,849 rows
+  control_kr: loaded 67,108 rows
+
+Running primary backtests (1x spread, 1x borrow)...
+
+  lgbm/main_hk/gap/tercile_ls/gate_on  net_SR=-1.813  ann_ret=-0.197  DD=-1.381  TO=0.313
+  lgbm/main_hk/gap/tercile_lo/gate_on  net_SR=-8.935  ann_ret=-0.723  DD=-4.407  TO=0.313
+  lgbm/main_hk/gap/tercile_ls/gate_off  net_SR=-1.942  ann_ret=-0.258  DD=-1.735  TO=0.428
+  lgbm/main_hk/gap/tercile_lo/gate_off  net_SR=-11.358  ann_ret=-1.023  DD=-6.214  TO=0.428
+  lgbm/main_hk/intraday/tercile_ls/gate_on  net_SR=-2.335  ann_ret=-0.507  DD=-3.192  TO=0.433
+  lgbm/main_hk/intraday/tercile_lo/gate_on  net_SR=-8.844  ann_ret=-1.120  DD=-6.772  TO=0.433
+  lgbm/main_hk/intraday/tercile_ls/gate_off  net_SR=-3.191  ann_ret=-0.802  DD=-4.930  TO=0.597
+  lgbm/main_hk/intraday/tercile_lo/gate_off  net_SR=-11.638  ann_ret=-1.628  DD=-9.831  TO=0.597
+  lgbm/main_hk/cc/tercile_ls/gate_on  net_SR=-0.964  ann_ret=-0.230  DD=-1.614  TO=0.320
+  lgbm/main_hk/cc/tercile_lo/gate_on  net_SR=-5.484  ann_ret=-0.775  DD=-4.691  TO=0.320
+  lgbm/main_hk/cc/tercile_ls/gate_off  net_SR=-1.420  ann_ret=-0.410  DD=-2.633  TO=0.449
+  lgbm/main_hk/cc/tercile_lo/gate_off  net_SR=-7.080  ann_ret=-1.170  DD=-7.076  TO=0.449
+  lgbm/main_kr/gap/tercile_ls/gate_on  net_SR=-0.510  ann_ret=-0.050  DD=-0.595  TO=0.340
+  lgbm/main_kr/gap/tercile_lo/gate_on  net_SR=-8.021  ann_ret=-0.528  DD=-3.192  TO=0.340
+  lgbm/main_kr/gap/tercile_ls/gate_off  net_SR=-0.598  ann_ret=-0.076  DD=-0.885  TO=0.475
+  lgbm/main_kr/gap/tercile_lo/gate_off  net_SR=-9.577  ann_ret=-0.765  DD=-4.611  TO=0.475
+  lgbm/main_kr/intraday/tercile_ls/gate_on  net_SR=-1.689  ann_ret=-0.317  DD=-2.039  TO=0.380
+  lgbm/main_kr/intraday/tercile_lo/gate_on  net_SR=-7.101  ann_ret=-0.753  DD=-4.549  TO=0.380
+  lgbm/main_kr/intraday/tercile_ls/gate_off  net_SR=-1.642  ann_ret=-0.354  DD=-2.354  TO=0.509
+  lgbm/main_kr/intraday/tercile_lo/gate_off  net_SR=-8.570  ann_ret=-1.003  DD=-6.067  TO=0.509
+  lgbm/main_kr/cc/tercile_ls/gate_on  net_SR=-1.873  ann_ret=-0.374  DD=-2.375  TO=0.369
+  lgbm/main_kr/cc/tercile_lo/gate_on  net_SR=-6.313  ann_ret=-0.781  DD=-4.724  TO=0.369
+  lgbm/main_kr/cc/tercile_ls/gate_off  net_SR=-1.743  ann_ret=-0.419  DD=-2.673  TO=0.495
+  lgbm/main_kr/cc/tercile_lo/gate_off  net_SR=-7.011  ann_ret=-1.008  DD=-6.099  TO=0.495
+  lgbm/control_hk/gap/tercile_ls/gate_on  net_SR=-1.101  ann_ret=-0.108  DD=-0.746  TO=0.280
+  lgbm/control_hk/gap/tercile_lo/gate_on  net_SR=-6.715  ann_ret=-0.438  DD=-2.668  TO=0.280
+  lgbm/control_hk/gap/tercile_ls/gate_off  net_SR=-0.955  ann_ret=-0.123  DD=-0.818  TO=0.345
+  lgbm/control_hk/gap/tercile_lo/gate_off  net_SR=-6.727  ann_ret=-0.544  DD=-3.288  TO=0.345
+  lgbm/control_hk/intraday/tercile_ls/gate_on  net_SR=-1.050  ann_ret=-0.193  DD=-1.243  TO=0.281
+  lgbm/control_hk/intraday/tercile_lo/gate_on  net_SR=-4.698  ann_ret=-0.501  DD=-3.047  TO=0.281
+  lgbm/control_hk/intraday/tercile_ls/gate_off  net_SR=-1.471  ann_ret=-0.333  DD=-2.033  TO=0.402
+  lgbm/control_hk/intraday/tercile_lo/gate_off  net_SR=-6.025  ann_ret=-0.770  DD=-4.651  TO=0.402
+  lgbm/control_hk/cc/tercile_ls/gate_on  net_SR=-0.979  ann_ret=-0.195  DD=-1.205  TO=0.240
+  lgbm/control_hk/cc/tercile_lo/gate_on  net_SR=-3.960  ann_ret=-0.466  DD=-2.823  TO=0.240
+  lgbm/control_hk/cc/tercile_ls/gate_off  net_SR=-0.953  ann_ret=-0.228  DD=-1.483  TO=0.305
+  lgbm/control_hk/cc/tercile_lo/gate_off  net_SR=-4.115  ann_ret=-0.573  DD=-3.475  TO=0.305
+  lgbm/control_kr/gap/tercile_ls/gate_on  net_SR=0.357  ann_ret=0.030  DD=-0.201  TO=0.225
+  lgbm/control_kr/gap/tercile_lo/gate_on  net_SR=-3.929  ann_ret=-0.208  DD=-1.269  TO=0.225
+  lgbm/control_kr/gap/tercile_ls/gate_off  net_SR=0.577  ann_ret=0.058  DD=-0.252  TO=0.293
+  lgbm/control_kr/gap/tercile_lo/gate_off  net_SR=-4.221  ann_ret=-0.266  DD=-1.684  TO=0.293
+  lgbm/control_kr/intraday/tercile_ls/gate_on  net_SR=0.240  ann_ret=0.044  DD=-0.336  TO=0.311
+  lgbm/control_kr/intraday/tercile_lo/gate_on  net_SR=-3.127  ann_ret=-0.293  DD=-1.760  TO=0.311
+  lgbm/control_kr/intraday/tercile_ls/gate_off  net_SR=0.453  ann_ret=0.097  DD=-0.332  TO=0.416
+  lgbm/control_kr/intraday/tercile_lo/gate_off  net_SR=-3.576  ann_ret=-0.392  DD=-2.383  TO=0.416
+  lgbm/control_kr/cc/tercile_ls/gate_on  net_SR=-0.737  ann_ret=-0.133  DD=-1.036  TO=0.315
+  lgbm/control_kr/cc/tercile_lo/gate_on  net_SR=-3.576  ann_ret=-0.364  DD=-2.259  TO=0.315
+  lgbm/control_kr/cc/tercile_ls/gate_off  net_SR=-0.628  ann_ret=-0.132  DD=-1.200  TO=0.407
+  lgbm/control_kr/cc/tercile_lo/gate_off  net_SR=-3.964  ann_ret=-0.464  DD=-2.928  TO=0.407
+  lgbm/index_hk/gap/index_threshold/gate_on  net_SR=1.545  ann_ret=0.135  DD=-0.081  TO=0.287
+  lgbm/index_hk/gap/index_threshold/gate_off  net_SR=2.376  ann_ret=0.278  DD=-0.104  TO=0.426
+  lgbm/index_hk/intraday/index_threshold/gate_on  net_SR=-0.082  ann_ret=-0.010  DD=-0.468  TO=0.410
+  lgbm/index_hk/intraday/index_threshold/gate_off  net_SR=-0.004  ann_ret=-0.001  DD=-0.540  TO=0.550
+  lgbm/index_hk/cc/index_threshold/gate_on  net_SR=0.248  ann_ret=0.033  DD=-0.309  TO=0.348
+  lgbm/index_hk/cc/index_threshold/gate_off  net_SR=0.829  ann_ret=0.155  DD=-0.279  TO=0.478
+  lgbm/index_kr/gap/index_threshold/gate_on  net_SR=2.692  ann_ret=0.236  DD=-0.130  TO=0.346
+  lgbm/index_kr/gap/index_threshold/gate_off  net_SR=3.741  ann_ret=0.472  DD=-0.130  TO=0.499
+  lgbm/index_kr/intraday/index_threshold/gate_on  net_SR=0.199  ann_ret=0.015  DD=-0.170  TO=0.242
+  lgbm/index_kr/intraday/index_threshold/gate_off  net_SR=-0.630  ann_ret=-0.069  DD=-0.566  TO=0.348
+  lgbm/index_kr/cc/index_threshold/gate_on  net_SR=0.901  ann_ret=0.106  DD=-0.187  TO=0.248
+  lgbm/index_kr/cc/index_threshold/gate_off  net_SR=1.159  ann_ret=0.160  DD=-0.249  TO=0.328
+  tcn/main_hk/gap/tercile_ls/gate_on  net_SR=-2.834  ann_ret=-0.347  DD=-2.123  TO=0.369
+  tcn/main_hk/gap/tercile_lo/gate_on  net_SR=-10.637  ann_ret=-0.911  DD=-5.512  TO=0.369
+  tcn/main_hk/gap/tercile_ls/gate_off  net_SR=-3.730  ann_ret=-0.558  DD=-3.360  TO=0.522
+  tcn/main_hk/gap/tercile_lo/gate_off  net_SR=-14.568  ann_ret=-1.346  DD=-8.131  TO=0.522
+  tcn/main_hk/intraday/tercile_ls/gate_on  net_SR=-2.043  ann_ret=-0.469  DD=-2.959  TO=0.359
+  tcn/main_hk/intraday/tercile_lo/gate_on  net_SR=-7.719  ann_ret=-0.999  DD=-6.041  TO=0.359
+  tcn/main_hk/intraday/tercile_ls/gate_off  net_SR=-2.459  ann_ret=-0.663  DD=-4.236  TO=0.491
+  tcn/main_hk/intraday/tercile_lo/gate_off  net_SR=-9.584  ann_ret=-1.407  DD=-8.505  TO=0.491
+  tcn/main_hk/cc/tercile_ls/gate_on  net_SR=-2.056  ann_ret=-0.519  DD=-3.246  TO=0.352
+  tcn/main_hk/cc/tercile_lo/gate_on  net_SR=-6.553  ann_ret=-0.940  DD=-5.704  TO=0.352
+  tcn/main_hk/cc/tercile_ls/gate_off  net_SR=-2.398  ann_ret=-0.712  DD=-4.431  TO=0.489
+  tcn/main_hk/cc/tercile_lo/gate_off  net_SR=-8.146  ann_ret=-1.332  DD=-8.051  TO=0.489
+  tcn/main_kr/gap/tercile_ls/gate_on  net_SR=-1.750  ann_ret=-0.182  DD=-1.287  TO=0.408
+  tcn/main_kr/gap/tercile_lo/gate_on  net_SR=-9.742  ann_ret=-0.673  DD=-4.102  TO=0.408
+  tcn/main_kr/gap/tercile_ls/gate_off  net_SR=-2.159  ann_ret=-0.291  DD=-1.827  TO=0.552
+  tcn/main_kr/gap/tercile_lo/gate_off  net_SR=-12.060  ann_ret=-0.973  DD=-5.898  TO=0.552
+  tcn/main_kr/intraday/tercile_ls/gate_on  net_SR=-1.265  ann_ret=-0.256  DD=-1.604  TO=0.433
+  tcn/main_kr/intraday/tercile_lo/gate_on  net_SR=-6.699  ann_ret=-0.779  DD=-4.705  TO=0.433
+  tcn/main_kr/intraday/tercile_ls/gate_off  net_SR=-1.372  ann_ret=-0.328  DD=-2.145  TO=0.582
+  tcn/main_kr/intraday/tercile_lo/gate_off  net_SR=-8.000  ann_ret=-1.058  DD=-6.402  TO=0.582
+  tcn/main_kr/cc/tercile_ls/gate_on  net_SR=-1.595  ann_ret=-0.369  DD=-2.324  TO=0.394
+  tcn/main_kr/cc/tercile_lo/gate_on  net_SR=-5.575  ann_ret=-0.772  DD=-4.697  TO=0.394
+  tcn/main_kr/cc/tercile_ls/gate_off  net_SR=-1.712  ann_ret=-0.464  DD=-3.005  TO=0.541
+  tcn/main_kr/cc/tercile_lo/gate_off  net_SR=-6.729  ann_ret=-1.059  DD=-6.395  TO=0.541
+  tcn/index_hk/gap/index_threshold/gate_on  net_SR=-0.076  ann_ret=-0.004  DD=-0.154  TO=0.027
+  tcn/index_hk/gap/index_threshold/gate_off  net_SR=-0.064  ann_ret=-0.003  DD=-0.171  TO=0.031
+  tcn/index_hk/intraday/index_threshold/gate_on  net_SR=0.078  ann_ret=0.004  DD=-0.117  TO=0.024
+  tcn/index_hk/intraday/index_threshold/gate_off  net_SR=0.064  ann_ret=0.003  DD=-0.097  TO=0.027
+  tcn/index_hk/cc/index_threshold/gate_on  net_SR=0.497  ann_ret=0.030  DD=-0.058  TO=0.026
+  tcn/index_hk/cc/index_threshold/gate_off  net_SR=0.229  ann_ret=0.016  DD=-0.139  TO=0.030
+  tcn/index_kr/gap/index_threshold/gate_on  net_SR=-0.595  ann_ret=-0.030  DD=-0.274  TO=0.024
+  tcn/index_kr/gap/index_threshold/gate_off  net_SR=-0.687  ann_ret=-0.040  DD=-0.331  TO=0.023
+  tcn/index_kr/intraday/index_threshold/gate_on  net_SR=-0.342  ann_ret=-0.025  DD=-0.287  TO=0.016
+  tcn/index_kr/intraday/index_threshold/gate_off  net_SR=-0.250  ann_ret=-0.019  DD=-0.287  TO=0.021
+  tcn/index_kr/cc/index_threshold/gate_on  net_SR=-0.798  ann_ret=-0.062  DD=-0.446  TO=0.020
+  tcn/index_kr/cc/index_threshold/gate_off  net_SR=-0.502  ann_ret=-0.045  DD=-0.394  TO=0.020
+
+Primary summary: 96 rows written.
+
+Running spread sensitivity sweep (borrow=1x)...
+
+Spread sensitivity: 96 rows written.
+
+Running borrow sensitivity sweep (spread=1x)...
+
+Borrow sensitivity: 96 rows written.
+
+Computing breakeven (spread_mult, borrow_mult) per primary config...
+
+  lgbm/main_hk/gap: be_spread=0.55x  be_borrow=nanx
+  lgbm/main_hk/intraday: be_spread=nanx  be_borrow=nanx
+  lgbm/main_hk/cc: be_spread=nanx  be_borrow=nanx
+  lgbm/main_kr/gap: be_spread=0.86x  be_borrow=nanx
+  lgbm/main_kr/intraday: be_spread=nanx  be_borrow=nanx
+  lgbm/main_kr/cc: be_spread=nanx  be_borrow=nanx
+  lgbm/index_hk/gap: be_spread=infx  be_borrow=infx
+  lgbm/index_hk/intraday: be_spread=0.76x  be_borrow=nanx
+  lgbm/index_hk/cc: be_spread=1.96x  be_borrow=infx
+  lgbm/index_kr/gap: be_spread=infx  be_borrow=infx
+  lgbm/index_kr/intraday: be_spread=1.63x  be_borrow=infx
+  lgbm/index_kr/cc: be_spread=infx  be_borrow=infx
+  tcn/main_hk/gap: be_spread=nanx  be_borrow=nanx
+  tcn/main_hk/intraday: be_spread=nanx  be_borrow=nanx
+  tcn/main_hk/cc: be_spread=nanx  be_borrow=nanx
+  tcn/main_kr/gap: be_spread=0.56x  be_borrow=nanx
+  tcn/main_kr/intraday: be_spread=nanx  be_borrow=nanx
+  tcn/main_kr/cc: be_spread=nanx  be_borrow=nanx
+  tcn/index_hk/gap: be_spread=nanx  be_borrow=nanx
+  tcn/index_hk/intraday: be_spread=infx  be_borrow=infx
+  tcn/index_hk/cc: be_spread=infx  be_borrow=infx
+  tcn/index_kr/gap: be_spread=nanx  be_borrow=nanx
+  tcn/index_kr/intraday: be_spread=nanx  be_borrow=nanx
+  tcn/index_kr/cc: be_spread=nanx  be_borrow=nanx
+Breakeven analysis: 24 rows written.
+
+=== Validation ===
+  NaN net_sharpe rows: 0
+  Total summary rows: 96  (combined across all CSVs: 312)
+  Elapsed: 6.1 min
+  Max daily turnover (tercile): 0.597
+  Max |borrow_cost| for long-only: 0.000000
+
+=== FINAL SUMMARY ===
+Total backtest configurations: 96
+
+Top 5 by net_sharpe:
+model universe target        strategy     gate  net_sharpe  ann_return  max_drawdown   calmar
+ lgbm index_kr    gap index_threshold gate_off    3.741183    0.471932     -0.130022 3.629625
+ lgbm index_kr    gap index_threshold  gate_on    2.692366    0.236458     -0.129850 1.821015
+ lgbm index_hk    gap index_threshold gate_off    2.375900    0.278064     -0.103576 2.684645
+ lgbm index_hk    gap index_threshold  gate_on    1.545482    0.135059     -0.081000 1.667387
+ lgbm index_kr     cc index_threshold gate_off    1.159350    0.159858     -0.249398 0.640977
+
+Best net_sharpe: 3.741
+Configs clearing +0.5 net Sharpe: 8
+
+Gate-on median net_sharpe:  -1.782
+Gate-off median net_sharpe: -1.843
+Gate-on advantage (median): +0.061
+
+Spread sensitivity rows: 96
+Borrow sensitivity rows:  96
+Breakeven analysis rows:  24
+
+Runtime: 6.1 min
+
+=== Done. All outputs written. ===

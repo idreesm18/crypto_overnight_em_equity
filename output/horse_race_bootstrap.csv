@@ -1,0 +1,7 @@
+universe,target,ic_diff,p_value
+main_hk,gap,-0.020596,0.006
+main_hk,intraday,0.004752,0.505
+main_hk,cc,-0.004022,0.665
+main_kr,gap,-0.028132,0.0
+main_kr,intraday,-0.003786,0.622
+main_kr,cc,-0.002245,0.814

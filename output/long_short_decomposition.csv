@@ -1,0 +1,19 @@
+universe,model,target,long_leg_return,short_leg_return,combined_return,long_ic,short_ic,long_sharpe,short_sharpe,note_ls,long_only_return,long_only_sharpe
+main_hk,lgbm,gap,,,0.4002,0.057754,0.023625,3.0388,,combined only; no leg breakdown in pass-2 files,0.1936,2.4651
+main_hk,lgbm,intraday,,,0.0884,-0.002563,0.028232,0.352,,combined only; no leg breakdown in pass-2 files,0.0531,0.3849
+main_hk,lgbm,cc,,,0.2824,0.032712,0.013646,0.9787,,combined only; no leg breakdown in pass-2 files,0.1151,0.7209
+main_hk,tcn,gap,,,0.2368,0.030838,-0.012182,1.6091,,combined only; no leg breakdown in pass-2 files,0.1437,1.7306
+main_hk,tcn,intraday,,,0.092,-0.001844,0.037506,0.3426,,combined only; no leg breakdown in pass-2 files,0.0028,0.0199
+main_hk,tcn,cc,,,0.0352,-0.002983,0.010259,0.1186,,combined only; no leg breakdown in pass-2 files,0.0624,0.3911
+main_kr,lgbm,gap,,,0.4749,0.03574,0.011158,3.7693,,combined only; no leg breakdown in pass-2 files,0.2565,3.3795
+main_kr,lgbm,intraday,,,0.2158,-0.014401,0.030551,1.0017,,combined only; no leg breakdown in pass-2 files,0.0553,0.4822
+main_kr,lgbm,cc,,,0.142,-0.022541,0.006993,0.59,,combined only; no leg breakdown in pass-2 files,0.0346,0.2447
+main_kr,tcn,gap,,,0.318,0.01271,-0.004115,2.3596,,combined only; no leg breakdown in pass-2 files,0.1657,2.1395
+main_kr,tcn,intraday,,,0.3062,-0.013572,0.022621,1.2795,,combined only; no leg breakdown in pass-2 files,0.1302,0.9895
+main_kr,tcn,cc,,,0.1336,-0.011771,0.019366,0.492,,combined only; no leg breakdown in pass-2 files,0.0572,0.3663
+control_hk,lgbm,gap,,,0.2633,-0.00863,0.010309,2.0678,,combined only; no leg breakdown in pass-2 files,0.168,2.2571
+control_hk,lgbm,intraday,,,0.1022,-0.031056,0.007959,0.4518,,combined only; no leg breakdown in pass-2 files,0.0398,0.3165
+control_hk,lgbm,cc,,,0.1175,-0.007419,-7.5e-05,0.4917,,combined only; no leg breakdown in pass-2 files,0.0575,0.4208
+control_kr,lgbm,gap,,,0.2803,-0.014869,0.008872,2.7931,,combined only; no leg breakdown in pass-2 files,0.1294,2.092
+control_kr,lgbm,intraday,,,0.3931,-0.014374,0.032328,1.8432,,combined only; no leg breakdown in pass-2 files,0.1504,1.3849
+control_kr,lgbm,cc,,,0.1458,0.002269,0.020703,0.6948,,combined only; no leg breakdown in pass-2 files,0.0417,0.3647

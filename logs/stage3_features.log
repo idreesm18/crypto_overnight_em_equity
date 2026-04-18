@@ -1,0 +1,183 @@
+2026-04-16 15:47:15,830 INFO Stage 3 Feature Engineering — Track A
+2026-04-16 15:47:15,830 INFO Window: 2019-01-01 to 2026-04-15
+2026-04-16 15:47:15,831 INFO 
+Loading Binance data...
+2026-04-16 15:47:16,482 INFO Spot BTCUSDT: 4,004,219 rows, 2018-09-01 00:00:00+00:00 to 2026-04-15 23:59:00+00:00
+2026-04-16 15:47:16,785 INFO Spot ETHUSDT: 4,004,219 rows, 2018-09-01 00:00:00+00:00 to 2026-04-15 23:59:00+00:00
+2026-04-16 15:47:17,074 INFO Spot SOLUSDT: 2,984,755 rows, 2020-08-11 06:00:00+00:00 to 2026-04-15 23:59:00+00:00
+2026-04-16 15:47:17,516 INFO Spot BNBUSDT: 4,004,219 rows, 2018-09-01 00:00:00+00:00 to 2026-04-15 23:59:00+00:00
+2026-04-16 15:47:17,961 INFO Spot XRPUSDT: 4,004,220 rows, 2018-09-01 00:00:00+00:00 to 2026-04-15 23:59:00+00:00
+2026-04-16 15:47:18,396 INFO Perp BTCUSDT: 3,309,120 rows, 2019-12-31 00:00:00+00:00 to 2026-04-15 23:59:00+00:00
+2026-04-16 15:47:18,803 INFO Perp ETHUSDT: 3,309,120 rows, 2019-12-31 00:00:00+00:00 to 2026-04-15 23:59:00+00:00
+2026-04-16 15:47:18,821 INFO Funding BTCUSDT: 6,846 rows, 2020-01-01 00:00:00+00:00 to 2026-03-31 16:00:00+00:00
+2026-04-16 15:47:18,828 INFO Funding ETHUSDT: 6,846 rows, 2020-01-01 00:00:00+00:00 to 2026-03-31 16:00:00+00:00
+2026-04-16 15:47:18,828 INFO 
+Loading FRED macro data...
+2026-04-16 15:47:18,863 INFO FRED merged: 2781 rows, 2018-09-04 to 2026-04-15
+2026-04-16 15:47:18,863 INFO 
+Loading equity price histories...
+2026-04-16 15:47:19,079 INFO HK price history loaded: 33 tickers
+2026-04-16 15:47:19,135 INFO KR price history loaded: 38 tickers
+2026-04-16 15:47:19,135 INFO 
+Building overnight windows...
+2026-04-16 15:47:19,498 INFO HK: 1791 overnight windows built, 50 weekend gaps
+2026-04-16 15:47:21,551 INFO KR: 1788 overnight windows built, 45 weekend gaps
+2026-04-16 15:47:21,583 INFO Overnight window log saved: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/output/overnight_window_log.csv
+2026-04-16 15:47:21,583 INFO 
+Computing crypto features for HK windows...
+2026-04-16 15:47:21,583 INFO Computing per-window crypto features (this may take a few minutes)...
+2026-04-16 15:47:21,675 INFO   Processed 0/1791 windows...
+2026-04-16 15:47:31,477 INFO   Processed 200/1791 windows...
+2026-04-16 15:47:41,001 INFO   Processed 400/1791 windows...
+2026-04-16 15:47:50,722 INFO   Processed 600/1791 windows...
+2026-04-16 15:47:59,906 INFO   Processed 800/1791 windows...
+2026-04-16 15:48:08,938 INFO   Processed 1000/1791 windows...
+2026-04-16 15:48:17,682 INFO   Processed 1200/1791 windows...
+2026-04-16 15:48:27,261 INFO   Processed 1400/1791 windows...
+2026-04-16 15:48:36,808 INFO   Processed 1600/1791 windows...
+2026-04-16 15:48:45,471 INFO 
+Computing crypto features for KR windows...
+2026-04-16 15:48:45,472 INFO Computing per-window crypto features (this may take a few minutes)...
+2026-04-16 15:48:45,516 INFO   Processed 0/1788 windows...
+2026-04-16 15:48:53,731 INFO   Processed 200/1788 windows...
+2026-04-16 15:49:02,023 INFO   Processed 400/1788 windows...
+2026-04-16 15:49:10,474 INFO   Processed 600/1788 windows...
+2026-04-16 15:49:18,914 INFO   Processed 800/1788 windows...
+2026-04-16 15:49:27,676 INFO   Processed 1000/1788 windows...
+2026-04-16 15:49:36,315 INFO   Processed 1200/1788 windows...
+2026-04-16 15:49:44,965 INFO   Processed 1400/1788 windows...
+2026-04-16 15:49:53,701 INFO   Processed 1600/1788 windows...
+2026-04-16 15:50:01,928 INFO 
+Attaching macro features...
+2026-04-16 15:50:02,209 INFO 
+Building HK full feature table...
+2026-04-16 15:50:02,239 INFO HK: expanding windows to ticker rows...
+2026-04-16 15:50:02,248 INFO   HK: 0/1791 windows expanded
+2026-04-16 15:50:02,745 INFO   HK: 100/1791 windows expanded
+2026-04-16 15:50:03,220 INFO   HK: 200/1791 windows expanded
+2026-04-16 15:50:03,709 INFO   HK: 300/1791 windows expanded
+2026-04-16 15:50:04,226 INFO   HK: 400/1791 windows expanded
+2026-04-16 15:50:04,845 INFO   HK: 500/1791 windows expanded
+2026-04-16 15:50:05,562 INFO   HK: 600/1791 windows expanded
+2026-04-16 15:50:06,393 INFO   HK: 700/1791 windows expanded
+2026-04-16 15:50:07,171 INFO   HK: 800/1791 windows expanded
+2026-04-16 15:50:07,933 INFO   HK: 900/1791 windows expanded
+2026-04-16 15:50:08,687 INFO   HK: 1000/1791 windows expanded
+2026-04-16 15:50:09,450 INFO   HK: 1100/1791 windows expanded
+2026-04-16 15:50:10,219 INFO   HK: 1200/1791 windows expanded
+2026-04-16 15:50:10,989 INFO   HK: 1300/1791 windows expanded
+2026-04-16 15:50:11,810 INFO   HK: 1400/1791 windows expanded
+2026-04-16 15:50:12,609 INFO   HK: 1500/1791 windows expanded
+2026-04-16 15:50:13,494 INFO   HK: 1600/1791 windows expanded
+2026-04-16 15:50:14,415 INFO   HK: 1700/1791 windows expanded
+2026-04-16 15:50:15,291 INFO HK: final rows = 40,808
+2026-04-16 15:50:15,298 INFO 
+Building KR full feature table...
+2026-04-16 15:50:15,316 INFO KR: expanding windows to ticker rows...
+2026-04-16 15:50:15,326 INFO   KR: 0/1788 windows expanded
+2026-04-16 15:50:15,935 INFO   KR: 100/1788 windows expanded
+2026-04-16 15:50:16,553 INFO   KR: 200/1788 windows expanded
+2026-04-16 15:50:17,204 INFO   KR: 300/1788 windows expanded
+2026-04-16 15:50:17,928 INFO   KR: 400/1788 windows expanded
+2026-04-16 15:50:18,685 INFO   KR: 500/1788 windows expanded
+2026-04-16 15:50:19,468 INFO   KR: 600/1788 windows expanded
+2026-04-16 15:50:20,262 INFO   KR: 700/1788 windows expanded
+2026-04-16 15:50:21,047 INFO   KR: 800/1788 windows expanded
+2026-04-16 15:50:21,838 INFO   KR: 900/1788 windows expanded
+2026-04-16 15:50:22,625 INFO   KR: 1000/1788 windows expanded
+2026-04-16 15:50:23,416 INFO   KR: 1100/1788 windows expanded
+2026-04-16 15:50:24,210 INFO   KR: 1200/1788 windows expanded
+2026-04-16 15:50:25,034 INFO   KR: 1300/1788 windows expanded
+2026-04-16 15:50:25,834 INFO   KR: 1400/1788 windows expanded
+2026-04-16 15:50:26,641 INFO   KR: 1500/1788 windows expanded
+2026-04-16 15:50:27,532 INFO   KR: 1600/1788 windows expanded
+2026-04-16 15:50:28,443 INFO   KR: 1700/1788 windows expanded
+2026-04-16 15:50:29,287 INFO KR: final rows = 51,876
+2026-04-16 15:50:29,313 INFO 
+============================================================
+2026-04-16 15:50:29,313 INFO 
+============================================================
+2026-04-16 15:50:29,313 INFO VALIDATION: HK
+2026-04-16 15:50:29,313 INFO ============================================================
+2026-04-16 15:50:29,313 INFO Total rows: 40,808
+2026-04-16 15:50:29,313 INFO 
+Feature stats:
+2026-04-16 15:50:29,315 INFO   btc_ov_log_return                  : mean=+0.0015  std=0.0365  min=-0.4673  max=+0.2760  NaN=0.0%
+2026-04-16 15:50:29,316 INFO   eth_ov_log_return                  : mean=+0.0016  std=0.0471  min=-0.4709  max=+0.2595  NaN=0.0%
+2026-04-16 15:50:29,316 INFO   btc_ov_realized_vol                : mean=+0.6109  std=0.3503  min=+0.1001  max=+5.9554  NaN=0.0%
+2026-04-16 15:50:29,317 INFO   eth_ov_realized_vol                : mean=+0.7807  std=0.4290  min=+0.1091  max=+7.0271  NaN=0.0%
+2026-04-16 15:50:29,317 INFO   btc_ov_max_drawdown                : mean=-0.0354  std=0.0286  min=-0.3889  max=-0.0043  NaN=0.0%
+2026-04-16 15:50:29,317 INFO   btc_ov_volume_usd                  : mean=+2723763578.5977  std=3037245180.0224  min=+53157057.6547  max=+41202511942.0967  NaN=0.0%
+2026-04-16 15:50:29,318 INFO   btc_ov_volume_surge                : mean=+1.0743  std=0.8846  min=+0.1754  max=+10.5975  NaN=0.2%
+2026-04-16 15:50:29,318 INFO   btc_ov_taker_imbalance             : mean=-0.0132  std=0.0421  min=-0.2143  max=+0.1831  NaN=0.0%
+2026-04-16 15:50:29,318 INFO   crosspair_dispersion               : mean=+0.0236  std=0.0230  min=+0.0010  max=+0.2820  NaN=0.0%
+2026-04-16 15:50:29,319 INFO   btc_eth_spread                     : mean=-0.0001  std=0.0267  min=-0.1672  max=+0.2093  NaN=0.0%
+2026-04-16 15:50:29,319 INFO   btc_funding_rate_latest            : mean=+0.0001  std=0.0002  min=-0.0012  max=+0.0030  NaN=9.2% [perp, NaN expected pre-2020]
+2026-04-16 15:50:29,320 INFO   btc_funding_rate_delta             : mean=-0.0000  std=0.0001  min=-0.0012  max=+0.0025  NaN=9.2% [perp, NaN expected pre-2020]
+2026-04-16 15:50:29,320 INFO   vix_level                          : mean=+19.9944  std=6.9837  min=+11.5400  max=+82.6900  NaN=0.0%
+2026-04-16 15:50:29,320 INFO   vix_5d_change                      : mean=+0.0879  std=3.2184  min=-14.8600  max=+33.5300  NaN=0.0%
+2026-04-16 15:50:29,321 INFO   yield_curve_slope                  : mean=+0.2337  std=0.5989  min=-1.0800  max=+1.5900  NaN=0.0%
+2026-04-16 15:50:29,321 INFO   dxy_level                          : mean=+119.2874  std=4.3073  min=+110.5046  max=+130.0413  NaN=0.0%
+2026-04-16 15:50:29,321 INFO   dxy_5d_change                      : mean=+0.0212  std=0.6882  min=-3.0994  max=+4.6199  NaN=0.0%
+2026-04-16 15:50:29,322 INFO   breakeven_5y                       : mean=+2.2572  std=0.4910  min=+0.1400  max=+3.5900  NaN=0.0%
+2026-04-16 15:50:29,322 INFO   stock_rv_20d                       : mean=+0.5461  std=0.2809  min=+0.0672  max=+6.8391  NaN=0.0%
+2026-04-16 15:50:29,322 INFO   stock_ret_20d                      : mean=+0.0016  std=0.1711  min=-2.9203  max=+2.5494  NaN=0.0%
+2026-04-16 15:50:29,323 INFO   stock_prior_day_return             : mean=+0.0000  std=0.0376  min=-0.2960  max=+0.6853  NaN=0.0%
+2026-04-16 15:50:29,323 INFO 
+Target availability:
+2026-04-16 15:50:29,323 INFO   tgt_gap: 40,752 non-NaN rows (99.9%)
+2026-04-16 15:50:29,323 INFO   tgt_intraday: 40,752 non-NaN rows (99.9%)
+2026-04-16 15:50:29,323 INFO   tgt_cc: 40,752 non-NaN rows (99.9%)
+2026-04-16 15:50:29,323 INFO 
+tgt_gap NaN rows: 56 (0.1% — expected ~0% for traded dates)
+2026-04-16 15:50:29,323 INFO 
+Lookahead check: all windows end at/before equity open (structural guarantee via exchange_calendars)
+2026-04-16 15:50:29,323 INFO Prior-day return check: stock_prior_day_return computed from hist[hist.index < date] (structural guarantee)
+2026-04-16 15:50:29,323 INFO 
+============================================================
+2026-04-16 15:50:29,323 INFO VALIDATION: KR
+2026-04-16 15:50:29,323 INFO ============================================================
+2026-04-16 15:50:29,323 INFO Total rows: 51,876
+2026-04-16 15:50:29,324 INFO 
+Feature stats:
+2026-04-16 15:50:29,324 INFO   btc_ov_log_return                  : mean=+0.0023  std=0.0358  min=-0.4527  max=+0.2465  NaN=0.0%
+2026-04-16 15:50:29,325 INFO   eth_ov_log_return                  : mean=+0.0022  std=0.0461  min=-0.4869  max=+0.2886  NaN=0.0%
+2026-04-16 15:50:29,325 INFO   btc_ov_realized_vol                : mean=+0.6096  std=0.3590  min=+0.0977  max=+5.6903  NaN=0.0%
+2026-04-16 15:50:29,326 INFO   eth_ov_realized_vol                : mean=+0.7706  std=0.4335  min=+0.1063  max=+6.8094  NaN=0.0%
+2026-04-16 15:50:29,326 INFO   btc_ov_max_drawdown                : mean=-0.0350  std=0.0286  min=-0.3903  max=-0.0041  NaN=0.0%
+2026-04-16 15:50:29,327 INFO   btc_ov_volume_usd                  : mean=+2609825973.8567  std=3071145703.7451  min=+48133801.0063  max=+34352779380.5656  NaN=0.0%
+2026-04-16 15:50:29,327 INFO   btc_ov_volume_surge                : mean=+1.0808  std=0.9338  min=+0.1707  max=+11.7804  NaN=0.2%
+2026-04-16 15:50:29,328 INFO   btc_ov_taker_imbalance             : mean=-0.0121  std=0.0431  min=-0.2056  max=+0.1633  NaN=0.0%
+2026-04-16 15:50:29,328 INFO   crosspair_dispersion               : mean=+0.0230  std=0.0226  min=+0.0006  max=+0.2360  NaN=0.0%
+2026-04-16 15:50:29,329 INFO   btc_eth_spread                     : mean=+0.0000  std=0.0262  min=-0.1596  max=+0.1589  NaN=0.0%
+2026-04-16 15:50:29,329 INFO   btc_funding_rate_latest            : mean=+0.0001  std=0.0002  min=-0.0009  max=+0.0025  NaN=11.5% [perp, NaN expected pre-2020]
+2026-04-16 15:50:29,330 INFO   btc_funding_rate_delta             : mean=+0.0000  std=0.0001  min=-0.0018  max=+0.0019  NaN=11.5% [perp, NaN expected pre-2020]
+2026-04-16 15:50:29,330 INFO   vix_level                          : mean=+20.2534  std=7.4860  min=+11.5400  max=+82.6900  NaN=0.0%
+2026-04-16 15:50:29,331 INFO   vix_5d_change                      : mean=+0.0732  std=3.3161  min=-14.8600  max=+33.5300  NaN=0.0%
+2026-04-16 15:50:29,331 INFO   yield_curve_slope                  : mean=+0.2305  std=0.5897  min=-1.0800  max=+1.5900  NaN=0.0%
+2026-04-16 15:50:29,331 INFO   dxy_level                          : mean=+119.0988  std=4.2579  min=+110.5046  max=+130.0413  NaN=0.0%
+2026-04-16 15:50:29,332 INFO   dxy_5d_change                      : mean=+0.0141  std=0.6926  min=-3.0994  max=+4.6199  NaN=0.0%
+2026-04-16 15:50:29,332 INFO   breakeven_5y                       : mean=+2.1999  std=0.5276  min=+0.1400  max=+3.5900  NaN=0.0%
+2026-04-16 15:50:29,333 INFO   stock_rv_20d                       : mean=+0.4428  std=0.2411  min=+0.0000  max=+2.3495  NaN=0.0%
+2026-04-16 15:50:29,333 INFO   stock_ret_20d                      : mean=+0.0056  std=0.1439  min=-1.1967  max=+1.7064  NaN=0.0%
+2026-04-16 15:50:29,333 INFO   stock_prior_day_return             : mean=+0.0003  std=0.0318  min=-0.3567  max=+0.2624  NaN=0.0%
+2026-04-16 15:50:29,334 INFO 
+Target availability:
+2026-04-16 15:50:29,334 INFO   tgt_gap: 51,803 non-NaN rows (99.9%)
+2026-04-16 15:50:29,334 INFO   tgt_intraday: 51,803 non-NaN rows (99.9%)
+2026-04-16 15:50:29,334 INFO   tgt_cc: 51,803 non-NaN rows (99.9%)
+2026-04-16 15:50:29,334 INFO 
+tgt_gap NaN rows: 73 (0.1% — expected ~0% for traded dates)
+2026-04-16 15:50:29,334 INFO 
+Lookahead check: all windows end at/before equity open (structural guarantee via exchange_calendars)
+2026-04-16 15:50:29,334 INFO Prior-day return check: stock_prior_day_return computed from hist[hist.index < date] (structural guarantee)
+2026-04-16 15:50:29,425 INFO 
+Saved: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/output/features_track_a_hk.parquet
+2026-04-16 15:50:29,425 INFO Saved: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/output/features_track_a_kr.parquet
+2026-04-16 15:50:29,425 INFO 
+============================================================
+2026-04-16 15:50:29,425 INFO Stage 3 complete.
+2026-04-16 15:50:29,425 INFO HK rows: 40,808
+2026-04-16 15:50:29,425 INFO KR rows: 51,876
+16 15:48:27,254 INFO HK rows: 40,808
+2026-04-16 15:48:27,254 INFO KR rows: 51,876

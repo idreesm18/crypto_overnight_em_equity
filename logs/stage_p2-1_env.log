@@ -1,0 +1,44 @@
+=== STAGE P2-1 ENV CHECK ===
+Date: 2026-04-17
+
+VENV: OK — /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/.venv/bin/python3.11 present and functional.
+
+PACKAGES INSTALLED/VERIFIED:
+  torch:     2.11.0  (was missing; installed)
+  modal:     1.4.2   (was missing; installed)
+  yfinance:  1.2.2   (pre-existing; >=0.2.40 satisfied)
+
+CREDENTIAL PRESENCE (names only, no values):
+  FRED_API_KEY:         PRESENT
+  MODAL_TOKEN_ID:       ABSENT
+  MODAL_TOKEN_SECRET:   ABSENT
+  KRX_ID:               ABSENT
+  KRX_PW:               ABSENT
+  COINGLASS_API_KEY:    ABSENT
+  LAEVITAS_API_KEY:     ABSENT
+  CCDATA_API_KEY:       ABSENT
+
+PASS 1 ARTIFACTS:
+  output/backtest_summary.csv:           PRESENT
+  output/diagnostics_summary.txt:        PRESENT
+  output/predictions_lgbm_hk_gap.csv:    PRESENT
+  output/predictions_lgbm_kr_gap.csv:    PRESENT
+  output/features_track_a_hk.parquet:    PRESENT
+  output/features_track_a_kr.parquet:    PRESENT
+  output/universe_log.csv:               PRESENT
+  reviews/synthesis.md:                  PRESENT
+
+CONTROL CSVs:
+  data/stock_picks/crypto_control_hk.csv: PRESENT — columns: ticker, company_name, matched_sector, matched_treatment_example, rationale
+  data/stock_picks/crypto_control_kr.csv: PRESENT — columns: ticker, company_name, matched_sector, matched_treatment_example, rationale
+
+FEATURE RESTORATION DECISIONS:
+  log_mcap_bucket:                    SKIPPED (KRX_ID/KRX_PW absent)
+  btc_perp_liquidation_count/notional: SKIPPED (no liquidations API key present)
+  usdt_peg_deviation:                 SKIPPED (piggybacks on liquidations provider; none present)
+
+TCN SCHEDULING: OFF — MODAL_TOKEN_ID and MODAL_TOKEN_SECRET are both absent. Stage P2-8 (TCN) cannot be scheduled.
+
+BLOCK: MODAL_TOKEN_ID missing. BLOCK: MODAL_TOKEN_SECRET missing. Stage P2-8 is a scheduled default stage and requires these credentials.
+TCN scheduling: ON (Modal auth via ~/.modal.toml, global)
+exchange_calendars==4.13.2  # installed for stage_p2-5 2026-04-17

@@ -1,0 +1,13 @@
+ablation_name,market,target,delta_gross_sharpe,delta_net_sharpe,delta_ic,ablated_gross_sharpe,ablated_net_sharpe,ablated_mean_ic
+drop_crypto_overnight_all,HK,gap,-1.10051,-1.15542,-0.02128207,1.937335,-2.721112,0.03971193
+drop_crypto_overnight_all,KR,gap,-1.783411,-0.692034,-0.03342417,1.984631,-0.973965,0.02739583
+drop_macro_all,HK,gap,0.114609,-0.759648,-0.00219495,3.152454,-2.32534,0.05879905
+drop_macro_all,KR,gap,-0.050849,0.110699,0.0051064,3.717193,-0.171232,0.0659264
+drop_stock_level_all,HK,gap,-2.499775,2.03198,,0.53807,0.466288,
+drop_stock_level_all,KR,gap,-3.027314,0.892396,,0.740728,0.610465,
+drop_ov_return,HK,gap,-0.625941,-0.043979,-0.00767683,2.411904,-1.609671,0.05331717
+drop_ov_return,KR,gap,-0.974937,-0.134496,-0.01812404,2.793105,-0.416427,0.04269596
+drop_ov_vol,HK,gap,-0.137697,-0.198022,-0.00165038,2.900148,-1.763714,0.05934362
+drop_ov_vol,KR,gap,-0.198273,0.018638,-0.00246821,3.569769,-0.263293,0.05835179
+drop_funding_rate,HK,gap,0.26779,0.237203,0.00917699,3.305635,-1.328489,0.07017099
+drop_funding_rate,KR,gap,-0.316326,-0.033138,-0.00624137,3.451716,-0.315069,0.05457863

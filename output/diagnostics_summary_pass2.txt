@@ -1,0 +1,89 @@
+======================================================================
+DIAGNOSTICS SUMMARY — PASS 2
+======================================================================
+
+ACCEPTANCE CRITERIA EVALUATION
+--------------------------------------------------
+
+(1) Index gap IC > 0.03 & p < 0.05 bootstrap
+  index_hk: IC=0.1848, p=0.0000 => PASS
+  index_kr: IC=0.2773, p=0.0000 => PASS
+
+(2) KR KOSPI large-cap net Sharpe > 0.5
+  SKIPPED: KOSPI large-cap was evaluated in P2-4 but no dedicated backtest
+  universe was carried through P2-9. The 'main_kr' universe covers HSI
+  large-cap equivalents for KR; no separate KOSPI large-cap backtest exists.
+
+(3) TCN > LGBM gap IC by > 0.01 & p < 0.05 (paired block-bootstrap)
+  main_hk gap: IC_diff=-0.0206, p=0.0060 => FAIL
+  main_kr gap: IC_diff=-0.0281, p=0.0000 => FAIL
+
+(4) Control gap:intraday < 1.5 AND main gap:intraday >= 2.5
+  HK: main_ratio=3.1390 [PASS], control_ratio=4.8023 [FAIL]
+  KR: main_ratio=2.1495 [FAIL], control_ratio=0.8843 [PASS]
+
+FRAMING RULE (per brief decision rule)
+--------------------------------------------------
+  HK: gap_ratio_main=3.1390, gap_ratio_control=4.8023 => Rule B — main shows gap dominance but control also elevated; framing uncertain
+  KR: gap_ratio_main=2.1495, gap_ratio_control=0.8843 => Rule C — gap:intraday modest for both; signal exists but crypto-specificity unclear
+
+TOP 10 BACKTEST CONFIGS BY NET SHARPE (from backtest_summary_pass2.csv)
+--------------------------------------------------
+model   universe   target        strategy     gate  net_sharpe  ann_return
+ lgbm   index_kr      gap index_threshold gate_off    3.741183    0.471932
+ lgbm   index_kr      gap index_threshold  gate_on    2.692366    0.236458
+ lgbm   index_hk      gap index_threshold gate_off    2.375900    0.278064
+ lgbm   index_hk      gap index_threshold  gate_on    1.545482    0.135059
+ lgbm   index_kr       cc index_threshold gate_off    1.159350    0.159858
+ lgbm   index_kr       cc index_threshold  gate_on    0.901318    0.105966
+ lgbm   index_hk       cc index_threshold gate_off    0.828990    0.154787
+ lgbm control_kr      gap      tercile_ls gate_off    0.576670    0.057749
+  tcn   index_hk       cc index_threshold  gate_on    0.497338    0.030495
+ lgbm control_kr intraday      tercile_ls gate_off    0.452637    0.096638
+
+CONTROL VS MAIN GAP IC COMPARISON
+--------------------------------------------------
+market  main_gap_ic  control_gap_ic  main_ratio  control_ratio  main_minus_control_gap_ic_diff  bootstrap_p_value
+    HK     0.060994        0.051370      3.1390         4.8023                        0.009624              0.927
+    KR     0.060820        0.037083      2.1495         0.8843                        0.023737              0.008
+
+REGIME-GATE COMPARISON (top configs by |cost_of_inactivity|)
+--------------------------------------------------
+  universe model   target        strategy  gate_on_sharpe  gate_off_sharpe  cost_of_inactivity
+  index_kr  lgbm      gap index_threshold        2.692366         3.741183            0.235474
+  index_hk  lgbm      gap index_threshold        1.545482         2.375900            0.143005
+  index_hk  lgbm       cc index_threshold        0.247811         0.828990            0.121565
+  index_kr  lgbm       cc index_threshold        0.901318         1.159350            0.053892
+control_kr  lgbm intraday      tercile_ls        0.240184         0.452637            0.052856
+control_kr  lgbm      gap      tercile_ls        0.357413         0.576670            0.027957
+  index_kr   tcn       cc index_threshold       -0.798007        -0.502385            0.016644
+  index_hk  lgbm intraday index_threshold       -0.082235        -0.004465            0.008995
+  index_kr   tcn intraday index_threshold       -0.342292        -0.250478            0.005241
+control_kr  lgbm       cc      tercile_ls       -0.737144        -0.627811            0.000721
+
+NOTABLE PATTERNS
+--------------------------------------------------
+LGBM OOS gap IC by universe:
+  universe  oos_mean_ic
+   main_hk     0.060994
+   main_kr     0.060820
+control_hk     0.051370
+control_kr     0.037083
+  index_hk     0.184798
+  index_kr     0.277342
+
+TCN OOS gap IC by universe:
+universe  oos_mean_ic
+ main_hk     0.033536
+ main_kr     0.031982
+index_hk     0.042985
+index_kr     0.069206
+
+ENSEMBLE OOS gap IC by universe:
+universe  oos_mean_ic
+ main_hk     0.040976
+ main_kr     0.043576
+index_hk     0.177671
+index_kr     0.260230
+
+======================================================================

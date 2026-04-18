@@ -1,0 +1,626 @@
+Loading features parquet...
+Feature columns (21): ['btc_ov_log_return', 'eth_ov_log_return', 'btc_ov_realized_vol', 'eth_ov_realized_vol', 'btc_ov_max_drawdown', 'btc_ov_volume_usd', 'btc_ov_volume_surge', 'btc_ov_taker_imbalance', 'crosspair_dispersion', 'btc_eth_spread', 'btc_funding_rate_latest', 'btc_funding_rate_delta', 'vix_level', 'dxy_level', 'yield_curve_slope', 'vix_5d_change', 'dxy_5d_change', 'breakeven_5y', 'stock_rv_20d', 'stock_ret_20d', 'stock_prior_day_return']
+OOS months: 75 (2020-02 to 2026-04)
+
+============================================================
+TARGET: GAP
+============================================================
+  Fold 00 (2020-02): HYPERPARAMETER SEARCH (n_train=4074)
+  Best CV IC: 0.0886 | params: {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.01, 'min_child_samples': 10, 'subsample': 0.7, 'colsample_bytree': 1.0, 'reg_alpha': 1.0, 'reg_lambda': 0}
+  Search done in 6.8s.
+  Fold 00 (2020-02): n_test=339, IC_test=nan, dir_acc=0.460 
+  Fold 01 (2020-03): reusing params (n_train=4413, n_test=353)
+  Fold 01 (2020-03): n_test=353, IC_test=nan, dir_acc=0.286 
+  Fold 02 (2020-04): reusing params (n_train=4766, n_test=322)
+  *** OVERFIT FLAG: ic_train=0.3036, ic_test=0.0334, diff=0.2702
+  Fold 02 (2020-04): n_test=322, IC_test=0.0334, dir_acc=0.550 OVERFIT_FLAG
+  Fold 03 (2020-05): reusing params (n_train=5088, n_test=321)
+  Fold 03 (2020-05): n_test=321, IC_test=nan, dir_acc=0.439 
+  Fold 04 (2020-06): reusing params (n_train=5409, n_test=336)
+  Fold 04 (2020-06): n_test=336, IC_test=nan, dir_acc=0.565 
+  Fold 05 (2020-07): reusing params (n_train=5745, n_test=352)
+  Fold 05 (2020-07): n_test=352, IC_test=nan, dir_acc=0.582 
+  Fold 06 (2020-08): reusing params (n_train=6097, n_test=356)
+  Fold 06 (2020-08): n_test=356, IC_test=nan, dir_acc=0.612 
+  Fold 07 (2020-09): reusing params (n_train=6453, n_test=437)
+  Fold 07 (2020-09): n_test=437, IC_test=nan, dir_acc=0.581 
+  Fold 08 (2020-10): reusing params (n_train=6890, n_test=343)
+  Fold 08 (2020-10): n_test=343, IC_test=nan, dir_acc=0.513 
+  Fold 09 (2020-11): reusing params (n_train=7233, n_test=379)
+  Fold 09 (2020-11): n_test=379, IC_test=nan, dir_acc=0.612 
+  Fold 10 (2020-12): reusing params (n_train=7612, n_test=417)
+  Fold 10 (2020-12): n_test=417, IC_test=nan, dir_acc=0.523 
+  Fold 11 (2021-01): HYPERPARAMETER SEARCH (n_train=8029)
+  Best CV IC: 0.0877 | params: {'n_estimators': 500, 'max_depth': 3, 'learning_rate': 0.05, 'min_child_samples': 50, 'subsample': 1.0, 'colsample_bytree': 0.8, 'reg_alpha': 1.0, 'reg_lambda': 1.0}
+  Search done in 10.6s.
+  Fold 11 (2021-01): n_test=399, IC_test=0.0343, dir_acc=0.519 
+  Fold 12 (2021-02): reusing params (n_train=8428, n_test=394)
+  Fold 12 (2021-02): n_test=394, IC_test=0.0044, dir_acc=0.596 
+  Fold 13 (2021-03): reusing params (n_train=8822, n_test=528)
+  Fold 13 (2021-03): n_test=528, IC_test=0.0933, dir_acc=0.621 
+  Fold 14 (2021-04): reusing params (n_train=9350, n_test=455)
+  Fold 14 (2021-04): n_test=455, IC_test=0.0016, dir_acc=0.514 
+  Fold 15 (2021-05): reusing params (n_train=9805, n_test=518)
+  Fold 15 (2021-05): n_test=518, IC_test=0.0296, dir_acc=0.419 
+  Fold 16 (2021-06): reusing params (n_train=10323, n_test=546)
+  Fold 16 (2021-06): n_test=546, IC_test=0.0461, dir_acc=0.377 
+  Fold 17 (2021-07): reusing params (n_train=10869, n_test=586)
+  Fold 17 (2021-07): n_test=586, IC_test=0.1290, dir_acc=0.445 
+  Fold 18 (2021-08): reusing params (n_train=11455, n_test=616)
+  Fold 18 (2021-08): n_test=616, IC_test=-0.0789, dir_acc=0.450 
+  Fold 19 (2021-09): reusing params (n_train=12071, n_test=588)
+  Fold 19 (2021-09): n_test=588, IC_test=0.0042, dir_acc=0.444 
+  Fold 20 (2021-10): reusing params (n_train=12659, n_test=487)
+  Fold 20 (2021-10): n_test=487, IC_test=0.0645, dir_acc=0.511 
+  Fold 21 (2021-11): reusing params (n_train=13146, n_test=572)
+  Fold 21 (2021-11): n_test=572, IC_test=0.0497, dir_acc=0.318 
+  Fold 22 (2021-12): reusing params (n_train=13718, n_test=593)
+  Fold 22 (2021-12): n_test=593, IC_test=-0.0094, dir_acc=0.469 
+  Fold 23 (2022-01): HYPERPARAMETER SEARCH (n_train=14311)
+  Best CV IC: 0.1123 | params: {'n_estimators': 300, 'max_depth': 3, 'learning_rate': 0.01, 'min_child_samples': 50, 'subsample': 1.0, 'colsample_bytree': 0.7, 'reg_alpha': 1.0, 'reg_lambda': 0}
+  Search done in 19.7s.
+  Fold 23 (2022-01): n_test=527, IC_test=0.0120, dir_acc=0.491 
+  Fold 24 (2022-02): reusing params (n_train=14838, n_test=425)
+  Fold 24 (2022-02): n_test=425, IC_test=0.1071, dir_acc=0.595 
+  Fold 25 (2022-03): reusing params (n_train=15263, n_test=575)
+  Fold 25 (2022-03): n_test=575, IC_test=0.0859, dir_acc=0.595 
+  Fold 26 (2022-04): reusing params (n_train=15838, n_test=450)
+  Fold 26 (2022-04): n_test=450, IC_test=0.0049, dir_acc=0.651 
+  Fold 27 (2022-05): reusing params (n_train=16288, n_test=481)
+  Fold 27 (2022-05): n_test=481, IC_test=0.0772, dir_acc=0.684 
+  Fold 28 (2022-06): reusing params (n_train=16769, n_test=524)
+  Fold 28 (2022-06): n_test=524, IC_test=0.0568, dir_acc=0.651 
+  Fold 29 (2022-07): reusing params (n_train=17293, n_test=500)
+  Fold 29 (2022-07): n_test=500, IC_test=0.0075, dir_acc=0.508 
+  Fold 30 (2022-08): reusing params (n_train=17793, n_test=553)
+  Fold 30 (2022-08): n_test=553, IC_test=0.0638, dir_acc=0.582 
+  Fold 31 (2022-09): reusing params (n_train=18346, n_test=524)
+  Fold 31 (2022-09): n_test=524, IC_test=0.1352, dir_acc=0.639 
+  Fold 32 (2022-10): reusing params (n_train=18870, n_test=500)
+  Fold 32 (2022-10): n_test=500, IC_test=0.0475, dir_acc=0.594 
+  Fold 33 (2022-11): reusing params (n_train=19370, n_test=529)
+  Fold 33 (2022-11): n_test=529, IC_test=0.0771, dir_acc=0.577 
+  Fold 34 (2022-12): reusing params (n_train=19899, n_test=480)
+  Fold 34 (2022-12): n_test=480, IC_test=-0.0372, dir_acc=0.577 
+  Fold 35 (2023-01): HYPERPARAMETER SEARCH (n_train=20379)
+  Best CV IC: 0.2225 | params: {'n_estimators': 100, 'max_depth': 5, 'learning_rate': 0.01, 'min_child_samples': 20, 'subsample': 0.7, 'colsample_bytree': 0.7, 'reg_alpha': 1.0, 'reg_lambda': 0.1}
+  Search done in 18.1s.
+  Fold 35 (2023-01): n_test=432, IC_test=0.0682, dir_acc=0.525 
+  Fold 36 (2023-02): reusing params (n_train=20811, n_test=480)
+  Fold 36 (2023-02): n_test=480, IC_test=0.0735, dir_acc=0.510 
+  Fold 37 (2023-03): reusing params (n_train=21291, n_test=552)
+  Fold 37 (2023-03): n_test=552, IC_test=0.1257, dir_acc=0.433 
+  Fold 38 (2023-04): reusing params (n_train=21843, n_test=408)
+  Fold 38 (2023-04): n_test=408, IC_test=-0.0717, dir_acc=0.385 
+  Fold 39 (2023-05): reusing params (n_train=22251, n_test=484)
+  Fold 39 (2023-05): n_test=484, IC_test=0.0990, dir_acc=0.345 
+  Fold 40 (2023-06): reusing params (n_train=22735, n_test=483)
+  Fold 40 (2023-06): n_test=483, IC_test=0.0723, dir_acc=0.503 
+  Fold 41 (2023-07): reusing params (n_train=23218, n_test=460)
+  Fold 41 (2023-07): n_test=460, IC_test=0.0640, dir_acc=0.563 
+  Fold 42 (2023-08): reusing params (n_train=23678, n_test=573)
+  Fold 42 (2023-08): n_test=573, IC_test=0.0064, dir_acc=0.449 
+  Fold 43 (2023-09): reusing params (n_train=24251, n_test=475)
+  Fold 43 (2023-09): n_test=475, IC_test=0.0235, dir_acc=0.396 
+  Fold 44 (2023-10): reusing params (n_train=24726, n_test=500)
+  Fold 44 (2023-10): n_test=500, IC_test=-0.0029, dir_acc=0.490 
+  Fold 45 (2023-11): reusing params (n_train=25226, n_test=529)
+  Fold 45 (2023-11): n_test=529, IC_test=0.1169, dir_acc=0.503 
+  Fold 46 (2023-12): reusing params (n_train=25755, n_test=456)
+  Fold 46 (2023-12): n_test=456, IC_test=0.0658, dir_acc=0.436 
+  Fold 47 (2024-01): HYPERPARAMETER SEARCH (n_train=26211)
+  Best CV IC: 0.1822 | params: {'n_estimators': 300, 'max_depth': 7, 'learning_rate': 0.01, 'min_child_samples': 50, 'subsample': 0.8, 'colsample_bytree': 0.8, 'reg_alpha': 1.0, 'reg_lambda': 0.1}
+  Search done in 13.2s.
+  Fold 47 (2024-01): n_test=528, IC_test=-0.0164, dir_acc=0.400 
+  Fold 48 (2024-02): reusing params (n_train=26739, n_test=456)
+  Fold 48 (2024-02): n_test=456, IC_test=0.1266, dir_acc=0.401 
+  Fold 49 (2024-03): reusing params (n_train=27195, n_test=480)
+  Fold 49 (2024-03): n_test=480, IC_test=0.1197, dir_acc=0.431 
+  Fold 50 (2024-04): reusing params (n_train=27675, n_test=499)
+  Fold 50 (2024-04): n_test=499, IC_test=0.0870, dir_acc=0.495 
+  Fold 51 (2024-05): reusing params (n_train=28174, n_test=525)
+  Fold 51 (2024-05): n_test=525, IC_test=0.1812, dir_acc=0.547 
+  Fold 52 (2024-06): reusing params (n_train=28699, n_test=511)
+  Fold 52 (2024-06): n_test=511, IC_test=0.1169, dir_acc=0.436 
+  Fold 53 (2024-07): reusing params (n_train=29210, n_test=552)
+  Fold 53 (2024-07): n_test=552, IC_test=0.0367, dir_acc=0.371 
+  Fold 54 (2024-08): reusing params (n_train=29762, n_test=550)
+  Fold 54 (2024-08): n_test=550, IC_test=-0.0074, dir_acc=0.467 
+  Fold 55 (2024-09): reusing params (n_train=30312, n_test=457)
+  Fold 55 (2024-09): n_test=457, IC_test=0.0061, dir_acc=0.578 
+  Fold 56 (2024-10): reusing params (n_train=30769, n_test=504)
+  Fold 56 (2024-10): n_test=504, IC_test=0.0888, dir_acc=0.478 
+  Fold 57 (2024-11): reusing params (n_train=31273, n_test=524)
+  Fold 57 (2024-11): n_test=524, IC_test=0.1513, dir_acc=0.403 
+  Fold 58 (2024-12): reusing params (n_train=31797, n_test=500)
+  Fold 58 (2024-12): n_test=500, IC_test=0.0661, dir_acc=0.374 
+  Fold 59 (2025-01): HYPERPARAMETER SEARCH (n_train=32297)
+  Best CV IC: 0.1788 | params: {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.05, 'min_child_samples': 50, 'subsample': 1.0, 'colsample_bytree': 0.8, 'reg_alpha': 1.0, 'reg_lambda': 1.0}
+  Search done in 12.9s.
+  Fold 59 (2025-01): n_test=475, IC_test=0.0656, dir_acc=0.415 
+  Fold 60 (2025-02): reusing params (n_train=32772, n_test=538)
+  Fold 60 (2025-02): n_test=538, IC_test=0.1163, dir_acc=0.506 
+  Fold 61 (2025-03): reusing params (n_train=33310, n_test=567)
+  Fold 61 (2025-03): n_test=567, IC_test=0.0627, dir_acc=0.646 
+  Fold 62 (2025-04): reusing params (n_train=33877, n_test=513)
+  Fold 62 (2025-04): n_test=513, IC_test=0.1316, dir_acc=0.669 
+  Fold 63 (2025-05): reusing params (n_train=34390, n_test=540)
+  Fold 63 (2025-05): n_test=540, IC_test=0.1681, dir_acc=0.543 
+  Fold 64 (2025-06): reusing params (n_train=34930, n_test=567)
+  Fold 64 (2025-06): n_test=567, IC_test=0.1335, dir_acc=0.541 
+  Fold 65 (2025-07): reusing params (n_train=35497, n_test=594)
+  Fold 65 (2025-07): n_test=594, IC_test=0.1263, dir_acc=0.423 
+  Fold 66 (2025-08): reusing params (n_train=36091, n_test=607)
+  Fold 66 (2025-08): n_test=607, IC_test=0.0468, dir_acc=0.512 
+  Fold 67 (2025-09): reusing params (n_train=36698, n_test=617)
+  Fold 67 (2025-09): n_test=617, IC_test=0.1002, dir_acc=0.554 
+  Fold 68 (2025-10): reusing params (n_train=37315, n_test=560)
+  Fold 68 (2025-10): n_test=560, IC_test=0.0085, dir_acc=0.561 
+  Fold 69 (2025-11): reusing params (n_train=37875, n_test=541)
+  Fold 69 (2025-11): n_test=541, IC_test=-0.0424, dir_acc=0.640 
+  Fold 70 (2025-12): reusing params (n_train=38416, n_test=567)
+  Fold 70 (2025-12): n_test=567, IC_test=-0.0058, dir_acc=0.473 
+  Fold 71 (2026-01): HYPERPARAMETER SEARCH (n_train=38983)
+  Best CV IC: 0.2355 | params: {'n_estimators': 100, 'max_depth': 5, 'learning_rate': 0.01, 'min_child_samples': 10, 'subsample': 0.8, 'colsample_bytree': 0.7, 'reg_alpha': 1.0, 'reg_lambda': 0.1}
+  Search done in 17.9s.
+  Fold 71 (2026-01): n_test=547, IC_test=0.1226, dir_acc=0.567 
+  Fold 72 (2026-02): reusing params (n_train=39530, n_test=442)
+  Fold 72 (2026-02): n_test=442, IC_test=0.0342, dir_acc=0.613 
+  Fold 73 (2026-03): reusing params (n_train=39972, n_test=572)
+  Fold 73 (2026-03): n_test=572, IC_test=0.1251, dir_acc=0.642 
+  Fold 74 (2026-04): reusing params (n_train=40544, n_test=208)
+  Fold 74 (2026-04): n_test=208, IC_test=0.1172, dir_acc=0.611 
+
+  Target 'gap' done in 3.1 min.
+  Saved predictions: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/output/predictions_lgbm_hk_gap.csv
+  Saved SHAP: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/output/shap_per_fold_hk_gap.parquet
+  Saved training log: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/output/training_log_lgbm_hk_gap.csv
+
+--- VALIDATION: gap ---
+  n_predictions: 36678
+  Duplicate (date, ticker) rows: 0
+  Mean IC_test (from log): computed per target in summary below.
+  date range: 2020-02-03 00:00:00 to 2026-04-15 00:00:00
+  tickers: 33
+
+============================================================
+TARGET: INTRADAY
+============================================================
+  Fold 00 (2020-02): HYPERPARAMETER SEARCH (n_train=4074)
+  Best CV IC: 0.0603 | params: {'n_estimators': 500, 'max_depth': 3, 'learning_rate': 0.1, 'min_child_samples': 10, 'subsample': 0.7, 'colsample_bytree': 1.0, 'reg_alpha': 0, 'reg_lambda': 0.1}
+  Search done in 9.2s.
+  *** OVERFIT FLAG: ic_train=0.5624, ic_test=0.0820, diff=0.4804
+  Fold 00 (2020-02): n_test=339, IC_test=0.0820, dir_acc=0.555 OVERFIT_FLAG
+  Fold 01 (2020-03): reusing params (n_train=4413, n_test=353)
+  *** OVERFIT FLAG: ic_train=0.5319, ic_test=0.0027, diff=0.5292
+  Fold 01 (2020-03): n_test=353, IC_test=0.0027, dir_acc=0.533 OVERFIT_FLAG
+  Fold 02 (2020-04): reusing params (n_train=4766, n_test=322)
+  *** OVERFIT FLAG: ic_train=0.5180, ic_test=0.0198, diff=0.4983
+  Fold 02 (2020-04): n_test=322, IC_test=0.0198, dir_acc=0.550 OVERFIT_FLAG
+  Fold 03 (2020-05): reusing params (n_train=5088, n_test=321)
+  *** OVERFIT FLAG: ic_train=0.5167, ic_test=-0.0100, diff=0.5266
+  Fold 03 (2020-05): n_test=321, IC_test=-0.0100, dir_acc=0.364 OVERFIT_FLAG
+  Fold 04 (2020-06): reusing params (n_train=5409, n_test=336)
+  *** OVERFIT FLAG: ic_train=0.4994, ic_test=0.0029, diff=0.4965
+  Fold 04 (2020-06): n_test=336, IC_test=0.0029, dir_acc=0.524 OVERFIT_FLAG
+  Fold 05 (2020-07): reusing params (n_train=5745, n_test=352)
+  *** OVERFIT FLAG: ic_train=0.4904, ic_test=0.0037, diff=0.4867
+  Fold 05 (2020-07): n_test=352, IC_test=0.0037, dir_acc=0.526 OVERFIT_FLAG
+  Fold 06 (2020-08): reusing params (n_train=6097, n_test=356)
+  *** OVERFIT FLAG: ic_train=0.4739, ic_test=0.0663, diff=0.4076
+  Fold 06 (2020-08): n_test=356, IC_test=0.0663, dir_acc=0.517 OVERFIT_FLAG
+  Fold 07 (2020-09): reusing params (n_train=6453, n_test=437)
+  *** OVERFIT FLAG: ic_train=0.4654, ic_test=0.0221, diff=0.4434
+  Fold 07 (2020-09): n_test=437, IC_test=0.0221, dir_acc=0.568 OVERFIT_FLAG
+  Fold 08 (2020-10): reusing params (n_train=6890, n_test=343)
+  *** OVERFIT FLAG: ic_train=0.4512, ic_test=0.0205, diff=0.4307
+  Fold 08 (2020-10): n_test=343, IC_test=0.0205, dir_acc=0.490 OVERFIT_FLAG
+  Fold 09 (2020-11): reusing params (n_train=7233, n_test=379)
+  *** OVERFIT FLAG: ic_train=0.4582, ic_test=-0.0257, diff=0.4839
+  Fold 09 (2020-11): n_test=379, IC_test=-0.0257, dir_acc=0.509 OVERFIT_FLAG
+  Fold 10 (2020-12): reusing params (n_train=7612, n_test=417)
+  *** OVERFIT FLAG: ic_train=0.4412, ic_test=0.0043, diff=0.4369
+  Fold 10 (2020-12): n_test=417, IC_test=0.0043, dir_acc=0.496 OVERFIT_FLAG
+  Fold 11 (2021-01): HYPERPARAMETER SEARCH (n_train=8029)
+  Best CV IC: 0.0400 | params: {'n_estimators': 500, 'max_depth': 3, 'learning_rate': 0.05, 'min_child_samples': 50, 'subsample': 0.7, 'colsample_bytree': 0.7, 'reg_alpha': 0, 'reg_lambda': 0.1}
+  Search done in 11.5s.
+  *** OVERFIT FLAG: ic_train=0.2486, ic_test=0.0436, diff=0.2050
+  Fold 11 (2021-01): n_test=399, IC_test=0.0436, dir_acc=0.511 OVERFIT_FLAG
+  Fold 12 (2021-02): reusing params (n_train=8428, n_test=394)
+  Fold 12 (2021-02): n_test=394, IC_test=0.0375, dir_acc=0.378 
+  Fold 13 (2021-03): reusing params (n_train=8822, n_test=528)
+  Fold 13 (2021-03): n_test=528, IC_test=0.0660, dir_acc=0.561 
+  Fold 14 (2021-04): reusing params (n_train=9350, n_test=455)
+  Fold 14 (2021-04): n_test=455, IC_test=0.0264, dir_acc=0.473 
+  Fold 15 (2021-05): reusing params (n_train=9805, n_test=518)
+  *** OVERFIT FLAG: ic_train=0.1964, ic_test=-0.0144, diff=0.2109
+  Fold 15 (2021-05): n_test=518, IC_test=-0.0144, dir_acc=0.459 OVERFIT_FLAG
+  Fold 16 (2021-06): reusing params (n_train=10323, n_test=546)
+  Fold 16 (2021-06): n_test=546, IC_test=0.0286, dir_acc=0.495 
+  Fold 17 (2021-07): reusing params (n_train=10869, n_test=586)
+  Fold 17 (2021-07): n_test=586, IC_test=0.0557, dir_acc=0.459 
+  Fold 18 (2021-08): reusing params (n_train=11455, n_test=616)
+  Fold 18 (2021-08): n_test=616, IC_test=0.0020, dir_acc=0.565 
+  Fold 19 (2021-09): reusing params (n_train=12071, n_test=588)
+  Fold 19 (2021-09): n_test=588, IC_test=0.1039, dir_acc=0.583 
+  Fold 20 (2021-10): reusing params (n_train=12659, n_test=487)
+  *** OVERFIT FLAG: ic_train=0.1733, ic_test=-0.0688, diff=0.2421
+  Fold 20 (2021-10): n_test=487, IC_test=-0.0688, dir_acc=0.495 OVERFIT_FLAG
+  Fold 21 (2021-11): reusing params (n_train=13146, n_test=572)
+  Fold 21 (2021-11): n_test=572, IC_test=-0.0397, dir_acc=0.538 
+  Fold 22 (2021-12): reusing params (n_train=13718, n_test=593)
+  Fold 22 (2021-12): n_test=593, IC_test=0.0203, dir_acc=0.422 
+  Fold 23 (2022-01): HYPERPARAMETER SEARCH (n_train=14311)
+  Best CV IC: 0.0403 | params: {'n_estimators': 500, 'max_depth': 7, 'learning_rate': 0.05, 'min_child_samples': 20, 'subsample': 0.7, 'colsample_bytree': 1.0, 'reg_alpha': 0.1, 'reg_lambda': 1.0}
+  Search done in 19.5s.
+  *** OVERFIT FLAG: ic_train=0.5809, ic_test=-0.0254, diff=0.6063
+  Fold 23 (2022-01): n_test=527, IC_test=-0.0254, dir_acc=0.518 OVERFIT_FLAG
+  Fold 24 (2022-02): reusing params (n_train=14838, n_test=425)
+  *** OVERFIT FLAG: ic_train=0.5799, ic_test=-0.0672, diff=0.6471
+  Fold 24 (2022-02): n_test=425, IC_test=-0.0672, dir_acc=0.522 OVERFIT_FLAG
+  Fold 25 (2022-03): reusing params (n_train=15263, n_test=575)
+  *** OVERFIT FLAG: ic_train=0.5842, ic_test=0.0164, diff=0.5678
+  Fold 25 (2022-03): n_test=575, IC_test=0.0164, dir_acc=0.593 OVERFIT_FLAG
+  Fold 26 (2022-04): reusing params (n_train=15838, n_test=450)
+  *** OVERFIT FLAG: ic_train=0.5728, ic_test=-0.0954, diff=0.6682
+  Fold 26 (2022-04): n_test=450, IC_test=-0.0954, dir_acc=0.493 OVERFIT_FLAG
+  Fold 27 (2022-05): reusing params (n_train=16288, n_test=481)
+  *** OVERFIT FLAG: ic_train=0.5686, ic_test=-0.1121, diff=0.6807
+  Fold 27 (2022-05): n_test=481, IC_test=-0.1121, dir_acc=0.459 OVERFIT_FLAG
+  Fold 28 (2022-06): reusing params (n_train=16769, n_test=524)
+  *** OVERFIT FLAG: ic_train=0.5681, ic_test=0.0341, diff=0.5340
+  Fold 28 (2022-06): n_test=524, IC_test=0.0341, dir_acc=0.494 OVERFIT_FLAG
+  Fold 29 (2022-07): reusing params (n_train=17293, n_test=500)
+  *** OVERFIT FLAG: ic_train=0.5592, ic_test=0.0159, diff=0.5433
+  Fold 29 (2022-07): n_test=500, IC_test=0.0159, dir_acc=0.452 OVERFIT_FLAG
+  Fold 30 (2022-08): reusing params (n_train=17793, n_test=553)
+  *** OVERFIT FLAG: ic_train=0.5516, ic_test=-0.0328, diff=0.5844
+  Fold 30 (2022-08): n_test=553, IC_test=-0.0328, dir_acc=0.492 OVERFIT_FLAG
+  Fold 31 (2022-09): reusing params (n_train=18346, n_test=524)
+  *** OVERFIT FLAG: ic_train=0.5637, ic_test=-0.0132, diff=0.5770
+  Fold 31 (2022-09): n_test=524, IC_test=-0.0132, dir_acc=0.588 OVERFIT_FLAG
+  Fold 32 (2022-10): reusing params (n_train=18870, n_test=500)
+  *** OVERFIT FLAG: ic_train=0.5483, ic_test=-0.0495, diff=0.5978
+  Fold 32 (2022-10): n_test=500, IC_test=-0.0495, dir_acc=0.512 OVERFIT_FLAG
+  Fold 33 (2022-11): reusing params (n_train=19370, n_test=529)
+  *** OVERFIT FLAG: ic_train=0.5386, ic_test=0.0598, diff=0.4788
+  Fold 33 (2022-11): n_test=529, IC_test=0.0598, dir_acc=0.463 OVERFIT_FLAG
+  Fold 34 (2022-12): reusing params (n_train=19899, n_test=480)
+  *** OVERFIT FLAG: ic_train=0.5216, ic_test=0.0555, diff=0.4661
+  Fold 34 (2022-12): n_test=480, IC_test=0.0555, dir_acc=0.479 OVERFIT_FLAG
+  Fold 35 (2023-01): HYPERPARAMETER SEARCH (n_train=20379)
+  Best CV IC: 0.0313 | params: {'n_estimators': 500, 'max_depth': 7, 'learning_rate': 0.01, 'min_child_samples': 10, 'subsample': 1.0, 'colsample_bytree': 1.0, 'reg_alpha': 1.0, 'reg_lambda': 1.0}
+  Search done in 18.9s.
+  Fold 35 (2023-01): n_test=432, IC_test=-0.0005, dir_acc=0.394 
+  Fold 36 (2023-02): reusing params (n_train=20811, n_test=480)
+  Fold 36 (2023-02): n_test=480, IC_test=0.0613, dir_acc=0.519 
+  Fold 37 (2023-03): reusing params (n_train=21291, n_test=552)
+  Fold 37 (2023-03): n_test=552, IC_test=0.0417, dir_acc=0.487 
+  Fold 38 (2023-04): reusing params (n_train=21843, n_test=408)
+  Fold 38 (2023-04): n_test=408, IC_test=0.0030, dir_acc=0.461 
+  Fold 39 (2023-05): reusing params (n_train=22251, n_test=484)
+  Fold 39 (2023-05): n_test=484, IC_test=0.1186, dir_acc=0.607 
+  Fold 40 (2023-06): reusing params (n_train=22735, n_test=483)
+  Fold 40 (2023-06): n_test=483, IC_test=0.0571, dir_acc=0.491 
+  Fold 41 (2023-07): reusing params (n_train=23218, n_test=460)
+  Fold 41 (2023-07): n_test=460, IC_test=-0.0362, dir_acc=0.420 
+  Fold 42 (2023-08): reusing params (n_train=23678, n_test=573)
+  Fold 42 (2023-08): n_test=573, IC_test=0.0675, dir_acc=0.459 
+  Fold 43 (2023-09): reusing params (n_train=24251, n_test=475)
+  Fold 43 (2023-09): n_test=475, IC_test=0.0463, dir_acc=0.415 
+  Fold 44 (2023-10): reusing params (n_train=24726, n_test=500)
+  Fold 44 (2023-10): n_test=500, IC_test=0.0033, dir_acc=0.470 
+  Fold 45 (2023-11): reusing params (n_train=25226, n_test=529)
+  Fold 45 (2023-11): n_test=529, IC_test=0.0267, dir_acc=0.514 
+  Fold 46 (2023-12): reusing params (n_train=25755, n_test=456)
+  Fold 46 (2023-12): n_test=456, IC_test=-0.0057, dir_acc=0.425 
+  Fold 47 (2024-01): HYPERPARAMETER SEARCH (n_train=26211)
+  Best CV IC: 0.0125 | params: {'n_estimators': 300, 'max_depth': 3, 'learning_rate': 0.05, 'min_child_samples': 20, 'subsample': 1.0, 'colsample_bytree': 0.8, 'reg_alpha': 0, 'reg_lambda': 0}
+  Search done in 14.4s.
+  Fold 47 (2024-01): n_test=528, IC_test=0.0725, dir_acc=0.568 
+  Fold 48 (2024-02): reusing params (n_train=26739, n_test=456)
+  Fold 48 (2024-02): n_test=456, IC_test=-0.0205, dir_acc=0.425 
+  Fold 49 (2024-03): reusing params (n_train=27195, n_test=480)
+  Fold 49 (2024-03): n_test=480, IC_test=0.0958, dir_acc=0.494 
+  Fold 50 (2024-04): reusing params (n_train=27675, n_test=499)
+  Fold 50 (2024-04): n_test=499, IC_test=0.0416, dir_acc=0.531 
+  Fold 51 (2024-05): reusing params (n_train=28174, n_test=525)
+  Fold 51 (2024-05): n_test=525, IC_test=0.1009, dir_acc=0.535 
+  Fold 52 (2024-06): reusing params (n_train=28699, n_test=511)
+  Fold 52 (2024-06): n_test=511, IC_test=0.0362, dir_acc=0.485 
+  Fold 53 (2024-07): reusing params (n_train=29210, n_test=552)
+  Fold 53 (2024-07): n_test=552, IC_test=-0.0035, dir_acc=0.505 
+  Fold 54 (2024-08): reusing params (n_train=29762, n_test=550)
+  Fold 54 (2024-08): n_test=550, IC_test=0.0484, dir_acc=0.420 
+  Fold 55 (2024-09): reusing params (n_train=30312, n_test=457)
+  Fold 55 (2024-09): n_test=457, IC_test=-0.0610, dir_acc=0.446 
+  Fold 56 (2024-10): reusing params (n_train=30769, n_test=504)
+  Fold 56 (2024-10): n_test=504, IC_test=0.0084, dir_acc=0.589 
+  Fold 57 (2024-11): reusing params (n_train=31273, n_test=524)
+  Fold 57 (2024-11): n_test=524, IC_test=-0.0034, dir_acc=0.382 
+  Fold 58 (2024-12): reusing params (n_train=31797, n_test=500)
+  Fold 58 (2024-12): n_test=500, IC_test=0.0354, dir_acc=0.534 
+  Fold 59 (2025-01): HYPERPARAMETER SEARCH (n_train=32297)
+  Best CV IC: 0.0314 | params: {'n_estimators': 300, 'max_depth': 3, 'learning_rate': 0.05, 'min_child_samples': 20, 'subsample': 0.7, 'colsample_bytree': 1.0, 'reg_alpha': 0.1, 'reg_lambda': 0.1}
+  Search done in 12.7s.
+  Fold 59 (2025-01): n_test=475, IC_test=0.1142, dir_acc=0.520 
+  Fold 60 (2025-02): reusing params (n_train=32772, n_test=538)
+  Fold 60 (2025-02): n_test=538, IC_test=-0.0092, dir_acc=0.541 
+  Fold 61 (2025-03): reusing params (n_train=33310, n_test=567)
+  Fold 61 (2025-03): n_test=567, IC_test=0.0385, dir_acc=0.478 
+  Fold 62 (2025-04): reusing params (n_train=33877, n_test=513)
+  Fold 62 (2025-04): n_test=513, IC_test=0.0595, dir_acc=0.499 
+  Fold 63 (2025-05): reusing params (n_train=34390, n_test=540)
+  Fold 63 (2025-05): n_test=540, IC_test=-0.0270, dir_acc=0.515 
+  Fold 64 (2025-06): reusing params (n_train=34930, n_test=567)
+  Fold 64 (2025-06): n_test=567, IC_test=-0.0367, dir_acc=0.407 
+  Fold 65 (2025-07): reusing params (n_train=35497, n_test=594)
+  Fold 65 (2025-07): n_test=594, IC_test=0.0203, dir_acc=0.487 
+  Fold 66 (2025-08): reusing params (n_train=36091, n_test=607)
+  Fold 66 (2025-08): n_test=607, IC_test=0.0768, dir_acc=0.461 
+  Fold 67 (2025-09): reusing params (n_train=36698, n_test=617)
+  Fold 67 (2025-09): n_test=617, IC_test=0.0100, dir_acc=0.420 
+  Fold 68 (2025-10): reusing params (n_train=37315, n_test=560)
+  Fold 68 (2025-10): n_test=560, IC_test=0.0358, dir_acc=0.477 
+  Fold 69 (2025-11): reusing params (n_train=37875, n_test=541)
+  Fold 69 (2025-11): n_test=541, IC_test=-0.0606, dir_acc=0.556 
+  Fold 70 (2025-12): reusing params (n_train=38416, n_test=567)
+  Fold 70 (2025-12): n_test=567, IC_test=-0.0003, dir_acc=0.541 
+  Fold 71 (2026-01): HYPERPARAMETER SEARCH (n_train=38983)
+  Best CV IC: 0.0250 | params: {'n_estimators': 300, 'max_depth': 5, 'learning_rate': 0.05, 'min_child_samples': 20, 'subsample': 0.8, 'colsample_bytree': 0.8, 'reg_alpha': 0, 'reg_lambda': 0.1}
+  Search done in 17.2s.
+  *** OVERFIT FLAG: ic_train=0.2202, ic_test=-0.0120, diff=0.2322
+  Fold 71 (2026-01): n_test=547, IC_test=-0.0120, dir_acc=0.545 OVERFIT_FLAG
+  Fold 72 (2026-02): reusing params (n_train=39530, n_test=442)
+  Fold 72 (2026-02): n_test=442, IC_test=0.1227, dir_acc=0.457 
+  Fold 73 (2026-03): reusing params (n_train=39972, n_test=572)
+  Fold 73 (2026-03): n_test=572, IC_test=0.0673, dir_acc=0.509 
+  Fold 74 (2026-04): reusing params (n_train=40544, n_test=208)
+  Fold 74 (2026-04): n_test=208, IC_test=0.0908, dir_acc=0.587 
+
+  Target 'intraday' done in 3.9 min.
+  Saved predictions: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/output/predictions_lgbm_hk_intraday.csv
+  Saved SHAP: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/output/shap_per_fold_hk_intraday.parquet
+  Saved training log: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/output/training_log_lgbm_hk_intraday.csv
+
+--- VALIDATION: intraday ---
+  n_predictions: 36678
+  Duplicate (date, ticker) rows: 0
+  Mean IC_test (from log): computed per target in summary below.
+  date range: 2020-02-03 00:00:00 to 2026-04-15 00:00:00
+  tickers: 33
+
+============================================================
+TARGET: CC
+============================================================
+  Fold 00 (2020-02): HYPERPARAMETER SEARCH (n_train=4074)
+  Best CV IC: 0.1407 | params: {'n_estimators': 500, 'max_depth': 3, 'learning_rate': 0.01, 'min_child_samples': 50, 'subsample': 0.8, 'colsample_bytree': 0.7, 'reg_alpha': 0, 'reg_lambda': 0}
+  Search done in 8.5s.
+  Fold 00 (2020-02): n_test=339, IC_test=0.0559, dir_acc=0.434 
+  Fold 01 (2020-03): reusing params (n_train=4413, n_test=353)
+  Fold 01 (2020-03): n_test=353, IC_test=-0.0483, dir_acc=0.516 
+  Fold 02 (2020-04): reusing params (n_train=4766, n_test=322)
+  Fold 02 (2020-04): n_test=322, IC_test=-0.0427, dir_acc=0.590 
+  Fold 03 (2020-05): reusing params (n_train=5088, n_test=321)
+  Fold 03 (2020-05): n_test=321, IC_test=0.0325, dir_acc=0.508 
+  Fold 04 (2020-06): reusing params (n_train=5409, n_test=336)
+  *** OVERFIT FLAG: ic_train=0.1629, ic_test=-0.1681, diff=0.3309
+  Fold 04 (2020-06): n_test=336, IC_test=-0.1681, dir_acc=0.533 OVERFIT_FLAG
+  Fold 05 (2020-07): reusing params (n_train=5745, n_test=352)
+  Fold 05 (2020-07): n_test=352, IC_test=0.0024, dir_acc=0.420 
+  Fold 06 (2020-08): reusing params (n_train=6097, n_test=356)
+  Fold 06 (2020-08): n_test=356, IC_test=0.0684, dir_acc=0.537 
+  Fold 07 (2020-09): reusing params (n_train=6453, n_test=437)
+  Fold 07 (2020-09): n_test=437, IC_test=-0.0618, dir_acc=0.508 
+  Fold 08 (2020-10): reusing params (n_train=6890, n_test=343)
+  Fold 08 (2020-10): n_test=343, IC_test=0.0071, dir_acc=0.528 
+  Fold 09 (2020-11): reusing params (n_train=7233, n_test=379)
+  Fold 09 (2020-11): n_test=379, IC_test=0.0620, dir_acc=0.493 
+  Fold 10 (2020-12): reusing params (n_train=7612, n_test=417)
+  Fold 10 (2020-12): n_test=417, IC_test=-0.0532, dir_acc=0.585 
+  Fold 11 (2021-01): HYPERPARAMETER SEARCH (n_train=8029)
+  Best CV IC: 0.0857 | params: {'n_estimators': 300, 'max_depth': 3, 'learning_rate': 0.01, 'min_child_samples': 10, 'subsample': 1.0, 'colsample_bytree': 0.8, 'reg_alpha': 1.0, 'reg_lambda': 0.1}
+  Search done in 11.5s.
+  Fold 11 (2021-01): n_test=399, IC_test=0.1150, dir_acc=0.612 
+  Fold 12 (2021-02): reusing params (n_train=8428, n_test=394)
+  Fold 12 (2021-02): n_test=394, IC_test=-0.0552, dir_acc=0.508 
+  Fold 13 (2021-03): reusing params (n_train=8822, n_test=528)
+  Fold 13 (2021-03): n_test=528, IC_test=0.1249, dir_acc=0.496 
+  Fold 14 (2021-04): reusing params (n_train=9350, n_test=455)
+  Fold 14 (2021-04): n_test=455, IC_test=0.1229, dir_acc=0.556 
+  Fold 15 (2021-05): reusing params (n_train=9805, n_test=518)
+  *** OVERFIT FLAG: ic_train=0.1019, ic_test=-0.1064, diff=0.2083
+  Fold 15 (2021-05): n_test=518, IC_test=-0.1064, dir_acc=0.515 OVERFIT_FLAG
+  Fold 16 (2021-06): reusing params (n_train=10323, n_test=546)
+  Fold 16 (2021-06): n_test=546, IC_test=0.0352, dir_acc=0.562 
+  Fold 17 (2021-07): reusing params (n_train=10869, n_test=586)
+  Fold 17 (2021-07): n_test=586, IC_test=-0.0469, dir_acc=0.543 
+  Fold 18 (2021-08): reusing params (n_train=11455, n_test=616)
+  Fold 18 (2021-08): n_test=616, IC_test=-0.0485, dir_acc=0.529 
+  Fold 19 (2021-09): reusing params (n_train=12071, n_test=588)
+  Fold 19 (2021-09): n_test=588, IC_test=0.0745, dir_acc=0.526 
+  Fold 20 (2021-10): reusing params (n_train=12659, n_test=487)
+  Fold 20 (2021-10): n_test=487, IC_test=-0.0191, dir_acc=0.452 
+  Fold 21 (2021-11): reusing params (n_train=13146, n_test=572)
+  Fold 21 (2021-11): n_test=572, IC_test=-0.0371, dir_acc=0.565 
+  Fold 22 (2021-12): reusing params (n_train=13718, n_test=593)
+  Fold 22 (2021-12): n_test=593, IC_test=-0.0309, dir_acc=0.619 
+  Fold 23 (2022-01): HYPERPARAMETER SEARCH (n_train=14311)
+  Best CV IC: 0.0691 | params: {'n_estimators': 500, 'max_depth': 5, 'learning_rate': 0.01, 'min_child_samples': 10, 'subsample': 0.8, 'colsample_bytree': 1.0, 'reg_alpha': 0.1, 'reg_lambda': 0}
+  Search done in 19.9s.
+  Fold 23 (2022-01): n_test=527, IC_test=0.0690, dir_acc=0.421 
+  Fold 24 (2022-02): reusing params (n_train=14838, n_test=425)
+  Fold 24 (2022-02): n_test=425, IC_test=0.0057, dir_acc=0.541 
+  Fold 25 (2022-03): reusing params (n_train=15263, n_test=575)
+  Fold 25 (2022-03): n_test=575, IC_test=0.1033, dir_acc=0.624 
+  Fold 26 (2022-04): reusing params (n_train=15838, n_test=450)
+  *** OVERFIT FLAG: ic_train=0.1866, ic_test=-0.0491, diff=0.2358
+  Fold 26 (2022-04): n_test=450, IC_test=-0.0491, dir_acc=0.580 OVERFIT_FLAG
+  Fold 27 (2022-05): reusing params (n_train=16288, n_test=481)
+  *** OVERFIT FLAG: ic_train=0.1857, ic_test=-0.0574, diff=0.2431
+  Fold 27 (2022-05): n_test=481, IC_test=-0.0574, dir_acc=0.686 OVERFIT_FLAG
+  Fold 28 (2022-06): reusing params (n_train=16769, n_test=524)
+  Fold 28 (2022-06): n_test=524, IC_test=0.0384, dir_acc=0.693 
+  Fold 29 (2022-07): reusing params (n_train=17293, n_test=500)
+  *** OVERFIT FLAG: ic_train=0.1963, ic_test=-0.0220, diff=0.2183
+  Fold 29 (2022-07): n_test=500, IC_test=-0.0220, dir_acc=0.444 OVERFIT_FLAG
+  Fold 30 (2022-08): reusing params (n_train=17793, n_test=553)
+  *** OVERFIT FLAG: ic_train=0.2060, ic_test=-0.0212, diff=0.2272
+  Fold 30 (2022-08): n_test=553, IC_test=-0.0212, dir_acc=0.526 OVERFIT_FLAG
+  Fold 31 (2022-09): reusing params (n_train=18346, n_test=524)
+  *** OVERFIT FLAG: ic_train=0.1979, ic_test=-0.0187, diff=0.2167
+  Fold 31 (2022-09): n_test=524, IC_test=-0.0187, dir_acc=0.611 OVERFIT_FLAG
+  Fold 32 (2022-10): reusing params (n_train=18870, n_test=500)
+  *** OVERFIT FLAG: ic_train=0.1888, ic_test=-0.0671, diff=0.2559
+  Fold 32 (2022-10): n_test=500, IC_test=-0.0671, dir_acc=0.580 OVERFIT_FLAG
+  Fold 33 (2022-11): reusing params (n_train=19370, n_test=529)
+  Fold 33 (2022-11): n_test=529, IC_test=0.0994, dir_acc=0.548 
+  Fold 34 (2022-12): reusing params (n_train=19899, n_test=480)
+  Fold 34 (2022-12): n_test=480, IC_test=-0.0056, dir_acc=0.467 
+  Fold 35 (2023-01): HYPERPARAMETER SEARCH (n_train=20379)
+  Best CV IC: 0.1205 | params: {'n_estimators': 500, 'max_depth': 7, 'learning_rate': 0.01, 'min_child_samples': 10, 'subsample': 1.0, 'colsample_bytree': 1.0, 'reg_alpha': 1.0, 'reg_lambda': 1.0}
+  Search done in 19.3s.
+  Fold 35 (2023-01): n_test=432, IC_test=0.0138, dir_acc=0.572 
+  Fold 36 (2023-02): reusing params (n_train=20811, n_test=480)
+  Fold 36 (2023-02): n_test=480, IC_test=-0.0004, dir_acc=0.577 
+  Fold 37 (2023-03): reusing params (n_train=21291, n_test=552)
+  Fold 37 (2023-03): n_test=552, IC_test=0.0562, dir_acc=0.536 
+  Fold 38 (2023-04): reusing params (n_train=21843, n_test=408)
+  Fold 38 (2023-04): n_test=408, IC_test=0.0237, dir_acc=0.507 
+  Fold 39 (2023-05): reusing params (n_train=22251, n_test=484)
+  Fold 39 (2023-05): n_test=484, IC_test=0.0806, dir_acc=0.527 
+  Fold 40 (2023-06): reusing params (n_train=22735, n_test=483)
+  Fold 40 (2023-06): n_test=483, IC_test=0.0554, dir_acc=0.400 
+  Fold 41 (2023-07): reusing params (n_train=23218, n_test=460)
+  Fold 41 (2023-07): n_test=460, IC_test=0.0249, dir_acc=0.537 
+  Fold 42 (2023-08): reusing params (n_train=23678, n_test=573)
+  Fold 42 (2023-08): n_test=573, IC_test=-0.0249, dir_acc=0.520 
+  Fold 43 (2023-09): reusing params (n_train=24251, n_test=475)
+  Fold 43 (2023-09): n_test=475, IC_test=-0.0354, dir_acc=0.520 
+  Fold 44 (2023-10): reusing params (n_train=24726, n_test=500)
+  Fold 44 (2023-10): n_test=500, IC_test=-0.0398, dir_acc=0.474 
+  Fold 45 (2023-11): reusing params (n_train=25226, n_test=529)
+  Fold 45 (2023-11): n_test=529, IC_test=0.0473, dir_acc=0.459 
+  Fold 46 (2023-12): reusing params (n_train=25755, n_test=456)
+  Fold 46 (2023-12): n_test=456, IC_test=0.0618, dir_acc=0.487 
+  Fold 47 (2024-01): HYPERPARAMETER SEARCH (n_train=26211)
+  Best CV IC: 0.0717 | params: {'n_estimators': 300, 'max_depth': 7, 'learning_rate': 0.01, 'min_child_samples': 50, 'subsample': 0.8, 'colsample_bytree': 0.8, 'reg_alpha': 1.0, 'reg_lambda': 0.1}
+  Search done in 14.5s.
+  Fold 47 (2024-01): n_test=528, IC_test=0.0058, dir_acc=0.572 
+  Fold 48 (2024-02): reusing params (n_train=26739, n_test=456)
+  Fold 48 (2024-02): n_test=456, IC_test=-0.0154, dir_acc=0.384 
+  Fold 49 (2024-03): reusing params (n_train=27195, n_test=480)
+  Fold 49 (2024-03): n_test=480, IC_test=0.0469, dir_acc=0.479 
+  Fold 50 (2024-04): reusing params (n_train=27675, n_test=499)
+  Fold 50 (2024-04): n_test=499, IC_test=0.1761, dir_acc=0.483 
+  Fold 51 (2024-05): reusing params (n_train=28174, n_test=525)
+  Fold 51 (2024-05): n_test=525, IC_test=0.0467, dir_acc=0.530 
+  Fold 52 (2024-06): reusing params (n_train=28699, n_test=511)
+  Fold 52 (2024-06): n_test=511, IC_test=-0.0072, dir_acc=0.438 
+  Fold 53 (2024-07): reusing params (n_train=29210, n_test=552)
+  Fold 53 (2024-07): n_test=552, IC_test=-0.0463, dir_acc=0.467 
+  Fold 54 (2024-08): reusing params (n_train=29762, n_test=550)
+  Fold 54 (2024-08): n_test=550, IC_test=0.0631, dir_acc=0.504 
+  Fold 55 (2024-09): reusing params (n_train=30312, n_test=457)
+  Fold 55 (2024-09): n_test=457, IC_test=-0.0030, dir_acc=0.608 
+  Fold 56 (2024-10): reusing params (n_train=30769, n_test=504)
+  Fold 56 (2024-10): n_test=504, IC_test=0.0204, dir_acc=0.524 
+  Fold 57 (2024-11): reusing params (n_train=31273, n_test=524)
+  Fold 57 (2024-11): n_test=524, IC_test=0.0431, dir_acc=0.429 
+  Fold 58 (2024-12): reusing params (n_train=31797, n_test=500)
+  Fold 58 (2024-12): n_test=500, IC_test=0.1243, dir_acc=0.462 
+  Fold 59 (2025-01): HYPERPARAMETER SEARCH (n_train=32297)
+  Best CV IC: 0.1040 | params: {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.05, 'min_child_samples': 50, 'subsample': 1.0, 'colsample_bytree': 0.8, 'reg_alpha': 1.0, 'reg_lambda': 1.0}
+  Search done in 12.9s.
+  Fold 59 (2025-01): n_test=475, IC_test=0.0598, dir_acc=0.497 
+  Fold 60 (2025-02): reusing params (n_train=32772, n_test=538)
+  Fold 60 (2025-02): n_test=538, IC_test=0.0397, dir_acc=0.535 
+  Fold 61 (2025-03): reusing params (n_train=33310, n_test=567)
+  Fold 61 (2025-03): n_test=567, IC_test=0.0158, dir_acc=0.506 
+  Fold 62 (2025-04): reusing params (n_train=33877, n_test=513)
+  Fold 62 (2025-04): n_test=513, IC_test=0.0614, dir_acc=0.698 
+  Fold 63 (2025-05): reusing params (n_train=34390, n_test=540)
+  Fold 63 (2025-05): n_test=540, IC_test=0.0283, dir_acc=0.554 
+  Fold 64 (2025-06): reusing params (n_train=34930, n_test=567)
+  Fold 64 (2025-06): n_test=567, IC_test=0.0422, dir_acc=0.591 
+  Fold 65 (2025-07): reusing params (n_train=35497, n_test=594)
+  Fold 65 (2025-07): n_test=594, IC_test=-0.0033, dir_acc=0.530 
+  Fold 66 (2025-08): reusing params (n_train=36091, n_test=607)
+  Fold 66 (2025-08): n_test=607, IC_test=0.0089, dir_acc=0.470 
+  Fold 67 (2025-09): reusing params (n_train=36698, n_test=617)
+  Fold 67 (2025-09): n_test=617, IC_test=-0.0093, dir_acc=0.507 
+  Fold 68 (2025-10): reusing params (n_train=37315, n_test=560)
+  Fold 68 (2025-10): n_test=560, IC_test=-0.0586, dir_acc=0.584 
+  Fold 69 (2025-11): reusing params (n_train=37875, n_test=541)
+  Fold 69 (2025-11): n_test=541, IC_test=-0.0743, dir_acc=0.664 
+  Fold 70 (2025-12): reusing params (n_train=38416, n_test=567)
+  Fold 70 (2025-12): n_test=567, IC_test=0.0279, dir_acc=0.550 
+  Fold 71 (2026-01): HYPERPARAMETER SEARCH (n_train=38983)
+  Best CV IC: 0.1235 | params: {'n_estimators': 100, 'max_depth': 5, 'learning_rate': 0.01, 'min_child_samples': 10, 'subsample': 0.8, 'colsample_bytree': 0.7, 'reg_alpha': 1.0, 'reg_lambda': 0.1}
+  Search done in 17.5s.
+  Fold 71 (2026-01): n_test=547, IC_test=-0.0332, dir_acc=0.541 
+  Fold 72 (2026-02): reusing params (n_train=39530, n_test=442)
+  Fold 72 (2026-02): n_test=442, IC_test=0.0825, dir_acc=0.581 
+  Fold 73 (2026-03): reusing params (n_train=39972, n_test=572)
+  Fold 73 (2026-03): n_test=572, IC_test=0.0608, dir_acc=0.575 
+  Fold 74 (2026-04): reusing params (n_train=40544, n_test=208)
+  Fold 74 (2026-04): n_test=208, IC_test=0.0163, dir_acc=0.745 
+
+  Target 'cc' done in 3.9 min.
+  Saved predictions: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/output/predictions_lgbm_hk_cc.csv
+  Saved SHAP: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/output/shap_per_fold_hk_cc.parquet
+  Saved training log: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/output/training_log_lgbm_hk_cc.csv
+
+--- VALIDATION: cc ---
+  n_predictions: 36678
+  Duplicate (date, ticker) rows: 0
+  Mean IC_test (from log): computed per target in summary below.
+  date range: 2020-02-03 00:00:00 to 2026-04-15 00:00:00
+  tickers: 33
+
+============================================================
+FINAL SUMMARY
+============================================================
+
+Target: GAP
+  n_predictions:  36678
+  mean IC_test:   0.0607
+  median IC_test: 0.0645
+  dir_acc:        0.5118
+  n_folds:        75
+  overfit_flags:  1
+  fallback:       False
+  wall time:      3.1 min
+
+Target: INTRADAY
+  n_predictions:  36678
+  mean IC_test:   0.0195
+  median IC_test: 0.0203
+  dir_acc:        0.4962
+  n_folds:        75
+  overfit_flags:  27
+  fallback:       False
+  wall time:      3.9 min
+
+Target: CC
+  n_predictions:  36678
+  mean IC_test:   0.0139
+  median IC_test: 0.0138
+  dir_acc:        0.5331
+  n_folds:        75
+  overfit_flags:  8
+  fallback:       False
+  wall time:      3.9 min
+
+Total wall time: 11.0 min
+
+Output files:
+  output/predictions_lgbm_hk_gap.csv
+  output/shap_per_fold_hk_gap.parquet
+  output/training_log_lgbm_hk_gap.csv
+  output/predictions_lgbm_hk_intraday.csv
+  output/shap_per_fold_hk_intraday.parquet
+  output/training_log_lgbm_hk_intraday.csv
+  output/predictions_lgbm_hk_cc.csv
+  output/shap_per_fold_hk_cc.parquet
+  output/training_log_lgbm_hk_cc.csv

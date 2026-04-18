@@ -1,0 +1,150 @@
+2026-04-17 16:09:50,667 INFO Stage P2-6: Track B Sequence Preprocessing for TCN
+2026-04-17 16:09:50,667 INFO Resolution: 5-min bars
+2026-04-17 16:09:50,667 INFO Channels: 15 (BTC×5, ETH×5, SOL×5)
+2026-04-17 16:09:50,667 INFO SOL launch cutoff (UTC): 2020-08-11 06:00:00+00:00
+2026-04-17 16:09:50,667 INFO HK T_max (5-min): 1698 | KR T_max (5-min): 2226
+2026-04-17 16:09:50,667 INFO 
+Loading 1-min spot klines...
+2026-04-17 16:09:51,241 INFO Loaded BTCUSDT: 4,004,219 rows, 2018-09-01 00:00:00+00:00 to 2026-04-15 23:59:00+00:00
+2026-04-17 16:09:51,468 INFO Loaded ETHUSDT: 4,004,219 rows, 2018-09-01 00:00:00+00:00 to 2026-04-15 23:59:00+00:00
+2026-04-17 16:09:51,622 INFO Loaded SOLUSDT: 2,984,755 rows, 2020-08-11 06:00:00+00:00 to 2026-04-15 23:59:00+00:00
+2026-04-17 16:09:51,622 INFO 
+Resampling to 5-min bars...
+2026-04-17 16:09:52,184 INFO   BTCUSDT: 4,004,219 1-min -> 800,848 5-min bars
+2026-04-17 16:09:52,561 INFO   ETHUSDT: 4,004,219 1-min -> 800,848 5-min bars
+2026-04-17 16:09:52,796 INFO   SOLUSDT: 2,984,755 1-min -> 596,953 5-min bars
+2026-04-17 16:09:52,813 INFO 
+Loading feature tables...
+2026-04-17 16:09:52,877 INFO   HK  features: (40808, 28)
+2026-04-17 16:09:52,877 INFO   KR  features: (51876, 28)
+2026-04-17 16:09:52,877 INFO   Idx features: (3583, 24)
+2026-04-17 16:09:52,877 INFO 
+Building overnight windows...
+2026-04-17 16:09:53,122 INFO HK: 1793 overnight windows, 50 weekend gaps
+2026-04-17 16:09:54,914 INFO KR: 1790 overnight windows, 45 weekend gaps
+2026-04-17 16:09:54,919 INFO 
+Expected sequence counts:
+2026-04-17 16:09:54,919 INFO   HK stock:   40,808
+2026-04-17 16:09:54,919 INFO   KR stock:   51,876
+2026-04-17 16:09:54,919 INFO   Index HSI:  1,793
+2026-04-17 16:09:54,919 INFO   Index KS11: 1,790
+2026-04-17 16:09:54,919 INFO 
+============================================================
+2026-04-17 16:09:54,919 INFO Building sequences: sequences_hk
+2026-04-17 16:09:54,919 INFO   t_max=1698, is_index=False
+2026-04-17 16:09:54,929 INFO   Merged rows: 40808 (stock-day with window match)
+2026-04-17 16:09:54,930 INFO   Total sequences to extract: 40,808
+2026-04-17 16:09:54,930 INFO   Extracting sequences (logging every 5000)...
+2026-04-17 16:09:54,943 INFO     0/40808 processed
+2026-04-17 16:10:28,835 INFO     5000/40808 processed
+2026-04-17 16:10:55,762 INFO     10000/40808 processed
+2026-04-17 16:11:21,284 INFO     15000/40808 processed
+2026-04-17 16:11:45,520 INFO     20000/40808 processed
+2026-04-17 16:12:09,835 INFO     25000/40808 processed
+2026-04-17 16:12:34,145 INFO     30000/40808 processed
+2026-04-17 16:12:58,454 INFO     35000/40808 processed
+2026-04-17 16:13:22,658 INFO     40000/40808 processed
+2026-04-17 16:13:26,586 INFO   Sequence extraction complete.
+2026-04-17 16:13:26,586 INFO 
+  Mask alignment spot-check (5 windows):
+2026-04-17 16:13:26,586 INFO     idx=0: valid=210, expected=210 -> PASS
+2026-04-17 16:13:26,586 INFO     idx=1: valid=210, expected=210 -> PASS
+2026-04-17 16:13:26,586 INFO     idx=2: valid=210, expected=210 -> PASS
+2026-04-17 16:13:26,586 INFO     idx=3: valid=210, expected=210 -> PASS
+2026-04-17 16:13:26,586 INFO     idx=4: valid=210, expected=210 -> PASS
+2026-04-17 16:13:29,757 INFO 
+============================================================
+2026-04-17 16:13:29,757 INFO Building sequences: sequences_kr
+2026-04-17 16:13:29,758 INFO   t_max=2226, is_index=False
+2026-04-17 16:13:29,817 INFO   Merged rows: 51876 (stock-day with window match)
+2026-04-17 16:13:29,817 INFO   Total sequences to extract: 51,876
+2026-04-17 16:13:29,818 INFO   Extracting sequences (logging every 5000)...
+2026-04-17 16:13:29,837 INFO     0/51876 processed
+2026-04-17 16:14:01,658 INFO     5000/51876 processed
+2026-04-17 16:14:35,170 INFO     10000/51876 processed
+2026-04-17 16:15:00,995 INFO     15000/51876 processed
+2026-04-17 16:15:25,467 INFO     20000/51876 processed
+2026-04-17 16:15:49,995 INFO     25000/51876 processed
+2026-04-17 16:16:14,655 INFO     30000/51876 processed
+2026-04-17 16:16:39,003 INFO     35000/51876 processed
+2026-04-17 16:17:03,519 INFO     40000/51876 processed
+2026-04-17 16:17:27,935 INFO     45000/51876 processed
+2026-04-17 16:17:53,222 INFO     50000/51876 processed
+2026-04-17 16:18:02,611 INFO   Sequence extraction complete.
+2026-04-17 16:18:02,611 INFO 
+  Mask alignment spot-check (5 windows):
+2026-04-17 16:18:02,611 INFO     idx=0: valid=210, expected=210 -> PASS
+2026-04-17 16:18:02,611 INFO     idx=1: valid=210, expected=210 -> PASS
+2026-04-17 16:18:02,611 INFO     idx=2: valid=210, expected=210 -> PASS
+2026-04-17 16:18:02,611 INFO     idx=3: valid=210, expected=210 -> PASS
+2026-04-17 16:18:02,611 INFO     idx=4: valid=210, expected=210 -> PASS
+2026-04-17 16:18:10,622 INFO 
+============================================================
+2026-04-17 16:18:10,623 INFO Building sequences: sequences_index_hk
+2026-04-17 16:18:10,624 INFO   t_max=1698, is_index=True
+2026-04-17 16:18:10,713 INFO   Merged rows: 1792 (windows with feature match)
+2026-04-17 16:18:10,713 INFO   Total sequences to extract: 1,792
+2026-04-17 16:18:10,713 INFO   Extracting sequences (logging every 5000)...
+2026-04-17 16:18:10,724 INFO     0/1792 processed
+2026-04-17 16:18:20,571 INFO   Sequence extraction complete.
+2026-04-17 16:18:20,571 INFO 
+  Mask alignment spot-check (5 windows):
+2026-04-17 16:18:20,571 INFO     idx=0: valid=210, expected=210 -> PASS
+2026-04-17 16:18:20,571 INFO     idx=1: valid=786, expected=786 -> PASS
+2026-04-17 16:18:20,571 INFO     idx=2: valid=210, expected=210 -> PASS
+2026-04-17 16:18:20,571 INFO     idx=3: valid=210, expected=210 -> PASS
+2026-04-17 16:18:20,571 INFO     idx=4: valid=210, expected=210 -> PASS
+2026-04-17 16:18:20,574 INFO   1 post-launch rows have 0 valid bars (data-cutoff boundary — expected, skipped)
+2026-04-17 16:18:20,640 INFO 
+============================================================
+2026-04-17 16:18:20,640 INFO Building sequences: sequences_index_kr
+2026-04-17 16:18:20,640 INFO   t_max=2226, is_index=True
+2026-04-17 16:18:20,646 INFO   Merged rows: 1789 (windows with feature match)
+2026-04-17 16:18:20,646 INFO   Total sequences to extract: 1,789
+2026-04-17 16:18:20,762 INFO   Extracting sequences (logging every 5000)...
+2026-04-17 16:18:20,806 INFO     0/1789 processed
+2026-04-17 16:18:30,152 INFO   Sequence extraction complete.
+2026-04-17 16:18:30,152 INFO 
+  Mask alignment spot-check (5 windows):
+2026-04-17 16:18:30,152 INFO     idx=0: valid=210, expected=210 -> PASS
+2026-04-17 16:18:30,152 INFO     idx=1: valid=786, expected=786 -> PASS
+2026-04-17 16:18:30,152 INFO     idx=2: valid=210, expected=210 -> PASS
+2026-04-17 16:18:30,152 INFO     idx=3: valid=210, expected=210 -> PASS
+2026-04-17 16:18:30,152 INFO     idx=4: valid=210, expected=210 -> PASS
+2026-04-17 16:18:30,155 INFO   1 post-launch rows have 0 valid bars (data-cutoff boundary — expected, skipped)
+2026-04-17 16:18:30,242 INFO   HK stock: 40,808 / 40,808 expected (100.0%)
+2026-04-17 16:18:30,242 INFO   KR stock: 51,876 / 51,876 expected (100.0%)
+2026-04-17 16:18:30,242 INFO   Index HSI: 1,792 / 1,793 expected (99.9%)
+2026-04-17 16:18:30,242 INFO   Index KS11: 1,789 / 1,790 expected (99.9%)
+2026-04-17 16:18:30,242 INFO 
+Sequence length distributions:
+2026-04-17 16:18:30,290 INFO   HK stock valid bar dist: p5=210, p50=210, p95=786, max=1698
+2026-04-17 16:18:30,340 INFO   KR stock valid bar dist: p5=210, p50=210, p95=786, max=2226
+2026-04-17 16:18:30,340 INFO   Index HSI valid bar dist: p5=210, p50=210, p95=786, max=1698
+2026-04-17 16:18:30,341 INFO   Index KS11 valid bar dist: p5=210, p50=210, p95=786, max=2226
+2026-04-17 16:18:30,378 INFO 
+SOL handling:
+2026-04-17 16:18:30,378 INFO   HK sequences pre-SOL-launch (zero-filled SOL channels): 6,203
+2026-04-17 16:18:30,419 INFO   KR sequences pre-SOL-launch (zero-filled SOL channels): 10,182
+2026-04-17 16:18:30,420 INFO 
+Saving .npz files...
+2026-04-17 16:19:01,128 INFO   Saved sequences_hk: sequences_hk.npz | 0.728 GB | 40,808 sequences | T_max=1698
+2026-04-17 16:19:40,695 INFO   Saved sequences_kr: sequences_kr.npz | 0.918 GB | 51,876 sequences | T_max=2226
+2026-04-17 16:19:41,970 INFO   Saved sequences_index_hk: sequences_index_hk.npz | 0.031 GB | 1,792 sequences | T_max=1698
+2026-04-17 16:19:43,267 INFO   Saved sequences_index_kr: sequences_index_kr.npz | 0.031 GB | 1,789 sequences | T_max=2226
+2026-04-17 16:19:43,267 INFO   Total .npz size: 1.708 GB
+2026-04-17 16:19:43,267 INFO 
+======================================================================
+2026-04-17 16:19:43,267 INFO STAGE P2-6 SUMMARY
+2026-04-17 16:19:43,267 INFO ======================================================================
+2026-04-17 16:19:43,267 INFO   Resolution used: 5-min (1-min would exceed 20 GB)
+2026-04-17 16:19:43,267 INFO   sequences_hk.npz:       0.728 GB | 40,808 seqs | T_max=1698
+2026-04-17 16:19:43,267 INFO   sequences_kr.npz:       0.918 GB | 51,876 seqs | T_max=2226
+2026-04-17 16:19:43,267 INFO   sequences_index_hk.npz: 0.031 GB | 1,792 seqs | T_max=1698
+2026-04-17 16:19:43,267 INFO   sequences_index_kr.npz: 0.031 GB | 1,789 seqs | T_max=2226
+2026-04-17 16:19:43,267 INFO   HK T_max (5-min): 1698 | KR T_max (5-min): 2226
+2026-04-17 16:19:43,267 INFO   SOL: zero-filled (mask=False implicit via normalization skip) pre-2020-08-11
+2026-04-17 16:19:43,267 INFO   Static feature dim: stock=9, index=6
+2026-04-17 16:19:43,267 INFO   Mask alignment spot-check: PASS
+2026-04-17 16:19:43,267 INFO   Validation: PASS
+2026-04-17 16:19:43,267 INFO Stage P2-6 complete.

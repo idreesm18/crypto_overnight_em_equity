@@ -1,0 +1,35 @@
+ABOUTME: Stage -2 project file structure verification log.
+ABOUTME: Inputs: project directory and user-provided items. Outputs: directory tree status, user-provided item checklist.
+
+=== STAGE -2 SUMMARY ===
+Date: 2026-04-16
+Project root: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity/
+Project name note: brief refers to "crypto_overnight_signal"; actual filesystem uses "crypto_overnight_em_equity". Using actual path.
+
+=== DIRECTORY TREE CREATED ===
+data/binance/spot_klines/        (empty, Stage 1 will populate)
+data/binance/perp_klines/        (empty, Stage 1 will populate)
+data/binance/funding_rates/      (empty, Stage 1 will populate)
+data/binance/liquidations/       (empty, Stage 1 will populate)
+data/stooq/hk_daily/             (empty at creation; user files at data/hk_daily/ to be relocated or referenced in Stage 0)
+data/pykrx/kr_daily/             (empty, Stage 1 will populate)
+data/fred/                       (empty, Stage 1 will populate)
+data/yfinance/                   (empty, Stage 1 will populate)
+scripts/
+output/
+reviews/
+logs/
+briefs/                          (brief copied from research_agent/briefs/)
+
+=== USER-PROVIDED ITEMS VERIFIED ===
+[PASS] data/crypto_candidates_hk.csv — header: ticker,company_name,category,source
+[PASS] data/crypto_candidates_kr.csv — header: ticker,company_name,category,source
+[PASS] data/hk_daily/ — 2869 .txt files (NOTE: placed at data/hk_daily/ not data/stooq/hk_daily/)
+[PASS] .env at project root with FRED_API_KEY set
+
+=== FLAGS FOR STAGE 0 ===
+1. Stooq HK relocation: files are at data/hk_daily/. Brief explicitly defers move-or-reference decision to Stage 0/1. Recommend moving into data/stooq/hk_daily/ for schema consistency.
+2. Ticker format mismatch: candidate CSV format "0863.HK" vs Stooq filename "863.hk.txt". Stage 0 step 4 must normalize (strip leading zeros, suffix mapping) when matching candidates to Stooq prices.
+
+=== STATUS ===
+Stage -2 complete. No blocking gate failed. Proceeding to Stage -1.

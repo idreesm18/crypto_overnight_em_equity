@@ -1,0 +1,3 @@
+market,main_gap_ic,control_gap_ic,main_intraday_ic,control_intraday_ic,main_ratio,control_ratio,main_minus_control_gap_ic_diff,bootstrap_p_value
+HK,0.060994,0.05137,0.019431,0.010697,3.139,4.8023,0.009624,0.927
+KR,0.06082,0.037083,0.028296,0.041935,2.1495,0.8843,0.023737,0.008

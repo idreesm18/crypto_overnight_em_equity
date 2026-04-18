@@ -1,0 +1,56 @@
+2026-04-18 14:06:21,491 INFO Loading prediction files...
+2026-04-18 14:06:21,914 INFO Loaded 30 prediction files.
+2026-04-18 14:06:22,045 INFO Computing horse_race.csv...
+2026-04-18 14:06:31,145 INFO horse_race rows: 42
+2026-04-18 14:06:31,147 INFO Running horse_race_bootstrap block-bootstrap...
+2026-04-18 14:06:34,461 INFO horse_race.csv written (42 rows). horse_race_bootstrap.csv (6 rows).
+2026-04-18 14:06:34,461 INFO Computing control_vs_main_comparison.csv...
+2026-04-18 14:06:37,473 INFO control_vs_main_comparison.csv written (2 rows).
+2026-04-18 14:06:37,473 INFO Computing regime_gate_comparison.csv...
+2026-04-18 14:06:37,479 INFO regime_gate_comparison.csv written (48 rows).
+2026-04-18 14:06:37,479 INFO Computing long_short_decomposition.csv...
+2026-04-18 14:07:06,576 INFO long_short_decomposition.csv written (18 rows). Note: pass-2 per-day files lack leg-level returns; long_leg_return and short_leg_return set to NaN.
+2026-04-18 14:07:06,576 INFO Computing return_decomposition_pass2.csv...
+2026-04-18 14:07:06,579 INFO Pass-1 return_decomposition.csv found (6 rows) — appending pass-2 rows.
+2026-04-18 14:07:06,580 INFO return_decomposition_pass2.csv written (96 rows).
+2026-04-18 14:07:06,580 INFO Computing regime_analysis_pass2.csv...
+2026-04-18 14:07:10,045 INFO regime_analysis_pass2.csv written (72 rows).
+2026-04-18 14:07:10,046 INFO Writing diagnostics_summary_pass2.txt...
+2026-04-18 14:07:10,508 INFO diagnostics_summary_pass2.txt written.
+2026-04-18 14:07:10,508 INFO Running validation checks...
+2026-04-18 14:07:10,508 INFO   OK: horse_race.csv (2930 bytes)
+2026-04-18 14:07:10,508 INFO   OK: horse_race_bootstrap.csv (205 bytes)
+2026-04-18 14:07:10,508 INFO   OK: control_vs_main_comparison.csv (278 bytes)
+2026-04-18 14:07:10,508 INFO   OK: regime_gate_comparison.csv (5748 bytes)
+2026-04-18 14:07:10,509 INFO   OK: long_short_decomposition.csv (2245 bytes)
+2026-04-18 14:07:10,509 INFO   OK: return_decomposition_pass2.csv (14386 bytes)
+2026-04-18 14:07:10,509 INFO   OK: regime_analysis_pass2.csv (3410 bytes)
+2026-04-18 14:07:10,509 INFO   OK: diagnostics_summary_pass2.txt (4521 bytes)
+2026-04-18 14:07:10,509 INFO All validation checks passed.
+2026-04-18 14:07:10,509 INFO 
+2026-04-18 14:07:10,509 INFO ============================================================
+2026-04-18 14:07:10,509 INFO FINAL SUMMARY
+2026-04-18 14:07:10,509 INFO ============================================================
+2026-04-18 14:07:10,509 INFO 7 output files (+ horse_race_bootstrap.csv as side table):
+2026-04-18 14:07:10,509 INFO   horse_race.csv: 42 rows/entries
+2026-04-18 14:07:10,509 INFO   horse_race_bootstrap.csv: 6 rows/entries
+2026-04-18 14:07:10,509 INFO   control_vs_main_comparison.csv: 2 rows/entries
+2026-04-18 14:07:10,509 INFO   regime_gate_comparison.csv: 48 rows/entries
+2026-04-18 14:07:10,509 INFO   long_short_decomposition.csv: 18 rows/entries
+2026-04-18 14:07:10,509 INFO   return_decomposition_pass2.csv: 96 rows/entries
+2026-04-18 14:07:10,509 INFO   regime_analysis_pass2.csv: 72 rows/entries
+2026-04-18 14:07:10,509 INFO   diagnostics_summary_pass2.txt: 1 rows/entries
+2026-04-18 14:07:10,509 INFO 
+2026-04-18 14:07:10,509 INFO ACCEPTANCE CRITERIA:
+2026-04-18 14:07:10,680 INFO   #1 Index gap IC [index_hk]: IC=0.1848
+2026-04-18 14:07:10,918 INFO   #1 Index gap IC [index_kr]: IC=0.2773
+2026-04-18 14:07:10,918 INFO   #3 TCN vs LGBM gap IC (block-bootstrap):
+2026-04-18 14:07:10,919 INFO     main_hk: IC_diff=-0.0206, p=0.0060
+2026-04-18 14:07:10,920 INFO     main_kr: IC_diff=-0.0281, p=0.0000
+2026-04-18 14:07:10,920 INFO   #4 gap:intraday ratios:
+2026-04-18 14:07:10,921 INFO     HK: main=3.1390, control=4.8023
+2026-04-18 14:07:10,921 INFO     KR: main=2.1495, control=0.8843
+2026-04-18 14:07:10,921 INFO   Framing rules:
+2026-04-18 14:07:10,922 INFO     HK: Rule B
+2026-04-18 14:07:10,922 INFO     KR: Rule C
+2026-04-18 14:07:10,922 INFO Stage P2-11 complete.

@@ -1,0 +1,13 @@
+market,target,day_bucket,n_days,mean_ic,gross_sharpe,ann_return
+HK,gap,monday,297,0.081762,3.9187,0.5548
+HK,gap,tue_fri,1227,0.056123,2.808,0.3628
+HK,intraday,monday,297,0.010682,-0.1826,-0.048
+HK,intraday,tue_fri,1227,0.021549,0.489,0.1214
+HK,cc,monday,297,-0.001039,0.3129,0.1051
+HK,cc,tue_fri,1227,0.018166,1.1783,0.3253
+KR,gap,monday,296,0.065259,4.0951,0.5258
+KR,gap,tue_fri,1227,0.059748,3.6863,0.4626
+KR,intraday,monday,296,0.016854,0.5927,0.1354
+KR,intraday,tue_fri,1227,0.031072,1.1076,0.2352
+KR,cc,monday,296,0.014117,0.5043,0.1234
+KR,cc,tue_fri,1227,0.006062,0.6106,0.1464

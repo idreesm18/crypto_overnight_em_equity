@@ -1,0 +1,165 @@
+=== Stage P2-10 Expanded Ablation ===
+Start time: 2026-04-18 10:48:19
+[HK] loaded 40808 rows, 21 features: ['btc_ov_log_return', 'eth_ov_log_return', 'btc_ov_realized_vol', 'eth_ov_realized_vol', 'btc_ov_max_drawdown', 'btc_ov_volume_usd', 'btc_ov_volume_surge', 'btc_ov_taker_imbalance', 'crosspair_dispersion', 'btc_eth_spread', 'btc_funding_rate_latest', 'btc_funding_rate_delta', 'vix_level', 'dxy_level', 'yield_curve_slope', 'vix_5d_change', 'dxy_5d_change', 'breakeven_5y', 'stock_rv_20d', 'stock_ret_20d', 'stock_prior_day_return']
+[HK] cost_data loaded, 59103 index entries
+[KR] loaded 51876 rows, 21 features: ['btc_ov_log_return', 'eth_ov_log_return', 'btc_ov_realized_vol', 'eth_ov_realized_vol', 'btc_ov_max_drawdown', 'btc_ov_volume_usd', 'btc_ov_volume_surge', 'btc_ov_taker_imbalance', 'crosspair_dispersion', 'btc_eth_spread', 'btc_funding_rate_latest', 'btc_funding_rate_delta', 'vix_level', 'dxy_level', 'yield_curve_slope', 'vix_5d_change', 'dxy_5d_change', 'breakeven_5y', 'stock_rv_20d', 'stock_ret_20d', 'stock_prior_day_return']
+[KR] cost_data loaded, 67944 index entries
+
+--- TIER 1-2: Category and Subcategory Ablations ---
+  Running: drop_crypto_overnight_all | HK
+    gs=1.9373 ns=-2.7211 ic=0.039712 | dgs=-1.1005 dns=-1.1554 dic=-0.021282 | 21s
+    Checkpoint saved: 1 rows
+  Running: drop_crypto_overnight_all | KR
+    gs=1.9846 ns=-0.9740 ic=0.027396 | dgs=-1.7834 dns=-0.6920 dic=-0.033424 | 20s
+    Checkpoint saved: 2 rows
+  Running: drop_macro_all | HK
+    gs=3.1525 ns=-2.3253 ic=0.058799 | dgs=0.1146 dns=-0.7596 dic=-0.002195 | 24s
+    Checkpoint saved: 3 rows
+  Running: drop_macro_all | KR
+    gs=3.7172 ns=-0.1712 ic=0.065926 | dgs=-0.0508 dns=0.1107 dic=0.005106 | 24s
+    Checkpoint saved: 4 rows
+  Running: drop_stock_level_all | HK
+    gs=0.5381 ns=0.4663 ic=nan | dgs=-2.4998 dns=2.0320 dic=nan | 23s
+    Checkpoint saved: 5 rows
+  Running: drop_stock_level_all | KR
+    gs=0.7407 ns=0.6105 ic=nan | dgs=-3.0273 dns=0.8924 dic=nan | 22s
+    Checkpoint saved: 6 rows
+  Running: drop_ov_return | HK
+    gs=2.4119 ns=-1.6097 ic=0.053317 | dgs=-0.6259 dns=-0.0440 dic=-0.007677 | 24s
+    Checkpoint saved: 7 rows
+  Running: drop_ov_return | KR
+    gs=2.7931 ns=-0.4164 ic=0.042696 | dgs=-0.9749 dns=-0.1345 dic=-0.018124 | 23s
+    Checkpoint saved: 8 rows
+  Running: drop_ov_vol | HK
+    gs=2.9001 ns=-1.7637 ic=0.059344 | dgs=-0.1377 dns=-0.1980 dic=-0.001650 | 24s
+    Checkpoint saved: 9 rows
+  Running: drop_ov_vol | KR
+    gs=3.5698 ns=-0.2633 ic=0.058352 | dgs=-0.1983 dns=0.0186 dic=-0.002468 | 24s
+    Checkpoint saved: 10 rows
+  Running: drop_funding_rate | HK
+    gs=3.3056 ns=-1.3285 ic=0.070171 | dgs=0.2678 dns=0.2372 dic=0.009177 | 24s
+    Checkpoint saved: 11 rows
+  Running: drop_funding_rate | KR
+    gs=3.4517 ns=-0.3151 ic=0.054579 | dgs=-0.3163 dns=-0.0331 dic=-0.006241 | 23s
+    Checkpoint saved: 12 rows
+
+Saved tier 1-2: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity_p2/output/feature_ablation_pass2.csv (12 rows)
+
+--- TIER 3: Per-Feature Leave-One-Out ---
+Elapsed after tier 1-2: 4.6 min
+  Running both markets for tier 3 (projected 1.5h)
+
+  [HK] Per-feature LOO on 21 features
+    drop[btc_ov_log_return] gs=2.4585 ns=-2.2005 ic=0.053644 | dgs=-0.5794 dns=-0.6348 | 24s
+    Per-feature checkpoint: 1 rows
+    drop[eth_ov_log_return] gs=2.3098 ns=-2.3092 ic=0.057426 | dgs=-0.7280 dns=-0.7435 | 24s
+    Per-feature checkpoint: 2 rows
+    drop[btc_ov_realized_vol] gs=2.5568 ns=-2.2379 ic=0.059481 | dgs=-0.4811 dns=-0.6722 | 24s
+    Per-feature checkpoint: 3 rows
+    drop[eth_ov_realized_vol] gs=2.9445 ns=-1.8009 ic=0.068388 | dgs=-0.0934 dns=-0.2352 | 25s
+    Per-feature checkpoint: 4 rows
+    drop[btc_ov_max_drawdown] gs=2.7043 ns=-2.0232 ic=0.060589 | dgs=-0.3336 dns=-0.4575 | 24s
+    Per-feature checkpoint: 5 rows
+    drop[btc_ov_volume_usd] gs=2.7766 ns=-1.9678 ic=0.061883 | dgs=-0.2612 dns=-0.4021 | 24s
+    Per-feature checkpoint: 6 rows
+    drop[btc_ov_volume_surge] gs=2.9769 ns=-2.0230 ic=0.064685 | dgs=-0.0609 dns=-0.4573 | 24s
+    Per-feature checkpoint: 7 rows
+    drop[btc_ov_taker_imbalance] gs=2.8816 ns=-1.9855 ic=0.060030 | dgs=-0.1562 dns=-0.4198 | 24s
+    Per-feature checkpoint: 8 rows
+    drop[crosspair_dispersion] gs=2.6697 ns=-2.0913 ic=0.061184 | dgs=-0.3681 dns=-0.5256 | 25s
+    Per-feature checkpoint: 9 rows
+    drop[btc_eth_spread] gs=3.2020 ns=-1.4475 ic=0.062801 | dgs=0.1642 dns=0.1182 | 27s
+    Per-feature checkpoint: 10 rows
+    drop[btc_funding_rate_latest] gs=3.1341 ns=-1.6140 ic=0.061736 | dgs=0.0963 dns=-0.0483 | 27s
+    Per-feature checkpoint: 11 rows
+    drop[btc_funding_rate_delta] gs=2.6906 ns=-1.9480 ic=0.059384 | dgs=-0.3472 dns=-0.3824 | 27s
+    Per-feature checkpoint: 12 rows
+    drop[vix_level] gs=2.7905 ns=-2.0985 ic=0.060418 | dgs=-0.2474 dns=-0.5328 | 28s
+    Per-feature checkpoint: 13 rows
+    drop[dxy_level] gs=2.5776 ns=-2.1907 ic=0.058927 | dgs=-0.4602 dns=-0.6250 | 28s
+    Per-feature checkpoint: 14 rows
+    drop[yield_curve_slope] gs=2.8312 ns=-1.9298 ic=0.065831 | dgs=-0.2066 dns=-0.3641 | 27s
+    Per-feature checkpoint: 15 rows
+    drop[vix_5d_change] gs=2.8012 ns=-2.0176 ic=0.066983 | dgs=-0.2366 dns=-0.4519 | 27s
+    Per-feature checkpoint: 16 rows
+    drop[dxy_5d_change] gs=2.7450 ns=-1.9825 ic=0.058910 | dgs=-0.2929 dns=-0.4169 | 26s
+    Per-feature checkpoint: 17 rows
+    drop[breakeven_5y] gs=2.5745 ns=-2.2314 ic=0.057529 | dgs=-0.4634 dns=-0.6657 | 26s
+    Per-feature checkpoint: 18 rows
+    drop[stock_rv_20d] gs=0.9660 ns=-2.4899 ic=0.034950 | dgs=-2.0718 dns=-0.9242 | 26s
+    Per-feature checkpoint: 19 rows
+    drop[stock_ret_20d] gs=2.8796 ns=-1.5709 ic=0.066111 | dgs=-0.1582 dns=-0.0052 | 27s
+    Per-feature checkpoint: 20 rows
+    drop[stock_prior_day_return] gs=2.7852 ns=-1.5391 ic=0.070462 | dgs=-0.2527 dns=0.0266 | 27s
+    Per-feature checkpoint: 21 rows
+
+  [KR] Per-feature LOO on 21 features
+    drop[btc_ov_log_return] gs=3.5028 ns=-0.1792 ic=0.060035 | dgs=-0.2653 dns=0.1027 | 26s
+    Per-feature checkpoint: 22 rows
+    drop[eth_ov_log_return] gs=3.2165 ns=-0.7744 ic=0.049358 | dgs=-0.5516 dns=-0.4925 | 26s
+    Per-feature checkpoint: 23 rows
+    drop[btc_ov_realized_vol] gs=3.3770 ns=-0.4289 ic=0.061862 | dgs=-0.3911 dns=-0.1469 | 26s
+    Per-feature checkpoint: 24 rows
+    drop[eth_ov_realized_vol] gs=3.2838 ns=-0.5599 ic=0.058698 | dgs=-0.4842 dns=-0.2780 | 26s
+    Per-feature checkpoint: 25 rows
+    drop[btc_ov_max_drawdown] gs=3.4063 ns=-0.3912 ic=0.058279 | dgs=-0.3618 dns=-0.1093 | 25s
+    Per-feature checkpoint: 26 rows
+    drop[btc_ov_volume_usd] gs=3.3525 ns=-0.2886 ic=0.056434 | dgs=-0.4155 dns=-0.0067 | 26s
+    Per-feature checkpoint: 27 rows
+    drop[btc_ov_volume_surge] gs=3.4600 ns=-0.3101 ic=0.062774 | dgs=-0.3081 dns=-0.0282 | 26s
+    Per-feature checkpoint: 28 rows
+    drop[btc_ov_taker_imbalance] gs=3.3657 ns=-0.4182 ic=0.059143 | dgs=-0.4023 dns=-0.1363 | 26s
+    Per-feature checkpoint: 29 rows
+    drop[crosspair_dispersion] gs=3.5271 ns=-0.3674 ic=0.062066 | dgs=-0.2409 dns=-0.0855 | 27s
+    Per-feature checkpoint: 30 rows
+    drop[btc_eth_spread] gs=3.4665 ns=-0.3743 ic=0.056741 | dgs=-0.3016 dns=-0.0923 | 28s
+    Per-feature checkpoint: 31 rows
+    drop[btc_funding_rate_latest] gs=3.4293 ns=-0.2839 ic=0.057342 | dgs=-0.3387 dns=-0.0020 | 27s
+    Per-feature checkpoint: 32 rows
+    drop[btc_funding_rate_delta] gs=3.5856 ns=-0.2577 ic=0.060425 | dgs=-0.1824 dns=0.0242 | 26s
+    Per-feature checkpoint: 33 rows
+    drop[vix_level] gs=3.5322 ns=-0.1370 ic=0.064066 | dgs=-0.2358 dns=0.1450 | 26s
+    Per-feature checkpoint: 34 rows
+    drop[dxy_level] gs=3.8142 ns=-0.0258 ic=0.063902 | dgs=0.0462 dns=0.2561 | 26s
+    Per-feature checkpoint: 35 rows
+    drop[yield_curve_slope] gs=3.7133 ns=-0.2163 ic=0.062851 | dgs=-0.0547 dns=0.0656 | 27s
+    Per-feature checkpoint: 36 rows
+    drop[vix_5d_change] gs=3.4351 ns=-0.4282 ic=0.056044 | dgs=-0.3329 dns=-0.1463 | 26s
+    Per-feature checkpoint: 37 rows
+    drop[dxy_5d_change] gs=3.5437 ns=-0.3086 ic=0.062527 | dgs=-0.2243 dns=-0.0266 | 26s
+    Per-feature checkpoint: 38 rows
+    drop[breakeven_5y] gs=3.3108 ns=-0.5076 ic=0.054618 | dgs=-0.4572 dns=-0.2256 | 25s
+    Per-feature checkpoint: 39 rows
+    drop[stock_rv_20d] gs=1.4484 ns=-2.6602 ic=0.013289 | dgs=-2.3196 dns=-2.3783 | 23s
+    Per-feature checkpoint: 40 rows
+    drop[stock_ret_20d] gs=3.5018 ns=-0.2823 ic=0.063636 | dgs=-0.2662 dns=-0.0004 | 23s
+    Per-feature checkpoint: 41 rows
+    drop[stock_prior_day_return] gs=2.9261 ns=-0.1769 ic=0.059310 | dgs=-0.8419 dns=0.1050 | 23s
+    Per-feature checkpoint: 42 rows
+
+Saved per-feature: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity_p2/output/feature_ablation_per_feature.csv (42 rows)
+
+============================================================
+FINAL SUMMARY
+============================================================
+Rows in feature_ablation_pass2.csv (tier 1-2): 12
+Rows in feature_ablation_per_feature.csv (tier 3): 42
+
+  HK (tier 1-2):
+    Largest delta_net_sharpe drop: drop_crypto_overnight_all (delta=-1.1554)
+    Smallest delta_net_sharpe drop: drop_stock_level_all (delta=2.0320)
+  HK (tier 3):
+    Largest delta_net_sharpe drop: stock_rv_20d (delta=-0.9242)
+    Smallest delta_net_sharpe drop: btc_eth_spread (delta=0.1182)
+
+  KR (tier 1-2):
+    Largest delta_net_sharpe drop: drop_crypto_overnight_all (delta=-0.6920)
+    Smallest delta_net_sharpe drop: drop_stock_level_all (delta=0.8924)
+  KR (tier 3):
+    Largest delta_net_sharpe drop: stock_rv_20d (delta=-2.3783)
+    Smallest delta_net_sharpe drop: dxy_level (delta=0.2561)
+
+Total wall clock: 22.6 min (0.38h)
+End time: 2026-04-18 11:10:57
+
+Log written: /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity_p2/logs/stage_p2-10_ablation.log

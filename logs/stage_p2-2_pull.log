@@ -1,0 +1,48 @@
+[2026-04-17 14:48:02] === Stage P2-2 additional data pull started ===
+[2026-04-17 14:48:02] Period: 2018-09-01 through 2026-04-17
+[2026-04-17 14:48:02] Pulling ^HSI (Hang Seng Index)...
+[2026-04-17 14:48:02]   ^HSI: 1872 rows, 2018-09-03 to 2026-04-16
+[2026-04-17 14:48:02]   ^HSI spot-checks (manual review):
+[2026-04-17 14:48:02]     2020-01-02: close=28,543.5
+[2026-04-17 14:48:02]     2021-12-31: close=23,397.7
+[2026-04-17 14:48:02]     2023-01-03: close=20,145.3
+[2026-04-17 14:48:02]     2025-01-02: close=19,623.3
+[2026-04-17 14:48:02] Pulling ^KS11 (KOSPI Composite)...
+[2026-04-17 14:48:02]   ^KS11: 1868 rows, 2018-09-03 to 2026-04-17
+[2026-04-17 14:48:02]   ^KS11 spot-checks (manual review):
+[2026-04-17 14:48:02]     2020-01-02: close=2,175.17
+[2026-04-17 14:48:02]     2021-12-30: close=2,977.65
+[2026-04-17 14:48:02]     2023-01-02: close=2,225.67
+[2026-04-17 14:48:02]     2025-01-02: close=2,398.94
+[2026-04-17 14:48:02]   WARN: ^KS11 has 1 NaN close values
+[2026-04-17 14:48:02] Pulling ^GSPC (S&P 500)...
+[2026-04-17 14:48:03]   ^GSPC: 1915 rows, 2018-09-04 to 2026-04-17
+[2026-04-17 14:48:03] Building BTC circulating supply from issuance schedule...
+[2026-04-17 14:48:03]   BTC supply: 2786 rows, 2018-09-01 to 2026-04-17
+[2026-04-17 14:48:03]   BTC supply spot-checks:
+[2026-04-17 14:48:03]     2018-09-01: 17,291,500 BTC
+[2026-04-17 14:48:03]     2020-05-10: 18,402,100 BTC
+[2026-04-17 14:48:03]     2020-05-11: 18,403,000 BTC
+[2026-04-17 14:48:03]     2024-01-01: 19,600,000 BTC
+[2026-04-17 14:48:03]     2024-04-18: 19,697,200 BTC
+[2026-04-17 14:48:03]     2026-04-17: 20,025,250 BTC
+[2026-04-17 14:48:03] Building S&P 500 market-cap proxy...
+[2026-04-17 14:48:03]   Reference close from pulled data (2024-12-31): 5881.63
+[2026-04-17 14:48:03]   Scaling factor: 5.220e+13 / 5881.63 = 8.875091e+09
+[2026-04-17 14:48:03]   S&P mcap proxy: 1915 rows, 2018-09-04 to 2026-04-17
+[2026-04-17 14:48:03]   S&P mcap on 2024-12-31: [5.22e+13]
+[2026-04-17 14:48:03] SKIP: pykrx mcap restoration — KRX_ID/KRX_PW absent (logged in feature_restoration_decisions.log).
+[2026-04-17 14:48:03] SKIP: liquidations pull — no provider key (COINGLASS/LAEVITAS/CCDATA all absent; logged in feature_restoration_decisions.log).
+[2026-04-17 14:48:03] === Stage P2-2 pull complete: 0.9s ===
+[2026-04-17 14:48:03] 
+[2026-04-17 14:48:03] === SUMMARY ===
+[2026-04-17 14:48:03] hsi_daily.parquet:       1872 rows, 2018-09-03 to 2026-04-16
+[2026-04-17 14:48:03] kospi_daily.parquet:     1868 rows, 2018-09-03 to 2026-04-17
+[2026-04-17 14:48:03] gspc_daily.parquet:      1915 rows, 2018-09-04 to 2026-04-17
+[2026-04-17 14:48:03] btc_supply.parquet:      2786 rows, 2018-09-01 to 2026-04-17
+[2026-04-17 14:48:03] sp500_mcap_proxy.parquet:1915 rows, 2018-09-04 to 2026-04-17
+[2026-04-17 14:48:03] S&P 500 scaling factor:  8.875091e+09  (reference: 2024-12-31 close=5881.63, mcap=$52.2T)
+[2026-04-17 14:48:03] BTC supply 2024-01-01:    19,600,000 BTC
+[2026-04-17 14:48:03] BTC supply 2026-04-17:    20,025,250 BTC
+[2026-04-17 14:48:03] S&P mcap proxy 2024-12-31: $5.220e+13
+[2026-04-17 14:48:03] Skipped: pykrx mcap (KRX creds absent), liquidations (no provider key).
