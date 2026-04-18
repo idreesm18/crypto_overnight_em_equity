@@ -164,10 +164,6 @@ Review documents:
 
 Notebooks: `notebooks/01_pass2_data_additions.ipynb` through `notebooks/07_pass2_diagnostics.ipynb`.
 
-## Resume Framing
-
-Designed and executed a walk-forward ML pipeline for cross-asset signal research, with three methodological contributions: (1) a non-crypto-filtered control universe (42 HK + 39 KR matched-liquidity tickers) that isolates selection-bias contribution via parallel pipeline, which resolved the universe-selection circularity concern asymmetrically (HK gap dominance did not survive the counterfactual, p=0.93, while KR retained ~40% of raw IC as incremental crypto channel, p=0.008); (2) a deep-learning horse race using a 3-block dilated TCN trained on Modal T4 GPUs with per-fold checkpointing, where paired block-bootstrap confirmed LightGBM significantly beats TCN on gap IC in both markets (tabular-ML literature consistent); (3) an index-level long-only path on HSI/KOSPI futures producing a deployable net Sharpe 1.5-2.0 at realistic execution costs (1.6-4 bps half-spread, borrow 50 bps index vs 400-500 bps stock), while single-stock implementations remain blocked by execution drag. Also added borrow-cost model, long-only variant, rules-based regime gate (BTC/S&P 500 market-cap ratio vs 1y trailing median), and expanded feature ablation (category + subcategory + per-feature LOO on 21 features × 2 markets). Three-round adversarial review (12 panel documents + synthesis) converged on paper-trade validation with pre-specified kill switches; final deliverable is a narrower but deployable strategy (long-only index futures, LightGBM, gate-off) framed under brief Rule D (mixed mechanism) + Rule C (single-stock fails costs).
-
 ## Limitations
 
 - The 2 bps modeled half-spread on index futures is a 7-14x underestimate. A 30-day paper-trade is required before any capital decision. The 2x spread sensitivity column is the anchor for the net Sharpe 1.5-2.0 range; beyond that is extrapolation.
