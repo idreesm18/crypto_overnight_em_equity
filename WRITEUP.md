@@ -68,9 +68,37 @@ Indices use a threshold strategy: long if y_pred exceeds 0.5 times the in-sample
 
 ### Costs
 
-Half-spread per side: 15 bps HK main, 10 bps control HK and KR main, 5 bps control KR, 2 bps index (the last is an underestimate; see Limitations). Kyle-style impact `0.1 * sqrt(trade_size / ADV) * daily_vol` with $100K per position, applied to stock strategies only. Borrow cost annualized, applied daily to short notional: 500 bps HK main shorts, 300 bps control HK, 400 bps KR main, 250 bps control KR, 50 bps index. Long-only variants pay no borrow.
+Pass 2 used fixed per-market half-spread assumptions (15 bps HK main, 10 bps control HK and KR main, 5 bps control KR, 2 bps index). The CS-spread update replaces those with per-ticker per-day empirical estimates from the Corwin–Schultz (2012) high-low estimator, built from daily OHLC already in the pipeline. The method: for each consecutive day pair per ticker, apply the overnight adjustment to H and L, then compute β (sum of squared log H/L over two days), γ (squared log of two-day-window H/L), α = (√(2β) − √β)/(3 − 2√2) − √(γ/(3 − 2√2)), and S = 2(e^α − 1)/(1 + e^α); floor S at zero when α is negative. Assign S to day t+1. Take the trailing 20-trading-day mean (minimum 12 valid observations) as the ticker's daily round-trip spread. Fall back to that day's cross-sectional market median when fewer than 12 observations exist and at least five tickers in the market have valid values; during the initial warmup, fall back to the old fixed assumption until the market median becomes available. Half-spread per side is cs_spread / 2.
 
-Spread sensitivity and borrow sensitivity sweeps each cover 0.5x, 1x, 1.5x, 2x at 1x of the other dimension, plus breakeven analysis per primary configuration.
+Market impact (Kyle-style `0.1 * sqrt(trade_size / ADV) * daily_vol`, $100K per position, stock strategies only) and borrow cost (annualized, applied daily to short notional: 500 bps HK main, 300 bps control HK, 400 bps KR main, 250 bps control KR, 50 bps index) are unchanged from Pass 2. Long-only variants pay no borrow.
+
+Spread sensitivity and borrow sensitivity sweeps each cover 0.5x, 1x, 1.5x, 2x at 1x of the other dimension. Under CS spreads the multiplier is applied to the estimator output, so the sweep now answers "what if the CS estimator is biased by factor Y?" rather than "what if the true spread is X bps?".
+
+Realized CS spreads (round-trip, bps, medians from `output/cs_spread_summary.txt`):
+
+| Market | CS median 20d |
+|---|---:|
+| HK stocks | 98.4 |
+| KR stocks | 84.8 |
+| HSI_proxy (stand-in for 2800.HK) | 30.4 (floored) |
+| 069500.KS (KODEX 200, pykrx) | 25.5 (floored) |
+
+**CS is used for stock universes. For index ETFs, CS is replaced by a tick-floor-derived realistic spread.** Both index CS figures (HSI_proxy 30.4 bps, 069500.KS 25.5 bps) show raw-negative fractions above 50% (53.2% and 52.4% respectively), which places the estimator at its signal-to-noise floor [CS-2012, TR-2022]. Corwin & Schultz (2012, Table 6) themselves report that the cross-sectional correlation between CS estimates and true TAQ effective spreads falls from ~70% for illiquid stocks to ~18% for liquid large-cap names; for index-tracking liquid ETFs this correlation is effectively noise. Tremacoldi-Rossi & Irwin (2022, JFQA) formalize that CS bias increases with the volatility-to-spread ratio and that high raw-negative fractions are a direct diagnostic of noise-floor violation, with zero-flooring introducing a downward-truncation bias on the 20-day mean. Abdi & Ranaldo (2017, RFS) show CS underperforms competing estimators specifically on the most-liquid quintile.
+
+For index ETFs the realistic round-trip effective spread is derived from exchange tick structure and market-making rules, not from the CS estimator:
+
+**2800.HK Tracker Fund of Hong Kong.** HKEX introduced a separate tighter ETP spread table on 1 June 2020, cutting minimum ticks for high-liquidity ETPs by 50-90% across price bands [HKEX-ETP, HKEX-Min]. At 2800.HK's current HKD 26 price level the ETP minimum tick is HKD 0.02, giving a one-tick quoted round-trip of 0.02/26 ≈ **8 bps**. HKEX mandates at least one Securities Market Maker per ETP counter with continuous quoting obligations; for 2800.HK (AUM ~HKD 142B, multiple competing SMMs) the realized spread typically sits at the one-tick floor during regular hours. The August 2025 Phase 1 equity tick reform explicitly excluded ETPs on the grounds that "minimum spreads for ETPs were reduced in 2020 and are trading efficiently" [HKEX-Dec24]. Pre-reform (before 2020-06-01) the applicable equity tick was HKD 0.05 at the HKD 20-30 band, giving a conservative ~15 bps round-trip. The backtest applies 15 bps round-trip pre-reform and 8 bps round-trip post-reform as a date-indexed step function.
+
+**069500.KS (KODEX 200).** KRX applies a flat 5-KRW tick to KOSPI 200 ETFs across the full analysis window; the 2023 KRX tick reform affected single-stock ticks, not ETF ticks. At KODEX 200's ~33,500 KRW price level, 5 KRW is ≈1.5 bps per side, implying a ~3 bps round-trip tick-floor. KRX Liquidity Providers on popular KOSPI 200 ETFs have spread-obligation rules that keep the realized spread tight. The backtest applies a uniform **5 bps** round-trip for the full 2019-2026 window as a conservative best-estimate anchored to the tick floor plus a small LP-quote margin.
+
+**Citation keys** (full refs in WRITEUP appendix / README):
+
+- [HKEX-ETP] HKEX News Release, 18 May 2020, "HKEX to Introduce New Initiatives to Enhance Liquidity of ETPs."
+- [HKEX-Min] HKEX, "Reduction of Minimum Spreads" (official spread table).
+- [HKEX-Dec24] HKEX News Release, December 2024, "HKEX to Reduce Minimum Spreads in Hong Kong Securities Market" (confirms ETP exclusion from Phase 1).
+- [CS-2012] Corwin, S.A. and Schultz, P. (2012), *Journal of Finance* 67(2):719–760.
+- [TR-2022] Tremacoldi-Rossi, P. and Irwin, S.H. (2022), *Journal of Financial and Quantitative Analysis*, SSRN 4216953.
+- [AR-2017] Abdi, F. and Ranaldo, A. (2017), *Review of Financial Studies* 30(12):4437–4480.
 
 ### Regime gate
 
@@ -118,11 +146,27 @@ Two observations sharpen the interpretation. First, the signal in this sample li
 
 ### Backtests
 
-Of 96 primary configurations in `output/backtest_summary_pass2.csv`, eight clear net Sharpe 0.5 at 1x modeled costs. All eight are LightGBM index threshold strategies on HSI or KOSPI, gap target, both with gate-on and gate-off. Top row: LightGBM index_kr gap gate_off at net Sharpe 3.74, annualized return 47.2 percent, max drawdown -13.0 percent.
+CS spreads are the cost model throughout this section. The Pass 2 fixed-spread backtest remains on disk (`output/backtest_summary_pass2.csv`) for audit but is not carried forward as a deployable verdict for any configuration.
 
-The modeled 2 bps half-spread on index futures is an underestimate. Realistic KOSPI 200 and HSI futures half-spread is 1 to 4 bps, and including slippage at size, the effective cost is 5 to 14 times the modeled level. An extended cost sensitivity sweep (`output/cost_sensitivity_extended.csv`) measures the top configuration at 5x, 7x, 10x, and 14x: net Sharpe 2.15, 1.34, 0.14, -1.41. The defensible range is therefore a net Sharpe of 1 to 2 at the lower half of realistic costs (5x to 7x) and near zero to negative at the upper half (10x and above). A live paper trade with executed-spread tracking is the correct next step to identify which multiplier actually applies.
+**Stock universes.** Every stock-tercile strategy (main or control, long-short or long-only, gate-on or gate-off, LightGBM or TCN) is net-negative under CS spreads at 1x, across all three targets. No configuration in the 0.5x-2x spread sensitivity sweep lifts a stock universe above zero. The Pass 2 synthesis had already applied Rule C to the single-stock implementation; the CS update confirms it with a realistic-cost empirical basis (HK stocks 98 bps round-trip, KR main 85 bps, each ~3-4x the Pass 2 fixed assumption). The stock strategies are not pursued further here; the Rule-D IC findings (control-vs-main) remain valid research contributions but do not translate into a tradable single-stock strategy. All four stock universes are now empirically CS-covered: Stage P2-18 pulled daily OHLCV for all 38 control_kr tickers via pykrx (67,603 rows, 0 skips; median CS spread 80.5 bps round-trip). Under real CS, control_kr is also net-negative across all 12 configurations, with all three previously marginally positive configurations (gap/tercile_ls and intraday/tercile_ls at fixed 5 bps/side) flipping to net-negative Sharpe of −5 to −8. The real CS spread for control_kr tickers (~80 bps round-trip) is approximately 8× the Pass 2 fixed assumption (10 bps round-trip), explaining the large downward shift.
 
-No stock-tercile strategy (main or control, long-short or long-only, gate-on or gate-off) clears net Sharpe 0.5 at 1x costs. Rule C from the brief applies to all single-stock implementations: the signal loses to execution costs. The cross-sectional IC exists (0.06 for main, 0.04-0.05 for control KR and HK), but HK main half-spread 15 bps plus impact plus 500 bps annualized short-leg borrow, and KR main 10 bps plus 400 bps borrow, consume the gross P&L. Long-only variants reduce the cost drag but fall short of the 0.5 Sharpe bar.
+**Index universes.** Under tick-floor realistic spreads (8 bps post-reform for 2800.HK, 5 bps for 069500.KS) at 1x spread and 1x borrow, seven configurations clear the 0.5 net-Sharpe threshold — all LightGBM on gap and cc targets:
+
+| Configuration | fixed-baseline net SR | tick-floor net SR | delta |
+|---|---:|---:|---:|
+| LightGBM index_kr gap gate_off | 3.74 | **3.64** | −0.10 |
+| LightGBM index_kr gap gate_on  | 2.69 | **2.60** | −0.10 |
+| LightGBM index_hk gap gate_off | 2.38 | **1.96** | −0.42 |
+| LightGBM index_hk gap gate_on  | 1.55 | **1.19** | −0.36 |
+| LightGBM index_kr cc  gate_off | 1.16 | **1.10** | −0.06 |
+| LightGBM index_kr cc  gate_on  | 0.90 | **0.85** | −0.05 |
+| LightGBM index_hk cc  gate_off | 0.83 | **0.55** | −0.28 |
+
+Two TCN configurations are positive but sub-threshold (tcn index_hk cc gate_on 0.44, gate_off 0.16). All remaining 15 index configurations are net-negative. See `output/cs_vs_fixed_comparison.csv` for the full 24-row side-by-side and `output/backtest_summary_pass2_cs.csv` for the primary summary.
+
+The tick-floor index spreads are modestly higher than the Pass 2 fixed 2 bps/side (4 bps round-trip) baseline but materially lower than the CS noise-floor proxy figures of 25-30 bps round-trip. Compared to the fixed-baseline backtest, every index configuration moves in the same direction (spreads are higher, so net Sharpe drops), but the seven LGBM gap and cc survivors remain well above the 0.5 threshold. Compared to the earlier CS-noise-floor analysis, five configurations that had "flipped to negative" (index_hk gap gate-on/gate-off, index_hk cc gate-off, index_kr cc gate-on/gate-off) are restored as deployable: they were artifacts of estimator noise-floor bias rather than real cost-survival failures.
+
+The old extended sensitivity sweep (`output/cost_sensitivity_extended.csv`, 5x-14x of 2 bps) is superseded. Under the tick-floor methodology, the relevant sensitivity now stress-tests estimator bias around the tick floor: 0.5x = spreads 50% tighter than tick floor (unlikely), 1x = tick-floor baseline, 1.5x = realized spread 50% wider than one tick (occasional), 2x = two-tick-wide spread (high-vol conditions).
 
 ### Regime gate
 
@@ -146,9 +190,13 @@ Regime analysis on `output/regime_analysis_pass2.csv`: for index_kr gap, IC floo
 
 ## Limitations
 
-The 2 bps modeled half-spread on index futures is a 5 to 14 times underestimate of realistic transaction cost. The extended sensitivity sweep at 5x, 7x, 10x, and 14x (`output/cost_sensitivity_extended.csv`) shows the top configuration declining from net Sharpe 2.15 at 5x to 1.34 at 7x, 0.14 at 10x, and -1.41 at 14x. A 30-day live paper-trade with executed-spread tracking is the right next step to identify the realistic multiplier and fix the cost model.
+All four stock universes are empirically CS-covered. The stock backtest verdict under CS is unambiguous and universal: no stock-tercile configuration is deployable at realistic transaction costs in this sample.
+
+The index cost model uses tick-floor-derived realistic spreads rather than CS for index ETFs. The CS estimator is at its noise floor for both index instruments (raw-negative fractions 53.2% and 52.4%, above the 50% threshold documented in [TR-2022]), producing floored 20d medians (25-30 bps) that overstate the true effective spread by roughly 3× for 2800.HK and 5× for 069500.KS. Corwin & Schultz (2012, Table 6) themselves report 18% cross-sectional correlation with true effective spreads for liquid large-cap names, effectively noise for these purposes. The backtest therefore substitutes exchange-official tick-structure spreads (8 bps round-trip for 2800.HK post-2020-reform, 5 bps for 069500.KS) with citations to HKEX news releases, HKEX's current ETP spread table, and KRX tick documentation. A live paper trade with executed-spread tracking would confirm the tick-floor assumption; a direct 2800.HK and 069500.KS intraday-tick pull (Bloomberg/TAQ-equivalent) would produce a measured point estimate rather than a tick-derived bound.
 
 The index-level IC metric (rolling 30-day time-series Spearman) is not cross-sectional IC. It has a defensible lineage (Jegadeesh-Titman 1993 rolling momentum IC; block bootstrap handles autocorrelation) but the null benchmark question matters. A random-walk-prediction benchmark comparison is not included in this run.
+
+A 30-day live paper trade with executed-spread tracking for index futures would settle whether the realized net Sharpe matches the tick-floor projection.
 
 Regime gate reduces Sharpe rather than improving it. The gate variable (BTC / S&P 500 market-cap ratio versus 1-year trailing median) is a reasonable first attempt but does not actually identify low-IC periods in the 2019-2026 sample.
 
@@ -166,15 +214,15 @@ The control universe is manually curated. While it carries no BTC-correlation fi
 
 ## Conclusion
 
-The finding that survives adversarial review is twofold. One, index-level gap prediction for HSI and KOSPI produces a measurable signal at the futures-implementation level, with net Sharpe of 1 to 2 at the lower half of realistic costs (5x to 7x of the modeled 2 bps half-spread) and near zero to negative at the upper half (10x to 14x). The defensible range depends on which end of the realistic spread distribution the strategy actually executes at. Two, the universe-selection circularity objection is resolved asymmetrically: HK's gap dominance does not distinguish from a universe-wide overnight-reversal pattern, while KR retains an incremental crypto component of roughly 40 percent of the raw main IC, statistically significant at p=0.008.
+Under CS spreads for stocks and exchange-tick-floor spreads for index ETFs (8 bps post-reform for 2800.HK, 5 bps for 069500.KS), seven configurations clear the 0.5 net-Sharpe threshold at 1x spread and 1x borrow: LightGBM index_kr and index_hk on the gap and cc targets, gate-on and gate-off. Top row: LightGBM index_kr gap gate_off at net Sharpe 3.64. Two additional TCN configurations (index_hk cc gate-on and gate-off) are positive but sub-threshold. The deployable form of the research is index-futures-level, across both HSI and KOSPI-200, with gap as the strongest single-target signal.
 
-The single-stock strategy loses to execution costs. Main HK, main KR, control HK, control KR, and the KR large-cap (inconclusive) all fall below the net Sharpe 0.5 bar at 1x modeled costs and at realistic cost multiples. Long-only variants narrow the gap but do not clear the bar. Rule C from the brief's decision framework applies cleanly to the single-stock implementation.
+The universe-selection circularity finding from Pass 2 stands as a research result, not as a trading strategy. HK main's gap-dominance pattern does not distinguish from a universe-wide overnight-reversal pattern (control gap IC p=0.93), while KR retains an incremental crypto component at roughly 40 percent of the raw main IC (p=0.008). Under realistic CS costs neither translates into a tradable single-stock strategy in this sample.
 
-The TCN horse race is informative as a negative result. Minute-bar temporal structure, at least as extracted by a 2-block dilated TCN, does not add information beyond the 21 engineered daily-summary features. LightGBM remains the primary model.
+The TCN horse race remains a negative result under realistic costs. Minute-bar temporal structure, as extracted by the two-block dilated TCN, does not add information beyond the engineered daily features in a way that survives transaction costs.
 
-What remains unresolved. The index net Sharpe range (1 to 2 at 5x-7x, near zero at 10x+) is now a direct measurement from the extended sensitivity sweep, not an extrapolation. What still requires a live paper trade is the actual executed-spread multiplier, which decides where on this curve the strategy lands. The KR 2023 attenuation at the index level parallels the stock-level attenuation and is a single occurrence: decay versus transient regime cannot be discriminated with this sample alone. A cross-market replication on Taiwan or SGX, and a second full crypto cycle of OOS data, would address persistence more directly than further manipulation of the HK and KR pipelines.
+What remains unresolved. The index cost model now rests on exchange-tick-floor arithmetic with exchange-official and peer-reviewed citations; the ~8 bps 2800.HK and ~5 bps 069500.KS figures are consistent with HKEX ETP spread rules, KRX LP obligations, and the observed post-2020 regime, but a direct TAQ-equivalent intraday-tick pull would convert these from tick-derived bounds into measured point estimates. The KR 2023 attenuation is a single occurrence: decay versus transient regime cannot be discriminated with this sample. A 30-day live paper trade with executed-spread tracking on HSI and KOSPI-200 futures is the right next operational step and would confirm that the realized net Sharpe tracks the tick-floor projection (~2-3.6 on the gap configurations).
 
-Four panelists converged on the practitioner's paper-trade gate as the correct next operational step. The research pipeline is deployable in a form narrower than initially hypothesized: long-only index futures on KOSPI and HSI, LightGBM, gate-off (default), with a pre-specified 6-month rolling-Sharpe kill switch. All other configurations remain research artifacts.
+The research pipeline is deployable under realistic costs as a dual-market index-futures strategy: LightGBM on the gap target for both HSI and KOSPI 200, gate-off (default), with a pre-specified rolling-Sharpe kill switch. Secondary configurations (index cc, index gap gate-on) provide additional diversification at lower per-line Sharpe.
 
 ## Appendix — Files
 

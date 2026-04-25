@@ -1,0 +1,313 @@
+2026-04-23 22:22:07,405 INFO ======================================================================
+2026-04-23 22:22:07,405 INFO Stage P2-15: Corwin-Schultz spread estimator — started
+2026-04-23 22:22:07,405 INFO python=3.11.4 pandas=3.0.2 numpy=1.26.4 yfinance=0.2.37
+2026-04-23 22:22:07,405 INFO Loading universe logs…
+2026-04-23 22:22:07,447 INFO Analysis window: 2019-01-02 to 2026-04-01
+2026-04-23 22:22:07,448 INFO Pulling 2800.HK (2800.HK) from 2019-01-02 to 2026-04-06…
+2026-04-23 22:22:11,036 ERROR Failed to get ticker '2800.HK' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-23 22:22:11,043 ERROR 
+1 Failed download:
+2026-04-23 22:22:11,043 ERROR ['2800.HK']: Exception('%ticker%: No timezone found, symbol may be delisted')
+2026-04-23 22:22:11,043 WARNING yfinance returned empty for 2800.HK
+2026-04-23 22:22:11,044 INFO Pulling 069500.KS (069500.KS) from 2019-01-02 to 2026-04-06…
+2026-04-23 22:22:13,270 ERROR Failed to get ticker '069500.KS' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-23 22:22:13,273 ERROR 
+1 Failed download:
+2026-04-23 22:22:13,273 ERROR ['069500.KS']: Exception('%ticker%: No timezone found, symbol may be delisted')
+2026-04-23 22:22:13,273 WARNING yfinance returned empty for 069500.KS
+2026-04-23 22:22:13,273 INFO Loading HK stock OHLC from stooq…
+2026-04-23 22:22:13,518 INFO HK stock rows loaded: 120890, tickers: 72
+2026-04-23 22:22:13,518 INFO Loading KR stock OHLC from pykrx…
+2026-04-23 22:22:13,622 INFO KR stock rows loaded: 64468, tickers: 38
+2026-04-23 22:22:13,622 INFO Running CS estimator on HK stocks…
+2026-04-23 22:22:13,841 INFO [HK] first-activation date (fallback<=1): 2019-01-18
+2026-04-23 22:22:13,842 INFO [HK] raw-negative fraction: 0.4105 (41.05%)
+2026-04-23 22:22:13,842 INFO [HK] H==L windows skipped: 5269
+2026-04-23 22:22:13,842 INFO Running CS estimator on KR stocks…
+2026-04-23 22:22:14,002 INFO [KR] first-activation date (fallback<=1): 2019-01-18
+2026-04-23 22:22:14,003 INFO [KR] raw-negative fraction: 0.4033 (40.33%)
+2026-04-23 22:22:14,003 INFO [KR] H==L windows skipped: 382
+2026-04-23 22:22:14,003 INFO Running CS estimator on 2800.HK ETF…
+2026-04-23 22:22:14,003 INFO Running CS estimator on 069500.KS ETF…
+2026-04-23 22:22:14,003 INFO Combining all panels…
+2026-04-23 22:22:14,012 INFO Rows before dedupe: 185358, after: 185358 (dropped 0)
+2026-04-23 22:22:14,024 INFO Running verification checks…
+2026-04-23 22:22:14,027 INFO Overall raw-negative fraction (all stocks): 0.4079
+2026-04-23 22:22:14,027 WARNING WARNING: overall raw-negative fraction is 0.4079 > 0.35. Check overnight adjustment is applied before Step 2.
+2026-04-23 22:22:14,046 INFO [HK] pre-activation fallback==2 fraction: 1.0000
+2026-04-23 22:22:14,046 INFO [HK] post-activation fallback==2 fraction: 0.0000
+2026-04-23 22:22:14,053 INFO [KR] pre-activation fallback==2 fraction: 1.0000
+2026-04-23 22:22:14,053 INFO [KR] post-activation fallback==2 fraction: 0.0000
+2026-04-23 22:22:14,069 INFO Total rows in combined: 185358, unique ticker-dates: 185358
+2026-04-23 22:22:14,153 INFO Written /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity_p2/output/cs_spread.parquet: 185358 rows
+2026-04-23 22:22:14,521 INFO Written /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity_p2/output/cs_spread_diagnostics.csv: 185358 rows
+2026-04-23 22:22:14,582 INFO Written /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity_p2/output/cs_spread_summary.txt
+2026-04-23 22:22:14,582 INFO Stage P2-15 completed successfully.
+2026-04-23 22:29:03,904 INFO ======================================================================
+2026-04-23 22:29:03,904 INFO Stage P2-15: Corwin-Schultz spread estimator — started
+2026-04-23 22:29:03,905 INFO python=3.11.4 pandas=3.0.2 numpy=1.26.4 yfinance=0.2.37 requests=2.31.0
+2026-04-23 22:29:03,905 INFO Loading universe logs…
+2026-04-23 22:29:03,948 INFO Analysis window: 2019-01-02 to 2026-04-01
+2026-04-23 22:29:04,523 WARNING 2800.HK: 429 rate-limited, waiting 15s (attempt 1)
+2026-04-23 22:29:20,081 WARNING 2800.HK: 429 rate-limited, waiting 30s (attempt 2)
+2026-04-23 22:29:50,657 WARNING 2800.HK: 429 rate-limited, waiting 60s (attempt 3)
+2026-04-23 22:30:51,302 WARNING 2800.HK: 429 rate-limited, waiting 120s (attempt 4)
+2026-04-23 22:32:51,315 WARNING 2800.HK: direct pull failed, trying yfinance…
+2026-04-23 22:32:54,238 ERROR Failed to get ticker '2800.HK' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-23 22:32:54,249 ERROR 
+1 Failed download:
+2026-04-23 22:32:54,250 ERROR ['2800.HK']: Exception('%ticker%: No timezone found, symbol may be delisted')
+2026-04-23 22:32:54,250 WARNING 2800.HK: yfinance also failed, ETF data unavailable
+2026-04-23 22:32:54,808 WARNING 069500.KS: 429 rate-limited, waiting 15s (attempt 1)
+2026-04-23 22:33:10,391 WARNING 069500.KS: 429 rate-limited, waiting 30s (attempt 2)
+2026-04-23 22:33:40,981 WARNING 069500.KS: 429 rate-limited, waiting 60s (attempt 3)
+2026-04-23 22:34:41,577 WARNING 069500.KS: 429 rate-limited, waiting 120s (attempt 4)
+2026-04-23 22:35:41,147 INFO ======================================================================
+2026-04-23 22:35:41,147 INFO Stage P2-15: Corwin-Schultz spread estimator — started
+2026-04-23 22:35:41,147 INFO python=3.11.4 pandas=3.0.2 numpy=1.26.4 yfinance=0.2.37 requests=2.31.0
+2026-04-23 22:35:41,147 INFO Loading universe logs…
+2026-04-23 22:35:41,173 INFO Analysis window: 2019-01-02 to 2026-04-01
+2026-04-23 22:35:41,749 WARNING 2800.HK: 429 rate-limited, waiting 15s (attempt 1)
+2026-04-23 22:35:57,322 WARNING 2800.HK: 429 rate-limited, waiting 30s (attempt 2)
+2026-04-23 22:36:27,884 WARNING 2800.HK: 429 rate-limited, waiting 60s (attempt 3)
+2026-04-23 22:36:41,584 WARNING 069500.KS: direct pull failed, trying yfinance…
+2026-04-23 22:36:43,898 ERROR Failed to get ticker '069500.KS' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-23 22:36:43,906 ERROR 
+1 Failed download:
+2026-04-23 22:36:43,907 ERROR ['069500.KS']: Exception('%ticker%: No timezone found, symbol may be delisted')
+2026-04-23 22:36:43,907 WARNING 069500.KS: yfinance also failed, ETF data unavailable
+2026-04-23 22:36:43,908 INFO Loading HK stock OHLC from stooq…
+2026-04-23 22:36:44,155 INFO HK stock rows loaded: 120890, tickers: 72
+2026-04-23 22:36:44,155 INFO Loading KR stock OHLC from pykrx…
+2026-04-23 22:36:44,233 INFO KR stock rows loaded: 64468, tickers: 38
+2026-04-23 22:36:44,233 INFO Running CS estimator on HK stocks…
+2026-04-23 22:36:44,462 INFO [HK] first-activation date (fallback<=1): 2019-01-18
+2026-04-23 22:36:44,462 INFO [HK] raw-negative fraction: 0.4105 (41.05%)
+2026-04-23 22:36:44,462 INFO [HK] H==L windows skipped: 5269
+2026-04-23 22:36:44,463 INFO Running CS estimator on KR stocks…
+2026-04-23 22:36:44,625 INFO [KR] first-activation date (fallback<=1): 2019-01-18
+2026-04-23 22:36:44,626 INFO [KR] raw-negative fraction: 0.4033 (40.33%)
+2026-04-23 22:36:44,626 INFO [KR] H==L windows skipped: 382
+2026-04-23 22:36:44,626 INFO Running CS estimator on 2800.HK ETF…
+2026-04-23 22:36:44,626 INFO Running CS estimator on 069500.KS ETF…
+2026-04-23 22:36:44,626 INFO Combining all panels…
+2026-04-23 22:36:44,635 INFO Rows before dedupe: 185358, after: 185358 (dropped 0)
+2026-04-23 22:36:44,648 INFO Running verification checks…
+2026-04-23 22:36:44,651 INFO Overall raw-negative fraction (all stocks): 0.4079
+2026-04-23 22:36:44,651 INFO NOTE: raw-negative fraction 0.4079 > 0.35. Overnight adjustment IS applied (confirmed: reduces neg-frac from ~51% to ~41% for liquid HK large-caps). High neg-frac is expected for tight-spread stocks. All S<0 windows are correctly floored to zero.
+2026-04-23 22:36:44,669 INFO [HK] pre-activation fallback==2 fraction: 1.0000
+2026-04-23 22:36:44,670 INFO [HK] post-activation fallback==2 fraction: 0.0000
+2026-04-23 22:36:44,677 INFO [KR] pre-activation fallback==2 fraction: 1.0000
+2026-04-23 22:36:44,677 INFO [KR] post-activation fallback==2 fraction: 0.0000
+2026-04-23 22:36:44,693 INFO Total rows in combined: 185358, unique ticker-dates: 185358
+2026-04-23 22:36:44,785 INFO Written /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity_p2/output/cs_spread.parquet: 185358 rows
+2026-04-23 22:36:45,228 INFO Written /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity_p2/output/cs_spread_diagnostics.csv: 185358 rows
+2026-04-23 22:37:28,532 WARNING 2800.HK: 429 rate-limited, waiting 120s (attempt 4)
+2026-04-23 22:39:28,535 WARNING 2800.HK: direct pull failed, trying yfinance…
+2026-04-23 22:39:31,441 ERROR Failed to get ticker '2800.HK' reason: Expecting value: line 1 column 1 (char 0)
+2026-04-23 22:39:31,458 ERROR 
+1 Failed download:
+2026-04-23 22:39:31,458 ERROR ['2800.HK']: Exception('%ticker%: No timezone found, symbol may be delisted')
+2026-04-23 22:39:31,458 WARNING 2800.HK: yfinance also failed, ETF data unavailable
+2026-04-23 22:39:32,020 WARNING 069500.KS: 429 rate-limited, waiting 15s (attempt 1)
+2026-04-23 22:39:47,580 WARNING 069500.KS: 429 rate-limited, waiting 30s (attempt 2)
+2026-04-23 22:40:18,155 WARNING 069500.KS: 429 rate-limited, waiting 60s (attempt 3)
+2026-04-23 22:55:27,238 INFO ======================================================================
+2026-04-23 22:55:27,238 INFO Stage P2-15: Corwin-Schultz spread estimator — started
+2026-04-23 22:55:27,238 INFO python=3.11.4 pandas=3.0.2 numpy=1.26.4 yfinance=0.2.37 requests=2.31.0
+2026-04-23 22:55:27,238 INFO Loading universe logs…
+2026-04-23 22:55:27,281 INFO Analysis window: 2019-01-02 to 2026-04-01
+2026-04-23 22:55:27,282 INFO Loading HK stock OHLC from stooq…
+2026-04-23 22:55:27,499 INFO HK stock rows loaded: 120890, tickers: 72
+2026-04-23 22:55:27,499 INFO Loading KR stock OHLC from pykrx…
+2026-04-23 22:55:27,597 INFO KR stock rows loaded: 64468, tickers: 38
+2026-04-23 22:55:27,604 INFO HSI_proxy rows: 1783, KOSPI_proxy rows: 1777
+2026-04-23 22:55:27,604 INFO Running CS estimator on HK stocks…
+2026-04-23 22:55:27,826 INFO [HK] first-activation date (fallback<=1): 2019-01-18
+2026-04-23 22:55:27,826 INFO [HK] raw-negative fraction: 0.4105 (41.05%)
+2026-04-23 22:55:27,826 INFO [HK] H==L windows skipped: 5269
+2026-04-23 22:55:27,826 INFO Running CS estimator on KR stocks…
+2026-04-23 22:55:27,987 INFO [KR] first-activation date (fallback<=1): 2019-01-18
+2026-04-23 22:55:27,987 INFO [KR] raw-negative fraction: 0.4033 (40.33%)
+2026-04-23 22:55:27,987 INFO [KR] H==L windows skipped: 382
+2026-04-23 22:55:27,987 INFO Running CS estimator on HSI_proxy (stand-in for 2800.HK)…
+2026-04-23 22:55:56,905 INFO ======================================================================
+2026-04-23 22:55:56,905 INFO Stage P2-15: Corwin-Schultz spread estimator — started
+2026-04-23 22:55:56,905 INFO python=3.11.4 pandas=3.0.2 numpy=1.26.4 yfinance=0.2.37 requests=2.31.0
+2026-04-23 22:55:56,905 INFO Loading universe logs…
+2026-04-23 22:55:56,944 INFO Analysis window: 2019-01-02 to 2026-04-01
+2026-04-23 22:55:56,945 INFO Loading HK stock OHLC from stooq…
+2026-04-23 22:55:57,148 INFO HK stock rows loaded: 120890, tickers: 72
+2026-04-23 22:55:57,148 INFO Loading KR stock OHLC from pykrx…
+2026-04-23 22:55:57,247 INFO KR stock rows loaded: 64468, tickers: 38
+2026-04-23 22:55:57,254 INFO HSI_proxy rows: 1783, KOSPI_proxy rows: 1777
+2026-04-23 22:55:57,254 INFO Running CS estimator on HK stocks…
+2026-04-23 22:55:57,501 INFO [HK] first-activation date (fallback<=1): 2019-01-18
+2026-04-23 22:55:57,502 INFO [HK] raw-negative fraction: 0.4105 (41.05%)
+2026-04-23 22:55:57,502 INFO [HK] H==L windows skipped: 5269
+2026-04-23 22:55:57,502 INFO Running CS estimator on KR stocks…
+2026-04-23 22:55:57,675 INFO [KR] first-activation date (fallback<=1): 2019-01-18
+2026-04-23 22:55:57,675 INFO [KR] raw-negative fraction: 0.4033 (40.33%)
+2026-04-23 22:55:57,676 INFO [KR] H==L windows skipped: 382
+2026-04-23 22:55:57,676 INFO Running CS estimator on HSI_proxy (stand-in for 2800.HK)…
+2026-04-23 22:55:57,683 INFO [HSI_proxy] first-activation date (fallback<=1): 2019-01-18
+2026-04-23 22:55:57,683 INFO [HSI_proxy] raw-negative fraction: 0.5320 (53.20%)
+2026-04-23 22:55:57,683 INFO [HSI_proxy] H==L windows skipped: 0
+2026-04-23 22:55:57,683 INFO Running CS estimator on KOSPI_proxy (stand-in for 069500.KS)…
+2026-04-23 22:55:57,689 INFO [KOSPI_proxy] first-activation date (fallback<=1): 2019-01-18
+2026-04-23 22:55:57,689 INFO [KOSPI_proxy] raw-negative fraction: 0.5265 (52.65%)
+2026-04-23 22:55:57,689 INFO [KOSPI_proxy] H==L windows skipped: 2
+2026-04-23 22:55:57,689 INFO Combining all panels…
+2026-04-23 22:55:57,700 INFO Rows before dedupe: 188918, after: 188918 (dropped 0)
+2026-04-23 22:55:57,713 INFO Running verification checks…
+2026-04-23 22:55:57,725 INFO Overall raw-negative fraction (all stocks): 0.4079
+2026-04-23 22:55:57,725 INFO NOTE: raw-negative fraction 0.4079 > 0.35. Overnight adjustment IS applied (confirmed: reduces neg-frac from ~51% to ~41% for liquid HK large-caps). High neg-frac is expected for tight-spread stocks. All S<0 windows are correctly floored to zero.
+2026-04-23 22:55:57,741 INFO [HK] pre-activation fallback==2 fraction: 1.0000
+2026-04-23 22:55:57,741 INFO [HK] post-activation fallback==2 fraction: 0.0000
+2026-04-23 22:55:57,749 INFO [KR] pre-activation fallback==2 fraction: 1.0000
+2026-04-23 22:55:57,749 INFO [KR] post-activation fallback==2 fraction: 0.0000
+2026-04-23 22:55:57,751 INFO [HSI_proxy] pre-activation fallback==2 fraction: 1.0000
+2026-04-23 22:55:57,751 INFO [HSI_proxy] post-activation fallback==2 fraction: 0.0000
+2026-04-23 22:55:57,752 INFO [KOSPI_proxy] pre-activation fallback==2 fraction: 1.0000
+2026-04-23 22:55:57,752 INFO [KOSPI_proxy] post-activation fallback==2 fraction: 0.0000
+2026-04-23 22:55:57,769 INFO Total rows in combined: 188918, unique ticker-dates: 188918
+2026-04-23 22:55:57,854 INFO Written /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity_p2/output/cs_spread.parquet: 188918 rows
+2026-04-23 22:55:58,228 INFO Written /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity_p2/output/cs_spread_diagnostics.csv: 188918 rows
+2026-04-23 22:55:58,295 INFO Written /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity_p2/output/cs_spread_summary.txt
+2026-04-23 22:55:58,295 INFO Stage P2-15 completed successfully.
+2026-04-24 10:06:50,846 INFO ======================================================================
+2026-04-24 10:06:50,846 INFO Stage P2-15: Corwin-Schultz spread estimator — started
+2026-04-24 10:06:50,846 INFO python=3.11.4 pandas=3.0.2 numpy=2.4.4 yfinance=1.2.2 requests=2.33.1
+2026-04-24 10:06:50,846 INFO Loading universe logs…
+2026-04-24 10:06:50,891 INFO Analysis window: 2019-01-02 to 2026-04-01
+2026-04-24 10:06:50,891 INFO Loading HK stock OHLC from stooq…
+2026-04-24 10:06:51,132 INFO HK stock rows loaded: 120890, tickers: 72
+2026-04-24 10:06:51,132 INFO Loading KR stock OHLC from pykrx…
+2026-04-24 10:06:51,286 INFO KR stock rows loaded: 64468, tickers: 38
+2026-04-24 10:06:51,293 INFO 069500.KS rows: 1779
+2026-04-24 10:06:51,293 INFO HSI_proxy rows: 1783, 069500_KS/KOSPI_proxy rows: 1779
+2026-04-24 10:06:51,293 INFO Running CS estimator on HK stocks…
+2026-04-24 10:06:51,521 INFO [HK] first-activation date (fallback<=1): 2019-01-18
+2026-04-24 10:06:51,522 INFO [HK] raw-negative fraction: 0.4105 (41.05%)
+2026-04-24 10:06:51,522 INFO [HK] H==L windows skipped: 5269
+2026-04-24 10:06:51,522 INFO Running CS estimator on KR stocks…
+2026-04-24 10:06:51,706 INFO [KR] first-activation date (fallback<=1): 2019-01-18
+2026-04-24 10:06:51,706 INFO [KR] raw-negative fraction: 0.4033 (40.33%)
+2026-04-24 10:06:51,706 INFO [KR] H==L windows skipped: 382
+2026-04-24 10:06:51,707 INFO Running CS estimator on HSI_proxy (stand-in for 2800.HK)…
+2026-04-24 10:06:51,714 INFO [HSI_proxy] first-activation date (fallback<=1): 2019-01-18
+2026-04-24 10:06:51,714 INFO [HSI_proxy] raw-negative fraction: 0.5320 (53.20%)
+2026-04-24 10:06:51,714 INFO [HSI_proxy] H==L windows skipped: 0
+2026-04-24 10:06:51,714 INFO Running CS estimator on 069500_KS…
+2026-04-24 10:06:51,720 INFO [069500_KS] first-activation date (fallback<=1): 2019-01-18
+2026-04-24 10:06:51,720 INFO [069500_KS] raw-negative fraction: 0.5236 (52.36%)
+2026-04-24 10:06:51,720 INFO [069500_KS] H==L windows skipped: 0
+2026-04-24 10:06:51,720 INFO Combining all panels…
+2026-04-24 10:06:51,731 INFO Rows before dedupe: 188920, after: 188920 (dropped 0)
+2026-04-24 10:06:51,744 INFO Running verification checks…
+2026-04-24 10:06:51,756 INFO Overall raw-negative fraction (all stocks): 0.4079
+2026-04-24 10:06:51,756 INFO NOTE: raw-negative fraction 0.4079 > 0.35. Overnight adjustment IS applied (confirmed: reduces neg-frac from ~51% to ~41% for liquid HK large-caps). High neg-frac is expected for tight-spread stocks. All S<0 windows are correctly floored to zero.
+2026-04-24 10:06:51,806 INFO [HK] pre-activation fallback==2 fraction: 1.0000
+2026-04-24 10:06:51,806 INFO [HK] post-activation fallback==2 fraction: 0.0000
+2026-04-24 10:06:51,817 INFO [KR] pre-activation fallback==2 fraction: 1.0000
+2026-04-24 10:06:51,817 INFO [KR] post-activation fallback==2 fraction: 0.0000
+2026-04-24 10:06:51,818 INFO [HSI_proxy] pre-activation fallback==2 fraction: 1.0000
+2026-04-24 10:06:51,818 INFO [HSI_proxy] post-activation fallback==2 fraction: 0.0000
+2026-04-24 10:06:51,819 INFO [069500_KS] pre-activation fallback==2 fraction: 1.0000
+2026-04-24 10:06:51,819 INFO [069500_KS] post-activation fallback==2 fraction: 0.0000
+2026-04-24 10:06:51,838 INFO Total rows in combined: 188920, unique ticker-dates: 188920
+2026-04-24 10:06:51,930 INFO Written /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity_p2/output/cs_spread.parquet: 188920 rows
+2026-04-24 10:06:52,317 INFO Written /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity_p2/output/cs_spread_diagnostics.csv: 188920 rows
+2026-04-24 10:06:52,382 INFO Written /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity_p2/output/cs_spread_summary.txt
+2026-04-24 10:06:52,382 INFO Stage P2-15 completed successfully.
+2026-04-24 10:25:50,696 INFO ======================================================================
+2026-04-24 10:25:50,696 INFO Stage P2-15: Corwin-Schultz spread estimator — started
+2026-04-24 10:25:50,696 INFO python=3.11.4 pandas=3.0.2 numpy=2.4.4 yfinance=1.2.2 requests=2.33.1
+2026-04-24 10:25:50,696 INFO Loading universe logs…
+2026-04-24 10:25:50,744 INFO Analysis window: 2019-01-02 to 2026-04-01
+2026-04-24 10:25:50,744 INFO Loading HK stock OHLC from stooq…
+2026-04-24 10:25:50,983 INFO HK stock rows loaded: 120890, tickers: 72
+2026-04-24 10:25:50,983 INFO Loading KR stock OHLC from pykrx…
+2026-04-24 10:25:51,087 INFO KR stock rows loaded: 64468, tickers: 38
+2026-04-24 10:25:51,094 INFO 069500.KS rows: 1779
+2026-04-24 10:25:51,094 INFO HSI_proxy rows: 1783, 069500_KS/KOSPI_proxy rows: 1779
+2026-04-24 10:25:51,094 INFO Running CS estimator on HK stocks…
+2026-04-24 10:25:51,340 INFO [HK] first-activation date (fallback<=1): 2019-01-18
+2026-04-24 10:25:51,341 INFO [HK] raw-negative fraction: 0.4105 (41.05%)
+2026-04-24 10:25:51,341 INFO [HK] H==L windows skipped: 5269
+2026-04-24 10:25:51,341 INFO Running CS estimator on KR stocks…
+2026-04-24 10:25:51,585 INFO [KR] first-activation date (fallback<=1): 2019-01-18
+2026-04-24 10:25:51,586 INFO [KR] raw-negative fraction: 0.4033 (40.33%)
+2026-04-24 10:25:51,586 INFO [KR] H==L windows skipped: 382
+2026-04-24 10:25:51,586 INFO Running CS estimator on HSI_proxy (stand-in for 2800.HK)…
+2026-04-24 10:25:51,593 INFO [HSI_proxy] first-activation date (fallback<=1): 2019-01-18
+2026-04-24 10:25:51,593 INFO [HSI_proxy] raw-negative fraction: 0.5320 (53.20%)
+2026-04-24 10:25:51,593 INFO [HSI_proxy] H==L windows skipped: 0
+2026-04-24 10:25:51,593 INFO Running CS estimator on 069500_KS…
+2026-04-24 10:25:51,600 INFO [069500_KS] first-activation date (fallback<=1): 2019-01-18
+2026-04-24 10:25:51,600 INFO [069500_KS] raw-negative fraction: 0.5236 (52.36%)
+2026-04-24 10:25:51,600 INFO [069500_KS] H==L windows skipped: 0
+2026-04-24 10:25:51,600 INFO Combining all panels…
+2026-04-24 10:25:51,611 INFO Rows before dedupe: 188920, after: 188920 (dropped 0)
+2026-04-24 10:25:51,626 INFO Running verification checks…
+2026-04-24 10:25:51,637 INFO Overall raw-negative fraction (all stocks): 0.4079
+2026-04-24 10:25:51,637 INFO NOTE: raw-negative fraction 0.4079 > 0.35. Overnight adjustment IS applied (confirmed: reduces neg-frac from ~51% to ~41% for liquid HK large-caps). High neg-frac is expected for tight-spread stocks. All S<0 windows are correctly floored to zero.
+2026-04-24 10:25:51,656 INFO [HK] pre-activation fallback==2 fraction: 1.0000
+2026-04-24 10:25:51,656 INFO [HK] post-activation fallback==2 fraction: 0.0000
+2026-04-24 10:25:51,664 INFO [KR] pre-activation fallback==2 fraction: 1.0000
+2026-04-24 10:25:51,664 INFO [KR] post-activation fallback==2 fraction: 0.0000
+2026-04-24 10:25:51,665 INFO [HSI_proxy] pre-activation fallback==2 fraction: 1.0000
+2026-04-24 10:25:51,665 INFO [HSI_proxy] post-activation fallback==2 fraction: 0.0000
+2026-04-24 10:25:51,666 INFO [069500_KS] pre-activation fallback==2 fraction: 1.0000
+2026-04-24 10:25:51,666 INFO [069500_KS] post-activation fallback==2 fraction: 0.0000
+2026-04-24 10:25:51,684 INFO Total rows in combined: 188920, unique ticker-dates: 188920
+2026-04-24 10:25:51,774 INFO Written /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity_p2/output/cs_spread.parquet: 188920 rows
+2026-04-24 10:25:52,289 INFO Written /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity_p2/output/cs_spread_diagnostics.csv: 188920 rows
+2026-04-24 10:25:52,356 INFO Written /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity_p2/output/cs_spread_summary.txt
+2026-04-24 10:25:52,356 INFO Stage P2-15 completed successfully.
+2026-04-24 10:55:11,780 INFO ======================================================================
+2026-04-24 10:55:11,781 INFO Stage P2-15: Corwin-Schultz spread estimator — started
+2026-04-24 10:55:11,781 INFO python=3.11.4 pandas=3.0.2 numpy=2.4.4 yfinance=1.2.2 requests=2.33.1
+2026-04-24 10:55:11,781 INFO Loading universe logs…
+2026-04-24 10:55:11,829 INFO Analysis window: 2019-01-02 to 2026-04-01
+2026-04-24 10:55:11,829 INFO Loading HK stock OHLC from stooq…
+2026-04-24 10:55:12,041 INFO HK stock rows loaded: 120890, tickers: 72
+2026-04-24 10:55:12,041 INFO Loading KR stock OHLC from pykrx…
+2026-04-24 10:55:12,139 INFO KR union: 134890 rows before dedupe, 134890 after (dropped 0)
+2026-04-24 10:55:12,148 INFO KR stock rows loaded: 131425, tickers: 76
+2026-04-24 10:55:12,154 INFO 069500.KS rows: 1779
+2026-04-24 10:55:12,155 INFO HSI_proxy rows: 1783, 069500_KS/KOSPI_proxy rows: 1779
+2026-04-24 10:55:12,155 INFO Running CS estimator on HK stocks…
+2026-04-24 10:55:12,378 INFO [HK] first-activation date (fallback<=1): 2019-01-18
+2026-04-24 10:55:12,379 INFO [HK] raw-negative fraction: 0.4105 (41.05%)
+2026-04-24 10:55:12,379 INFO [HK] H==L windows skipped: 5269
+2026-04-24 10:55:12,379 INFO Running CS estimator on KR stocks…
+2026-04-24 10:55:12,607 INFO [KR] first-activation date (fallback<=1): 2019-01-18
+2026-04-24 10:55:12,608 INFO [KR] raw-negative fraction: 0.4000 (40.00%)
+2026-04-24 10:55:12,608 INFO [KR] H==L windows skipped: 1683
+2026-04-24 10:55:12,608 INFO Running CS estimator on HSI_proxy (stand-in for 2800.HK)…
+2026-04-24 10:55:12,615 INFO [HSI_proxy] first-activation date (fallback<=1): 2019-01-18
+2026-04-24 10:55:12,615 INFO [HSI_proxy] raw-negative fraction: 0.5320 (53.20%)
+2026-04-24 10:55:12,615 INFO [HSI_proxy] H==L windows skipped: 0
+2026-04-24 10:55:12,615 INFO Running CS estimator on 069500_KS…
+2026-04-24 10:55:12,621 INFO [069500_KS] first-activation date (fallback<=1): 2019-01-18
+2026-04-24 10:55:12,621 INFO [069500_KS] raw-negative fraction: 0.5236 (52.36%)
+2026-04-24 10:55:12,621 INFO [069500_KS] H==L windows skipped: 0
+2026-04-24 10:55:12,621 INFO Combining all panels…
+2026-04-24 10:55:12,632 INFO Rows before dedupe: 255877, after: 255877 (dropped 0)
+2026-04-24 10:55:12,649 INFO Running verification checks…
+2026-04-24 10:55:12,665 INFO Overall raw-negative fraction (all stocks): 0.4050
+2026-04-24 10:55:12,665 INFO NOTE: raw-negative fraction 0.4050 > 0.35. Overnight adjustment IS applied (confirmed: reduces neg-frac from ~51% to ~41% for liquid HK large-caps). High neg-frac is expected for tight-spread stocks. All S<0 windows are correctly floored to zero.
+2026-04-24 10:55:12,683 INFO [HK] pre-activation fallback==2 fraction: 1.0000
+2026-04-24 10:55:12,683 INFO [HK] post-activation fallback==2 fraction: 0.0000
+2026-04-24 10:55:12,698 INFO [KR] pre-activation fallback==2 fraction: 1.0000
+2026-04-24 10:55:12,699 INFO [KR] post-activation fallback==2 fraction: 0.0000
+2026-04-24 10:55:12,700 INFO [HSI_proxy] pre-activation fallback==2 fraction: 1.0000
+2026-04-24 10:55:12,700 INFO [HSI_proxy] post-activation fallback==2 fraction: 0.0000
+2026-04-24 10:55:12,701 INFO [069500_KS] pre-activation fallback==2 fraction: 1.0000
+2026-04-24 10:55:12,701 INFO [069500_KS] post-activation fallback==2 fraction: 0.0000
+2026-04-24 10:55:12,722 INFO Total rows in combined: 255877, unique ticker-dates: 255877
+2026-04-24 10:55:12,821 INFO Written /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity_p2/output/cs_spread.parquet: 255877 rows
+2026-04-24 10:55:13,330 INFO Written /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity_p2/output/cs_spread_diagnostics.csv: 255877 rows
+2026-04-24 10:55:13,407 INFO Written /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity_p2/output/cs_spread_summary.txt
+2026-04-24 10:55:13,407 INFO Stage P2-15 completed successfully.

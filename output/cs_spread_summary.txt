@@ -1,0 +1,99 @@
+======================================================================
+Corwin-Schultz Spread Estimator — Summary Report
+Generated: 2026-04-24 10:55:13
+======================================================================
+
+A. Per-Market CS Spread Summary (cs_spread_20d, non-NaN ticker-days)
+----------------------------------------------------------------------
+  HK stocks:
+    mean:   0.010976 (109.76 bps)
+    median: 0.009843 (98.43 bps)
+    10th:   0.005324 (53.24 bps)
+    90th:   0.017789 (177.89 bps)
+  KR stocks:
+    mean:   0.009145 (91.45 bps)
+    median: 0.008265 (82.65 bps)
+    10th:   0.004521 (45.21 bps)
+    90th:   0.014792 (147.92 bps)
+  HSI_proxy (stand-in for 2800.HK):
+    mean:   0.003222 (32.22 bps)
+    median: 0.003042 (30.42 bps)
+    10th:   0.001626 (16.26 bps)
+    90th:   0.004870 (48.70 bps)
+  069500.KS (KODEX 200, real ETF):
+    mean:   0.002897 (28.97 bps)
+    median: 0.002549 (25.49 bps)
+    10th:   0.001554 (15.54 bps)
+    90th:   0.004757 (47.57 bps)
+  KOSPI_proxy (stand-in for 069500.KS): no data
+
+B. Comparison vs Old Fixed Assumptions
+----------------------------------------------------------------------
+  HK stocks median CS round-trip: 98.43 bps vs fixed 30 bps (15 bps/side)
+  KR stocks median CS round-trip: 82.65 bps vs fixed 20 bps (10 bps/side)
+  HSI_proxy (stand-in for 2800.HK) median CS round-trip: 30.42 bps vs fixed 4 bps (2 bps/side)
+  069500.KS (KODEX 200, real ETF via pykrx) median CS round-trip: 25.49 bps vs fixed 4 bps (2 bps/side)
+
+C. Fraction of Ticker-Days Using Market-Median Fallback (fallback_used == 1)
+----------------------------------------------------------------------
+  HK stocks: 4.77%
+  KR stocks: 1.34%
+  HSI_proxy (stand-in for 2800.HK): 0.00%
+  069500.KS (KODEX 200, real ETF): 0.00%
+  KOSPI_proxy (stand-in for 069500.KS): no data
+
+D. Fraction of Ticker-Days Using Fixed-Initialization Fallback (fallback_used == 2)
+----------------------------------------------------------------------
+  HK stocks: 0.52%
+  KR stocks: 0.62%
+  HSI_proxy (stand-in for 2800.HK): 0.67%
+  069500.KS (KODEX 200, real ETF): 0.67%
+  KOSPI_proxy (stand-in for 069500.KS): no data
+
+E. Fraction of Two-Day Windows Skipped (H == L on Either Day)
+----------------------------------------------------------------------
+  HK stocks: 5269 skipped / 120818 total = 4.36%
+  KR stocks: 1683 skipped / 131349 total = 1.28%
+  HSI_proxy (stand-in for 2800.HK): 0 skipped / 1782 total = 0.00%
+  069500.KS (KODEX 200, real ETF): 0 skipped / 1778 total = 0.00%
+  KOSPI_proxy (stand-in for 069500.KS): no data
+
+F. Fraction of Raw Two-Day Estimates That Were Negative (before flooring)
+----------------------------------------------------------------------
+  HK stocks: 41.05%
+  KR stocks: 40.00%
+  HSI_proxy (stand-in for 2800.HK): 53.20%
+  069500.KS (KODEX 200, real ETF): 52.36%
+  KOSPI_proxy (stand-in for 069500.KS): NaN
+
+G. ETF Diagnostics
+----------------------------------------------------------------------
+G.1 — 069500.KS (real ETF OHLC from pykrx)
+  NOTE: Real ETF OHLC from pykrx (Stage P2-17). Not an index proxy.
+    cs_spread_20d  (floored) mean:   0.002897 (28.97 bps)
+    cs_spread_20d  (floored) median: 0.002549 (25.49 bps)
+    cs_spread_20d  (floored) 10th:   0.001554 (15.54 bps)
+    cs_spread_20d  (floored) 90th:   0.004757 (47.57 bps)
+    raw-negative fraction (before flooring): 52.36%
+    NOTE: raw-negative fraction 52.36% >= 50%: CS estimator is at the noise floor. Floored 20d mean is a direct-ETF upper bound, not a point estimate.
+    first-activation date: 2019-01-18
+
+G.2 — HSI_proxy (stand-in for 2800.HK)
+  NOTE: 2800.HK ETF OHLC unavailable (yfinance 429 rate-limited). Figures below use HSI index-level OHLC as proxy. Index-level H/L aggregates across constituents and is smoother than a single ETF's H/L, so these figures systematically UNDERSTATE the ETF's effective spread. Treat as a lower bound on true transaction cost.
+  HSI_proxy (stand-in for 2800.HK):
+    cs_spread_20d  (floored)   mean:   0.003222 (32.22 bps)
+    cs_spread_20d  (floored)   median: 0.003042 (30.42 bps)
+    cs_spread_20d  (floored)   10th:   0.001626 (16.26 bps)
+    cs_spread_20d  (floored)   90th:   0.004870 (48.70 bps)
+    cs_spread_20d  (unfloored) mean:   -0.004491 (-44.91 bps)
+    cs_spread_20d  (unfloored) median: -0.003861 (-38.61 bps)
+    cs_spread_20d  (unfloored) 10th:   -0.009923 (-99.23 bps)
+    cs_spread_20d  (unfloored) 90th:   0.000099 (0.99 bps)
+    raw-negative fraction (before flooring): 53.20%
+    first-activation date: 2019-01-18
+
+  First-activation dates (first date fixed fallback ends):
+    HK stocks: 2019-01-18
+    KR stocks: 2019-01-18
+
+======================================================================

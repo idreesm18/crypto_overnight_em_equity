@@ -1,0 +1,73 @@
+=== Stage P2-17 Environment Log ===
+Date: Fri Apr 24 09:59:07 EDT 2026
+
+=== pykrx install ===
+Collecting pykrx>=1.0.51
+  Using cached pykrx-1.2.7-py3-none-any.whl.metadata (64 kB)
+Requirement already satisfied: requests>=2.32.0 in /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages (from pykrx>=1.0.51) (2.32.4)
+Requirement already satisfied: pandas<3.0,>=2.2.0 in /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages (from pykrx>=1.0.51) (2.3.1)
+Requirement already satisfied: numpy>=2.0 in /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages (from pykrx>=1.0.51) (2.2.6)
+Collecting deprecated>=1.2.14 (from pykrx>=1.0.51)
+  Using cached deprecated-1.3.1-py2.py3-none-any.whl.metadata (5.9 kB)
+Collecting multipledispatch>=1.0.0 (from pykrx>=1.0.51)
+  Using cached multipledispatch-1.0.0-py3-none-any.whl.metadata (3.8 kB)
+Requirement already satisfied: matplotlib>=3.8.0 in /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages (from pykrx>=1.0.51) (3.10.3)
+Requirement already satisfied: python-dateutil>=2.8.2 in /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages (from pandas<3.0,>=2.2.0->pykrx>=1.0.51) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages (from pandas<3.0,>=2.2.0->pykrx>=1.0.51) (2025.2)
+Requirement already satisfied: tzdata>=2022.7 in /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages (from pandas<3.0,>=2.2.0->pykrx>=1.0.51) (2025.2)
+Requirement already satisfied: wrapt<3,>=1.10 in /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages (from deprecated>=1.2.14->pykrx>=1.0.51) (1.14.1)
+Requirement already satisfied: contourpy>=1.0.1 in /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages (from matplotlib>=3.8.0->pykrx>=1.0.51) (1.3.2)
+Requirement already satisfied: cycler>=0.10 in /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages (from matplotlib>=3.8.0->pykrx>=1.0.51) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages (from matplotlib>=3.8.0->pykrx>=1.0.51) (4.59.0)
+Requirement already satisfied: kiwisolver>=1.3.1 in /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages (from matplotlib>=3.8.0->pykrx>=1.0.51) (1.4.8)
+Requirement already satisfied: packaging>=20.0 in /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages (from matplotlib>=3.8.0->pykrx>=1.0.51) (25.0)
+Requirement already satisfied: pillow>=8 in /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages (from matplotlib>=3.8.0->pykrx>=1.0.51) (10.1.0)
+Requirement already satisfied: pyparsing>=2.3.1 in /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages (from matplotlib>=3.8.0->pykrx>=1.0.51) (3.0.9)
+Requirement already satisfied: six>=1.5 in /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages (from python-dateutil>=2.8.2->pandas<3.0,>=2.2.0->pykrx>=1.0.51) (1.17.0)
+Requirement already satisfied: charset_normalizer<4,>=2 in /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages (from requests>=2.32.0->pykrx>=1.0.51) (3.4.2)
+Requirement already satisfied: idna<4,>=2.5 in /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages (from requests>=2.32.0->pykrx>=1.0.51) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages (from requests>=2.32.0->pykrx>=1.0.51) (2.5.0)
+Requirement already satisfied: certifi>=2017.4.17 in /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages (from requests>=2.32.0->pykrx>=1.0.51) (2025.7.14)
+Using cached pykrx-1.2.7-py3-none-any.whl (2.2 MB)
+Using cached deprecated-1.3.1-py2.py3-none-any.whl (11 kB)
+Using cached multipledispatch-1.0.0-py3-none-any.whl (12 kB)
+Installing collected packages: multipledispatch, deprecated, pykrx
+
+Successfully installed deprecated-1.3.1 multipledispatch-1.0.0 pykrx-1.2.7
+
+[notice] A new release of pip is available: 25.2 -> 26.0.1
+[notice] To update, run: pip install --upgrade pip
+
+=== pykrx version in venv ===
+pykrx version: 1.0.51
+
+2026-04-24 10:04:36,209 INFO ======================================================================
+2026-04-24 10:04:36,209 INFO Stage P2-17: 069500 KODEX 200 daily OHLCV pull — started
+2026-04-24 10:04:36,625 INFO pykrx version: 1.0.51
+2026-04-24 10:04:37,467 INFO   Pulling 069500 20190101 to 20191231…
+2026-04-24 10:04:38,763 INFO   Got 246 rows
+2026-04-24 10:04:39,268 INFO   Pulling 069500 20200101 to 20201231…
+2026-04-24 10:04:40,207 INFO   Got 248 rows
+2026-04-24 10:04:40,709 INFO   Pulling 069500 20210101 to 20211231…
+2026-04-24 10:04:41,434 INFO   Got 248 rows
+2026-04-24 10:04:41,939 INFO   Pulling 069500 20220101 to 20221231…
+2026-04-24 10:04:42,601 INFO   Got 246 rows
+2026-04-24 10:04:43,107 INFO   Pulling 069500 20230101 to 20231231…
+2026-04-24 10:04:43,888 INFO   Got 245 rows
+2026-04-24 10:04:44,394 INFO   Pulling 069500 20240101 to 20241231…
+2026-04-24 10:04:45,042 INFO   Got 244 rows
+2026-04-24 10:04:45,543 INFO   Pulling 069500 20250101 to 20251231…
+2026-04-24 10:04:46,187 INFO   Got 242 rows
+2026-04-24 10:04:46,691 INFO   Pulling 069500 20260101 to 20260430…
+2026-04-24 10:04:47,365 INFO   Got 77 rows
+2026-04-24 10:04:47,925 INFO 069500 OHLCV: 1796 rows, 2019-01-02 to 2026-04-24
+2026-04-24 10:04:47,925 INFO Columns: ['date', 'open', 'high', 'low', 'close', 'volume']
+2026-04-24 10:04:47,925 INFO Dtypes:
+date      datetime64[us]
+open               int64
+high               int64
+low                int64
+close              int64
+volume             int64
+2026-04-24 10:04:48,021 INFO Written /Users/idrees/Desktop/Claude/projects/crypto_overnight_em_equity_p2/data/pykrx/etfs/069500_KS_daily.parquet: 1796 rows
+2026-04-24 10:04:48,021 INFO Stage P2-17 pull completed: 1796 rows, 2019-01-02 to 2026-04-24

@@ -34,7 +34,7 @@ User-provided data is the four candidate CSVs, Stooq HK .txt files, and a FRED_A
 
 4. Strategies. Stock tercile long-short (main, control) and binary split (KOSPI large-cap, scoped but inconclusive). Long-only variant for every stock universe. Index threshold long-short-flat using 0.5 times in-sample stdev of y_pred.
 
-5. Costs. Half-spread per side, Kyle-style impact for stocks, annualized borrow on short notional, and a regime gate toggle. Spread and borrow sensitivity sweeps, breakeven analysis.
+5. Costs. Per-ticker per-day half-spreads from the Corwin–Schultz (2012) high-low estimator (20-day trailing mean; market-median fallback; fixed-assumption fallback during the initial warmup), Kyle-style impact for stocks, annualized borrow on short notional, and a regime gate toggle. Spread and borrow sensitivity sweeps (now applied to the CS estimate as an estimator-accuracy stress), breakeven analysis. The original fixed-spread backtest is retained alongside the CS-spread backtest for comparison (`output/backtest_summary_pass2.csv` vs `output/backtest_summary_pass2_cs.csv`).
 
 6. Regime gate. BTC market cap divided by S&P 500 market-cap proxy, each 30-day mean, compared to 1-year trailing median. Warmup 282 days defaults to active. Every backtest runs gate-on and gate-off.
 
@@ -68,11 +68,29 @@ HK: gap dominance is not crypto-specific in this sample; the control ratio excee
 
 ### Backtest headlines
 
-96 primary backtest configurations in `output/backtest_summary_pass2.csv`. Eight clear net Sharpe 0.5 at 1x modeled costs; all eight are LightGBM index threshold strategies (HSI or KOSPI, gap target, with and without regime gate). Top configuration: LightGBM index_kr gap gate_off, net Sharpe 3.74 at modeled 0.24 bps round-trip spread.
+The cost model uses **CS spreads for stock universes** (where the estimator is above its noise floor) and **exchange-tick-floor realistic spreads for index ETFs** (where CS is at the noise floor and overstates the true spread per the peer-reviewed literature). `output/backtest_summary_pass2_cs.csv` is the primary backtest summary; the Pass 2 fixed-spread file (`output/backtest_summary_pass2.csv`) remains on disk for audit only.
 
-The 2 bps modeled half-spread on index futures is 5-14 times the realistic level. The extended cost sensitivity sweep (`output/cost_sensitivity_extended.csv`) measures the top configuration at 5x / 7x / 10x / 14x: net Sharpe 2.15, 1.34, 0.14, -1.41. The defensible range is 1-2 at the lower half of realistic costs and near zero at the upper half. A paper trade with executed-spread tracking is the right next step to identify which multiplier actually applies.
+Realistic index spreads applied in the backtest:
+- **2800.HK**: 15 bps round-trip pre-2020-06-01, 8 bps round-trip post-reform, per HKEX's June 2020 ETP spread-table reform [HKEX-ETP, HKEX-Min] and continuous-SMM obligations. 8 bps is one ETP tick (HKD 0.02) at 2800.HK's HKD 26 price level.
+- **069500.KS**: 5 bps round-trip uniform across 2019-2026, per KRX's flat 5-KRW ETF tick at KODEX 200's ~33,500 KRW price level plus LP spread-obligation rules.
 
-No stock-tercile strategy (main or control, long-short or long-only) clears the net Sharpe 0.5 bar at 1x costs. Rule C applies to all single-stock implementations: the signal loses to execution costs.
+**Stock universes: not deployable.** Every stock-tercile strategy (main or control, long-short or long-only, gate-on or gate-off, LightGBM or TCN) is net-negative under CS spreads at 1x. No point in the 0.5x-2x spread sweep rescues a stock universe. All four stock universes are empirically CS-covered: Stage P2-18 pulled daily OHLCV for all 38 control_kr tickers via pykrx (67,603 rows, 0 skips). The Rule-D IC findings (control vs main) remain valid research contributions but do not translate into a tradable single-stock strategy.
+
+**Index universes: seven deployable configurations.** Under tick-floor realistic spreads at 1x spread and 1x borrow:
+
+| Configuration | net Sharpe |
+|---|---:|
+| LightGBM index_kr gap gate_off | 3.64 |
+| LightGBM index_kr gap gate_on  | 2.60 |
+| LightGBM index_hk gap gate_off | 1.96 |
+| LightGBM index_hk gap gate_on  | 1.19 |
+| LightGBM index_kr cc  gate_off | 1.10 |
+| LightGBM index_kr cc  gate_on  | 0.85 |
+| LightGBM index_hk cc  gate_off | 0.55 |
+
+Two TCN configurations are positive but sub-threshold (index_hk cc gate_on 0.44, gate_off 0.16). The index fixed-vs-CS comparison in `output/cs_vs_fixed_comparison.csv` covers all 24 index configurations.
+
+**Why the revision from the earlier CS noise-floor result.** Applying CS to index ETFs (HSI_proxy and 069500.KS) produced figures of 25-30 bps round-trip. Those sit at the estimator's noise floor (raw-negative fractions 53% and 52%) and overstate true effective spreads by 3-5× per Corwin-Schultz (2012, Table 6: 18% correlation with true spread for large-caps) and Tremacoldi-Rossi & Irwin (2022 JFQA: high raw-negative fraction is a direct noise-floor indicator with downward-truncation bias on the floored 20d mean). Tick-structure-derived spreads replace the CS values for indexes only; stock CS stays.
 
 ### Horse race
 
@@ -133,6 +151,12 @@ python scripts/stage_p2-9_backtest.py
 python scripts/stage_p2-10_ablation.py
 python scripts/stage_p2-11_diagnostics.py
 
+# CS-spread cost-model update (writes *_cs.csv outputs alongside the Pass 2 baseline):
+python scripts/stage_p2-17_pull_kodex.py         # Pull 069500.KS (KODEX 200) real ETF OHLC via pykrx
+python scripts/stage_p2-18_pull_control_kr_ohlc.py  # Pull OHLCV for all 38 control_kr tickers via pykrx
+python scripts/stage_p2-15_cs_spread.py          # Corwin–Schultz per-ticker per-day spreads (unions main+control KR)
+python scripts/stage_p2-16_backtest_cs.py        # Re-runs the backtest matrix using CS spreads
+
 # Notebooks (executed cleanly):
 for i in 01 02 03 04 05 06 07; do
   jupyter nbconvert --to notebook --execute --inplace notebooks/${i}_pass2_*.ipynb
@@ -143,7 +167,13 @@ Review papers (twelve panel files plus `reviews/synthesis_pass2.md`) are authore
 
 ## Output map
 
-- `output/backtest_summary_pass2.csv`, `output/cost_sensitivity_pass2.csv`, `output/borrow_sensitivity_pass2.csv`, `output/breakeven_analysis_pass2.csv`
+- `output/backtest_summary_pass2.csv`, `output/cost_sensitivity_pass2.csv`, `output/borrow_sensitivity_pass2.csv`, `output/breakeven_analysis_pass2.csv` (fixed-spread cost model, Pass 2 baseline)
+- `output/backtest_summary_pass2_cs.csv`, `output/cost_sensitivity_pass2_cs.csv`, `output/borrow_sensitivity_pass2_cs.csv`, `output/breakeven_analysis_pass2_cs.csv` (CS-spread cost model, primary for headline verdicts; Stage P2-16 rerun with real ETF OHLC)
+- `output/cs_spread.parquet`, `output/cs_spread_diagnostics.csv`, `output/cs_spread_summary.txt` (Corwin–Schultz estimator outputs; KR ETF uses real 069500.KS data)
+- `data/pykrx/etfs/069500_KS_daily.parquet` (KODEX 200 daily OHLCV from pykrx, 1,796 rows, 2019-01-02 to 2026-04-24, Stage P2-17)
+- `data/pykrx/kr_daily/kr_control_ohlcv.parquet` (OHLCV for 38 control_kr tickers from pykrx, 67,603 rows, 2019-01-02 to 2026-04-24, 0 skips, Stage P2-18)
+- `logs/stage_p2-17_env.log` (pykrx install + pull log, Stage P2-17)
+- `output/cs_vs_fixed_comparison.csv` (side-by-side CS vs fixed-spread backtest net Sharpe)
 - `output/control_vs_main_comparison.csv`
 - `output/horse_race.csv`, `output/horse_race_bootstrap.csv`
 - `output/regime_gate_comparison.csv`, `output/long_short_decomposition.csv`
@@ -160,13 +190,14 @@ Review papers (twelve panel files plus `reviews/synthesis_pass2.md`) are authore
 Review documents:
 - `reviews/{skeptic,believer,literature,practitioner}_position.md` and `_rebuttal.md` (initial review)
 - `reviews/{skeptic,believer,literature,practitioner}_p2.md`, `_rebuttal_p2.md`, `_rebuttal2_p2.md` (three-round panel)
-- `reviews/synthesis.md`, `reviews/synthesis_pass2.md`
+- `reviews/synthesis.md`, `reviews/synthesis_pass2.md`, `reviews/synthesis_cs_update.md` (CS-spread cost-model addendum)
 
 Notebooks: `notebooks/01_pass2_data_additions.ipynb` through `notebooks/07_pass2_diagnostics.ipynb`.
 
-## Limitations
-
-- The 2 bps modeled half-spread on index futures is a 5-14x underestimate. The extended sensitivity sweep (5x, 7x, 10x, 14x) shows net Sharpe 2.15, 1.34, 0.14, -1.41 for the top config; a paper trade with executed-spread tracking is required before capital deployment to identify the realistic multiplier.
+- Index-ETF cost model uses tick-floor-derived realistic spreads (8 bps 2800.HK post-2020-reform, 15 bps pre-reform; 5 bps 069500.KS uniform) rather than CS, because the CS estimator is at its noise floor for both index instruments (raw-negative fractions 53% and 52% — the 50%+ threshold flagged by Tremacoldi-Rossi & Irwin 2022 as indicating estimator failure). A live paper trade with executed-spread tracking would convert the tick-derived bound into a measured point estimate.
+- All 38 control_kr tickers now have empirical CS coverage (Stage P2-18, 67,603 rows, median 80.5 bps round-trip). Under real CS, control_kr is net-negative across all 12 configurations. The prior control_kr coverage gap is resolved.
+- Raw-negative fraction for stock markets is ~41%, above the 35% heuristic in the CS brief but consistent with liquid large-cap regimes where the estimator hits its signal-to-noise floor. The overnight adjustment is correctly ordered (the floor would be ~51% without it). Stock CS verdicts are robust; the caveat lives in interpretation.
+- A 30-day live paper trade with executed-spread tracking on KR index futures is the right next step to settle whether the 1.08 net Sharpe on LightGBM index_kr gap gate_off under CS (real ETF OHLC) is representative of live execution.
 - Regime gate reduces Sharpe in this sample rather than improving it. The BTC/S&P 500 market-cap ratio versus 1-year median is reported as a sensitivity, not a validated ingredient.
 - Year-by-year index tearsheet (`output/index_yearly_tearsheet.csv`) shows the KR 2023 attenuation reproduces at the index level (annual Sharpe 0.36, IC 0.09); parallels the stock-level 2023 attenuation. Decay versus transient regime cannot be discriminated with one occurrence.
 - KR short-sale ban November 2023 to March 2024 is not gated in the backtest. For futures-based implementations this is immaterial.
